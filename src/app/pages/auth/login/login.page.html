@@ -1,0 +1,80 @@
+<ion-content [fullscreen]="true">
+
+  <div class="container-sm flex justify-end flex-col h-full min-h-60
+  md-min:justify-center md-min:min-h-full">
+    <div class="grid items-center h-full mb-2
+    md-min:h-auto md-min:mb-[5svh]">
+      <img class="place-self-center max-w-[290px] w-full"
+           src="assets/images/logo.svg"
+           alt="logo">
+    </div>
+    <div class="relative">
+      <h1 class="mb-1">{{ 'AUTH.LOGIN.TITLE' | translate }}</h1>
+      <div class="mb-3">
+        <span class="text-[#8C8A94]">{{ 'AUTH.LOGIN.TEXT_ACCOUNT' | translate }}</span>
+        <a routerLink="/auth/register"
+           class="text-link">
+          {{ 'AUTH.LOGIN.LINK_REGISTER' | translate }}
+        </a>
+      </div>
+      <form [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col">
+        <div class="input-group mb-[16px] v-700:mb-[25px]">
+          <ion-input formControlName="email"
+                     mode="md"
+                     label="{{ 'AUTH.LOGIN.LABEL_EMAIL' | translate }}{{email?.hasError('required') ? '*' : '' }}"
+                     label-placement="floating"
+                     fill="solid"></ion-input>
+          @if(email?.invalid && (email?.dirty || email?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(email?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(email?.hasError('email')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.EMAIL' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="input-group mb-1">
+          <div class="relative">
+            <ion-input formControlName="password"
+                       mode="md"
+                       label="{{ 'AUTH.LOGIN.LABEL_PASSWORD' | translate }}{{password?.hasError('required') ? '*' : '' }}"
+                       labelPlacement="floating"
+                       type="{{ passwordType }}"
+                       fill="solid">
+
+            </ion-input>
+            <i class="icon-eye absolute z-[2] top-1/2 translate-y-[-50%] right-1 m-0 p-1 text-[24px] text-neutral-300 cursor-pointer"
+               [ngClass]="{'icon-eye': eyeIsClosed, 'icon-eye-closed': !eyeIsClosed}"
+               (click)="onToggleEye()"></i>
+          </div>
+          @if(password?.invalid && (password?.dirty || password?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(password?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(password?.hasError('pattern')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.PASSWORD_PATTERN' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="flex justify-end mb-2">
+          <a routerLink="/auth/forgotten-password"
+             class="text-link">
+            {{ 'AUTH.LOGIN.LINK_FORGOTTEN_PASSWORD' | translate }}
+          </a>
+        </div>
+        <ion-button class="min-h-5 mb-2"
+                    color="primary"
+                    fill="solid"
+                    [disabled]="!form.valid"
+                    type="submit">{{ 'AUTH.LOGIN.TITLE' | translate }}</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

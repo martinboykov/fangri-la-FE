@@ -1,0 +1,45 @@
+swiper-container {
+  &.tabs-navigation {
+    position: relative;
+    overflow: visible;
+    &::part(container) {
+      overflow: visible;
+    }
+    &::part(pagination) {
+      left: 20px;
+      text-align: start;
+    }
+    &::part(bullet) {
+    }
+    &::part(button-prev) {
+    }
+    &::part(button-next) {
+    }
+  }
+
+  &.place {
+    --swiper-pagination-bottom: 23px;
+    --swiper-pagination-color: white;
+    --swiper-pagination-bullet-width: 12px;
+    --swiper-pagination-bullet-height: 12px;
+    --swiper-pagination-bullet-inactive-color: #8C8A94;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    &::part(container) {
+      overflow: visible;
+    }
+    &::part(pagination) {
+      text-align: center;
+    }
+    &::part(bullet) {
+      filter: drop-shadow(0 0 2px #8C8A94);
+    }
+    &::part(bullet-active) {
+      filter: drop-shadow(0 0 2px #fff);
+    }
+    &.thumbnail {
+      &::part(container) {
+        overflow: hidden;
+      }
+    }
+  }
+}

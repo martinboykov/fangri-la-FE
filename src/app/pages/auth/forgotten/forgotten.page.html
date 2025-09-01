@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+        class="container-sm flex justify-end flex-col h-full min-h-40
+        md-min:justify-center">
+    <div class="flex flex-col justify-center h-full
+    md-min:h-auto">
+      <h1 class="mb-3">{{ 'AUTH.FORGOTTEN_PASSWORD.TITLE' | translate }}</h1>
+
+      <div class="input-group mb-1">
+        <ion-input formControlName="email"
+                   mode="md"
+                   label="{{ 'AUTH.FORGOTTEN_PASSWORD.LABEL_EMAIL' | translate }}{{email?.hasError('required') ? '*' : '' }}"
+                   label-placement="floating"
+                   fill="solid"></ion-input>
+        @if(email?.invalid && (email?.dirty || email?.touched)){
+        <div class="text-danger text-[12px]">
+          @if(email?.hasError('required')){
+          <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+          }
+          @if(email?.hasError('email')){
+          <p>{{ 'CONSTANTS.ERRORS.FORM.EMAIL' | translate }}</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="flex justify-end mb-2">
+          <a class="text-link"
+             [routerLink]="['/auth/login']"
+             routerLinkActive="router-link-active">
+            {{ 'AUTH.FORGOTTEN_PASSWORD.LINK_LOGIN' | translate }}
+          </a>
+      </div>
+    </div>
+    <div class="">
+      <ion-button class="min-h-5 w-full mb-2 "
+                  color="primary"
+                  fill="solid"
+                  [disabled]="!form.valid"
+                  type="submit">{{ 'AUTH.FORGOTTEN_PASSWORD.BUTTON' | translate }}</ion-button>
+    </div>
+  </form>
+</ion-content>

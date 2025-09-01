@@ -14,14 +14,15 @@
 @use "./theme/ionic/css/flex-utils.scss";
 @use "./theme/ionic/custom.scss" as ionic-custom; // my custom ionic styles
 
+@use 'swiper/css';
+@use "./theme/swiper";
+
 @use "./theme/custom/base/normalize.scss" as normalize-custom;
 @use "./theme/custom/abstracts/mixins.scss";
 
+
 @use "./theme/tailwind/custom" as tailwind-custom;
 
-// @use 'swiper/css';
-
-// @use "./theme/swiper";
 
 
 // @use "./theme/code-input/custom" as code-input-custom;

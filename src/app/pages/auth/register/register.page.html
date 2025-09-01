@@ -1,0 +1,134 @@
+<ion-content [fullscreen]="true">
+
+  <div class="container-sm flex justify-end flex-col h-full  min-h-65
+  md-min:justify-center">
+    <div class="grid items-center h-full mb-2
+    md-min:h-auto md-min:mb-[5svh]">
+      <img class="place-self-center max-w-[290px] w-full"
+           src="assets/images/logo.svg"
+           alt="logo">
+    </div>
+    <div class="relative">
+      <h1 class="mb-1">{{ 'AUTH.REGISTER.TITLE' | translate }}</h1>
+      <div class="mb-3">
+        <span class="text-[#8C8A94]">{{ 'AUTH.REGISTER.TEXT_ACCOUNT' | translate }}</span>
+        <a routerLink="/auth/login"
+           class="text-blue-100">
+          {{ 'AUTH.REGISTER.LINK_LOGIN' | translate }}
+        </a>
+      </div>
+      <form [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col">
+        <div class="input-group mb-[16px] v-700:mb-[25px]">
+          <ion-input formControlName="email"
+                     mode="md"
+                     label="{{ 'AUTH.REGISTER.LABEL_EMAIL' | translate }}{{email?.hasError('required') ? '*' : '' }}"
+                     label-placement="floating"
+                     fill="solid"></ion-input>
+          @if(email?.invalid && (email?.dirty || email?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(email?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(email?.hasError('email')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.EMAIL' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="input-group mb-[16px] v-700:mb-[20px]">
+          <div class="relative">
+            <ion-input formControlName="password"
+                       mode="md"
+                       label="{{ 'AUTH.REGISTER.LABEL_PASSWORD' | translate }}{{password?.hasError('required') ? '*' : '' }}"
+                       labelPlacement="floating"
+                       type="{{ passwordType.password }}"
+                       fill="solid">
+
+            </ion-input>
+            <i class="icon-eye absolute z-[2] top-1/2 translate-y-[-50%] right-1 m-0 p-1 text-[24px] text-neutral-300 cursor-pointer"
+               [ngClass]="{'icon-eye': eyeIsClosed.password, 'icon-eye-closed': !eyeIsClosed.password}"
+               (click)="onToggleEye('password')"
+               aria-hidden="true"></i>
+          </div>
+          @if(password?.invalid && (password?.dirty || password?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(password?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(password?.hasError('pattern')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.PASSWORD_PATTERN' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="input-group">
+          <div class="relative">
+            <ion-input formControlName="passwordConfirm"
+                       mode="md"
+                       label="{{ 'CONSTANTS.REPEAT' | translate | titlecase }} {{ 'CONSTANTS.PASSWORD' | translate }}{{passwordConfirm?.hasError('required') ? '*' : '' }}"
+                       labelPlacement="floating"
+                       type="{{ passwordType.passwordConfirm }}"
+                       fill="solid">
+
+            </ion-input>
+            <i class="icon-eye absolute z-[2] top-1/2 translate-y-[-50%] right-1 m-0 p-1 text-[24px] text-neutral-300 cursor-pointer"
+               [ngClass]="{'icon-eye': eyeIsClosed.passwordConfirm, 'icon-eye-closed': !eyeIsClosed.passwordConfirm}"
+               (click)="onToggleEye('passwordConfirm')"
+               aria-hidden="true"></i>
+          </div>
+          @if(passwordConfirm?.invalid && (passwordConfirm?.dirty || passwordConfirm?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(passwordConfirm?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(passwordConfirm?.hasError('pattern')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.PASSWORD_PATTERN' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+        @if(((password?.dirty || password?.touched) && (passwordConfirm?.dirty || passwordConfirm?.touched)) && form.errors && form.errors['match']){
+        <div class="text-danger text-[12px]">
+          <p>{{ 'CONSTANTS.ERRORS.FORM.NOT_EQUIVALENT' | translate }}</p>
+        </div>
+        }
+
+        @if(termsLabel){
+        <div class="input-group mt-2 mb-2">
+          <ion-checkbox formControlName="terms"
+                        labelPlacement="end"><span class="text-wrap text-neutral-10">{{termsLabel}}{{terms?.hasError('required') ? '*' : '' }}</span></ion-checkbox>
+          @if(terms?.invalid && (terms?.dirty || terms?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(terms?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+        }
+        @if(privacyLabel){
+        <div class="input-group mb-2">
+          <ion-checkbox formControlName="privacy"
+                        labelPlacement="end"><span class="text-wrap text-neutral-10">{{privacyLabel}}{{privacy?.hasError('required') ? '*' : '' }}</span></ion-checkbox>
+          @if(privacy?.invalid && (privacy?.dirty || privacy?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(privacy?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+        }
+
+        <ion-button class="min-h-5 mb-2"
+                    color="primary"
+                    fill="solid"
+                    [disabled]="!form.valid"
+                    type="submit">{{ 'CONSTANTS.CONTINUE' | translate }}</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>
