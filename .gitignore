@@ -6,7 +6,7 @@
 .tmp
 *.tmp
 *.tmp.*
-UserInterfaceState.xcuserstate
+IUsernterfaceState.xcuserstate
 $RECYCLE.BIN/
 
 *.log
@@ -28,6 +28,7 @@ log.txt
 /tmp
 /out-tsc
 /bazel-out
+/documentation
 
 # Node
 /node_modules
