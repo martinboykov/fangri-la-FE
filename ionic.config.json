@@ -1,0 +1,7 @@
+{
+  "name": "fangri-la",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
