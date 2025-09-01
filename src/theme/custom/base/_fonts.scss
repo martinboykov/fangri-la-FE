@@ -1,45 +1,244 @@
 /* cyrillic */
 @font-face {
-  font-family: 'Geist';
+  font-family: "Geist";
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/geist/v3/gyByhwUxId8gMEwYGFWfOw.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/geist/v3/gyByhwUxId8gMEwYGFWfOw.woff2)
+    format("woff2");
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
 @font-face {
-  font-family: 'Geist';
+  font-family: "Geist";
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/geist/v3/gyByhwUxId8gMEwSGFWfOw.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url(https://fonts.gstatic.com/s/geist/v3/gyByhwUxId8gMEwSGFWfOw.woff2)
+    format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: 'Geist';
+  font-family: "Geist";
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/geist/v3/gyByhwUxId8gMEwcGFU.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url(https://fonts.gstatic.com/s/geist/v3/gyByhwUxId8gMEwcGFU.woff2)
+    format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 $icomoon-font-family: "icomoon" !default;
 $icomoon-font-path: "/assets/fonts" !default;
 
+$icon-add: "\e900";
+$icon-arrow-left: "\e901";
+$icon-arrow-right: "\e914";
+$icon-arrow-up: "\e916";
+$icon-arrow-down: "\e917";
+$icon-cart: "\e902";
+$icon-cart-badge-path1: "\e903";
+$icon-cart-badge-path2: "\e904";
+$icon-cart-badge-path3: "\e905";
+$icon-cart-badge-path4: "\e906";
+$icon-check: "\e907";
+$icon-chevron: "\e908";
+$icon-chevron-down: "\e918";
+$icon-chevron-left: "\e919";
+$icon-chevron-right: "\e91a";
+$icon-close: "\e909";
+$icon-delete: "\e90a";
+$icon-edit: "\e90b";
+$icon-facebook: "\e90c";
+$icon-filter: "\e90d";
+$icon-heart: "\e90e";
+$icon-instagram: "\e90f";
+$icon-minus: "\e910";
+$icon-plus: "\e911";
+$icon-snapchat: "\e912";
+$icon-tiktok: "\e913";
+$icon-x: "\e915";
+
 
 @font-face {
   font-family: "#{$icomoon-font-family}";
   src:
-    url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?q4hjk2")
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?fww203#iefix")
+      format("embedded-opentype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?fww203")
       format("truetype"),
-    url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?q4hjk2")
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?fww203")
       format("woff"),
-    url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?q4hjk2##{$icomoon-font-family}")
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?fww203##{$icomoon-font-family}")
       format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
+
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add {
+  &:before {
+    content: $icon-add;
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left;
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right;
+  }
+}
+.icon-arrow-up {
+  &:before {
+    content: $icon-arrow-up;
+  }
+}
+.icon-arrow-down {
+  &:before {
+    content: $icon-arrow-down;
+  }
+}
+.icon-cart {
+  &:before {
+    content: $icon-cart;
+  }
+}
+.icon-cart-badge .path1 {
+  &:before {
+    content: $icon-cart-badge-path1;
+    color: rgb(76, 200, 188);
+  }
+}
+.icon-cart-badge .path2 {
+  &:before {
+    content: $icon-cart-badge-path2;
+    margin-left: -0.97265625em;
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-cart-badge .path3 {
+  &:before {
+    content: $icon-cart-badge-path3;
+    margin-left: -0.97265625em;
+    color: rgb(235, 0, 27);
+  }
+}
+.icon-cart-badge .path4 {
+  &:before {
+    content: $icon-cart-badge-path4;
+    margin-left: -0.97265625em;
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-check {
+  &:before {
+    content: $icon-check;
+  }
+}
+.icon-chevron {
+  &:before {
+    content: $icon-chevron;
+  }
+}
+.icon-chevron-down {
+  &:before {
+    content: $icon-chevron-down;
+  }
+}
+.icon-chevron-left {
+  &:before {
+    content: $icon-chevron-left;
+  }
+}
+.icon-chevron-right {
+  &:before {
+    content: $icon-chevron-right;
+  }
+}
+.icon-close {
+  &:before {
+    content: $icon-close;
+  }
+}
+.icon-delete {
+  &:before {
+    content: $icon-delete;
+  }
+}
+.icon-edit {
+  &:before {
+    content: $icon-edit;
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook;
+  }
+}
+.icon-filter {
+  &:before {
+    content: $icon-filter;
+  }
+}
+.icon-heart {
+  &:before {
+    content: $icon-heart;
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram;
+  }
+}
+.icon-minus {
+  &:before {
+    content: $icon-minus;
+  }
+}
+.icon-plus {
+  &:before {
+    content: $icon-plus;
+  }
+}
+.icon-snapchat {
+  &:before {
+    content: $icon-snapchat;
+  }
+}
+.icon-tiktok {
+  &:before {
+    content: $icon-tiktok;
+  }
+}
+.icon-x {
+  &:before {
+    content: $icon-x;
+  }
+}
+
