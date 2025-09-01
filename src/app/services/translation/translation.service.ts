@@ -4,9 +4,13 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { StorageService } from '../storage/storage.service';
 import { ActivatedRoute } from '@angular/router';
-import { LANGUAGE, LANGUAGES } from 'src/app/constants';
 import { Device } from '@capacitor/device';
 import { toObservable } from '@angular/core/rxjs-interop';
+import { LANGUAGE } from 'src/app/constants';
+
+export enum LanguagesEnum {
+  EN = 'en',
+}
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +32,7 @@ export class TranslationService {
   }
 
   async initLanguage() {
-    this.translateService.addLangs([LANGUAGES.BG, LANGUAGES.EN]);
+    this.translateService.addLangs([LanguagesEnum.EN]);
     let langCode = null;
     const params = this.route.snapshot.queryParamMap;
     let paramsLangCode = params.get('lang');
@@ -46,20 +50,19 @@ export class TranslationService {
     }
     console.log('🚀 ~ TranslationService ~ initLanguage ~ langCode:', langCode);
     if (langCode) {
-      this.translateService.setDefaultLang(langCode);
-      this.translateService.use(langCode);
-      if (langCode === LANGUAGES.BG) {
-        this.document.documentElement.lang = 'bg'; // 'bg-BG'
-      } else if (langCode === LANGUAGES.EN) {
-        this.document.documentElement.lang = 'en'; // 'en-US'
+      if (langCode === LanguagesEnum.EN) {
+        this.translateService.setFallbackLang(langCode);
+        this.translateService.use(langCode);
+        this.storageService.setItem(LANGUAGE, langCode);
+        this.document.documentElement.lang = 'en'; // 'bg-BG'
       }
     } else {
-      this.translateService.setDefaultLang(LANGUAGES.BG);
-      this.translateService.use(LANGUAGES.BG);
-      this.storageService.setItem(LANGUAGE, LANGUAGES.BG);
-      this.document.documentElement.lang = 'bg'; // 'bg-BG'
+      this.translateService.setFallbackLang(LanguagesEnum.EN);
+      this.translateService.use(LanguagesEnum.EN);
+      this.storageService.setItem(LANGUAGE, LanguagesEnum.EN);
+      this.document.documentElement.lang = 'en'; // 'bg-BG'
     }
-    this._language.set(this.translateService.store.currentLang);
+    this._language.set(this.translateService.getCurrentLang());
   }
   updateLanguage(lang: string) {
     this.translateService.use(lang);

@@ -11,7 +11,7 @@ import { IonContent, IonInput, IonButton } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { LANGUAGES } from 'src/app/constants';
+import { LanguagesEnum } from 'src/app/services/translation/translation.service';
 
 @Component({
   selector: 'app-login',
@@ -43,8 +43,7 @@ export class LoginPage implements OnInit, AfterViewInit {
     // checkbox: new FormControl(false),
   });
   // checkboxLabel!: string;
-  LANGUAGES = { ...LANGUAGES };
-  selectItems = Object.values(this.LANGUAGES);
+  LanguagesEnum = LanguagesEnum;
 
   constructor() {}
   private authService: AuthService = inject(AuthService);

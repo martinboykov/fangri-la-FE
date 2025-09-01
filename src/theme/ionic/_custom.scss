@@ -535,7 +535,7 @@ ion-button {
   }
   &.button-disabled {
     &::part(native) {
-      background-color: var(--color-neutral-300);
+      background-color: var(--color-yellow-200);
     }
   }
 
@@ -661,10 +661,10 @@ ion-input {
   &.input-fill-solid.ion-touched.ion-invalid.sc-ion-input-md-h {
     --border-width: 1px;
     --border-radius: var(--border-radius-sm);
-    --border-color: var(--color-neutral-300);
-    --background: var(--color-neutral-900);
-    --placeholder-color: var(--color-neutral-300);
-    border: 1px solid var(--color-neutral-300);
+    --border-color: var(--color-black-300);
+    --background: transparent;
+    --placeholder-color: var(--color-black-300);
+    border: 1px solid var(--color-black-300);
     border-radius: var(--border-radius-sm);
     overflow: hidden;
     min-height: auto;
@@ -680,25 +680,25 @@ ion-input {
       transform: scale(0);
     }
     &:hover {
-      --background: var(--color-neutral-900);
+      --background: transparent;
     }
 
     &.ion-valid {
-      --border-color: var(--color-green-300);
-
-      --color: var(--color-green-200);
       .label-text-wrapper.sc-ion-input-md {
-        color: var(--color-green-200);
+        color: var(--color-black-300);
+      }
+      .native-input.sc-ion-input-md {
+        color: var(--color-white);
       }
       &.has-focus {
-        --background: var(--color-green-700);
+        --background: transparent;
       }
     }
     &.ion-invalid.ng-touched {
       --border-color: var(--ion-color-danger);
       border: 1px solid var(--ion-color-danger);
       &.has-focus {
-        --background: var(--color-pink-700);
+        --background: transparent;
       }
     }
   }
@@ -708,12 +708,12 @@ ion-input {
   &.input-fill-outline.ion-touched.ion-invalid.sc-ion-input-md-h {
     --border-width: 1px;
     --border-radius: var(--border-radius-sm);
-    --border-color: var(--color-neutral-300);
-    --background: var(--color-neutral-900);
-    --placeholder-color: var(--color-neutral-10);
+    --border-color: var(--color-black-300);
+    --background: transparent;
+    --placeholder-color: var(--color-black-300);
     --placeholder-opacity: 1;
     --placeholder-font-weight: 500;
-    // border: 1px solid var(--color-neutral-300);
+    // border: 1px solid var(--color-black-300);
     border-radius: var(--border-radius-sm);
     overflow: hidden;
     min-height: auto;

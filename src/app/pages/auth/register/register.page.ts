@@ -26,9 +26,9 @@ import {
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { LANGUAGES } from 'src/app/constants';
-import { confirmPasswordValidator } from 'src/app/validators/confirm-password.validator';
 import { EyeKey, EyeState, PasswordState } from 'src/app/models/form.model';
+import { LanguagesEnum } from 'src/app/services/translation/translation.service';
+import { confirmPasswordValidator } from 'src/app/validators/confirm-password.validator';
 
 @Component({
   selector: 'app-register',
@@ -92,7 +92,7 @@ export class RegisterPage implements OnInit {
     },
   ];
 
-  LANGUAGES = { ...LANGUAGES };
+  LanguagesEnum = LanguagesEnum;
 
   private destroyedRef = inject(DestroyRef);
   private translateService: TranslateService = inject(TranslateService);

@@ -61,43 +61,9 @@ export class DataService {
       ) // returns nothing
       .pipe(map((response) => response));
   }
-  postResendVerificationCode(userId: string) {
-    return this.http
-      .post<{
-        message: IMessage;
-      }>(
-        `${BASE_URL}/${API}/${this.language}/auth/resend-verification-code/${userId}?zone=${this.timeOffset}`,
-        {},
-      ) // returns nothing
-      .pipe(map((response) => response));
-  }
-  postVerificationCode(userId: string, code: string) {
-    return this.http
-      .post<{
-        message: IMessage;
-        data: AuthRegisterResponseData;
-      }>(
-        `${BASE_URL}/${API}/${this.language}/auth/verification-code/${userId}?zone=${this.timeOffset}`,
-        {
-          code,
-        },
-      ) // returns nothing
-      .pipe(map((response) => response));
-  }
-  postAdditionalUserData(
-    userId: string,
-    userData: AuthAdditionalUserDataRequest | FormData,
-  ) {
-    return this.http
-      .post<{
-        message: IMessage;
-        data: AuthLoginResponseData;
-      }>(
-        `${BASE_URL}/${API}/${this.language}/auth/additional-user-data/${userId}?zone=${this.timeOffset}`,
-        userData,
-      )
-      .pipe(map((response) => response));
-  }
+
+
+
   getUserHasEntered(userData: string) {
     return this.http
       .get<{

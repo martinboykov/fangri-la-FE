@@ -28,7 +28,7 @@ export const appConfig = {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     // { provide: LOCALE_ID, useValue: 'bg-BG' },
     provideIonicAngular({
-      // mode: 'ios',
+      mode: 'md',
       useSetInputAPI: true, //allow to use signal input in modals
     }),
     provideRouter(

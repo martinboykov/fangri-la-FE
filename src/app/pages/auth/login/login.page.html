@@ -1,11 +1,11 @@
 <ion-content [fullscreen]="true">
 
-  <div class="container-sm flex justify-end flex-col h-full min-h-60
-  md-min:justify-center md-min:min-h-full">
+  <div class="container-sm flex flex-col gap-2 justify-between h-full min-h-60
+  md-min:min-h-full">
     <div class="grid items-center h-full mb-2
     md-min:h-auto md-min:mb-[5svh]">
-      <img class="place-self-center max-w-[290px] w-full"
-           src="assets/images/logo.svg"
+      <img class="place-self-center max-w-[260px] w-full mt-6"
+           src="assets/images/logo.png"
            alt="logo">
     </div>
     <div class="relative">
@@ -70,7 +70,7 @@
           </a>
         </div>
         <ion-button class="min-h-5 mb-2"
-                    color="primary"
+                    color="secondary"
                     fill="solid"
                     [disabled]="!form.valid"
                     type="submit">{{ 'AUTH.LOGIN.TITLE' | translate }}</ion-button>

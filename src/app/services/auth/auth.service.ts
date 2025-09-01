@@ -3,14 +3,9 @@ import { effect, Inject, inject, Injectable, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Platform, AlertController } from '@ionic/angular/standalone';
 import {
-  BehaviorSubject,
-  catchError,
   EMPTY,
   from,
   map,
-  Observable,
-  of,
-  Subscribable,
   Subscription,
   switchMap,
   take,
@@ -30,12 +25,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { Device, DeviceId } from '@capacitor/device';
 import { DOCUMENT } from '@angular/common';
 import { TranslationService } from '../translation/translation.service';
-import { AUTH_DATA } from 'src/app/constants';
 import { FormGroup } from '@angular/forms';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { LoadingService } from '../modals/loading/loading.service';
 import { AlertService } from '../modals/alert/alert.service';
 import { AuthStore } from './store/auth.store';
+import { AUTH_DATA } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root',
@@ -206,21 +201,7 @@ export class AuthService {
         },
       });
   }
-  setNotVerifiedAlert(error?: any) {
-    const buttons = this.alertService.getAlertButtonsTranslations([
-      {
-        text: 'CONSTANTS.CLOSE',
-        handler: () => {
-          this.router.navigateByUrl('/auth/verification');
-        },
-      },
-    ]);
-    const message = this.alertService.getAlertMessage(error?.error?.message, {
-      title: 'AUTH.LOGIN.LOGIN_FAILURE_MESSAGE.TITLE',
-      subtitle: 'AUTH.LOGIN.LOGIN_FAILURE_MESSAGE.SUBTITLE',
-    });
-    this.alertService.presentAlertMessage(message, buttons);
-  }
+
   async register(userData: AuthRegisterRequestData) {
     await this.loadingService.presentLoading();
 
@@ -275,116 +256,9 @@ export class AuthService {
         },
       });
   }
-  async verification(code: string) {
-    await this.loadingService.presentLoading();
 
-    const userId = this.user()?.id;
-    if (!userId) {
-      await this.loadingService.dismissLoading();
-      return;
-    }
-    return this.dataService
-      .postVerificationCode(userId, code)
-      .pipe(
-        take(1),
-        switchMap((response) => {
-          console.log('🚀 response', response);
-          const newUserData = { ...this.user(), ...response.data };
-          return from(this.setUserData(newUserData, true)).pipe(take(1));
-        }),
-      )
-      .subscribe({
-        next: async (res) => {
-          await this.loadingService.dismissLoading();
-          this.router.navigateByUrl('/auth/additional-data');
-        },
-        error: async (error) => {
-          console.log('verification error', error);
-          await this.loadingService.dismissLoading();
-          this.alertService.presentDefaultAlertErrorMessage(error);
-        },
-        complete: async () => {
-          console.log('verification complete');
-        },
-      });
-  }
-  async resendVerificationCode() {
-    await this.loadingService.presentLoading();
 
-    const userId = this.user()?.id;
-    if (!userId) {
-      await this.loadingService.dismissLoading();
-      return;
-    }
-    this.dataService
-      .postResendVerificationCode(userId)
-      .pipe(take(1))
-      .subscribe({
-        next: async (res) => {
-          // this.router.navigateByUrl('/auth/login');
-          await this.loadingService.dismissLoading();
 
-          const message = this.alertService.getAlertMessage(
-            {
-              title: '',
-              subtitle: 'AUTH.VERIFICATION.VERIFICATION_CODE_RESEND_SUCCESS',
-            },
-            res.message,
-          );
-          const buttons = this.alertService.getAlertButtonsTranslations([
-            { text: 'CONSTANTS.CLOSE' },
-          ]);
-          this.alertService.presentAlertMessage(message, buttons);
-        },
-        error: async (error) => {
-          console.log('resendVerification error', error);
-          await this.loadingService.dismissLoading();
-
-          this.alertService.presentDefaultAlertErrorMessage(error);
-        },
-        complete: async () => {
-          console.log('resendVerification complete');
-        },
-      });
-  }
-  async addAdditionalUserData(
-    data: AuthAdditionalUserDataRequest | FormData,
-    route: string = '',
-  ) {
-    await this.loadingService.presentLoading();
-
-    const userId = this.user()?.id;
-    if (!userId) {
-      await this.loadingService.dismissLoading();
-      return;
-    }
-    return this.dataService
-      .postAdditionalUserData(userId, data)
-      .pipe(
-        take(1),
-        switchMap((response) => {
-          console.log('🚀 response', response);
-          const newUserData = { ...this.user(), ...response.data };
-          return from(this.setUserData(newUserData, true)).pipe(take(1));
-        }),
-      )
-      .subscribe({
-        next: async (res) => {
-          await this.loadingService.dismissLoading();
-          if (route) {
-            this.router.navigateByUrl(route);
-          }
-        },
-        error: async (error) => {
-          console.log('verification error', error);
-          await this.loadingService.dismissLoading();
-          this.alertService.presentDefaultAlertErrorMessage(error);
-        },
-        complete: async () => {
-          console.log('verification complete');
-        },
-      });
-  }
   async forgottenPassword(email: string, form: FormGroup) {
     await this.loadingService.presentLoading();
 
@@ -423,54 +297,8 @@ export class AuthService {
       });
   }
 
-  async connectToCompany(companyName: string) {
-    await this.loadingService.presentLoading();
 
-    return this.dataService
-      .postConnectToCompany(companyName)
-      .pipe(
-        take(1),
-        switchMap((response) => {
-          const newUserData = { ...this.user(), ...response.data };
-          return from(this.setUserData(newUserData, true)).pipe(take(1));
-        }),
-      )
-      .subscribe({
-        next: async (res) => {
-          await this.loadingService.dismissLoading();
-          // this.router.navigateByUrl('/auth/additional-data');
-        },
-        error: async (error) => {
-          console.log('connectToCompany error', error);
-          await this.loadingService.dismissLoading();
-          this.alertService.presentDefaultAlertErrorMessage(error);
-        },
-        complete: async () => {
-          console.log('connectToCompany complete');
-        },
-      });
-  }
-  async disconnectFromCompany() {
-    await this.loadingService.presentLoading();
-    return this.dataService
-      .getDisconnectFromCompany()
-      .pipe(take(1))
-      .subscribe({
-        next: async (response) => {
-          await this.loadingService.dismissLoading();
-          const newUserData = { ...this.user(), ...response.data };
-          return from(this.setUserData(newUserData, true)).pipe(take(1));
-        },
-        error: async (error) => {
-          console.log('disconnectFromCompany error', error);
-          await this.loadingService.dismissLoading();
-          this.alertService.presentDefaultAlertErrorMessage(error);
-        },
-        complete: async () => {
-          console.log('disconnectFromCompany complete');
-        },
-      });
-  }
+
   async deleteProfile() {
     await this.loadingService.presentLoading();
     this.dataService.deleteProfile().subscribe({
@@ -565,7 +393,21 @@ export class AuthService {
       )
       .subscribe(() => console.log('subscribe autoLogout'));
   }
-
+  setNotVerifiedAlert(error?: any) {
+    const buttons = this.alertService.getAlertButtonsTranslations([
+      {
+        text: 'CONSTANTS.CLOSE',
+        handler: () => {
+          this.router.navigateByUrl('/auth/verification');
+        },
+      },
+    ]);
+    const message = this.alertService.getAlertMessage(error?.error?.message, {
+      title: 'AUTH.LOGIN.LOGIN_FAILURE_MESSAGE.TITLE',
+      subtitle: 'AUTH.LOGIN.LOGIN_FAILURE_MESSAGE.SUBTITLE',
+    });
+    this.alertService.presentAlertMessage(message, buttons);
+  }
   alertTokenExpired() {
     let message = this.alertService.getAlertMessage({
       title: 'AUTH.TOKEN_EXPIRED.TITLE',
