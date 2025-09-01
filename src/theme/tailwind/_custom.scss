@@ -1,0 +1,141 @@
+@use '../custom/abstracts/mixins' as mixins;
+@layer utilities {
+  .h1 {
+    font-size: var(--font-size-h1);
+    line-height: var(--font-line-height-h1);
+    font-weight: var(--font-weight-h1);
+    font-family: var(--font-heading);
+  }
+  .h2 {
+    font-size: var(--font-size-h2);
+    line-height: var(--font-line-height-h2);
+    font-weight: var(--font-weight-h2);
+    font-family: var(--font-heading);
+  }
+  .h3 {
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-h3);
+    font-weight: var(--font-weight-h3);
+    font-family: var(--font-paragraph);
+  }
+  .paragraph {
+    font-size: var(--font-size-paragraph);
+    font-family: var(--font-paragraph);
+    line-height: var(--font-line-height-paragraph);
+    font-weight: var(--line-weight-paragraph);
+  }
+
+  .body-1 {
+    font-size: var(--font-size-paragraph);
+    font-family: var(--font-paragraph);
+    font-weight: var(--font-weight-paragraph);
+    line-height: var(--font-line-height-paragraph);
+  }
+  .body-2 {
+    font-size: 12px;
+    font-family: var(--font-paragraph);
+    font-weight: 400;
+  }
+
+  .label-1 {
+    font-size: 12px;
+    font-family: var(--font-paragraph);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .label-2 {
+    font-size: 12px;
+    font-family: var(--font-paragraph);
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .title-1 {
+    font-size: var(--font-size-h1);
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-h1);
+  }
+
+  .title-2 {
+    font-size: var(--font-size-h2);
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-h2);
+    line-height: 1.2;
+  }
+
+  .title-3 {
+    font-size: var(--font-size-h3);
+    font-family: var(--font-paragraph);
+    font-weight: var(--font-weight-h3);
+    line-height: 16px;
+  }
+  .center {
+    @apply absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%];
+  }
+  .maskLeft {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      transparent 10px,
+      #000 100px,
+      #000 100%
+    );
+  }
+  .maskRight {
+    mask-image: linear-gradient(
+      to left,
+      transparent 0,
+      transparent 10px,
+      #000 100px,
+      #000 100%
+    );
+  }
+  .maskBoth {
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent 0,
+        transparent 10px,
+        #000 100px,
+        #000 50%,
+        transparent 10%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to left,
+        transparent 0,
+        transparent 10px,
+        #000 100px,
+        #000 50%,
+        transparent 50%,
+        transparent 100%
+      );
+  }
+  .isHidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+  .isVisible {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.2s ease;
+  }
+
+  .container {
+    @apply mx-auto max-w-desktop px-2;
+    &-sm {
+      @apply mx-auto max-w-[430px] px-2;
+    }
+    &-full {
+      @apply mx-auto max-w-full;
+      @include mixins.respond(desktop-min) {
+        @apply max-w-desktop px-2;
+      }
+    }
+  }
+  .section-spacing {
+    @apply mb-5;
+  }
+}

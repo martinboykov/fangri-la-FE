@@ -1,0 +1,23 @@
+@use "../../variables" as *;
+@mixin respond($breakpoint) {
+  @if ($breakpoint == uhd                    ) { @media (max-width: $uhd-px                          ) { @content; }}
+  @if ($breakpoint == qhd                    ) { @media (max-width: $qhd-px                          ) { @content; }}
+  @if ($breakpoint == fhd                    ) { @media (max-width: $fhd-px                          ) { @content; }}
+  @if ($breakpoint == xl                     ) { @media (max-width: $xl-px                           ) { @content; }}
+  @if ($breakpoint == mobile                ) { @media (max-width: $mobile-px               ) { @content; }}
+  @if ($breakpoint == lg                     ) { @media (max-width: $lg-px                           ) { @content; }}
+  @if ($breakpoint == md                     ) { @media (max-width: $md-px                           ) { @content; }}
+  @if ($breakpoint == sm                     ) { @media (max-width: $sm-px                           ) { @content; }}
+  @if ($breakpoint == xs                     ) { @media (max-width: $xs-px                           ) { @content; }}
+  @if ($breakpoint == xss                    ) { @media (max-width: $xss-px                          ) { @content; }}
+  @if ($breakpoint == uhd-min                ) { @media (min-width: ($uhd-px            + 1)    ) { @content; }}
+  @if ($breakpoint == qhd-min                ) { @media (min-width: ($qhd-px            + 1)    ) { @content; }}
+  @if ($breakpoint == fhd-min                ) { @media (min-width: ($fhd-px            + 1)    ) { @content; }}
+  @if ($breakpoint == xl-min                 ) { @media (min-width: ($xl-px             + 1)    ) { @content; }}
+  @if ($breakpoint == desktop-min            ) { @media (min-width: ($mobile-px + 1)    ) { @content; }}
+  @if ($breakpoint == lg-min                 ) { @media (min-width: ($lg-px             + 1)    ) { @content; }}
+  @if ($breakpoint == md-min                 ) { @media (min-width: ($md-px             + 1)    ) { @content; }}
+  @if ($breakpoint == sm-min                 ) { @media (min-width: ($sm-px             + 1)    ) { @content; }}
+  @if ($breakpoint == xs-min                 ) { @media (min-width: ($xs-px             + 1)    ) { @content; }}
+  @if ($breakpoint == xss-min                ) { @media (min-width: ($xss-px            + 1)    ) { @content; }}
+}

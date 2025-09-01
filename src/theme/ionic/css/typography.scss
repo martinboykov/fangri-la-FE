@@ -1,0 +1,84 @@
+@use "../../tailwind/custom";
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  // font-size: 62.5%;
+  font-family: var(--ion-font-family);
+}
+@supports (-webkit-touch-callout: none) {
+  html {
+    font: var(--ion-dynamic-font, 1.6rem var(--ion-font-family));
+  }
+}
+body {
+  font-size: var(--font-size-paragraph);
+  line-height: var(--font-line-height-paragraph);
+  font-weight: var(--line-weight-paragraph);
+  color: #000;
+  background-color: var(--color-page);
+}
+a {
+  background-color: transparent;
+  color: var(--ion-link-color, #3880ff);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+}
+h1 {
+  @extend .h1;
+}
+h2 {
+  @extend .h2;
+}
+h3 {
+  @extend .h3;
+}
+h4 {
+  font-size: 12px;
+}
+h5 {
+  font-size: 11px;
+}
+h6 {
+  font-size: 10px;
+}
+p {
+  @extend .paragraph;
+}
+small {
+  font-size: 75%;
+  font-size: var(--font-size-paragraph-small);
+  line-height: var(--font-line-height-paragraph-small);
+  font-weight: var(--line-weight-paragraph-small);
+}
+sub,
+sup {
+  position: relative;
+  font-size: var(--font-size-paragraph-small);
+  line-height: var(--font-line-height-paragraph-small);
+  font-weight: var(--line-weight-paragraph-small);
+  line-height: 0;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+} /*# sourceMappingURL=typography.css.map */
