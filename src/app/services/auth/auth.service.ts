@@ -15,7 +15,6 @@ import {
 import { DataService } from '../data/data.service';
 import { StorageService } from '../storage/storage.service';
 import {
-  AuthAdditionalUserDataRequest,
   AuthLoginRequestData,
   AuthLoginResponseData,
   AuthRegisterRequestData,
@@ -37,7 +36,8 @@ import { AUTH_DATA } from 'src/app/constants';
 })
 export class AuthService {
   uuid!: string;
-  homeRoute: string = '/tabs/home';
+
+  homeRoute: string = '/artist';
 
   // private _user = new BehaviorSubject<User | null>(null);
   private _user = signal<User | null>(null);
@@ -111,14 +111,13 @@ export class AuthService {
             const userData = response?.data;
             await this.setUserData(userData, true);
             await this.loadingService.dismissLoading();
-            if (!userData.isVerified) {
-              this.setNotVerifiedAlert();
-              return;
-            }
+            // if (!userData.isVerified) {
+            //   this.setNotVerifiedAlert();
+            //   return;
+            // }
             const returnUrl =
               this.route.snapshot.queryParams['returnUrl'] || this.homeRoute;
             this.router.navigateByUrl(returnUrl);
-
           },
           error: async (error) => {
             await this.loadingService.dismissLoading();
@@ -172,29 +171,29 @@ export class AuthService {
           if (!res) return;
           const returnUrl =
             this.route.snapshot.queryParams['returnUrl'] || this.homeRoute;
-            this.router.navigateByUrl(returnUrl);
-            console.log("🚀 ~ AuthService ~ constructor ~ returnUrl:", returnUrl)
+          this.router.navigateByUrl(returnUrl);
+          console.log('🚀 ~ AuthService ~ constructor ~ returnUrl:', returnUrl);
         },
         error: async (error) => {
           console.log('login error', error);
           await this.loadingService.dismissLoading();
           const user = this.user();
 
-          if (user && !user?.isVerified) {
-            this.setNotVerifiedAlert(error);
-          } else {
-            const buttons = this.alertService.getAlertButtonsTranslations([
-              { text: 'CONSTANTS.CLOSE' },
-            ]);
-            const message = this.alertService.getAlertMessage(
-              error?.error?.message,
-              {
-                title: 'CONSTANTS.ERRORS.FAILURE.TITLE',
-                subtitle: 'CONSTANTS.ERRORS.FAILURE.SUBTITLE',
-              },
-            );
-            this.alertService.presentAlertMessage(message, buttons);
-          }
+          // if (user && !user?.isVerified) {
+          //   this.setNotVerifiedAlert(error);
+          // } else {
+          const buttons = this.alertService.getAlertButtonsTranslations([
+            { text: 'CONSTANTS.CLOSE' },
+          ]);
+          const message = this.alertService.getAlertMessage(
+            error?.error?.message,
+            {
+              title: 'CONSTANTS.ERRORS.FAILURE.TITLE',
+              subtitle: 'CONSTANTS.ERRORS.FAILURE.SUBTITLE',
+            },
+          );
+          this.alertService.presentAlertMessage(message, buttons);
+          // }
         },
         complete: async () => {
           console.log('login complete');
@@ -217,7 +216,7 @@ export class AuthService {
       .subscribe({
         next: async (res) => {
           await this.loadingService.dismissLoading();
-          this.router.navigateByUrl('/auth/verification');
+          this.router.navigateByUrl('/home');
         },
         error: async (error) => {
           await this.loadingService.dismissLoading();
@@ -257,8 +256,6 @@ export class AuthService {
       });
   }
 
-
-
   async forgottenPassword(email: string, form: FormGroup) {
     await this.loadingService.presentLoading();
 
@@ -296,8 +293,6 @@ export class AuthService {
         },
       });
   }
-
-
 
   async deleteProfile() {
     await this.loadingService.presentLoading();

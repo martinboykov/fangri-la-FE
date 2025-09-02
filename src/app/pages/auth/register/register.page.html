@@ -1,25 +1,93 @@
 <ion-content [fullscreen]="true">
 
-  <div class="container-sm flex justify-end flex-col h-full  min-h-65
-  md-min:justify-center">
-    <div class="grid items-center h-full mb-2
+  <div class="container-sm flex flex-col gap-2 justify-between h-full min-h-60
+  md-min:min-h-full">
+    <div class="flex justify-center mt-6 mb-2
+    [@media(max-height:700px)]:mt-[5svh]
     md-min:h-auto md-min:mb-[5svh]">
       <img class="place-self-center max-w-[290px] w-full"
-           src="assets/images/logo.svg"
+           src="assets/images/logo.png"
            alt="logo">
     </div>
     <div class="relative">
-      <h1 class="mb-1">{{ 'AUTH.REGISTER.TITLE' | translate }}</h1>
-      <div class="mb-3">
+      @if(currentSlide() === 1){
+      <h1 class="mb-1">{{ 'AUTH.REGISTER.SLIDE_ONE_TITLE' | translate }}</h1>
+      }
+      @if(currentSlide() === 2){
+      <h1 class="mb-1">{{ 'AUTH.REGISTER.SLIDE_TWO_TITLE' | translate }}</h1>
+      }
+      @if(role?.value === UserRoleEnum.USER){
+      <p class="mb-1">{{ 'AUTH.REGISTER.SLIDE_ONE_SUBTITLE_USER' | translate }}</p>
+      }
+      @if(role?.value === UserRoleEnum.ARTIST){
+      <p class="mb-1">{{ 'AUTH.REGISTER.SLIDE_ONE_SUBTITLE_ARTIST' | translate }}</p>
+      }
+
+      <div class="mb-xs">
         <span class="text-[#8C8A94]">{{ 'AUTH.REGISTER.TEXT_ACCOUNT' | translate }}</span>
         <a routerLink="/auth/login"
-           class="text-blue-100">
+           class="cursor-pointer">
           {{ 'AUTH.REGISTER.LINK_LOGIN' | translate }}
         </a>
       </div>
+      @if(role?.value === UserRoleEnum.ARTIST){
+      <div class="mb-3">
+        <span class="text-[#8C8A94]">{{ 'AUTH.REGISTER.TEXT_USER' | translate }}</span>
+        <a class="cursor-pointer"
+           (click)="changeRole(UserRoleEnum.USER)">
+          {{ 'AUTH.REGISTER.LINK_USER' | translate }}
+        </a>
+      </div>
+      }
+      @if(role?.value === UserRoleEnum.USER){
+      <div class="mb-3">
+        <span class="text-[#8C8A94]">{{ 'AUTH.REGISTER.TEXT_ARTIST' | translate }}</span>
+        <a class="cursor-pointer"
+           (click)="changeRole(UserRoleEnum.ARTIST)">
+          {{ 'AUTH.REGISTER.LINK_ARTIST' | translate }}
+        </a>
+      </div>
+      }
       <form [formGroup]="form"
             (ngSubmit)="onSubmit()"
             class="flex flex-col">
+        @if(currentSlide() === 1){
+
+        <div class="input-group mb-[16px] v-700:mb-[25px]">
+          <ion-input formControlName="name"
+                     mode="md"
+                     label="{{ 'AUTH.REGISTER.LABEL_NAME' | translate }}{{name?.hasError('required') ? '*' : '' }}"
+                     label-placement="floating"
+                     fill="solid"></ion-input>
+          @if(name?.invalid && (name?.dirty || name?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(name?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(name?.hasError('name')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.MINLENGTH' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="input-group mb-[16px] v-700:mb-[25px]">
+          <ion-input formControlName="surname"
+                     mode="md"
+                     label="{{ 'AUTH.REGISTER.LABEL_SURNAME' | translate }}{{surname?.hasError('required') ? '*' : '' }}"
+                     label-placement="floating"
+                     fill="solid"></ion-input>
+          @if(surname?.invalid && (surname?.dirty || surname?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(surname?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(surname?.hasError('surname')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.MINLENGTH' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
+
         <div class="input-group mb-[16px] v-700:mb-[25px]">
           <ion-input formControlName="email"
                      mode="md"
@@ -37,7 +105,50 @@
           </div>
           }
         </div>
+        <div class="input-group mb-[16px] v-700:mb-[25px]">
+          <ion-input formControlName="phone"
+                     mode="md"
+                     label="{{ 'AUTH.REGISTER.LABEL_PHONE' | translate }}{{phone?.hasError('required') ? '*' : '' }}"
+                     label-placement="floating"
+                     fill="solid"></ion-input>
+          @if(phone?.invalid && (phone?.dirty || phone?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(phone?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(phone?.hasError('pattern')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.PHONE' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
 
+        <ion-button class="min-h-5 mb-2 mt-2"
+                    color="primary"
+                    fill="solid"
+                    type="button"
+                    (click)="currentSlide.set(2)">
+          <span class="capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span>
+        </ion-button>
+        }
+        @if(currentSlide() === 2){
+        <div class="input-group mb-[16px] v-700:mb-[25px]">
+          <ion-input formControlName="username"
+                     mode="md"
+                     label="{{ 'AUTH.REGISTER.LABEL_USERNAME' | translate }}{{username?.hasError('required') ? '*' : '' }}"
+                     label-placement="floating"
+                     fill="solid"></ion-input>
+          @if(username?.invalid && (username?.dirty || username?.touched)){
+          <div class="text-danger text-[12px]">
+            @if(username?.hasError('required')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
+            }
+            @if(username?.hasError('username')){
+            <p>{{ 'CONSTANTS.ERRORS.FORM.MINLENGTH' | translate }}</p>
+            }
+          </div>
+          }
+        </div>
         <div class="input-group mb-[16px] v-700:mb-[20px]">
           <div class="relative">
             <ion-input formControlName="password"
@@ -109,13 +220,13 @@
           }
         </div>
         }
-        @if(privacyLabel){
+        @if(smsLabel && role?.value === UserRoleEnum.USER){
         <div class="input-group mb-2">
-          <ion-checkbox formControlName="privacy"
-                        labelPlacement="end"><span class="text-wrap text-neutral-10">{{privacyLabel}}{{privacy?.hasError('required') ? '*' : '' }}</span></ion-checkbox>
-          @if(privacy?.invalid && (privacy?.dirty || privacy?.touched)){
+          <ion-checkbox formControlName="sms"
+                        labelPlacement="end"><span class="text-wrap text-neutral-10">{{smsLabel}}{{sms?.hasError('required') ? '*' : '' }}</span></ion-checkbox>
+          @if(sms?.invalid && (sms?.dirty || sms?.touched)){
           <div class="text-danger text-[12px]">
-            @if(privacy?.hasError('required')){
+            @if(sms?.hasError('required')){
             <p>{{ 'CONSTANTS.ERRORS.FORM.REQUIRED' | translate }}</p>
             }
           </div>
@@ -127,8 +238,23 @@
                     color="primary"
                     fill="solid"
                     [disabled]="!form.valid"
-                    type="submit">{{ 'CONSTANTS.CONTINUE' | translate }}</ion-button>
+                    type="submit">
+          <span class="capitalize">{{ 'AUTH.REGISTER.BUTTON_REGISTER' | translate }}</span>
+        </ion-button>
+        }
       </form>
+      <div class="flex justify-center mb-4 *:select-none">
+        <div class="px-[5px] py-2 cursor-pointer"
+             (click)="currentSlide.set(1)">
+          <span class="block h-md border-[1px] border-solid border-yellow-100 transition-all duration-300"
+                [ngClass]="{'w-2 rounded-lg bg-yellow-100': currentSlide() === 1, 'w-md rounded-[50%]': currentSlide() === 2}"></span>
+        </div>
+        <div class="px-[5px] py-2 cursor-pointer"
+             (click)="currentSlide.set(2)">
+          <span class="block h-md border-[1px] border-solid border-yellow-100 rounded-[50%] transition-all duration-300"
+                [ngClass]="{'w-md rounded-[50%]': currentSlide() === 1, 'w-2 rounded-lg bg-yellow-100': currentSlide() === 2}"></span>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

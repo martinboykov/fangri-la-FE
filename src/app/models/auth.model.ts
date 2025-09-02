@@ -3,32 +3,22 @@ export interface AuthLoginRequestData {
   password: string;
 }
 
-export interface AuthAdditionalUserDataRequest {
+
+
+export interface AuthLoginResponseData {
+  id: string;
   name: string;
   surname: string;
-  phone?: string;
-  birthdate?: string;
-  country?: string;
-  gender?: string;
-}
-
-export interface AuthLoginResponseData extends AuthAdditionalUserDataRequest {
-  id: string;
+  phone: string;
   email: string;
   token: string;
-  isVerified: boolean;
-  tokenExpirationDate?: string; // ISO format (string)
-  img?: string;
-  connection?: {
-    status: string;
-    organization: string;
-  };
+  tokenExpirationDate: string; // ISO format (string)
   role: UserRole;
 }
 
 export interface AuthRegisterRequestData extends AuthLoginRequestData {
   terms: boolean;
-  privacy: boolean;
+  sms: boolean;
 }
 
 export interface AuthRegisterResponseData extends AuthLoginResponseData {}
@@ -41,20 +31,10 @@ export interface IUserProfilePasswordSettings {
 
 export interface IUser extends AuthLoginResponseData {}
 
-export type connectionStatus = 'pending' | 'accepted';
-export enum ConnectionStatus {
-  PENDING = 'pending',
-  ACCEPTED = 'accepted',
-}
-export type UserRole = 'client' | 'expert';
+export type UserRole = 'user' | 'artist';
 export enum UserRoleEnum {
-  CLIENT = 'client',
-  EXPERT = 'expert',
-}
-
-export interface IConnection {
-  status: connectionStatus;
-  organization: string;
+  USER = 'user',
+  ARTIST = 'artist',
 }
 
 export class User implements IUser {
@@ -62,15 +42,9 @@ export class User implements IUser {
   public name: string;
   public surname: string;
   public email: string;
-  public token: string;
-  public isVerified: boolean;
-  public tokenExpirationDate?: string; // ISO format (string)
-  public phone?: string;
-  public birthdate?: string;
-  public country?: string;
-  public gender?: string;
-  public img?: string;
-  public connection?: IConnection | undefined;
+  public token: string; // TODO revise implementation after real backend
+  public tokenExpirationDate: string; // ISO format (string) // TODO revise implementation after real backend
+  public phone: string;
   public role: UserRole;
   constructor(userData: AuthLoginResponseData) {
     this.id = userData.id;
@@ -78,19 +52,8 @@ export class User implements IUser {
     this.surname = userData.surname;
     this.email = userData.email;
     this.token = userData.token;
-    this.tokenExpirationDate = userData.tokenExpirationDate!;
-    this.isVerified = userData.isVerified;
+    this.tokenExpirationDate = userData.tokenExpirationDate;
     this.phone = userData.phone;
-    this.birthdate = userData.birthdate;
-    this.country = userData.country;
-    this.gender = userData.gender;
-    this.img = userData.img;
-    this.connection = userData.connection
-      ? {
-          status: userData.connection?.status as connectionStatus,
-          organization: userData.connection?.organization,
-        }
-      : undefined;
     this.role = userData.role;
   }
   // AUTO LOGOUT START

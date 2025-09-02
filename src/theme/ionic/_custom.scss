@@ -262,12 +262,12 @@ ion-radio-group.custom,
   }
 }
 ion-radio {
-  --color: var(--color-green-200);
-  --color-checked: var(--color-green-200);
+  --color: var(--color-white);
+  --color-checked: var(--color-white);
   &::part(container) {
-    width: 24px;
-    height: 23px;
-    border: 2px solid var(--color-neutral-300);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-white);
   }
 
   &::part(mark) {
@@ -279,14 +279,14 @@ ion-radio {
   &::part(label) {
     font-size: 16px;
     font-weight: 500;
-    color: var(--color-neutral-10);
+    color: var(--color-white);
   }
   &.radio-checked {
     span {
       // color: #8c8a94;
     }
     &::part(container) {
-      border: 2px solid var(--color-green-200);
+      border: 2px solid var(--color-white);
     }
 
     &::part(mark) {
@@ -295,7 +295,7 @@ ion-radio {
 
       border-width: 0px 2px 2px 0px;
       border-style: solid;
-      border-color: var(--color-green-200);
+      border-color: var(--color-white);
 
       transform: rotate(45deg) translate(-2px, -2px);
     }
@@ -304,28 +304,28 @@ ion-radio {
 
 ion-checkbox {
   --color: var(--color-neutral-10);
-  --color-checked: var(--ion-color-primary);
+  --color-checked: var(--color-white);
   --checkbox-background-checked: transparent;
-  --checkmark-color: var(--ion-color-primary);
+  --checkmark-color: var(--color-white);
   --transition: none;
   &::part(container) {
-    width: 24px;
-    height: 24px;
-    padding: 3px;
-    border: 2px solid var(--color-neutral-400);
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border: 2px solid var(--color-white);
     border-radius: var(--border-radius-xs);
   }
   &::part(mark) {
     transition: none;
   }
   &.checkbox-checked {
-    --color: var(--ion-color-primary);
-    --color-checked: var(--ion-color-primary);
+    --color: var(--color-white);
+    --color-checked: var(--color-white);
     span {
       // color: var(--color-blue-900);
     }
     &::part(container) {
-      border: 2px solid var(--ion-color-primary);
+      border: 2px solid var(--color-white);
     }
     &::part(mark) {
       transition: none;

@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs';
 import {
-  AuthAdditionalUserDataRequest,
   AuthLoginRequestData,
   AuthLoginResponseData,
   AuthRegisterRequestData,

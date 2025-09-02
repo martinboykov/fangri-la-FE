@@ -1,20 +1,28 @@
 import { Routes } from '@angular/router';
+import { translationGuard } from './guards/translate.guard';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
-  {
-    path: 'home',
-    loadComponent: () =>
-      import('./pages/home/home.page').then((m) => m.HomePage),
-  },
+  { path: '', redirectTo: '/artist', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>
       import('./pages/auth/auth.routes').then((m) => m.routes),
+    canActivate: [translationGuard],
+  },
+  {
+    path: 'artist',
+    loadChildren: () =>
+      import('./pages/artists/artists.routes').then((m) => m.routes),
+    canActivate: [translationGuard, authGuard],
+  },
+  {
+    path: 'nfc',
+    loadComponent: () => import('./pages/nfc/nfc.page').then( m => m.NfcPage)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'artist',
     pathMatch: 'full',
   },
 ];

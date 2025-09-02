@@ -15,7 +15,7 @@ export const authGuard: CanActivateFn = (
   const authService = inject(AuthService);
   const router = inject(Router);
   const user = authService.user();
-  if (user && user?.isVerified) {
+  if (user) {
     console.log('🚀 ~ file: auth.guard.ts:23 ~ tap ~ user:', user);
     return true;
   } else {
