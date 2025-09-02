@@ -80,6 +80,17 @@ ion-content {
   }
 }
 
+ion-menu {
+  &::part(container) {
+    width: 100%;
+  }
+  ion-content {
+    &::part(scroll) {
+      background-color: var(--color-yellow-100);
+    }
+  }
+}
+
 app-tabs {
   @include mixins.respond(desktop-min) {
     ion-content {
@@ -611,6 +622,11 @@ ion-button {
     &::part(native) {
       padding: 0;
       margin: 0;
+    }
+  }
+  &.p-0 {
+    &::part(native) {
+      padding: 0;
     }
   }
   // &.navigate {

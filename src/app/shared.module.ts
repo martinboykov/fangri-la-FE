@@ -27,6 +27,9 @@ import {
   IonItem,
   IonModal,
   IonNavLink,
+  IonMenu,
+  IonMenuButton,
+  IonMenuToggle,
 } from '@ionic/angular/standalone';
 import { TranslateDirective, TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
@@ -60,6 +63,9 @@ const sharable: Type<any>[] = [
   IonItem,
   IonModal,
   IonNavLink,
+  IonMenu,
+  IonMenuButton,
+  IonMenuToggle,
 
   TranslateModule,
   TranslatePipe,

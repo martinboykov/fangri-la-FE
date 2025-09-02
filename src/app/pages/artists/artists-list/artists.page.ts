@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { HeaderMainPageComponent } from 'src/app/components/headers/header-main-page/header-main-page.component';
 import { SharedModule } from 'src/app/shared.module';
 @Component({
   selector: 'app-artists',
   templateUrl: 'artists.page.html',
   styleUrls: ['artists.page.scss'],
-  imports: [SharedModule],
+  imports: [SharedModule, HeaderMainPageComponent],
 })
 export class ArtistsPage {
   artists = [
@@ -33,7 +34,6 @@ export class ArtistsPage {
       name: 'KASHKIDD',
       image: '/assets/static/images/artists/artist-5.jpg',
     },
-
   ];
 
   constructor() {}
