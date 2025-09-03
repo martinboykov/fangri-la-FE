@@ -33,6 +33,8 @@ export default {
       link: "var(--ion-link-color)",
 
       black: {
+        0: "var(--color-black)",
+        10: "var(--color-black-10)",
         100: "var(--color-black-100)",
         200: "var(--color-black-200)",
         300: "var(--color-black-300)",
@@ -186,6 +188,7 @@ export default {
         18: "180px",
         19: "190px",
         20: "200px",
+        "2xl": "var(--2xl-px)",
         xl: "var(--xl-px)",
         lg: "var(--lg-px)",
         md: "var(--md-px)",

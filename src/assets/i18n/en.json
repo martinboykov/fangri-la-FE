@@ -2,7 +2,6 @@
   "CONSTANTS": {
     "DATE": "date",
     "TIME": "time",
-    "EXPERT": "expert",
     "READ": "read",
     "SEE": "See",
     "ALL": "all",
@@ -14,10 +13,8 @@
     "SAVE": "save",
     "APPLY": "apply",
     "LIST": "list",
-    "MAP": "map",
     "REPEAT": "repeat",
     "GALLERY": "gallery",
-    "OBJECTS": "objects",
     "CHOOSE": "choose",
     "CONTACTS": "contacts",
     "PLEASE": "please",
@@ -28,14 +25,13 @@
     "END": "finish",
     "NEXT": "next",
     "PAY": "pay",
+    "REGISTER": "register",
     "LOAD_MORE": "Load more",
-    "SCHEDULED_HOURS": "Booked appointments",
     "NO_RESULTS": "No results found",
-    "GOOGLE_MEET": "Join with Google Meet",
-    "LANGUAGE": "Language",
-    "LANGUAGES": "Languages",
+    "LANGUAGE": "language",
+    "LANGUAGES": "languages",
     "LANGUAGES_LIST": {
-      "EN": "English"
+      "EN": "english"
     },
     "ERRORS": {
       "DEFAULT_ERROR_TITLE": "The application recovered after an error occurred!",
@@ -127,7 +123,34 @@
       "LABEL_GENDER": "Gender"
     }
   },
-  "HOME": {
+  "NFC": {
+    "NOT_LOGGED_IN": {
+      "TITLE": "Your Portal to Every Artist!",
+      "SUBTITLE": "Log in or register to add this merch to your vault and get access to exclusive content from this artist.",
+      "MESSAGE": "Unlock this exclusive content",
+      "BUTTON_LOGIN": "Log in",
+      "BUTTON_REGISTER": "Register"
+    },
+    "LOGGED_IN": {
+      "TITLE": "YOU’RE IN!",
+      "SUBTITLE": "Your merch is now linked to your account.",
+      "MESSAGE": "Exclusive content is added to your vault",
+      "BUTTON_LOGIN": "Log in",
+      "BUTTON": "Next"
+    }
+  },
+  "NAVIGATION": {
+    "ARTISTS": "Artists",
+    "ARTISTS_STORE": "Artists’ Store",
+    "MY_VAULT": "My Vault",
+    "ACCOUNT_SETTINGS": "Account/Settings",
+    "SHOPPING_CART": "Shopping Cart",
+    "LOGOUT": "Logout"
+  },
+  "ARTISTS": {
     "TITLE": "Your Fangri-La Line up"
+  },
+  "MERCHANDISE": {
+    "TITLE": "Merch Store"
   }
 }

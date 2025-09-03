@@ -1,13 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>nfc</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true"
+             class="bg-yellow-200"
+             style="--color-page: var(--color-yellow-100)">
+  <div class="container pt-2 h-full">
+    <div class="flex flex-col justify-between h-full">
+      @if(!isLoading()){
+      <div class="">
+        <div class="grid place-content-center max-w-[600px] min-h-5  mx-auto mb-2 py-6 px-5 rounded-sm bg-black-0">
+          <img class=" w-full max-w-[260px]"
+               src="/assets/images/logo.png">
+        </div>
+        @if(authStore.user()){
+        <h1 class="mb-lg text-[66px] leading-[1] text-black-10">{{ 'NFC.LOGGED_IN.TITLE' | translate }}</h1>
+        <p class="h1">{{ 'NFC.LOGGED_IN.SUBTITLE' | translate }}</p>
+        }
+        @else {
+        <h1 class="mb-lg text-[54px] leading-[1] text-black-10">{{ 'NFC.NOT_LOGGED_IN.TITLE' | translate }}</h1>
+        <p class="font-normal">{{ 'NFC.NOT_LOGGED_IN.SUBTITLE' | translate }}</p>
+        }
+      </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">nfc</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+      <div class="">
+        <div class="mt-lg  p-lg rounded-sm bg-green-100"
+             [ngClass]="{'mb-3xl border-[1px] border-solid border-black-0 bg-green-200 shadow-[4px_4px_0_0_#0E0F0F,_0_4px_40px_0_#4CC8BC]': authStore.user(),
+             'mb-2xl bg-[rgba(79,_201,_187,_0.60)]': !authStore.user()}">
+          <div class="min-h-10 mb-2">
+            <ion-img class="float-left mr-2 mb-1 size-10 object-cover rounded-md overflow-hidden"
+                     src="{{merch.image}}"></ion-img>
+            <h2 class="text-2">{{merch.name}}</h2>
+            <p class="">{{merch.description}}</p>
+          </div>
+          <div class="flex items-center gap-sm clear-left">
+            <span class="icon-check text-xl"></span>
+            @if(authStore.user()){
+            <p class="uppercase">{{ 'NFC.LOGGED_IN.MESSAGE' | translate }}</p>
+            }
+            @else {
+            <p class="uppercase">{{ 'NFC.NOT_LOGGED_IN.MESSAGE' | translate }}</p>
+            }
+
+          </div>
+        </div>
+        <div class="flex flex-col gap-lg mb-2">
+          @if(authStore.user()){
+          <ion-button class="min-h-5 w-full"
+                      color="dark"
+                      fill="outline"
+                      routerLink="/artists/list"><span class="text-black-0 capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
+          }
+          @else {
+          <ion-button class="min-h-5 w-full"
+                      color="dark"
+                      fill="outline"
+                      routerLink="/auth/login"
+                      [queryParams]="{returnUrl: path()}"><span class="text-black-0">{{ 'AUTH.LOGIN.TITLE' | translate }}</span></ion-button>
+          <ion-button class="min-h-5 w-full bg-green-100 rounded-sm overflow-hidden"
+                      color="dark"
+                      fill="outline"
+                      type="button"
+                      routerLink="/auth/register"
+                      [queryParams]="{returnUrl: path()}">
+            <span class="text-black-0 capitalize">{{ 'CONSTANTS.REGISTER' | translate }}</span>
+          </ion-button>
+          }
+
+        </div>
+      </div>
+      }
+
+    </div>
+  </div>
 </ion-content>

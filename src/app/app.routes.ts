@@ -3,7 +3,7 @@ import { translationGuard } from './guards/translate.guard';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/artist', pathMatch: 'full' },
+  { path: '', redirectTo: '/merchandise', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>
@@ -11,18 +11,20 @@ export const routes: Routes = [
     canActivate: [translationGuard],
   },
   {
-    path: 'artist',
+    path: 'artists',
     loadChildren: () =>
       import('./pages/artists/artists.routes').then((m) => m.routes),
     canActivate: [translationGuard, authGuard],
   },
   {
-    path: 'nfc',
-    loadComponent: () => import('./pages/nfc/nfc.page').then( m => m.NfcPage)
+    path: 'merchandise',
+    loadChildren: () =>
+      import('./pages/merchandise/merchandise.routes').then((m) => m.routes),
+    canActivate: [translationGuard, authGuard],
   },
   {
-    path: '',
-    redirectTo: 'artist',
-    pathMatch: 'full',
+    path: 'nfc',
+    loadComponent: () => import('./pages/nfc/nfc.page').then((m) => m.NfcPage),
   },
+
 ];

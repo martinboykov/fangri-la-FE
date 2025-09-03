@@ -37,7 +37,7 @@ import { AUTH_DATA } from 'src/app/constants';
 export class AuthService {
   uuid!: string;
 
-  homeRoute: string = '/artist';
+  homeRoute: string = '/artists';
 
   // private _user = new BehaviorSubject<User | null>(null);
   private _user = signal<User | null>(null);
@@ -115,9 +115,18 @@ export class AuthService {
             //   this.setNotVerifiedAlert();
             //   return;
             // }
-            const returnUrl =
+            let returnUrl =
               this.route.snapshot.queryParams['returnUrl'] || this.homeRoute;
-            this.router.navigateByUrl(returnUrl);
+            console.log(
+              '🚀 ~ AuthService ~ constructor ~ this.route.snapshot:',
+              this.route.snapshot,
+            );
+            console.log(
+              '🚀 ~ AuthService ~ constructor ~ this.router.url:',
+              this.router.url,
+            );
+            if (this.router.url.includes('nfc')) return;
+            if (this.route.snapshot) this.router.navigateByUrl(returnUrl);
           },
           error: async (error) => {
             await this.loadingService.dismissLoading();

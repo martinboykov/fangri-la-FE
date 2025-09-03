@@ -1,17 +1,16 @@
 <ion-header [translucent]="true"
-            class="no-shadow px-[var(--ion-padding)] bg-[transparent] mobile:pb-1
+            class="no-shadow px-[var(--ion-padding)] bg-[transparent] mobile:pb-2
             desktop-min:mb-3"
             id="main-content">
   <ion-toolbar>
     <div class="flex justify-between gap-2">
-      <ion-img class=" w-[180px] "
-               src="/assets/images/logo.png">
+      <ion-img class=" w-[180px] cursor-pointer"
+               src="/assets/images/logo.png" (click)="goHome()">
       </ion-img>
       <div class="flex-shrink-0 flex gap-1 justify-between items-center desktop-min:justify-end">
         <ion-button class="flex p-0 size-[35px]"
                     fill="clear"
                     routerLink="">
-
           <svg class="size-[35px]"
                width="35"
                height="36"
@@ -29,13 +28,14 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round" />
-            <!-- <rect x="22"
+            @if(cartItems.length > 0){
+            <rect x="22"
                   y="0.25"
                   width="13"
                   height="13"
                   rx="6.5"
-                  fill="#EB001B" /> -->
-            <!-- <text fill="white"
+                  fill="#EB001B" />
+            <text fill="white"
                   xml:space="preserve"
                   style="white-space: pre"
                   font-family="Geist"
@@ -43,8 +43,9 @@
                   font-weight="500"
                   letter-spacing="0em">
               <tspan x="25.375"
-                     y="10.3">3</tspan>
-            </text> -->
+                     y="10.3">{{cartItems.length}}</tspan>
+            </text>
+            }
           </svg>
         </ion-button>
         <ion-menu-toggle>
@@ -65,7 +66,9 @@
 </ion-header>
 <ion-menu content-id="main-content">
 
-  <ion-content class="ion-padding">
+  <ion-content [fullscreen]="true"
+               class="ion-padding"
+               style="--color-page: var(--color-yellow-100)">
     <div class="flex justify-end w-full">
       <ion-menu-toggle>
         <ion-button class="flex p-0"
@@ -76,6 +79,42 @@
         </ion-button>
       </ion-menu-toggle>
     </div>
-
+    <ul class="flex flex-col gap-2">
+      <li>
+        <a class="text-black-10 text-2xl font-bold" routerLink="/artists/list">
+          {{'NAVIGATION.ARTISTS' | translate}}
+        </a>
+      </li>
+      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <li>
+        <a class="text-black-10 text-2xl font-bold">
+          {{'NAVIGATION.ARTISTS_STORE' | translate}}
+        </a>
+      </li>
+      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <li>
+        <a class="text-black-10 text-2xl font-bold">
+          {{'NAVIGATION.MY_VAULT' | translate}}
+        </a>
+      </li>
+      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <li>
+        <a class="text-black-10 text-2xl font-bold">
+          {{'NAVIGATION.ACCOUNT_SETTINGS' | translate}}
+        </a>
+      </li>
+      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <li>
+        <a class="text-black-10 text-2xl font-bold">
+          {{'NAVIGATION.SHOPPING_CART' | translate}}
+        </a>
+      </li>
+      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <li>
+        <a class="text-black-10 text-2xl font-bold cursor-pointer" (click)="logout()">
+          {{'NAVIGATION.LOGOUT' | translate}}
+        </a>
+      </li>
+    </ul>
   </ion-content>
 </ion-menu>

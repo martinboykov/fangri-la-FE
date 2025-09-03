@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <app-header-main-page></app-header-main-page>
-  <div class="container">
-    <h1 class="mb-lg">{{ 'HOME.TITLE' | translate }}</h1>
+  <div class="container section-spacing">
+    <h1 class="mb-lg">{{ 'ARTISTS.TITLE' | translate }}</h1>
     <div class="grid grid-cols-[repeat(auto-fill,minmax(125px,1fr))] gap-x-sm gap-y-xl">
       @for(artist of artists; let i = $index; track $index){
       <a class="grid gap-sm cursor-pointer"
@@ -14,3 +14,4 @@
     </div>
   </div>
 </ion-content>
+

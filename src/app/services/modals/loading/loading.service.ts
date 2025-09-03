@@ -14,7 +14,7 @@ export class LoadingService {
 
   private loadingCtrl: LoadingController = inject(LoadingController);
   constructor() {}
-  get loader$() {
+  get loaders$() {
     return toObservable(this._loaders).pipe(
       map((loader) => {
         if (loader) {

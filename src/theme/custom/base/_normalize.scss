@@ -66,8 +66,8 @@
   // ! Add styles for .....
 }
 input[type="file"] {
-    &::file-selector-button {
-      opacity: 0;
-      cursor: pointer;
-    }
+  &::file-selector-button {
+    opacity: 0;
+    cursor: pointer;
   }
+}
