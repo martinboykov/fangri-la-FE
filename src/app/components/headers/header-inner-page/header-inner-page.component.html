@@ -1,38 +1,31 @@
-<ion-header class="inner-page   px-[var(--ion-padding)]
-            desktop-min:mb-3 desktop-min:bg-[transparent]"
+<ion-header class="inner-page mb-2  px-[var(--ion-padding)]
+            desktop-min:mb-3 "
             [translucent]="true">
-  <ion-toolbar class="max-w-[1100px] mx-auto">
+  <ion-toolbar class=" max-w-[1100px] mx-auto">
     <ion-buttons slot="start">
-      @if(!isTabsPage()) {
-
       <ion-button class="px-0 desktop-min:mx-0 desktop-min:px-[5px] desktop-min:bg-white desktop-min:rounded-sm"
                   (click)="goBack()"
-                  routerDirection="back"
-                  >
-        <span class="icon-arrow-left"></span>
+                  routerDirection="back">
+        <span class="icon-arrow-left text-xl text-yellow-100"
+              slot=""></span>
       </ion-button>
-      }
     </ion-buttons>
-    <ion-title class="title-3 text-center text-neutral-10"
-    [ngClass]="{'pr-[24px]': !isTabsPage()}">{{title()}}</ion-title>
+    <div class="flex flex-col ml-sm">
+      <ion-title class="text-lg text-left text-neutral-10"
+                 [ngClass]="">{{title()}}</ion-title>
+      <div class="flex gap-xs">
+        @if(itemsCount() !== null){
+        <span class="text-md text-neutral-100">
+          {{itemsCount()}} {{ 'CONSTANTS.ITEMS' | translate }}
+        </span>
+        }
+        @if(artistCount() !== null){
+        <span class="text-md text-neutral-100">
+          {{artistCount()}} {{ 'CONSTANTS.ARTISTS' | translate }}
+        </span>
+        }
+      </div>
+    </div>
   </ion-toolbar>
-  @if(isFilter()){
-  <div class="flex gap-sm max-w-[600px] mx-auto pb-1 "
-       [ngClass]="{
-              'block': !isScrolled(),
-              'hidden': isScrolled()
-            }">
 
-    <app-search class="flex-1"
-                [placeholder]="'EXPERTS.FILTER_PAGE.SEARCH_PLACEHOLDER' | translate"
-                (newSearchEvent)="onSearch($event)"></app-search>
-    <ion-button class="grid place-content-center size-5 p-0 bg-white rounded-sm border-solid border-[1px] border-neutral-300"
-                fill="clear"
-                routerLink="/experts/filters">
-      <span class="icon-filter"
-            slot="icon-only"></span>
-    </ion-button>
-
-  </div>
-  }
 </ion-header>

@@ -3,7 +3,7 @@ import { translationGuard } from './guards/translate.guard';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/merchandise', pathMatch: 'full' },
+  { path: '', redirectTo: '/artists', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>

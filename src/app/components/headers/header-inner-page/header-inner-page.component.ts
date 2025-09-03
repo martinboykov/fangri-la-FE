@@ -1,37 +1,46 @@
-import { Component, EventEmitter, inject, input, OnInit, Output, Signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  input,
+  OnInit,
+  Output,
+  Signal,
+} from '@angular/core';
 import { SharedModule } from 'src/app/shared.module';
 import { Location } from '@angular/common';
-import { AppStore } from 'src/app/store/app.store';
-import { SearchComponent } from '../../search/search.component';
+import { Router } from '@angular/router';
+import { AuthStore } from 'src/app/services/auth/store/auth.store';
 @Component({
   selector: 'app-header-inner-page',
   templateUrl: './header-inner-page.component.html',
   styleUrls: ['./header-inner-page.component.scss'],
   standalone: true,
 
-  imports: [SharedModule, SearchComponent],
+  imports: [SharedModule],
 })
 export class HeaderInnerPageComponent implements OnInit {
   private location: Location = inject(Location);
+  private router: Router = inject(Router);
+  readonly authStore = inject(AuthStore);
   title = input.required<string>();
+  itemsCount = input<number | null>(null);
+  artistCount = input<number | null>(null);
   defaultHref = input<string>();
-  isScrolled = input<boolean>(false);
-  isFilter = input<boolean>(false);
-  isTabsPage = input<boolean>(false);
-  @Output() newSearchEvent = new EventEmitter<string>();
   constructor() {}
 
   ngOnInit() {}
   goBack() {
-    if (this.location.back() !== undefined) {
+    if (this.defaultHref() !== undefined) {
+      this.router.navigateByUrl(this.defaultHref() as string);
+    } else if (window.history.length > 0) {
       this.location.back();
-    } else if (this.defaultHref() !== undefined) {
-      this.location.go(this.defaultHref() as string);
     } else {
-      this.location.go('/tabs/home');
+      if (this.authStore.user()?.role === 'artist') {
+        this.router.navigateByUrl('/artist/' + this.authStore.user()?.id);
+      } else {
+        this.router.navigateByUrl('/artists/list');
+      }
     }
-  }
-  onSearch(value: string) {
-    this.newSearchEvent.emit(value);
   }
 }

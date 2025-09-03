@@ -1,13 +1,17 @@
 <ion-content [fullscreen]="true">
+  <app-header-inner-page [defaultHref]="'/artists/list'"
+                         [title]="'MERCHANDISE.TITLE' | translate"
+                         [itemsCount]="merchandise.itemsCount"
+                         [artistCount]="merchandise.artistCount"></app-header-inner-page>
   <div class="container section-spacing">
     <div class="text-black-100"></div>
-    <h1 class="mb-lg">{{ 'MERCHANDISE.TITLE' | translate }}</h1>
-    <div class="flex flex-col gap-lg">
-      @for(merch of merchandise; let i = $index; track $index){
+
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-xl sm:grid-cols-1">
+      @for(merch of merchandise.items; let i = $index; track $index){
       <div class="flex flex-col gap-lg">
-        <ion-label class="font-bold text-white">{{ merch.artist }}</ion-label>
-        <div class="flex gap-lg p-sm rounded-lg bg-white cursor-pointer">
-          <ion-img class="w-full h-full max-w-10 max-h-18 object-cover rounded-md overflow-hidden"
+        <ion-label class="font-bold text-white h1">{{ merch.artist }}</ion-label>
+        <div class="flex gap-lg p-sm rounded-lg bg-white">
+          <ion-img class="w-full h-full max-w-10 max-h-18 object-cover rounded-md overflow-hidden cursor-pointer"
                    [src]="merch.image"
                    routerLink="/merchandise/{{ merch.id }}"></ion-img>
           <div class="flex flex-col justify-between gap-xs w-full text-black-100">
@@ -19,10 +23,10 @@
               </div>
 
               }
-              <h2 class="text-2">
+              <h2 class="text-2 cursor-pointer">
                 {{ merch.name }}
               </h2>
-              <p class="text-[14px]">{{ merch.description }}</p>
+              <p class="text-[14px] cursor-pointer">{{ merch.description }}</p>
             </div>
             <div class="flex justify-between items-center gap-2">
               <span class="">

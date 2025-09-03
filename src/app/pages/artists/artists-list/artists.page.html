@@ -5,7 +5,7 @@
     <div class="grid grid-cols-[repeat(auto-fill,minmax(125px,1fr))] gap-x-sm gap-y-xl">
       @for(artist of artists; let i = $index; track $index){
       <a class="grid gap-sm cursor-pointer"
-         routerLink="/artist/{{ artist.id }}">
+         routerLink="/artists/{{ artist.id }}">
         <ion-img class="aspect-square rounded-xl overflow-hidden"
                  [src]="artist.image"></ion-img>
         <ion-label class="font-bold text-white">{{ artist.name }}</ion-label>

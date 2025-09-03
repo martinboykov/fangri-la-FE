@@ -19,6 +19,8 @@
     "CONTACTS": "contacts",
     "PLEASE": "please",
     "PASSWORD": "password",
+    "ARTISTS": "artists",
+    "ITEMS": "items",
     "WAIT": "wait",
     "PLEASE_WAIT": "Please wait...",
     "CONTINUE": "continue",
@@ -137,6 +139,11 @@
       "MESSAGE": "Exclusive content is added to your vault",
       "BUTTON_LOGIN": "Log in",
       "BUTTON": "Next"
+    }
+  },
+  "HEADERS": {
+    "INNER": {
+
     }
   },
   "NAVIGATION": {
