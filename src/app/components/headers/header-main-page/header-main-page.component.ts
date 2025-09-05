@@ -18,6 +18,7 @@ export class HeaderMainPageComponent implements OnInit {
   parentPage = input<string>();
   contentId = computed(() => 'main-content' + '-' + this.parentPage());
   cartItems = [];
+  UserRoleEnum = UserRoleEnum;
   constructor() {}
 
   ngOnInit() {}
