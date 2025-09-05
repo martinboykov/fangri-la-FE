@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderMainPageComponent } from 'src/app/components/headers/header-main-page/header-main-page.component';
+import { HeaderInnerPageComponent } from 'src/app/components/headers/header-inner-page/header-inner-page.component';
 import { SharedModule } from 'src/app/shared.module';
 
 @Component({
@@ -7,7 +7,7 @@ import { SharedModule } from 'src/app/shared.module';
   templateUrl: './merchandise.page.html',
   styleUrls: ['./merchandise.page.scss'],
   standalone: true,
-  imports: [SharedModule, HeaderMainPageComponent],
+  imports: [SharedModule, HeaderInnerPageComponent],
 })
 export class MerchandisePage implements OnInit {
 
