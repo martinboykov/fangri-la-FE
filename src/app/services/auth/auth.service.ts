@@ -140,7 +140,7 @@ export class AuthService {
     }
     console.log('🚀 ~ AuthService ~ onLoginRouting ~ url:', url);
     if (this.router.url.includes('nfc')) {
-      this.router.navigateByUrl(url);
+      this.router.navigateByUrl(this.router.url);
       return;
     }
     if (this.route.snapshot) this.router.navigateByUrl(url);
