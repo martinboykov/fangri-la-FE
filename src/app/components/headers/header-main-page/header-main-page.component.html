@@ -5,7 +5,8 @@
   <ion-toolbar>
     <div class="flex justify-between gap-2">
       <ion-img class=" w-[180px] cursor-pointer"
-               src="/assets/images/logo.png" (click)="goHome()">
+               src="/assets/images/logo.png"
+               (click)="goHome()">
       </ion-img>
       <div class="flex-shrink-0 flex gap-1 justify-between items-center desktop-min:justify-end">
         <ion-button class="flex p-0 size-[35px]"
@@ -64,7 +65,8 @@
     </div>
   </ion-toolbar>
 </ion-header>
-<ion-menu content-id="main-content">
+<ion-menu content-id="main-content"
+          #menu>
 
   <ion-content [fullscreen]="true"
                class="ion-padding"
@@ -79,39 +81,47 @@
         </ion-button>
       </ion-menu-toggle>
     </div>
-    <ul class="flex flex-col gap-2">
+    <ul class="flex flex-col">
       <li>
-        <a class="text-black-10 text-2xl font-bold" routerLink="/artists/list">
+        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold"
+           routerLink="/artists/list"
+           (click)="menu.close()">
           {{'NAVIGATION.ARTISTS' | translate}}
         </a>
       </li>
-      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
       <li>
-        <a class="text-black-10 text-2xl font-bold" routerLink="/merchandise/list">
+        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold"
+           routerLink="/merchandise/list"
+           (click)="menu.close()">
           {{'NAVIGATION.ARTISTS_STORE' | translate}}
         </a>
       </li>
-      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
       <li>
-        <a class="text-black-10 text-2xl font-bold">
+        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold"
+           (click)="menu.close()">
           {{'NAVIGATION.MY_VAULT' | translate}}
         </a>
       </li>
-      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
       <li>
-        <a class="text-black-10 text-2xl font-bold">
+        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold"
+           (click)="menu.close()">
           {{'NAVIGATION.ACCOUNT_SETTINGS' | translate}}
         </a>
       </li>
-      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
       <li>
-        <a class="text-black-10 text-2xl font-bold">
+        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold"
+           (click)="menu.close()">
           {{'NAVIGATION.SHOPPING_CART' | translate}}
         </a>
       </li>
-      <hr class="h-[1px] mb-md text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
+      <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
       <li>
-        <a class="text-black-10 text-2xl font-bold cursor-pointer" (click)="logout()">
+        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold cursor-pointer"
+           (click)="logout(); menu.close()">
           {{'NAVIGATION.LOGOUT' | translate}}
         </a>
       </li>

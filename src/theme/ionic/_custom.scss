@@ -84,6 +84,7 @@ ion-content {
 }
 
 ion-menu {
+  position: fixed;
   &::part(container) {
     width: 100%;
   }

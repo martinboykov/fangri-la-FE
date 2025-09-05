@@ -23,10 +23,10 @@ export class HeaderInnerPageComponent implements OnInit {
   private location: Location = inject(Location);
   private router: Router = inject(Router);
   readonly authStore = inject(AuthStore);
-  title = input.required<string>();
+  title = input<string>();
+  defaultHref = input<string>();
   itemsCount = input<number | null>(null);
   artistCount = input<number | null>(null);
-  defaultHref = input<string>();
   constructor() {}
 
   ngOnInit() {}

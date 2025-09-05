@@ -115,18 +115,7 @@ export class AuthService {
             //   this.setNotVerifiedAlert();
             //   return;
             // }
-            let returnUrl =
-              this.route.snapshot.queryParams['returnUrl'] || this.homeRoute;
-            console.log(
-              '🚀 ~ AuthService ~ constructor ~ this.route.snapshot:',
-              this.route.snapshot,
-            );
-            console.log(
-              '🚀 ~ AuthService ~ constructor ~ this.router.url:',
-              this.router.url,
-            );
-            if (this.router.url.includes('nfc')) return;
-            if (this.route.snapshot) this.router.navigateByUrl(returnUrl);
+            this.onLoginRouting();
           },
           error: async (error) => {
             await this.loadingService.dismissLoading();
@@ -138,6 +127,13 @@ export class AuthService {
           },
         });
     });
+  }
+
+  onLoginRouting() {
+    let returnUrl =
+      this.route.snapshot.queryParams['returnUrl'] || this.homeRoute;
+    if (this.router.url.includes('nfc')) return;
+    if (this.route.snapshot) this.router.navigateByUrl(returnUrl);
   }
 
   autoLogin() {
@@ -225,7 +221,7 @@ export class AuthService {
       .subscribe({
         next: async (res) => {
           await this.loadingService.dismissLoading();
-          this.router.navigateByUrl('/home');
+          this.onLoginRouting();
         },
         error: async (error) => {
           await this.loadingService.dismissLoading();
