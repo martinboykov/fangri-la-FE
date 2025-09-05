@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, computed, inject, input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserRoleEnum } from 'src/app/models/auth.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -15,6 +15,8 @@ export class HeaderMainPageComponent implements OnInit {
   readonly authStore = inject(AuthStore);
   readonly authService = inject(AuthService);
   private router = inject(Router);
+  parentPage = input<string>();
+  contentId = computed(() => 'main-content' + '-' + this.parentPage());
   cartItems = [];
   constructor() {}
 
@@ -26,7 +28,7 @@ export class HeaderMainPageComponent implements OnInit {
       this.router.navigate([`/artist/` + this.authStore.user()?.id]);
     }
   }
-  logout(){
+  logout() {
     this.authService.logout();
   }
 }

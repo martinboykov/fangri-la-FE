@@ -1,7 +1,7 @@
 <ion-header [translucent]="true"
             class="no-shadow px-[var(--ion-padding)] bg-[transparent] mobile:pb-2
             desktop-min:mb-3"
-            id="main-content">
+            id="{{'main-content' + '-' + parentPage()}}">
   <ion-toolbar>
     <div class="flex justify-between gap-2">
       <ion-img class=" w-[180px] cursor-pointer"
@@ -49,37 +49,34 @@
             }
           </svg>
         </ion-button>
-        <ion-menu-toggle>
-          <ion-button class="p-0"
-                      fill="clear">
-            <div class="flex items-center gap-xs">
-              <span class="text-white">Menu</span>
-              <img src="/assets/images/menu-open.svg"
-                   alt="menu-open">
+        <ion-button class="p-0"
+                    fill="clear"
+                    (click)="menu.open()">
+          <div class="flex items-center gap-xs">
+            <span class="text-white">Menu</span>
+            <img src="/assets/images/menu-open.svg"
+                 alt="menu-open">
 
-            </div>
-          </ion-button>
-        </ion-menu-toggle>
+          </div>
+        </ion-button>
 
       </div>
     </div>
   </ion-toolbar>
 </ion-header>
-<ion-menu content-id="main-content"
-          #menu>
+<ion-menu #menu>
 
   <ion-content [fullscreen]="true"
                class="ion-padding"
                style="--color-page: var(--color-yellow-100)">
     <div class="flex justify-end w-full">
-      <ion-menu-toggle>
-        <ion-button class="flex p-0"
-                    fill="clear">
-          <img class="w-[36px]"
-               src="/assets/images/menu-close.svg"
-               alt="menu-close">
-        </ion-button>
-      </ion-menu-toggle>
+      <ion-button class="flex p-0"
+                  fill="clear"
+                  (click)="menu.close()">
+        <img class="w-[36px]"
+             src="/assets/images/menu-close.svg"
+             alt="menu-close">
+      </ion-button>
     </div>
     <ul class="flex flex-col">
       <li>

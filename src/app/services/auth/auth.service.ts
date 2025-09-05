@@ -134,19 +134,15 @@ export class AuthService {
     let returnUrl = this.route.snapshot.queryParams['returnUrl'];
     console.log('🚀 ~ AuthService ~ onLoginRouting ~ returnUrl:', returnUrl);
     let url = returnUrl || this.homeRouteUser;
-    console.log(
-      '🚀 ~ AuthService ~ onLoginRouting ~ this.user():',
-      this.user(),
-    );
-    console.log(
-      '🚀 ~ AuthService ~ onLoginRouting ~ this.user()?.role === UserRoleEnum.ARTIST:',
-      this.user()?.role === UserRoleEnum.ARTIST,
-    );
+
     if (this.user()?.role === UserRoleEnum.ARTIST) {
       url = returnUrl || '/artists/' + this.user()?.id;
     }
     console.log('🚀 ~ AuthService ~ onLoginRouting ~ url:', url);
-    if (this.router.url.includes('nfc')) return;
+    if (this.router.url.includes('nfc')) {
+      this.router.navigateByUrl(url);
+      return;
+    }
     if (this.route.snapshot) this.router.navigateByUrl(url);
   }
 
