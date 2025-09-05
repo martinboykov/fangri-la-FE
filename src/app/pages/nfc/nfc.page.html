@@ -43,10 +43,18 @@
         </div>
         <div class="flex flex-col gap-lg mb-2">
           @if(authStore.user()){
+          @if(authStore.user()?.role === UserRoleEnum.USER){
           <ion-button class="min-h-5 w-full"
                       color="dark"
                       fill="outline"
                       routerLink="/artists/list"><span class="text-black-0 capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
+          }
+          @else {
+          <ion-button class="min-h-5 w-full"
+                      color="dark"
+                      fill="outline"
+                      routerLink="{{'/artists/' + authStore.user()?.id}}"><span class="text-black-0 capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
+          }
           }
           @else {
           <ion-button class="min-h-5 w-full"

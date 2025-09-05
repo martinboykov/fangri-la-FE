@@ -4,6 +4,7 @@ import { AuthStore } from 'src/app/services/auth/store/auth.store';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LoadingService } from 'src/app/services/modals/loading/loading.service';
 import { Router } from '@angular/router';
+import { UserRoleEnum } from 'src/app/models/auth.model';
 
 @Component({
   selector: 'app-nfc',
@@ -17,7 +18,7 @@ export class NfcPage implements OnInit {
   private loadingService = inject(LoadingService);
   private router = inject(Router);
   readonly authStore = inject(AuthStore);
-
+  UserRoleEnum = UserRoleEnum;
   isLoading = computed(() => this.loadingService.isLoading());
   url = computed(() => decodeURI(`${window.location.href}`));
   parser = document.createElement('a');

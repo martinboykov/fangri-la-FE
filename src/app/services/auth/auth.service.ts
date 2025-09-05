@@ -19,6 +19,7 @@ import {
   AuthLoginResponseData,
   AuthRegisterRequestData,
   User,
+  UserRoleEnum,
 } from '../../models/auth.model';
 import { TranslateService } from '@ngx-translate/core';
 import { Device, DeviceId } from '@capacitor/device';
@@ -37,7 +38,7 @@ import { AUTH_DATA } from 'src/app/constants';
 export class AuthService {
   uuid!: string;
 
-  homeRoute: string = '/artists';
+  homeRouteUser: string = '/artists';
 
   // private _user = new BehaviorSubject<User | null>(null);
   private _user = signal<User | null>(null);
@@ -130,10 +131,23 @@ export class AuthService {
   }
 
   onLoginRouting() {
-    let returnUrl =
-      this.route.snapshot.queryParams['returnUrl'] || this.homeRoute;
+    let returnUrl = this.route.snapshot.queryParams['returnUrl'];
+    console.log('🚀 ~ AuthService ~ onLoginRouting ~ returnUrl:', returnUrl);
+    let url = returnUrl || this.homeRouteUser;
+    console.log(
+      '🚀 ~ AuthService ~ onLoginRouting ~ this.user():',
+      this.user(),
+    );
+    console.log(
+      '🚀 ~ AuthService ~ onLoginRouting ~ this.user()?.role === UserRoleEnum.ARTIST:',
+      this.user()?.role === UserRoleEnum.ARTIST,
+    );
+    if (this.user()?.role === UserRoleEnum.ARTIST) {
+      url = returnUrl || '/artists/' + this.user()?.id;
+    }
+    console.log('🚀 ~ AuthService ~ onLoginRouting ~ url:', url);
     if (this.router.url.includes('nfc')) return;
-    if (this.route.snapshot) this.router.navigateByUrl(returnUrl);
+    if (this.route.snapshot) this.router.navigateByUrl(url);
   }
 
   autoLogin() {
@@ -174,10 +188,7 @@ export class AuthService {
         next: async (res) => {
           await this.loadingService.dismissLoading();
           if (!res) return;
-          const returnUrl =
-            this.route.snapshot.queryParams['returnUrl'] || this.homeRoute;
-          this.router.navigateByUrl(returnUrl);
-          console.log('🚀 ~ AuthService ~ constructor ~ returnUrl:', returnUrl);
+          this.onLoginRouting();
         },
         error: async (error) => {
           console.log('login error', error);

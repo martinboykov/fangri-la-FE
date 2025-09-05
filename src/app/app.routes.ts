@@ -3,7 +3,7 @@ import { translationGuard } from './guards/translate.guard';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/artists', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>
@@ -25,6 +25,7 @@ export const routes: Routes = [
   {
     path: 'nfc',
     loadComponent: () => import('./pages/nfc/nfc.page').then((m) => m.NfcPage),
+    canActivate: [translationGuard],
   },
 
 ];
