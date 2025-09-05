@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { translationGuard } from './guards/translate.guard';
 import { authGuard } from './guards/auth.guard';
+import { userGuard } from './guards/user.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -25,7 +26,7 @@ export const routes: Routes = [
   {
     path: 'nfc',
     loadComponent: () => import('./pages/nfc/nfc.page').then((m) => m.NfcPage),
-    canActivate: [translationGuard],
+    canActivate: [translationGuard, userGuard],
   },
-
+  { path: '**', redirectTo: '/auth' }, // TODO: add not found component
 ];
