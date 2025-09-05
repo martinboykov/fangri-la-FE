@@ -138,6 +138,7 @@ export class AuthService {
     }
     if (this.router.url.includes('nfc')) {
       if (returnUrl) {
+        this.router.navigateByUrl(returnUrl);
       } else {
         this.router.navigateByUrl(this.router.url);
       }
