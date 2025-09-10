@@ -13,18 +13,34 @@
     <div class="flex flex-col ml-sm">
       <ion-title class="text-lg text-left text-neutral-10"
                  [ngClass]="">{{title()}}</ion-title>
+      @if(itemsCount() !== undefined || artistCount() !== undefined){
       <div class="flex gap-xs">
-        @if(itemsCount() !== null){
+        @if(itemsCount() !== undefined){
         <span class="text-md text-neutral-100">
           {{itemsCount()}} {{ 'CONSTANTS.ITEMS' | translate }}
         </span>
         }
-        @if(artistCount() !== null){
+        @if(artistCount() !== undefined){
         <span class="text-md text-neutral-100">
           {{artistCount()}} {{ 'CONSTANTS.ARTISTS' | translate }}
         </span>
         }
       </div>
+      }
+      @if(description() !== undefined || price() !== undefined){
+      <div class="flex gap-xs">
+        @if(description() !== undefined){
+        <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]">
+          {{description()}}
+        </span>
+        }
+        @if(price() !== undefined){
+        <span class="text-md text-neutral-100">
+          {{currency}}{{price()}}
+        </span>
+        }
+      </div>
+      }
     </div>
   </ion-toolbar>
 

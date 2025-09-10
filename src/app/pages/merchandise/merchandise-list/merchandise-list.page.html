@@ -1,32 +1,36 @@
 <ion-content [fullscreen]="true">
   <app-header-inner-page [defaultHref]="'/artists/list'"
                          [title]="'MERCHANDISE.TITLE' | translate"
-                         [itemsCount]="merchandise.itemsCount"
-                         [artistCount]="merchandise.artistCount"></app-header-inner-page>
+                         [itemsCount]="merchandiseStore.totalItemsCount()"
+                         [artistCount]="merchandiseStore.totalArtistCount()"></app-header-inner-page>
   <div class="container section-spacing">
     <div class="text-black-100"></div>
 
     <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-xl sm:grid-cols-1">
-      @for(merch of merchandise.items; let i = $index; track $index){
+      @for(merch of  merchandiseStore.items(); let i = $index; track $index){
       <div class="flex flex-col gap-lg">
         <ion-label class="font-bold text-white h1">{{ merch.artist }}</ion-label>
         <div class="flex gap-lg p-sm rounded-lg bg-white">
           <ion-img class="w-full h-full max-w-10 max-h-18 object-cover rounded-md overflow-hidden cursor-pointer"
-                   [src]="merch.image"
-                   routerLink="/merchandise/{{ merch.id }}"></ion-img>
+                   [src]="merch.images[0] || '/assets/images/placeholder.svg'"
+                   routerLink="/merchandise/{{ merch.id }}"
+                   [state]="merch"></ion-img>
           <div class="flex flex-col justify-between gap-xs w-full text-black-100">
             <div class="flex flex-col gap-xs">
               @for(label of merch.labels; let j = $index; track $index){
               <div class="w-[fit-content] py-xs px-sm rounded-xs text-[10px] font-bold uppercase"
-                   [ngClass]="[label.color, label.background]">
+                   [ngClass]="[label.colorClass, label.backgroundClass]">
                 {{label.name}}
               </div>
 
               }
-              <h2 class="text-2 cursor-pointer">
-                {{ merch.name }}
-              </h2>
-              <p class="text-[14px] cursor-pointer">{{ merch.description }}</p>
+              <div routerLink="/merchandise/{{ merch.id }}"
+                   [state]="merch">
+                <h2 class="text-2 cursor-pointer">
+                  {{ merch.name }}
+                </h2>
+                <p class="text-[14px] line-clamp-3 cursor-pointer">{{ merch.description }}</p>
+              </div>
             </div>
             <div class="flex justify-between items-center gap-2">
               <span class="">
@@ -35,6 +39,7 @@
               </span>
               <div class="py-xs px-sm gap-sm border-[1px] border-black-100 border-solid rounded-sm">
                 <span class="icon-cart"></span>
+                <!-- TODO: depending on merch status change icon/button/text -->
               </div>
             </div>
           </div>

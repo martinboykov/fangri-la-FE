@@ -1,0 +1,30 @@
+<!-- @let _skeletonItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; -->
+
+
+<!-- @if(requestStatus()==='pending') {
+<div class="flex gap-3 section-spacing overflow-hidden ">
+  @for (item of _skeletonItems; track $index; let i = $index) {
+  <div class="shrink-0 rounded-md">
+    <app-expert-skeleton></app-expert-skeleton>
+  </div>
+  }
+</div>
+} -->
+<div class="max-w-[500px] ">
+  <swiper-container #swiper
+                    init="false"
+                    class="isHidden"
+                    [ngClass]="{
+        'isVisible': isSwiperInitialized
+      }">
+
+    @for (img of imgs(); track $index; let i = $index) {
+    <swiper-slide class="flex flex-col justify-between rounded-md overflow-hidden ">
+      <ion-img class="block w-full aspect-square object-cover overflow-hidden cursor-pointer"
+               [src]="img || '/assets/images/placeholder.svg'">
+      </ion-img>
+    </swiper-slide>
+    }
+  </swiper-container>
+  <div class="swiper-pagination"></div>
+</div>

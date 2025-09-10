@@ -1,45 +1,52 @@
 swiper-container {
-  &.tabs-navigation {
-    position: relative;
-    overflow: visible;
-    &::part(container) {
-      overflow: visible;
-    }
-    &::part(pagination) {
-      left: 20px;
-      text-align: start;
-    }
-    &::part(bullet) {
-    }
-    &::part(button-prev) {
-    }
-    &::part(button-next) {
+  // --swiper-pagination-bottom: 23px;
+  // --swiper-pagination-color: red;
+  // --swiper-pagination-bullet-width: 12px;
+  // --swiper-pagination-bullet-height: 12px;
+  // --swiper-pagination-bullet-inactive-color: #8c8a94;
+  // --swiper-pagination-bullet-inactive-opacity: 1;
+  // &::part(container) {
+  //   overflow: visible;
+  // }
+  // &::part(pagination) {
+  //   text-align: center;
+  // }
+  // &::part(bullet) {
+  //   filter: drop-shadow(0 0 2px #8c8a94);
+  // }
+  // &::part(bullet-active) {
+  //   filter: drop-shadow(0 0 2px #fff);
+  // }
+  // &.thumbnail {
+  //   &::part(container) {
+  //     overflow: hidden;
+  //   }
+  // }
+  ion-img {
+    &::part(image) {
+      // max-height: var(--max-height, 50svh);
     }
   }
-
-  &.place {
-    --swiper-pagination-bottom: 23px;
-    --swiper-pagination-color: white;
-    --swiper-pagination-bullet-width: 12px;
-    --swiper-pagination-bullet-height: 12px;
-    --swiper-pagination-bullet-inactive-color: #8C8A94;
-    --swiper-pagination-bullet-inactive-opacity: 1;
-    &::part(container) {
-      overflow: visible;
-    }
-    &::part(pagination) {
-      text-align: center;
-    }
-    &::part(bullet) {
-      filter: drop-shadow(0 0 2px #8C8A94);
-    }
-    &::part(bullet-active) {
-      filter: drop-shadow(0 0 2px #fff);
-    }
-    &.thumbnail {
-      &::part(container) {
-        overflow: hidden;
-      }
+}
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  user-select: none;
+  &-bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #2c2e35;
+    transition: all 0.3s ease-in;
+    &-active {
+      width: 20px;
+      border-radius: 16px;
+      background: #2c2e35;
     }
   }
 }

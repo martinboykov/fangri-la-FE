@@ -33,7 +33,7 @@ export const appConfig = {
     }),
     provideRouter(
       routes,
-      withPreloading(PreloadAllModules),
+      // withPreloading(PreloadAllModules),
       withComponentInputBinding(),
       // withDebugTracing(),
     ),

@@ -11,6 +11,7 @@ import { SharedModule } from 'src/app/shared.module';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthStore } from 'src/app/services/auth/store/auth.store';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-header-inner-page',
   templateUrl: './header-inner-page.component.html',
@@ -25,8 +26,17 @@ export class HeaderInnerPageComponent implements OnInit {
   readonly authStore = inject(AuthStore);
   title = input<string>();
   defaultHref = input<string>();
-  itemsCount = input<number | null>(null);
-  artistCount = input<number | null>(null);
+
+  // for mech list
+  itemsCount = input<number | undefined>(undefined);
+  artistCount = input<number | undefined>(undefined);
+
+  // for merch item
+  description = input<string>();
+  price = input<number>();
+
+  currency = environment.currency;
+
   constructor() {}
 
   ngOnInit() {}

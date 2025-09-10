@@ -1,7 +1,30 @@
+@let _merchandise = merchandise();
+
 <ion-content [fullscreen]="true">
-  <app-header-inner-page [title]="'Merch Page'"></app-header-inner-page>
-  <div class="container section-spacing">
-    <h1 class="mb-lg">Merch Page</h1>
+  @if(_merchandise !== undefined){
+
+  <app-header-inner-page [title]="_merchandise?.name"
+                         [description]="_merchandise?.description"
+                         [price]="_merchandise?.price"></app-header-inner-page>
+  <div class="container section-spacing text-black-0">
+
+
+    <div class="bg-white p-sm pb-3 rounded-sm">
+      <app-main-swiper class="block mb-sm"
+                       [imgs]="_merchandise?.images || []"></app-main-swiper>
+      <div class="flex flex-wrap gap-xs mb-sm">
+        @for(label of _merchandise.labels; let j = $index; track $index){
+        <div class="w-[fit-content] py-xs px-sm rounded-xs text-[10px] font-bold uppercase"
+             [ngClass]="[label.colorClass, label.backgroundClass]">
+          {{label.name}}
+        </div>
+        }
+      </div>
+      <h1 class="mb-sm ">{{_merchandise?.name}}</h1>
+      <p class="mb-sm ">{{_merchandise?.description}}</p>
+
+    </div>
 
   </div>
+  }
 </ion-content>

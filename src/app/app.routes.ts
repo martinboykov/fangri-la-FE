@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { translationGuard } from './guards/translate.guard';
 import { authGuard } from './guards/auth.guard';
 import { userGuard } from './guards/user.guard';
+import { MerchandiseStore } from './pages/merchandise/store/merchandise.store';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -22,6 +23,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/merchandise/merchandise.routes').then((m) => m.routes),
     canActivate: [translationGuard, authGuard],
+    providers: [MerchandiseStore],
   },
   {
     path: 'nfc',
