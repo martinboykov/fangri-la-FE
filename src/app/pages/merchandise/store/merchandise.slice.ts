@@ -11,10 +11,15 @@ export interface Merchandise {
   images: string[];
   description: string;
   price: number;
+  options?: { colors?: string[]; sizes?: string[] };
+  parameters?: {
+    name: string;
+    value: string;
+  }[];
   labels: {
     name: string;
-    colorClass: string;
-    backgroundClass: string;
+    color: string;
+    background: string;
   }[];
   status: MerchandiseStatus;
 }
@@ -44,20 +49,39 @@ export const initialMerchandiseSlice = {
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
-          colorClass: 'text-white',
-          backgroundClass: 'bg-green-200',
+          color: '#fff',
+          background: '#4cc8bc',
         },
         {
           name: 'Exclusive early access',
-          colorClass: 'text-black-100',
-          backgroundClass: 'bg-yellow-200',
+          color: '#111',
+          background: '#fff7a1',
         },
         {
           name: 'wearable',
-          colorClass: 'text-white',
-          backgroundClass: 'bg-black-200',
+          color: '#fff',
+          background: '#2c2e35',
         },
       ],
+      options: {
+        colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'materials',
+          value: 'Wood, Paint, Fabric',
+        },
+        {
+          name: 'dimensions',
+          value: '10x300x60mm',
+        },
+        {
+          name: 'weight',
+          value: '5kg',
+        },
+      ],
+
       status: MerchandiseStatusEnum.IN_STOCK,
     },
     {
@@ -71,13 +95,13 @@ export const initialMerchandiseSlice = {
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
-          colorClass: 'text-white',
-          backgroundClass: 'bg-green-200',
+          color: 'text-white',
+          background: 'bg-green-200',
         },
         {
           name: 'Exclusive early access',
-          colorClass: 'text-black-100',
-          backgroundClass: 'bg-yellow-200',
+          color: 'text-black-100',
+          background: 'bg-yellow-200',
         },
       ],
       status: MerchandiseStatusEnum.OUT_OF_STOCK,
@@ -93,16 +117,16 @@ export const initialMerchandiseSlice = {
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
-          colorClass: 'text-white',
-          backgroundClass: 'bg-green-200',
+          color: 'text-white',
+          background: 'bg-green-200',
         },
         {
           name: 'Exclusive early access',
-          colorClass: 'text-black-100',
-          backgroundClass: 'bg-yellow-200',
+          color: 'text-black-100',
+          background: 'bg-yellow-200',
         },
       ],
-       status: MerchandiseStatusEnum.IN_STOCK,
+      status: MerchandiseStatusEnum.IN_CART,
     },
     {
       id: '4',
@@ -115,16 +139,16 @@ export const initialMerchandiseSlice = {
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
-          colorClass: 'text-white',
-          backgroundClass: 'bg-green-200',
+          color: 'text-white',
+          background: 'bg-green-200',
         },
         {
           name: 'Exclusive early access',
-          colorClass: 'text-black-100',
-          backgroundClass: 'bg-yellow-200',
+          color: 'text-black-100',
+          background: 'bg-yellow-200',
         },
       ],
-       status: MerchandiseStatusEnum.IN_STOCK,
+      status: MerchandiseStatusEnum.IN_STOCK,
     },
     {
       id: '5',
@@ -137,16 +161,16 @@ export const initialMerchandiseSlice = {
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
-          colorClass: 'text-white',
-          backgroundClass: 'bg-green-200',
+          color: 'text-white',
+          background: 'bg-green-200',
         },
         {
           name: 'Exclusive early access',
-          colorClass: 'text-black-100',
-          backgroundClass: 'bg-yellow-200',
+          color: 'text-black-100',
+          background: 'bg-yellow-200',
         },
       ],
-       status: MerchandiseStatusEnum.IN_STOCK,
+      status: MerchandiseStatusEnum.IN_STOCK,
     },
   ],
 };

@@ -197,7 +197,7 @@ export default {
       },
     },
   },
-  safelist: [{ pattern: /(bg|text)-./ }],
+  // safelist: [{ pattern: /(bg|text)-./ }],
   plugins: [
     require("@tailwindcss/container-queries"),
     plugin(function ({ addVariant }) {

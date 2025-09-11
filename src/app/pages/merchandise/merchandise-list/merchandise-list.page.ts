@@ -3,6 +3,7 @@ import { HeaderInnerPageComponent } from 'src/app/components/headers/header-inne
 import { SharedModule } from 'src/app/shared.module';
 import { environment } from 'src/environments/environment';
 import { MerchandiseStore } from '../store/merchandise.store';
+import { MerchandiseStatusEnum } from '../store/merchandise.slice';
 
 @Component({
   selector: 'app-merchandise-list',
@@ -13,6 +14,7 @@ import { MerchandiseStore } from '../store/merchandise.store';
 })
 export class MerchandiseListPage implements OnInit {
   readonly merchandiseStore = inject(MerchandiseStore);
+  MerchandiseStatusEnum = MerchandiseStatusEnum;
 
   currency = environment.currency;
   constructor() {}

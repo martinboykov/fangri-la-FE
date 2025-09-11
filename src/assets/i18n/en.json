@@ -8,6 +8,8 @@
     "CLOSE": "Close",
     "OPEN": "Open",
     "SHOW": "show",
+    "COLOR": "color",
+    "SIZE": "size",
     "CANCEL": "cancel",
     "ACCEPT": "accept",
     "SAVE": "save",
@@ -23,6 +25,7 @@
     "ITEMS": "items",
     "WAIT": "wait",
     "PLEASE_WAIT": "Please wait...",
+    "PLEASE_SELECT": "Please select",
     "CONTINUE": "continue",
     "END": "finish",
     "NEXT": "next",
@@ -142,9 +145,7 @@
     }
   },
   "HEADERS": {
-    "INNER": {
-
-    }
+    "INNER": {}
   },
   "NAVIGATION": {
     "ARTISTS": "Artists",
@@ -158,6 +159,8 @@
     "TITLE": "Your Fangri-La Line up"
   },
   "MERCHANDISE": {
-    "TITLE": "Merch Store"
+    "TITLE": "Merch Store",
+    "BUTTON_ADD_TO_CART": "Add to Cart",
+    "BUTTON_SOLD_OUT": "Sold Out"
   }
 }
