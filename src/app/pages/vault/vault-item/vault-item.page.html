@@ -1,0 +1,60 @@
+@let _merchandise = merchandise();
+
+<ion-content [fullscreen]="true">
+  @if(_merchandise !== undefined){
+
+  <app-header-inner-page [title]="_merchandise?.name"
+                         [merchandise]="_merchandise"
+                         [isVaultItem]="true"></app-header-inner-page>
+  <div class="container section-spacing text-black-0">
+    <div class="flex flex-col justify-between gap-sm ">
+      <div class="flex-grow-[2] flex flex-col justify-between gap-sm">
+        <div class="grid gap-sm">
+          @if(_merchandise.labels.length > 0) {
+          <div class="w-[fit-content] p-xs  rounded-xs text-[10px] font-bold text-center uppercase"
+               [style.color]="_merchandise.labels[0].color"
+               [style.background-color]="_merchandise.labels[0].background">
+            {{_merchandise.labels[0].name}}
+          </div>
+          }
+          <h1 class="text-[10px] text-white uppercase">{{ _merchandise.artist }}</h1>
+        </div>
+        <h3 class="font-bold text-white">{{ _merchandise.name }}</h3>
+      </div>
+      <div class="max-w-lg mb-4 p-sm bg-[rgba(71,_77,_78,_0.50)] rounded-md overflow-hidden
+      sm:mb-[6vw]">
+        <ion-img class="aspect-square object-cover rounded-sm overflow-hidden"
+                 [src]="_merchandise.images[0]"></ion-img>
+      </div>
+    </div>
+    <div class=" flex justify-between gap-md flex-wrap max-w-lg  px-2 mb-2">
+      @for (social of socials; let i = $index; track $index){
+      <ion-button class=""
+                  color="dark"
+                  fill="clear">
+        <span class="icon-{{social.icon}} text-[24px] text-green-200"
+              slot="icon-only"></span>
+      </ion-button>
+      }
+    </div>
+    @if(!authStore.user()){
+    <div class="grid gap-lg max-w-lg  mt-3 mb-2">
+      <ion-button class="min-h-5 w-full bg-yellow-100 rounded-sm overflow-hidden"
+                  color="dark"
+                  fill="outline"
+                  routerLink="/auth/login"
+                  [queryParams]="{returnUrl: path()}"><span class="text-black-0">{{ 'AUTH.LOGIN.TITLE' | translate }}</span></ion-button>
+      <ion-button class="min-h-5 w-full bg-green-100 rounded-sm overflow-hidden"
+                  color="dark"
+                  fill="outline"
+                  type="button"
+                  routerLink="/auth/register"
+                  [queryParams]="{returnUrl: path()}">
+        <span class="text-black-0 capitalize">{{ 'CONSTANTS.REGISTER' | translate }}</span>
+      </ion-button>
+    </div>
+    }
+
+  </div>
+  }
+</ion-content>

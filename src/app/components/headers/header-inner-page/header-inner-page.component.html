@@ -1,3 +1,4 @@
+@let _merchandise = merchandise();
 <ion-header class="inner-page mb-2  px-[var(--ion-padding)]
             desktop-min:mb-3 "
             [translucent]="true">
@@ -13,30 +14,45 @@
     <div class="flex flex-col ml-sm">
       <ion-title class="text-lg text-left text-neutral-10"
                  [ngClass]="">{{title()}}</ion-title>
-      @if(itemsCount() !== undefined || artistCount() !== undefined){
+      @if(isMerchandiseList !== undefined && isMerchandiseList()){
       <div class="flex gap-xs">
-        @if(itemsCount() !== undefined){
+        @if(totalItemsCount !== undefined){
         <span class="text-md text-neutral-100">
-          {{itemsCount()}} {{ 'CONSTANTS.ITEMS' | translate }}
+          {{totalItemsCount()}} {{ 'CONSTANTS.ITEMS' | translate }}
         </span>
         }
-        @if(artistCount() !== undefined){
+        @if(totalArtistsCount !== undefined){
         <span class="text-md text-neutral-100">
-          {{artistCount()}} {{ 'CONSTANTS.ARTISTS' | translate }}
+          {{totalArtistsCount()}} {{ 'CONSTANTS.ARTISTS' | translate }}
         </span>
         }
       </div>
       }
-      @if(description() !== undefined || price() !== undefined){
+      @if(merchandise !== undefined && isMerchandiseItem() !== undefined && isMerchandiseItem()){
       <div class="flex gap-xs">
-        @if(description() !== undefined){
+        @if(merchandise()?.description){
         <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]">
-          {{description()}}
+          {{merchandise()?.description}}
         </span>
         }
-        @if(price() !== undefined){
+        @if(merchandise()?.price !== undefined){
         <span class="text-md text-neutral-100">
-          {{currency}}{{price()}}
+          {{currency}}{{merchandise()?.price}}
+        </span>
+        }
+      </div>
+      }
+      @if(merchandise() !== undefined && isVaultItem() !== undefined && isVaultItem()){
+      <div class="flex gap-xs">
+        @if(merchandise()?.artist){
+        <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]">
+          {{merchandise()?.artist}}
+        </span>
+        }
+        @let labels = merchandise()?.labels;
+        @if(labels) {
+        <span class="text-md text-neutral-100">
+          {{currency}}{{labels[0].name}}
         </span>
         }
       </div>

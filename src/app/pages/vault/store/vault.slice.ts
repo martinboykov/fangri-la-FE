@@ -1,42 +1,17 @@
-export type MerchandiseStatus = 'IN_STOCK' | 'OUT_OF_STOCK' | 'IN_CART';
-export enum MerchandiseStatusEnum {
-  IN_STOCK = 'IN_STOCK',
-  OUT_OF_STOCK = 'OUT_OF_STOCK',
-  IN_CART = 'IN_CART',
-}
-export interface Merchandise {
-  id: string;
-  artist: string;
-  name: string;
-  images: string[];
-  description: string;
-  price: number;
-  options?: { colors?: string[]; sizes?: string[] };
-  parameters?: {
-    name: string;
-    value: string;
-  }[];
-  labels: {
-    name: string;
-    color: string;
-    background: string;
-  }[];
-  status?: MerchandiseStatus;
-}
-export interface MerchandiseSlice {
+import { Merchandise } from '../../merchandise/store/merchandise.slice';
+
+export interface VaultSlice {
   totalItemsCount: number;
-  totalArtistCount: number;
   items: Merchandise[];
 }
 
-export const initialMerchandiseSlice = {
-  totalItemsCount: 125,
-  totalArtistCount: 25,
+export const initialVaultSlice = {
+  totalItemsCount: 5,
   items: [
     {
       id: '1',
       artist: 'Nova Rae',
-      name: 'Tour Skate Deck 1',
+      name: 'CLT/ALT/DEL Tour Virtual VynilTM 1',
       images: [
         '/assets/static/images/merch-store.jpg',
         '/assets/static/images/merch-store.jpg',
@@ -81,8 +56,6 @@ export const initialMerchandiseSlice = {
           value: '5kg',
         },
       ],
-
-      status: MerchandiseStatusEnum.IN_STOCK,
     },
     {
       id: '2',
@@ -104,7 +77,6 @@ export const initialMerchandiseSlice = {
           background: '#fff7a1',
         },
       ],
-      status: MerchandiseStatusEnum.OUT_OF_STOCK,
     },
     {
       id: '3',
@@ -126,7 +98,6 @@ export const initialMerchandiseSlice = {
           background: '#fff7a1',
         },
       ],
-      status: MerchandiseStatusEnum.IN_CART,
     },
     {
       id: '4',
@@ -148,7 +119,6 @@ export const initialMerchandiseSlice = {
           background: '#fff7a1',
         },
       ],
-      status: MerchandiseStatusEnum.IN_STOCK,
     },
     {
       id: '5',
@@ -170,7 +140,6 @@ export const initialMerchandiseSlice = {
           background: '#fff7a1',
         },
       ],
-      status: MerchandiseStatusEnum.IN_STOCK,
     },
   ],
 };

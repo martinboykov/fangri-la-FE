@@ -3,6 +3,7 @@ import { translationGuard } from './guards/translate.guard';
 import { authGuard } from './guards/auth.guard';
 import { userGuard } from './guards/user.guard';
 import { MerchandiseStore } from './pages/merchandise/store/merchandise.store';
+import { VaultStore } from './pages/vault/store/vault.store';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -25,10 +26,18 @@ export const routes: Routes = [
     canActivate: [translationGuard, authGuard],
     providers: [MerchandiseStore],
   },
+    {
+    path: 'vault',
+    loadChildren: () =>
+      import('./pages/vault/vault.routes').then((m) => m.routes),
+    canActivate: [translationGuard],
+    providers: [VaultStore],
+  },
   {
     path: 'nfc',
     loadComponent: () => import('./pages/nfc/nfc.page').then((m) => m.NfcPage),
     canActivate: [translationGuard, userGuard],
   },
-  { path: '**', redirectTo: '/auth' }, // TODO: add not found component
+  { path: '**', redirectTo: '/auth' },
+  // TODO: add not found component
 ];

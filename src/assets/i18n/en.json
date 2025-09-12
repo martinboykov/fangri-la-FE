@@ -15,6 +15,8 @@
     "SAVE": "save",
     "APPLY": "apply",
     "LIST": "list",
+    "ITEM":"item",
+    "ITEMS": "items",
     "REPEAT": "repeat",
     "GALLERY": "gallery",
     "CHOOSE": "choose",
@@ -22,7 +24,6 @@
     "PLEASE": "please",
     "PASSWORD": "password",
     "ARTISTS": "artists",
-    "ITEMS": "items",
     "WAIT": "wait",
     "PLEASE_WAIT": "Please wait...",
     "PLEASE_SELECT": "Please select",
@@ -162,5 +163,10 @@
     "TITLE": "Merch Store",
     "BUTTON_ADD_TO_CART": "Add to Cart",
     "BUTTON_SOLD_OUT": "Sold Out"
+  },
+  "VAULT": {
+    "PAGE_LIST": {
+      "TITLE": "My Fangri-La Vault"
+    }
   }
 }

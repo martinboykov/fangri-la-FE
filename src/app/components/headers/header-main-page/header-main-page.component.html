@@ -8,7 +8,7 @@
                src="/assets/images/logo.png"
                (click)="goHome()">
       </ion-img>
-      <div class="flex-shrink-0 flex gap-1 justify-between items-center desktop-min:justify-end">
+      <div class="flex-shrink-0 flex gap-2 justify-between items-center desktop-min:justify-end">
         <ion-button class="flex p-0 size-[35px]"
                     fill="clear"
                     routerLink="">
@@ -97,7 +97,9 @@
       </li>
       <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0 ">
       <li>
-        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold">
+        <a class="block pt-3 pb-2 text-black-10 text-2xl font-bold"
+           routerLink="/vault/list"
+           (click)="menu.close()">
           {{'NAVIGATION.MY_VAULT' | translate}}
         </a>
       </li>

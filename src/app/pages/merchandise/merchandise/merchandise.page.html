@@ -4,8 +4,8 @@
   @if(_merchandise !== undefined){
 
   <app-header-inner-page [title]="_merchandise?.name"
-                         [description]="_merchandise?.description"
-                         [price]="_merchandise?.price"></app-header-inner-page>
+                         [merchandise]="_merchandise"
+                         [isMerchandiseItem]="true"></app-header-inner-page>
   <div class="container section-spacing text-black-0">
 
 
@@ -72,12 +72,12 @@
       </div>
       }
       @if(_merchandise.status === MerchandiseStatusEnum.IN_STOCK){
-      <ion-button class="min-h-5 w-full my-2 "
+      <ion-button class="min-h-5 w-full mt-2 "
                   color="danger"
                   fill="solid"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
       }
       @else if(_merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
-      <ion-button class="min-h-5 w-full my-2 "
+      <ion-button class="min-h-5 w-full mt-2 "
                   color="dark"
                   fill="solid"><span class="text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span></ion-button>
       <!-- <span class="block w-full text-center text-[14px] text-black-100 uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span> -->

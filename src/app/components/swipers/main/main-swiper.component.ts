@@ -25,7 +25,7 @@ import { RequestStatus } from 'src/app/store/custom-features/with-response/with-
 })
 export class MainSwiperComponent implements OnInit {
   private readonly swiperContainer = viewChild.required<ElementRef>('swiper');
-  readonly imgs = input<string[]>();
+  readonly imgs = input<string[]>([]);
   readonly isLoading = input<boolean>();
   readonly requestStatus = input<RequestStatus>();
   swiperElement?: SwiperContainer;

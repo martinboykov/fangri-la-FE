@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthStore } from 'src/app/services/auth/store/auth.store';
 import { environment } from 'src/environments/environment';
+import { Merchandise } from 'src/app/pages/merchandise/store/merchandise.slice';
 @Component({
   selector: 'app-header-inner-page',
   templateUrl: './header-inner-page.component.html',
@@ -27,13 +28,16 @@ export class HeaderInnerPageComponent implements OnInit {
   title = input<string>();
   defaultHref = input<string>();
 
-  // for mech list
-  itemsCount = input<number | undefined>(undefined);
-  artistCount = input<number | undefined>(undefined);
+  merchandise = input<Merchandise>();
 
-  // for merch item
-  description = input<string>();
-  price = input<number>();
+  isMerchandiseList = input<boolean>(false);
+  isMerchandiseItem = input<boolean>(false);
+  isVaultItem = input<boolean>(false);
+
+  // for mech list
+  totalItemsCount = input<number>();
+  totalArtistsCount = input<number>();
+
 
   currency = environment.currency;
 
