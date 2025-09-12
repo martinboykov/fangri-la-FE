@@ -9,7 +9,6 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { VaultStore } from '../store/vault.store';
-import { MainSwiperComponent } from 'src/app/components/swipers/main/main-swiper.component';
 import { HeaderInnerPageComponent } from 'src/app/components/headers/header-inner-page/header-inner-page.component';
 import { SharedModule } from 'src/app/shared.module';
 import { Merchandise } from '../../merchandise/store/merchandise.slice';
@@ -21,7 +20,7 @@ import { AuthStore } from 'src/app/services/auth/store/auth.store';
   templateUrl: './vault-item.page.html',
   styleUrls: ['./vault-item.page.scss'],
   standalone: true,
-  imports: [SharedModule, HeaderInnerPageComponent, MainSwiperComponent],
+  imports: [SharedModule, HeaderInnerPageComponent],
 })
 export class VaultItemPage implements OnInit {
   private router = inject(Router);
@@ -61,6 +60,9 @@ export class VaultItemPage implements OnInit {
   url = computed(() => decodeURI(`${window.location.href}`));
   parser = document.createElement('a');
   path = computed(() => this.parser.pathname + this.parser.search);
+
+
+
   constructor() {
     this.parser.href = this.url();
     const navigation = this.router.currentNavigation();
@@ -80,7 +82,6 @@ export class VaultItemPage implements OnInit {
           .find((merchandise) => merchandise.id === this.id());
         this.merchandise.set(merchandise);
       }
-      const merchandise = this.merchandise();
     });
   }
 
