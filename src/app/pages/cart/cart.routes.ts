@@ -7,13 +7,13 @@ export const routes: Routes = [
     component: CartContainerPage,
     children: [
       {
-        path: 'cart',
+        path: 'items',
         loadComponent: () =>
           import('./cart-main/cart.page').then((m) => m.CartPage),
       },
       {
         path: '',
-        redirectTo: 'cart',
+        redirectTo: 'items',
         pathMatch: 'full',
       },
     ],

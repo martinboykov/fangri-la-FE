@@ -30,9 +30,13 @@ import {
   IonMenu,
   IonMenuButton,
   IonMenuToggle,
-  IonRouterOutlet
+  IonRouterOutlet,
 } from '@ionic/angular/standalone';
-import { TranslateDirective, TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import {
+  TranslateDirective,
+  TranslateModule,
+  TranslatePipe,
+} from '@ngx-translate/core';
 
 const sharable: Type<any>[] = [
   CommonModule,
@@ -71,8 +75,7 @@ const sharable: Type<any>[] = [
 
   TranslateModule,
   TranslatePipe,
-  TranslateDirective
-
+  TranslateDirective,
 ];
 
 @NgModule({

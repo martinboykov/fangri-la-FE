@@ -15,7 +15,7 @@
     "SAVE": "save",
     "APPLY": "apply",
     "LIST": "list",
-    "ITEM":"item",
+    "ITEM": "item",
     "ITEMS": "items",
     "REPEAT": "repeat",
     "GALLERY": "gallery",
@@ -168,6 +168,15 @@
   "VAULT": {
     "PAGE_LIST": {
       "TITLE": "My Fangri-La Vault"
+    }
+  },
+  "CART": {
+    "PAGE_LIST": {
+      "TITLE": "Shopping Cart",
+      "TAX": "Tax",
+      "SHIPPING": "Shipping",
+      "PURCHASES": "Purchases",
+      "TOTAL": "Total"
     }
   }
 }

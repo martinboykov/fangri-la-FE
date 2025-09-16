@@ -14,7 +14,7 @@
       <ion-title class="text-lg text-left text-neutral-10"
                  [ngClass]="">{{title()}}</ion-title>
       @if(isMerchandiseList !== undefined && isMerchandiseList()){
-      <div class="flex gap-xs">
+      <div class="flex gap-sm opacity-80">
         @if(totalItemsCount !== undefined){
         <span class="text-md text-neutral-100">
           {{totalItemsCount()}} {{ 'CONSTANTS.ITEMS' | translate }}
@@ -28,7 +28,7 @@
       </div>
       }
       @if(merchandise !== undefined && isMerchandiseItem() !== undefined && isMerchandiseItem()){
-      <div class="flex gap-xs">
+      <div class="flex gap-sm opacity-80">
         @if(merchandise()?.description){
         <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]">
           {{merchandise()?.description}}
@@ -42,7 +42,7 @@
       </div>
       }
       @if(merchandise() !== undefined && isVaultItem() !== undefined && isVaultItem()){
-      <div class="flex gap-xs">
+      <div class="flex gap-sm opacity-80">
         @if(merchandise()?.artist){
         <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]">
           {{merchandise()?.artist}}
@@ -52,6 +52,21 @@
         @if(labels) {
         <span class="text-md text-neutral-100">
           {{currency}}{{labels[0].name}}
+        </span>
+        }
+      </div>
+      }
+      @if(isCart !== undefined && isCart()){
+      <div class="flex items-center gap-sm opacity-80">
+        @if(totalItemsCount !== undefined){
+        <span class="text-md text-neutral-100">
+          {{totalItemsCount()}} {{ 'CONSTANTS.ITEMS' | translate }}
+        </span>
+        }
+        <span>&#8226;</span>
+        @if(totalItemsCost !== undefined){
+        <span class="text-md text-neutral-100">
+         {{currency}}{{totalItemsCost()}}
         </span>
         }
       </div>

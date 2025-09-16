@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { Component, inject, OnInit } from '@angular/core';
+import { SharedModule } from 'src/app/shared.module';
+import { HeaderInnerPageComponent } from 'src/app/components/headers/header-inner-page/header-inner-page.component';
+import { CartStore } from '../store/cart.store';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [SharedModule, HeaderInnerPageComponent],
 })
 export class CartPage implements OnInit {
+  readonly cartStore = inject(CartStore);
+  readonly currency = environment.currency;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

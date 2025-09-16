@@ -25,6 +25,7 @@ export class HeaderInnerPageComponent implements OnInit {
   private location: Location = inject(Location);
   private router: Router = inject(Router);
   readonly authStore = inject(AuthStore);
+  readonly currency = environment.currency;
   title = input<string>();
   defaultHref = input<string>();
 
@@ -33,13 +34,16 @@ export class HeaderInnerPageComponent implements OnInit {
   isMerchandiseList = input<boolean>(false);
   isMerchandiseItem = input<boolean>(false);
   isVaultItem = input<boolean>(false);
+  isCart = input<boolean>(false);
 
   // for mech list
-  totalItemsCount = input<number>();
+  totalItemsCount = input<number>(); // also for cart
   totalArtistsCount = input<number>();
 
+  // for cart
+  totalItemsCost = input<number>();
 
-  currency = environment.currency;
+
 
   constructor() {}
 

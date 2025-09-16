@@ -63,7 +63,9 @@ export class MerchandisePage implements OnInit {
           '🚀 ~ MerchandisePage ~ constructor ~ merchandise:',
           merchandise,
         );
-        this.merchandise.set(merchandise || undefined);
+        if (merchandise !== undefined) {
+          this.merchandise.set(merchandise as Merchandise);
+        }
       }
       const merchandise = this.merchandise();
       if (merchandise?.options?.colors) {

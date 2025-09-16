@@ -6,7 +6,8 @@ import { MerchandiseStore } from './pages/merchandise/store/merchandise.store';
 import { VaultStore } from './pages/vault/store/vault.store';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  // { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: '', redirectTo: '/cart', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>
@@ -37,6 +38,7 @@ export const routes: Routes = [
     path: 'cart',
     loadChildren: () =>
       import('./pages/cart/cart.routes').then((m) => m.routes),
+    canActivate: [translationGuard, authGuard],
   },
   {
     path: 'nfc',

@@ -32,7 +32,7 @@ $xss-px: 380px;
   --color-yellow-100: #f7ea76;
   --color-yellow-200: #fff7a1;
 
-  --color-green-100: #4fc9bb;
+  --color-white0: #4fc9bb;
   --color-green-200: #4cc8bc;
 
   --color-red-100: #eb001b;
@@ -110,9 +110,9 @@ $xss-px: 380px;
 
   // START custom colors buttons from figma
 
-  --ion-color-white: var(--color-neutral-900);
+  --ion-color-white: var(--color-white);
   --ion-color-white-rgb: 254, 255, 255;
-  --ion-color-white-contrast: var(--color-neutral-10);
+  --ion-color-white-contrast: var(--color-white);
   --ion-color-white-contrast-rgb: 0, 0, 0;
   --ion-color-white-shade: #e0e0e0;
   --ion-color-white-tint: #feffff;
@@ -254,14 +254,14 @@ $xss-px: 380px;
 
 // START IONIC custom color classes buttons from figma
 
-// .ion-color-green-10 {
-//   --ion-color-primary: var(--ion-color-green-10);
-//   --ion-color-base: var(--ion-color-green-10);
-//   --ion-color-base-rgb: var(--ion-color-green-10-rgb);
-//   --ion-color-contrast: var(--ion-color-green-10-contrast);
-//   --ion-color-contrast-rgb: var(--ion-color-green-10-contrast-rgb);
-//   --ion-color-shade: var(--ion-color-green-10-shade);
-//   --ion-color-tint: var(--ion-color-green-10-tint);
-// }
+.ion-color-white {
+  --ion-color-primary: var(--ion-color-white);
+  --ion-color-base: var(--ion-color-white);
+  --ion-color-base-rgb: var(--ion-color-white-rgb);
+  --ion-color-contrast: var(--ion-color-white-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-white-contrast-rgb);
+  --ion-color-shade: var(--ion-color-white-shade);
+  --ion-color-tint: var(--ion-color-white-tint);
+}
 
 // END IONIC custom colors buttons from figma

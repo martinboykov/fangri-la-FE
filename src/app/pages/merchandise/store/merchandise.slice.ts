@@ -10,8 +10,9 @@ export interface Merchandise {
   images: string[];
   description: string;
   price: number;
-  options?: { colors?: string[]; sizes?: string[] };
-  parameters?: {
+  totalCount: number;
+  options: { colors: string[]; sizes: string[] };
+  parameters: {
     name: string;
     value: string;
   }[];
@@ -20,13 +21,13 @@ export interface Merchandise {
     color: string;
     background: string;
   }[];
-  status?: MerchandiseStatus;
+  status: MerchandiseStatusEnum;
 }
 export interface MerchandiseSlice {
   totalItemsCount: number;
   totalArtistCount: number;
   items: Merchandise[];
-  shippingInfo?: string; // html
+  shippingInfo: string; // html
 }
 
 export const initialMerchandiseSlice = {
@@ -38,14 +39,15 @@ export const initialMerchandiseSlice = {
       artist: 'Nova Rae',
       name: 'Tour Skate Deck 1',
       images: [
-        '/assets/static/images/merch-store.jpg',
-        '/assets/static/images/merch-store.jpg',
-        '/assets/static/images/merch-store.jpg',
-        '/assets/static/images/merch-store.jpg',
+        '/assets/static/images/merchandise/merch-store.jpg',
+        '/assets/static/images/merchandise/merch-store.jpg',
+        '/assets/static/images/merchandise/merch-store.jpg',
+        '/assets/static/images/merchandise/merch-store.jpg',
       ],
       description:
         'Limited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus Team',
       price: 125,
+      totalCount: 2,
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
@@ -88,10 +90,12 @@ export const initialMerchandiseSlice = {
       id: '2',
       artist: 'OG Mondo',
       name: 'Tour Skate Deck 2',
-      images: ['/assets/static/images/merch-store-xs.jpg'],
+      images: ['/assets/static/images/merchandise/merch-store-2.jpg'],
       description:
         'Limited edition skate deck designed by the Fangri-la Design Haus Team',
       price: 310,
+      totalCount: 5,
+
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
@@ -110,10 +114,12 @@ export const initialMerchandiseSlice = {
       id: '3',
       artist: 'Soliah Skye',
       name: 'Tour Skate Deck 3',
-      images: ['/assets/static/images/merch-store-xl.jpg'],
+      images: ['/assets/static/images/merchandise/merch-store-3.jpg'],
       description:
         'Limited edition skate deck designed by the Fangri-la Design Haus Team',
       price: 97,
+      totalCount: 20,
+
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
@@ -132,10 +138,12 @@ export const initialMerchandiseSlice = {
       id: '4',
       artist: 'Koryn',
       name: 'Tour Skate Deck 4',
-      images: ['/assets/static/images/merch-store.jpg'],
+      images: ['/assets/static/images/merchandise/merch-store.jpg'],
       description:
         'Limited edition skate deck designed by the Fangri-la Design Haus Team',
       price: 105,
+      totalCount: 30,
+
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
@@ -154,10 +162,11 @@ export const initialMerchandiseSlice = {
       id: '5',
       artist: 'KASHKIDD',
       name: 'Tour Skate Deck 5',
-      images: ['/assets/static/images/merch-store.jpg'],
+      images: ['/assets/static/images/merchandise/merch-store.jpg'],
       description:
         'Limited edition skate deck designed by the Fangri-la Design Haus Team',
       price: 100,
+      totalCount: 40,
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
@@ -181,5 +190,5 @@ export const initialMerchandiseSlice = {
       <li>Delivery in 2-3 working days - 19.95 лв / 10.20 EUR</li>
     </ul>
     <p>Remember that orders including a large HOME item will be charged a corresponding delivery rate.<br />DROP POINT DELIVERY - 9.95 лв / 5.09 EUR<br />Shipping will be free for orders over 100&nbsp;лв / 51.12 EUR only for non-discounted items.Delivery in 3-5 working days.<br />This option is not available for orders that include a HOME large item.</p>
-  `
+  `,
 };

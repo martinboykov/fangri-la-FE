@@ -28,7 +28,7 @@ export class NfcPage implements OnInit {
     name: 'Tour Skate Deck',
     description:
       'Limited edition skate deck designed by the Fangri-la Design Haus Team',
-    image: '/assets/static/images/merch-1.jpg',
+    image: '/assets/static/images/merchandise/merch-1.jpg',
   };
 
   constructor() {
