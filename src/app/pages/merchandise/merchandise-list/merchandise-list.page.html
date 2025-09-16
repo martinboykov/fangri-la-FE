@@ -49,15 +49,15 @@
                 <span class="text-[20px]">{{currency}}</span>
                 <span class="text-[30px] tracking-tighter">{{ merchandise.price }}</span>
               </span>
-              @if(merchandise.status === MerchandiseStatusEnum.IN_STOCK){
+              <!-- @if(merchandise.status === MerchandiseStatusEnum.IN_STOCK){
               <ion-button class="flex-shrink-0 min-h-[45px] w-full max-w-[140px]"
                           color="danger"
                           fill="solid"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
-              }
-              @else if(merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
+              } -->
+              <!-- @else if(merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){ -->
               <span class="py-sm pr-2 text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span>
-              }
-              @if(merchandise.status === MerchandiseStatusEnum.IN_CART){
+              <!-- } -->
+              <!-- @if(merchandise.status === MerchandiseStatusEnum.IN_CART){
               <ion-button class="flex-shrink-0  size-4 "
                           color="dark"
                           fill="clear">
@@ -66,7 +66,7 @@
                   <span class="icon-cart text-[24px]"></span>
                 </div>
               </ion-button>
-              }
+              } -->
 
             </div>
 

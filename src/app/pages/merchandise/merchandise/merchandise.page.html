@@ -8,7 +8,6 @@
                          [isMerchandiseItem]="true"></app-header-inner-page>
   <div class="container section-spacing text-black-0">
 
-
     <div class="bg-white p-sm pb-3 rounded-sm">
       <app-main-swiper class="block mb-sm"
                        [imgs]="_merchandise?.images || []"></app-main-swiper>
@@ -71,18 +70,35 @@
         }
       </div>
       }
-      @if(_merchandise.status === MerchandiseStatusEnum.IN_STOCK){
-      <ion-button class="min-h-5 w-full mt-2 "
-                  color="danger"
-                  fill="solid"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
-      }
-      @else if(_merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
-      <ion-button class="min-h-5 w-full mt-2 "
-                  color="dark"
-                  fill="solid"><span class="text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span></ion-button>
-      <!-- <span class="block w-full text-center text-[14px] text-black-100 uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span> -->
 
-      }
+      <div class="grid gap-xl mt-5">
+        <div class="flex justify-end">
+          <ion-button class=""
+                      color="dark"
+                      fill="clear"
+                      (click)="openModalSheet()">
+            <div class="flex gap-1"
+                 slot="icon-only">
+              <span class="icon-warning">
+              </span>
+              <span class="text-[14px] text-[#2D73AC] underline">
+                {{'MERCHANDISE.SHIPPING_INFO' | translate}}
+              </span>
+            </div>
+          </ion-button>
+        </div>
+
+        @if(_merchandise.status === MerchandiseStatusEnum.IN_STOCK){
+        <ion-button class="min-h-5 w-fullmt-2 "
+                    color="danger"
+                    fill="solid"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
+        }
+        @else if(_merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
+        <ion-button class="min-h-5 w-full"
+                    color="dark"
+                    fill="solid"><span class="text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span></ion-button>
+        }
+      </div>
     </div>
 
   </div>

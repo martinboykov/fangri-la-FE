@@ -162,7 +162,8 @@
   "MERCHANDISE": {
     "TITLE": "Merch Store",
     "BUTTON_ADD_TO_CART": "Add to Cart",
-    "BUTTON_SOLD_OUT": "Sold Out"
+    "BUTTON_SOLD_OUT": "Sold Out",
+    "SHIPPING_INFO": "Shipping info"
   },
   "VAULT": {
     "PAGE_LIST": {

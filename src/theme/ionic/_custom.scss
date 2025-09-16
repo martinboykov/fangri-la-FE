@@ -815,68 +815,70 @@ ion-modal {
   // background-color: var(--color-yellow-200) !important;
   --width: 100%;
   --height: 100%;
-  --background: var(--color-neutral-900);
+  --background: var(--color-white);
   &::part(content) {
-    border-top: 1px solid var(--color-neutral-300);
+    // border-top: 1px solid var(--color-white);
+    border-radius: var(--lg-px);
+    color: black;
   }
   // --height: auto;
-  &.consultations-modal-popup {
-    .ion-page {
-      justify-content: flex-start;
-      padding: var(--md-px);
-    }
-  }
-  &.custom-modal-popup {
-    --width: auto;
-    --min-width: 320px;
-    --height: auto;
-    --max-height: 70svh;
-    --max-width: 500px;
-    --border-radius: 16px;
-    --box-shadow:
-      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --backdrop-opacity: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+  // &.consultations-modal-popup {
+  //   .ion-page {
+  //     justify-content: flex-start;
+  //     padding: var(--md-px);
+  //   }
+  // }
+  // &.custom-modal-popup {
+  //   --width: auto;
+  //   --min-width: 320px;
+  //   --height: auto;
+  //   --max-height: 70svh;
+  //   --max-width: 500px;
+  //   --border-radius: 16px;
+  //   --box-shadow:
+  //     0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  //   --backdrop-opacity: 1;
+  //   opacity: 0;
+  //   transition: opacity 0.3s ease-in-out;
 
-    // @include mixins.respond(md){
-    //   --min-width: calc(100% - 40px);
-    // }
-    &::part(content) {
-      top: 50%;
-      transform: translateY(-50%) !important;
-      bottom: unset;
-    }
-    &::part(backdrop) {
-      background: rgba(0, 0, 0, 0.4);
-    }
-    &::part(handle) {
-      display: none;
-    }
-  }
-  &.permanent-modal {
-    display: none;
-    --width: 100%;
-    --height: 100%;
-    &.active {
-      display: flex;
-      &::part("backdrop") {
-        display: none !important;
-      }
-    }
-  }
-  &.video-modal {
-    --width: calc(100% - 40px);
-    --height: fit-content;
-    --border-radius: #{var(--border-radius-md)};
-    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
-    --background: transparent;
+  //   // @include mixins.respond(md){
+  //   //   --min-width: calc(100% - 40px);
+  //   // }
+  //   &::part(content) {
+  //     top: 50%;
+  //     transform: translateY(-50%) !important;
+  //     bottom: unset;
+  //   }
+  //   &::part(backdrop) {
+  //     background: rgba(0, 0, 0, 0.4);
+  //   }
+  //   &::part(handle) {
+  //     display: none;
+  //   }
+  // }
+  // &.permanent-modal {
+  //   display: none;
+  //   --width: 100%;
+  //   --height: 100%;
+  //   &.active {
+  //     display: flex;
+  //     &::part("backdrop") {
+  //       display: none !important;
+  //     }
+  //   }
+  // }
+  // &.video-modal {
+  //   --width: calc(100% - 40px);
+  //   --height: fit-content;
+  //   --border-radius: #{var(--border-radius-md)};
+  //   --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  //   --background: transparent;
 
-    &::part(backdrop) {
-      background: rgb(31, 31, 31);
-      opacity: 1;
-    }
-  }
+  //   &::part(backdrop) {
+  //     background: rgb(31, 31, 31);
+  //     opacity: 1;
+  //   }
+  // }
 }
 
 ion-skeleton-text {

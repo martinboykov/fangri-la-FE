@@ -2,7 +2,6 @@ export type MerchandiseStatus = 'IN_STOCK' | 'OUT_OF_STOCK' | 'IN_CART';
 export enum MerchandiseStatusEnum {
   IN_STOCK = 'IN_STOCK',
   OUT_OF_STOCK = 'OUT_OF_STOCK',
-  IN_CART = 'IN_CART',
 }
 export interface Merchandise {
   id: string;
@@ -27,6 +26,7 @@ export interface MerchandiseSlice {
   totalItemsCount: number;
   totalArtistCount: number;
   items: Merchandise[];
+  shippingInfo?: string; // html
 }
 
 export const initialMerchandiseSlice = {
@@ -126,7 +126,7 @@ export const initialMerchandiseSlice = {
           background: '#fff7a1',
         },
       ],
-      status: MerchandiseStatusEnum.IN_CART,
+      status: MerchandiseStatusEnum.OUT_OF_STOCK,
     },
     {
       id: '4',
@@ -173,4 +173,13 @@ export const initialMerchandiseSlice = {
       status: MerchandiseStatusEnum.IN_STOCK,
     },
   ],
+  shippingInfo: `
+  <p>SHIPPING</p>
+    <p>SHIPPING TO A ZARA STORE - FREE<br />Delivery in 4-6 working days.<br />This option is not available for orders that include a HOME large item.<br />HOME DELIVERY</p>
+    <ul>
+      <li>Delivery in 3-5 working days - 9.95 лв / 5.09 EURShipping will be free for orders over 100&nbsp;лв / 51.12 EUR only for non-discounted items.</li>
+      <li>Delivery in 2-3 working days - 19.95 лв / 10.20 EUR</li>
+    </ul>
+    <p>Remember that orders including a large HOME item will be charged a corresponding delivery rate.<br />DROP POINT DELIVERY - 9.95 лв / 5.09 EUR<br />Shipping will be free for orders over 100&nbsp;лв / 51.12 EUR only for non-discounted items.Delivery in 3-5 working days.<br />This option is not available for orders that include a HOME large item.</p>
+  `
 };

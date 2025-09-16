@@ -41,6 +41,7 @@
 $icomoon-font-family: "icomoon" !default;
 $icomoon-font-path: "/assets/fonts" !default;
 
+$icon-warning: "\e91b";
 $icon-add: "\e900";
 $icon-arrow-left: "\e901";
 $icon-arrow-right: "\e914";
@@ -100,6 +101,12 @@ span[class^="icon-"], i[class^="icon-"] {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-warning {
+  &:before {
+    content: $icon-warning;
+    color: #2d73ac;
+  }
+}
 .icon-add {
   &:before {
     content: $icon-add;

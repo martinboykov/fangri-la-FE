@@ -26,7 +26,7 @@ export const routes: Routes = [
     canActivate: [translationGuard, authGuard],
     providers: [MerchandiseStore],
   },
-    {
+  {
     path: 'vault',
     loadChildren: () =>
       import('./pages/vault/vault.routes').then((m) => m.routes),
@@ -34,10 +34,16 @@ export const routes: Routes = [
     providers: [VaultStore],
   },
   {
+    path: 'cart',
+    loadChildren: () =>
+      import('./pages/cart/cart.routes').then((m) => m.routes),
+  },
+  {
     path: 'nfc',
     loadComponent: () => import('./pages/nfc/nfc.page').then((m) => m.NfcPage),
     canActivate: [translationGuard, userGuard],
   },
   { path: '**', redirectTo: '/auth' },
+
   // TODO: add not found component
 ];

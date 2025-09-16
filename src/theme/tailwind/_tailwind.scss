@@ -1,2 +1,11 @@
 @tailwind base;
 @tailwind utilities;
+
+@layer base {
+  .editor {
+    ul,
+    ol {
+      list-style: revert;
+    }
+  }
+}

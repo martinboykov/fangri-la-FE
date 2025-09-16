@@ -16,6 +16,8 @@ import { Merchandise, MerchandiseStatusEnum } from '../store/merchandise.slice';
 import { environment } from 'src/environments/environment';
 import { addIcons } from 'ionicons';
 import { chevronDown, chevronUp } from 'ionicons/icons';
+import { ModalPopupComponent } from 'src/app/components/modal-popup/modal-popup.component';
+import { ModalController } from '@ionic/angular/standalone';
 @Component({
   selector: 'app-merchandise',
   templateUrl: './merchandise.page.html',
@@ -24,9 +26,12 @@ import { chevronDown, chevronUp } from 'ionicons/icons';
   imports: [SharedModule, HeaderInnerPageComponent, MainSwiperComponent],
 })
 export class MerchandisePage implements OnInit {
+  private modalController = inject(ModalController);
   private router = inject(Router);
   readonly merchandiseStore = inject(MerchandiseStore);
   readonly id = input.required<string>();
+  public readonly currency = environment.currency;
+  public modal!: HTMLIonModalElement;
   readonly merchandise: WritableSignal<Merchandise | undefined> = signal<
     Merchandise | undefined
   >(undefined);
@@ -36,7 +41,6 @@ export class MerchandisePage implements OnInit {
   selectedSize: string | undefined = undefined;
 
   MerchandiseStatusEnum = MerchandiseStatusEnum;
-  public readonly currency = environment.currency;
 
   constructor() {
     addIcons({ chevronDown, chevronUp });
@@ -74,9 +78,35 @@ export class MerchandisePage implements OnInit {
     this.selectedColor.set(color);
   }
   selectSize($event: CustomEvent) {
-    console.log(
-      '🚀 ~ MerchandisePage ~ selectSize:', this.selectedSize);
-
+    console.log('🚀 ~ MerchandisePage ~ selectSize:', this.selectedSize);
   }
   getMerchandise() {}
+
+  async openModalSheet() {
+    console.log('openModalSheet');
+    let config: any = {
+      component: ModalPopupComponent,
+      componentProps: {
+        content: this.merchandiseStore.shippingInfo(),
+        // config: {
+        //   isModal: true,
+        //   hasModal: false,
+        //   hasGoal: this.config().modal?.hasGoal,
+        //   canEdit: this.config().modal?.canEdit,
+        //   hasActionButtons: this.config().modal?.hasActionButtons,
+        // },
+      },
+      initialBreakpoint: 0.5,
+      breakpoints: [0, 0.5, 1],
+    };
+    // if (!this.isMobile()) {
+    //   config.breakpoints = [1];
+    //   config.initialBreakpoint = 1;
+    //   config.cssClass = 'custom-modal-popup';
+    // }
+
+    this.modal = await this.modalController.create(config);
+
+    this.modal.present();
+  }
 }

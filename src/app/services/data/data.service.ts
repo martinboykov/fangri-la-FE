@@ -10,11 +10,7 @@ import {
   AuthRegisterResponseData,
 } from '../../models/auth.model';
 import { TranslationService } from '../translation/translation.service';
-import { Expert } from 'src/app/models/expert.model';
 import { IMessage } from 'src/app/models/response.model';
-import { Schedule } from 'src/app/models/schedule.model';
-import { Advice } from 'src/app/models/advice.model';
-import { AppointmentDay } from 'src/app/models/calendar.model';
 
 import { AuthStore } from '../auth/store/auth.store';
 
