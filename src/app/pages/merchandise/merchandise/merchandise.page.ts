@@ -18,6 +18,9 @@ import { addIcons } from 'ionicons';
 import { chevronDown, chevronUp } from 'ionicons/icons';
 import { ModalPopupComponent } from 'src/app/components/modal-popup/modal-popup.component';
 import { ModalController } from '@ionic/angular/standalone';
+import { CartStore } from '../../cart/store/cart.store';
+import { AlertService } from 'src/app/services/modals/alert/alert.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-merchandise',
   templateUrl: './merchandise.page.html',
@@ -28,6 +31,9 @@ import { ModalController } from '@ionic/angular/standalone';
 export class MerchandisePage implements OnInit {
   private modalController = inject(ModalController);
   private router = inject(Router);
+  private alertService = inject(AlertService);
+  private translateService = inject(TranslateService);
+  readonly cartStore = inject(CartStore);
   readonly merchandiseStore = inject(MerchandiseStore);
   readonly id = input.required<string>();
   public readonly currency = environment.currency;
@@ -83,7 +89,12 @@ export class MerchandisePage implements OnInit {
     console.log('🚀 ~ MerchandisePage ~ selectSize:', this.selectedSize);
   }
   getMerchandise() {}
-
+  async addItemToCart() {
+    const merchandise = this.merchandise();
+    if (!merchandise) return;
+    this.cartStore.addItem(merchandise);
+    await this.openAlertMessageOnItemAdded();
+  }
   async openModalSheet() {
     console.log('openModalSheet');
     let config: any = {
@@ -110,5 +121,18 @@ export class MerchandisePage implements OnInit {
     this.modal = await this.modalController.create(config);
 
     this.modal.present();
+  }
+  async openAlertMessageOnItemAdded() {
+    const buttons = this.alertService.getAlertButtonsTranslations([
+      { text: 'CONSTANTS.CLOSE' },
+    ]);
+    const message =
+      {
+        title: '',
+        subtitle: this.merchandise()?.name + ' ' + this.translateService.instant('CART.PAGE_LIST.ALERT.CART_ITEM_ADDED.SUBTITLE'),
+      }
+
+
+    this.alertService.presentAlertMessage(message, buttons);
   }
 }

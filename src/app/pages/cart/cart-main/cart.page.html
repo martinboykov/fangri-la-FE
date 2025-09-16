@@ -3,76 +3,82 @@
                          [totalItemsCount]="cartStore.totalItemsCount()"
                          [totalItemsCost]="cartStore.totalItemsCost()"
                          [isCart]="true"></app-header-inner-page>
-  <div class="container grid gap-lg">
-    @for(item of cartStore.items(); let i = $index; track $index){
+  <div class="container flex flex-col justify-between md:min-h-[calc(100vh-100px)]">
+    <div class="grid gap-lg">
+      @for(item of cartStore.items(); let i = $index; track $index){
 
-    <div class="flex gap-lg">
-      <ion-img class="flex-shrink-0 w-full h-full max-w-10 max-h-12 border-[1px] border-white border-solid object-contain rounded-md overflow-hidden cursor-pointer"
-               [src]="item.images[0] || '/assets/images/placeholder.svg'"
-               routerLink="/merchandise/{{ item.id }}"> </ion-img>
-      <div class="grid gap-xs">
-        <div class="flex justify-between items-start gap-lg">
-          <div class="flex flex-col gap-xs">
-            <h2 class="text-2 line-clamp-2 cursor-pointer">
-              {{ item.name }}
-            </h2>
-            <p class="text-[14px] line-clamp-2 cursor-pointer">{{ item.description }}</p>
-          </div>
-          <ion-button class="flex-shrink-0 p-0 rounded-sm border-[1px] border-solid border-white "
-                      color="white"
-                      fill="clear"
-                      (click)="cartStore.removeItem(item.id)">
-            <div class="p-sm">
-              <span class="icon-delete text-[24px]"
-                    slot="icon-only"></span>
+      <div class="flex gap-lg">
+        <ion-img class="flex-shrink-0 w-full h-full max-w-10 max-h-12 border-[1px] border-white border-solid object-contain rounded-md overflow-hidden cursor-pointer"
+                 [src]="item.images[0] || '/assets/images/placeholder.svg'"
+                 routerLink="/merchandise/{{ item.id }}"> </ion-img>
+        <div class="grid gap-xs">
+          <div class="flex justify-between items-start gap-lg">
+            <div class="flex flex-col gap-xs">
+              <h2 class="text-2 line-clamp-2 cursor-pointer">
+                {{ item.name }}
+              </h2>
+              <p class="text-[14px] line-clamp-2 cursor-pointer">{{ item.description }}</p>
             </div>
-          </ion-button>
-        </div>
-        <div class="flex gap-sm justify-between items-center">
-          <div class="flex gap-lg items-center">
-            <ion-button class="flex-shrink-0 p-0 "
+            <ion-button class="flex-shrink-0 p-0 rounded-sm border-[1px] border-solid border-white "
                         color="white"
                         fill="clear"
-                        (click)="cartStore.editCount(item.id, -1)">
-              <span class="icon-minus text-[24px]"
-                    slot="icon-only"></span>
-            </ion-button>
-            <div class="py-sm min-w-4 text-center rounded-sm border-[1px] border-solid border-[#B2BBB9]">
-              <span class="text-[15px] font-medium">{{item.cartCount}}</span>
-            </div>
-            <ion-button class="flex-shrink-0 p-0 "
-                        color="white"
-                        fill="clear"
-                        (click)="cartStore.editCount(item.id, 1)">
-              <span class="icon-plus text-[24px]"
-                    slot="icon-only"></span>
+                        (click)="cartStore.removeItem(item.id)">
+              <div class="p-sm">
+                <span class="icon-delete text-[24px]"
+                      slot="icon-only"></span>
+              </div>
             </ion-button>
           </div>
-          <span class="text-2">{{currency}}{{item.price * item.cartCount}}</span>
+          <div class="flex gap-sm justify-between items-center">
+            <div class="flex gap-lg items-center">
+              <ion-button class="flex-shrink-0 p-0 "
+                          color="white"
+                          fill="clear"
+                          (click)="cartStore.editCount(item.id, -1)">
+                <span class="icon-minus text-[24px]"
+                      slot="icon-only"></span>
+              </ion-button>
+              <div class="py-sm min-w-4 text-center rounded-sm border-[1px] border-solid border-[#B2BBB9]">
+                <span class="text-[15px] font-medium">{{item.cartCount}}</span>
+              </div>
+              <ion-button class="flex-shrink-0 p-0 "
+                          color="white"
+                          fill="clear"
+                          (click)="cartStore.editCount(item.id, 1)">
+                <span class="icon-plus text-[24px]"
+                      slot="icon-only"></span>
+              </ion-button>
+            </div>
+            <span class="text-2">{{currency}}{{item.price * item.cartCount}}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0">
-    }
-    <div class="grid gap-xs text-2">
-      <div class="flex gap-sm justify-between">
-        <span>{{'CART.PAGE_LIST.TAX' | translate}}</span>
-        <span>{{currency}}{{cartStore.tax()}}</span>
+      <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0">
+      }
+      <div class="grid gap-xs text-2">
+        <div class="flex gap-sm justify-between">
+          <span>{{'CART.PAGE_LIST.TAX' | translate}}</span>
+          <span>{{currency}}{{cartStore.tax()}}</span>
+        </div>
+        <div class="flex gap-sm justify-between">
+          <span>{{'CART.PAGE_LIST.SHIPPING' | translate}}</span>
+          <span>{{currency}}{{cartStore.shipping()}}</span>
+        </div>
+        <div class="flex gap-sm justify-between">
+          <span>{{'CART.PAGE_LIST.PURCHASES' | translate}}</span>
+          <span>{{currency}}{{cartStore.totalItemsCost()}}</span>
+        </div>
       </div>
+      <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0">
       <div class="flex gap-sm justify-between">
-        <span>{{'CART.PAGE_LIST.SHIPPING' | translate}}</span>
-        <span>{{currency}}{{cartStore.shipping()}}</span>
-      </div>
-      <div class="flex gap-sm justify-between">
-        <span>{{'CART.PAGE_LIST.PURCHASES' | translate}}</span>
-        <span>{{currency}}{{cartStore.totalItemsCost()}}</span>
+        <span class="text-2 font-bold uppercase">Total</span>
+        <span class="text-2 font-bold">{{currency}}{{cartStore.totalCost()}}</span>
       </div>
     </div>
-    <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0">
-    <div class="flex gap-sm justify-between">
-      <span class="text-2 font-bold uppercase">Total</span>
-      <span class="text-2 font-bold">{{currency}}{{cartStore.totalCost()}}</span>
-    </div>
+    <ion-button class="min-h-5 w-full mt-auto bg-yellow-100 rounded-sm overflow-hidden md-min:mt-4"
+                color="dark"
+                fill="outline"
+                routerLink="/cart/success"><span class="text-black-0">{{ 'CART.PAGE_LIST.BUTTON' | translate }}</span></ion-button>
   </div>
 
 </ion-content>

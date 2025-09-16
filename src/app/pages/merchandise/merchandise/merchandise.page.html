@@ -6,70 +6,74 @@
   <app-header-inner-page [title]="_merchandise.name"
                          [merchandise]="_merchandise"
                          [isMerchandiseItem]="true"></app-header-inner-page>
-  <div class="container section-spacing text-black-0">
+  <div class="container section-spacing text-black-0 ">
 
-    <div class="bg-white p-sm pb-3 rounded-sm">
-      <app-main-swiper class="block mb-sm"
-                       [imgs]="_merchandise.images || []"></app-main-swiper>
-      <div class="flex flex-wrap gap-xs mb-sm">
-        @for(label of _merchandise.labels; let j = $index; track $index){
-        <div class="w-[fit-content] py-xs px-sm rounded-xs text-[10px] font-bold uppercase"
-             [style.color]="label.color"
-             [style.background-color]="label.background">
-          {{label.name}}
-        </div>
-        }
-      </div>
-      <h1 class="mb-sm ">{{_merchandise.name}}</h1>
-      <p class="mb-sm ">{{_merchandise.description}}</p>
-      <div class="text-200 mb-2xl">
-        <span class="text-2">{{currency}}</span>
-        <span class="text-4">{{ _merchandise.price }}</span>
-      </div>
-      @if(_merchandise.options.colors){
-      <div class="flex justify-between items-center gap-sm mt-2xl">
-        <h3 class="text-1 font-bold uppercase">{{'CONSTANTS.COLOR' | translate}}</h3>
-        <div class="flex flex-wrap gap-xs">
-          @for(color of _merchandise.options.colors; let j = $index; track $index){
-          <div class="size-2xl rounded-xs cursor-pointer select-none"
-               [style.background-color]="color"
-               [ngClass]="{'border-[1px] border-solid border-black': color === selectedColor()}"
-               (click)="selectColor(color)">
+    <div class="flex flex-col justify-between bg-white p-sm pb-3 rounded-sm md:min-h-[calc(100vh-100px)]">
+      <div>
+        <app-main-swiper class="block mb-sm"
+                         [imgs]="_merchandise.images || []"></app-main-swiper>
+        <div class="flex flex-wrap gap-xs mb-sm">
+          @for(label of _merchandise.labels; let j = $index; track $index){
+          <div class="w-[fit-content] py-xs px-sm rounded-xs text-[10px] font-bold uppercase"
+               [style.color]="label.color"
+               [style.background-color]="label.background">
+            {{label.name}}
           </div>
           }
         </div>
-      </div>
-      }
+        <h1 class="mb-sm ">{{_merchandise.name}}</h1>
+        <p class="mb-sm ">{{_merchandise.description}}</p>
+        <div class="text-200 mb-2xl">
+          <span class="text-2">{{currency}}</span>
+          <span class="text-4">{{ _merchandise.price }}</span>
+        </div>
+        @if(_merchandise.options){
+        @if(_merchandise.options.colors){
+        <div class="flex justify-between items-center gap-sm mt-2xl">
+          <h3 class="text-1 font-bold uppercase">{{'CONSTANTS.COLOR' | translate}}</h3>
+          <div class="flex flex-wrap gap-xs">
+            @for(color of _merchandise.options.colors; let j = $index; track $index){
+            <div class="size-2xl rounded-xs cursor-pointer select-none"
+                 [style.background-color]="color"
+                 [ngClass]="{'border-[1px] border-solid border-black': color === selectedColor()}"
+                 (click)="selectColor(color)">
+            </div>
+            }
+          </div>
+        </div>
+        }
 
-      @if(_merchandise.options.sizes){
-      <h3 class="text-1 font-bold uppercase mt-2xl">{{'CONSTANTS.SIZE' | translate}}</h3>
-      <div class="flex flex-wrap gap-xs mt-sm">
-        <ion-select mode="md"
-                    placeholder="{{ 'CONSTANTS.PLEASE_SELECT' | translate }}"
-                    [interfaceOptions]=""
-                    interface="popover"
-                    toggleIcon="chevron-down"
-                    expandedIcon="chevron-up"
-                    multiple="false"
-                    [(ngModel)]="selectedSize"
-                    (ionChange)="selectSize($event)">
+        @if(_merchandise.options.sizes){
+        <h3 class="text-1 font-bold uppercase mt-2xl">{{'CONSTANTS.SIZE' | translate}}</h3>
+        <div class="flex flex-wrap gap-xs mt-sm">
+          <ion-select mode="md"
+                      placeholder="{{ 'CONSTANTS.PLEASE_SELECT' | translate }}"
+                      [interfaceOptions]=""
+                      interface="popover"
+                      toggleIcon="chevron-down"
+                      expandedIcon="chevron-up"
+                      multiple="false"
+                      [(ngModel)]="selectedSize"
+                      (ionChange)="selectSize($event)">
 
-          @for(size of _merchandise.options.sizes; let j = $index; track $index){
-          <ion-select-option value="{{size}}">{{size}}</ion-select-option>
+            @for(size of _merchandise.options.sizes; let j = $index; track $index){
+            <ion-select-option value="{{size}}">{{size}}</ion-select-option>
+            }
+          </ion-select>
+        </div>
+        }
+        }
+        @if(_merchandise.parameters){
+        <div class="flex flex-col gap-2xl mt-2xl">
+          @for(parameter of _merchandise.parameters; let j = $index; track $index){
+          <div class="flex justify-between items-center gap-sm">
+            <span class="text-1 font-bold uppercase">{{parameter.name}}</span>
+            <span class="">{{parameter.value}}</span>
+          </div>
           }
-        </ion-select>
-      </div>
-      }
-      @if(_merchandise.parameters){
-      <div class="flex flex-col gap-2xl mt-2xl">
-        @for(parameter of _merchandise.parameters; let j = $index; track $index){
-        <div class="flex justify-between items-center gap-sm">
-          <span class="text-1 font-bold uppercase">{{parameter.name}}</span>
-          <span class="">{{parameter.value}}</span>
         </div>
         }
       </div>
-      }
 
       <div class="grid gap-xl mt-5">
         <div class="flex justify-end">
@@ -91,12 +95,14 @@
         @if(_merchandise.status === MerchandiseStatusEnum.IN_STOCK){
         <ion-button class="min-h-5 w-fullmt-2 "
                     color="danger"
-                    fill="solid"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
+                    fill="solid"
+                    (click)="addItemToCart()"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
         }
         @else if(_merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
         <ion-button class="min-h-5 w-full"
                     color="dark"
-                    fill="solid"><span class="text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span></ion-button>
+                    fill="solid"
+                    [disabled]="true"><span class="text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span></ion-button>
         }
       </div>
     </div>

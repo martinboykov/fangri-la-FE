@@ -176,7 +176,20 @@
       "TAX": "Tax",
       "SHIPPING": "Shipping",
       "PURCHASES": "Purchases",
-      "TOTAL": "Total"
+      "TOTAL": "Total",
+      "BUTTON": "Checkout",
+      "ALERT": {
+        "CART_ITEM_ADDED": {
+          "TITLE": "Added to cart",
+          "SUBTITLE": "has been added to your cart"
+        }
+      }
+    },
+    "PAGE_SUCCESS": {
+      "TITLE": "THANK YOU!",
+      "SUBTITLE": "Your order is successful and it is on your way.",
+      "MESSAGE": "You can track your order’s shipping",
+      "LINK": "here"
     }
   }
 }

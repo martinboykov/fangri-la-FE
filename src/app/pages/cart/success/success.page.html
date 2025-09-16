@@ -1,0 +1,20 @@
+<ion-content [fullscreen]="true">
+  <div class="container-sm py-lg">
+    <div class="flex justify-end">
+      <ion-button class="flex p-0"
+                  fill="clear"
+                  routerLink="/merchandise">
+        <img class="w-[36px]"
+             src="/assets/images/menu-close.svg"
+             alt="menu-close">
+      </ion-button>
+    </div>
+    <ion-img class="max-w-[260px] w-full mx-auto mt-4"
+             [src]="'/assets/images/logo.png'"></ion-img>
+    <h1 class="my-4 text-[66px] text-center">
+      {{ 'CART.PAGE_SUCCESS.TITLE' | translate }}
+    </h1>
+    <h2 class="h1 mb-2">{{ 'CART.PAGE_SUCCESS.SUBTITLE' | translate }}</h2>
+    <p>{{ 'CART.PAGE_SUCCESS.MESSAGE' | translate }} <a class="cursor-pointer">{{ 'CART.PAGE_SUCCESS.LINK' | translate }}</a></p>
+  </div>
+</ion-content>

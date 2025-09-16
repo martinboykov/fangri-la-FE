@@ -553,7 +553,7 @@ ion-button {
   }
   &.button-disabled {
     &::part(native) {
-      background-color: var(--color-yellow-200);
+      background-color: var(--color-black-100);
     }
   }
 
@@ -901,16 +901,17 @@ ion-alert {
   .alert-message {
     @extend .paragraph;
     font-size: var(--font-size-paragraph) !important;
+    color: black !important;
     &:empty {
       display: none;
     }
   }
   .alert-wrapper {
-    background: var(--color-neutral-900) !important;
+    background: var(--color-white) !important;
   }
   .alert-button {
     background-color: var(--ion-color-primary) !important;
-    color: var(--color-neutral-900) !important;
+    color: black !important;
     font-weight: 400 !important;
   }
 }

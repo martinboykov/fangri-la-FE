@@ -1,6 +1,7 @@
 import { Component, computed, inject, input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserRoleEnum } from 'src/app/models/auth.model';
+import { CartStore } from 'src/app/pages/cart/store/cart.store';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { AuthStore } from 'src/app/services/auth/store/auth.store';
 import { SharedModule } from 'src/app/shared.module';
@@ -13,6 +14,7 @@ import { SharedModule } from 'src/app/shared.module';
 })
 export class HeaderMainPageComponent implements OnInit {
   readonly authStore = inject(AuthStore);
+  readonly cartStore = inject(CartStore);
   readonly authService = inject(AuthService);
   private router = inject(Router);
   parentPage = input<string>();

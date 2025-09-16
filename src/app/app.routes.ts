@@ -6,8 +6,8 @@ import { MerchandiseStore } from './pages/merchandise/store/merchandise.store';
 import { VaultStore } from './pages/vault/store/vault.store';
 
 export const routes: Routes = [
-  // { path: '', redirectTo: '/auth', pathMatch: 'full' },
-  { path: '', redirectTo: '/cart', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  // { path: '', redirectTo: '/cart', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>

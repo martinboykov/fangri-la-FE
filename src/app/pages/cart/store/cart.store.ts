@@ -31,7 +31,8 @@ import { LoadingService } from 'src/app/services/modals/loading/loading.service'
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { User } from 'src/app/models/auth.model';
 import { initialCartSlice } from './cart.slice';
-import { editCount, getById, removeItem } from './cart.updaters';
+import { addItem, editCount, getById, removeItem } from './cart.updaters';
+import { Merchandise } from '../../merchandise/store/merchandise.slice';
 
 export const CartStore = signalStore(
   { providedIn: 'root' },
@@ -68,6 +69,7 @@ export const CartStore = signalStore(
     return {
       getById: (merchId: string) => getById(merchId),
       removeItem: (merchId: string) => patchState(store, removeItem(merchId)),
+      addItem: (merchandise: Merchandise) => patchState(store, addItem(merchandise)),
       editCount: (merchId: string, amount: number) =>
         patchState(store, editCount(merchId, amount)),
 

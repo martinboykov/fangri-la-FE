@@ -12,6 +12,11 @@ export const routes: Routes = [
           import('./cart-main/cart.page').then((m) => m.CartPage),
       },
       {
+        path: 'success',
+        loadComponent: () =>
+          import('./success/success.page').then((m) => m.SuccessPage),
+      },
+      {
         path: '',
         redirectTo: 'items',
         pathMatch: 'full',

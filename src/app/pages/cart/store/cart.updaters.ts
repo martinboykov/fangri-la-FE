@@ -1,5 +1,6 @@
 import { PartialStateUpdater } from '@ngrx/signals';
 import { CartItem, CartSlice } from './cart.slice';
+import { Merchandise } from '../../merchandise/store/merchandise.slice';
 
 export function getById(merchId: string) {
   return (store: CartSlice) =>
@@ -29,5 +30,13 @@ export function removeItem(
   console.log('🚀 ~ removeItem ~ merchId:', merchId);
   return (store: CartSlice) => ({
     items: store.items.filter((item: CartItem) => item.id !== merchId),
+  });
+}
+export function addItem(
+  merchandise: Merchandise, // ISO string
+): PartialStateUpdater<CartSlice> {
+  const cartItem = { ...merchandise, cartCount: 1 };
+  return (store: CartSlice) => ({
+    items: [...store.items, cartItem],
   });
 }
