@@ -1,0 +1,12 @@
+<div class="relative cursor-pointer"
+     (click)="toggleVideoState()">
+  <video #target
+         class="relative z-2 video-js block w-full h-full aspect-video rounded-lg overflow-hidden"
+         controls
+         muted
+         playsinline
+         preload="none"></video>
+  <ion-img class="absolute z-2 bottom-sm left-sm size-5 object-contain"
+           [src]="isVideoPlaying() ? '/assets/images/video-pause.svg' : '/assets/images/video-play.svg'"></ion-img>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="flex flex-col gap-sm pt-sm">
+  @for(contentItem of artistStore.artist.content(); let i = $index; track $index){
+  @if(contentItem.images && contentItem.images.length > 0){
+  <app-main-swiper [imgs]="contentItem.images"></app-main-swiper>
+  }
+  @if(contentItem.video) {
+  <app-video class="block w-full aspect-video rounded-lg overflow-hidden"
+             [poster]="contentItem.video.poster"
+             [sources]="contentItem.video.sources"></app-video>
+  }
+  }
+</div>

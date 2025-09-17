@@ -3,7 +3,7 @@
   <div class="container section-spacing">
     <h1 class="mb-lg">{{ 'ARTISTS.TITLE' | translate }}</h1>
     <div class="grid grid-cols-[repeat(auto-fill,minmax(125px,1fr))] gap-x-sm gap-y-xl">
-      @for(artist of artists; let i = $index; track $index){
+      @for(artist of artistsStore.artists(); let i = $index; track $index){
       <a class="grid gap-sm cursor-pointer"
          routerLink="/artists/{{ artist.id }}">
         <ion-img class="aspect-square rounded-xl overflow-hidden"

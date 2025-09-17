@@ -38,12 +38,12 @@ export class MainSwiperComponent implements OnInit {
       // modules: [Pagination],
       slidesPerView: 1,
       spaceBetween: 8,
-      pagination: {
-        enabled: true,
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true,
-      },
+      // pagination: {
+      //   enabled: true,
+      //   el: '.swiper-pagination',
+      //   type: 'bullets',
+      //   clickable: true,
+      // },
       on: {
         init: (e) => {
           console.log(e);
@@ -54,11 +54,20 @@ export class MainSwiperComponent implements OnInit {
 
     effect(() => {
       const swiperElement = this.swiperContainer().nativeElement;
-
+      const imgs = this.imgs();
       if (!swiperElement) return;
 
       if (swiperElement.swiper) return;
 
+      if(imgs.length === 0) return;
+      if(imgs.length > 1) {
+        this.swiperOptions.pagination = {
+          enabled: true,
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true,
+        };
+      }
       Object.assign(swiperElement, this.swiperOptions);
       swiperElement.initialize();
     });

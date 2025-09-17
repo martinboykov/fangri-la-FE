@@ -1,8 +1,72 @@
 <ion-content [fullscreen]="true">
   <app-header-main-page [parentPage]="'artist'"></app-header-main-page>
   <div class="container section-spacing">
-    <h1 class="mb-lg">Artist Page</h1>
+    <div class="flex gap-sm">
+      <ion-img class="flex-shrink-0 w-full h-full max-w-8 max-h-8 object-cover rounded-md overflow-hidden"
+               [src]="'/assets/images/placeholder.svg'"> </ion-img>
+    </div>
 
+    @let tabs = [1,2,3,4,5];
+    <div class="relative flex justify-between max-w-md
+    after:content-[''] after:absolute after:z-[-1] after:bottom-0 after:left-[50%] after:translate-x-[-50%] after:w-full after:border-b  after:border-[#4B4B4B]">
+      @for(tab of tabs; let i = $index; track $index){
+      <div class="relative py-sm text-center cursor-pointer
+      xs-min:flex-1"
+           [ngClass]="artistStore.activeTab() === tab ? 'border-b border-solid border-green-100 text-green-100' : 'font-medium text-black-60'"
+           (click)="artistStore.setActiveTab(tab)">
+        @if(tab===2 && artistStore.hasNewChatMessages()) {
+        <span class="absolute top-[2px] right-0 size-[6px] rounded-[50%] bg-red-100
+        xs-min:top-[2px] xs-min:right-[min(20px,4vw)]"></span>
+        }
+        @switch (tab) {
+        @case(1) {
+        <span>{{'ARTIST.TABS.CONTENT' | translate}}</span>
+        }
+        @case(2) {
+        <span>{{'ARTIST.TABS.CHATS' | translate}}</span>
+        }
+        @case(3) {
+        <span>{{'ARTIST.TABS.LINKS' | translate}}</span>
+        }
+        @case(4) {
+        <span>{{'ARTIST.TABS.STORE' | translate}}</span>
+        }
+        @case(5) {
+        <span>{{'ARTIST.TABS.VAULT' | translate}}</span>
+        }
+        @default {
+        <span>{{'ARTIST.TABS.CONTENT' | translate}}</span>
+        }
+        }
+
+      </div>
+      }
+    </div>
+    <div class="">
+      @let artist = artistStore.artist();
+      @if(artist && artist.id) {
+      @switch (artistStore.activeTab()) {
+      @case(1) {
+      <app-artist-tab-content></app-artist-tab-content>
+      }
+      @case(2) {
+      <p class="mt-lg text-[14px]">Artist chats coming soon...</p>
+      }
+      @case(3) {
+      <p class="mt-lg text-[14px]">Artist links coming soon...</p>
+      }
+      @case(4) {
+      <p class="mt-lg text-[14px]">Artist store coming soon...</p>
+      }
+      @case(5) {
+      <p class="mt-lg text-[14px]">Artist vault coming soon...</p>
+      }
+      @default {
+      <p class="mt-lg text-[14px]">Artist content coming soon...</p>
+      }
+      }
+      }
+
+    </div>
   </div>
 </ion-content>
-

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { ArtistsContainerPage } from './artists-container.page';
+import { ArtistStore } from './artist/store/artist.store';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,7 @@ export const routes: Routes = [
         path: ':id',
         loadComponent: () =>
           import('./artist/artist.page').then((m) => m.ArtistPage),
+        providers: [ArtistStore],
       },
       {
         path: '',

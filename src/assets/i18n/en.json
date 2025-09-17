@@ -159,6 +159,15 @@
   "ARTISTS": {
     "TITLE": "Your Fangri-La Line up"
   },
+  "ARTIST": {
+    "TABS": {
+      "CONTENT": "Content",
+      "CHATS": "Chats",
+      "LINKS": "Links",
+      "STORE": "Store",
+      "VAULT": "Vault"
+    }
+  },
   "MERCHANDISE": {
     "TITLE": "Merch Store",
     "BUTTON_ADD_TO_CART": "Add to Cart",

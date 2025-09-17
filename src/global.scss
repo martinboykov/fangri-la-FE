@@ -17,6 +17,8 @@
 @use 'swiper/css';
 @use "./theme/swiper";
 
+@use "./theme/videojs/videojs.css";
+
 @use "./theme/custom/base/normalize.scss" as normalize-custom;
 @use "./theme/custom/abstracts/mixins.scss";
 
