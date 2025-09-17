@@ -36,7 +36,22 @@ export function addItem(
   merchandise: Merchandise, // ISO string
 ): PartialStateUpdater<CartSlice> {
   const cartItem = { ...merchandise, cartCount: 1 };
-  return (store: CartSlice) => ({
-    items: [...store.items, cartItem],
-  });
+  return (store: CartSlice) => {
+    const merch = store.items.find(
+      (item: CartItem) => item.id === merchandise.id,
+    );
+    if (merch) {
+      return {
+        items: store.items.map((item: CartItem) => {
+          if (item.id === merchandise.id) {
+            return { ...item, cartCount: item.cartCount + 1 };
+          }
+          return item;
+        }),
+      };
+    }
+    return {
+      items: [...store.items, cartItem],
+    };
+  };
 }
