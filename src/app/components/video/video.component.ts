@@ -107,6 +107,7 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   }
   ngOnDestroy() {
     if (this.player) {
+      this.player.pause();
       this.player.dispose();
     }
   }
