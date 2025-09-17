@@ -13,20 +13,20 @@
 <div class="max-w-[500px] ">
   <swiper-container #swiper
                     init="false"
-                    class="isHidden"
+                    class="isHidden rounded-md overflow-hidden"
                     [ngClass]="{
         'isVisible': isSwiperInitialized
       }">
 
     @for (img of imgs(); track $index; let i = $index) {
-    <swiper-slide class="flex flex-col justify-between rounded-md overflow-hidden ">
-      <ion-img class="block w-full aspect-square object-cover overflow-hidden cursor-pointer"
+    <swiper-slide class="flex flex-col justify-between">
+      <ion-img class="{{imgClass()}} block w-full object-cover overflow-hidden cursor-pointer"
                [src]="img || '/assets/images/placeholder.svg'">
       </ion-img>
     </swiper-slide>
     }
   </swiper-container>
   <!-- @if(imgs().length > 1) { -->
-  <div class="swiper-pagination"></div>
+  <div #pagination class="swiper-pagination"></div>
   <!-- } -->
 </div>

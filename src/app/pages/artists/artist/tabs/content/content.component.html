@@ -1,7 +1,14 @@
 <div class="flex flex-col gap-sm pt-sm">
   @for(contentItem of artistStore.artist.content(); let i = $index; track $index){
-  @if(contentItem.images && contentItem.images.length > 0){
-  <app-main-swiper [imgs]="contentItem.images"></app-main-swiper>
+  @if(contentItem.images && contentItem.images.length > 1){
+  <app-main-swiper [imgs]="contentItem.images"
+                   [paginationClass]="'swiper-artist'"
+                   [imgClass]="'aspect-square'"
+                   [options]="{autoHeight: true}"></app-main-swiper>
+  }
+  @if(contentItem.images && contentItem.images.length === 1){
+  <ion-img class="w-full h-full object-cover rounded-md overflow-hidden"
+           [src]="contentItem.images[0] || '/assets/images/placeholder.svg'"></ion-img>
   }
   @if(contentItem.video) {
   <app-video class="block w-full aspect-video rounded-lg overflow-hidden"

@@ -25,7 +25,11 @@ import { RequestStatus } from 'src/app/store/custom-features/with-response/with-
 })
 export class MainSwiperComponent implements OnInit {
   private readonly swiperContainer = viewChild.required<ElementRef>('swiper');
+  private readonly pagination = viewChild.required<ElementRef>('pagination');
   readonly imgs = input<string[]>([]);
+  readonly options = input<{ [key: string]: any }>({});
+  readonly paginationClass = input<string>();
+  readonly imgClass = input<string>();
   readonly isLoading = input<boolean>();
   readonly requestStatus = input<RequestStatus>();
   swiperElement?: SwiperContainer;
@@ -44,6 +48,7 @@ export class MainSwiperComponent implements OnInit {
       //   type: 'bullets',
       //   clickable: true,
       // },
+
       on: {
         init: (e) => {
           console.log(e);
@@ -55,19 +60,28 @@ export class MainSwiperComponent implements OnInit {
     effect(() => {
       const swiperElement = this.swiperContainer().nativeElement;
       const imgs = this.imgs();
+
       if (!swiperElement) return;
 
       if (swiperElement.swiper) return;
-
-      if(imgs.length === 0) return;
-      if(imgs.length > 1) {
+      this.swiperOptions = {
+        ...this.swiperOptions,
+        ...this.options(),
+      };
+      if (imgs.length === 0) return;
+      if (imgs.length > 1) {
         this.swiperOptions.pagination = {
           enabled: true,
-          el: '.swiper-pagination',
+          el: this.pagination().nativeElement,
           type: 'bullets',
           clickable: true,
+          bulletClass: this.paginationClass(),
         };
       }
+      console.log(
+        '🚀 ~ MainSwiperComponent ~ constructor ~ this.swiperOptions:',
+        this.swiperOptions,
+      );
       Object.assign(swiperElement, this.swiperOptions);
       swiperElement.initialize();
     });

@@ -10,8 +10,10 @@ export interface ArtistsSlice {
 }
 
 const artistDetails = {
-  bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  website: 'https://www.novarae.com',
+  bio: `American singer-songwriter, record
+producer, and actress. Made of stardust and basslines.
+  `,
+  website: 'www.novarae.com',
   socials: [
     {
       id: 1,
@@ -50,7 +52,7 @@ const artistDetails = {
         poster: '/assets/static/images/content/content-artist-1-3.jpg',
         sources: [
           {
-            src: '/assets/static/videos/novarae/novarae-lovely_man.mp4',
+            src: '/assets/static/videos/novarae/novarae-acquainted.mp4',
             type: 'video/mp4',
           },
         ],
@@ -85,21 +87,31 @@ export const initialArtistsSlice = {
       id: '2',
       name: 'OG Mondo',
       image: '/assets/static/images/artists/artist-2.jpg',
+      bio: artistDetails.bio,
+      website: artistDetails.website,
     },
     {
       id: '3',
       name: 'Soliah Skye',
       image: '/assets/static/images/artists/artist-3.jpg',
+       bio: artistDetails.bio,
+      website: artistDetails.website,
     },
     {
       id: '4',
       name: 'Koryn',
       image: '/assets/static/images/artists/artist-4.jpg',
+      bio: artistDetails.bio,
+      website: artistDetails.website,
     },
     {
       id: '5',
       name: 'KASHKIDD',
       image: '/assets/static/images/artists/artist-5.jpg',
+      bio: artistDetails.bio,
+      website: artistDetails.website,
+      // socials: [...artistDetails.socials],
+      // content: [...artistDetails.content],
     },
   ],
 };

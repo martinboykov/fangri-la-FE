@@ -11,7 +11,9 @@
     <div class="flex flex-col justify-between bg-white p-sm pb-3 rounded-sm md:min-h-[calc(100vh-100px)]">
       <div>
         <app-main-swiper class="block mb-sm"
-                         [imgs]="_merchandise.images || []"></app-main-swiper>
+                         [imgs]="_merchandise.images || []"
+                         [paginationClass]="'swiper-merchandise'"
+                         [imgClass]="'aspect-square'"></app-main-swiper>
         <div class="flex flex-wrap gap-xs mb-sm">
           @for(label of _merchandise.labels; let j = $index; track $index){
           <div class="w-[fit-content] py-xs px-sm rounded-xs text-[10px] font-bold uppercase"

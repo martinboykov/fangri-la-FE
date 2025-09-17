@@ -1,13 +1,25 @@
+@let artist = artistStore.artist();
 <ion-content [fullscreen]="true">
   <app-header-main-page [parentPage]="'artist'"></app-header-main-page>
   <div class="container section-spacing">
-    <div class="flex gap-sm">
-      <ion-img class="flex-shrink-0 w-full h-full max-w-8 max-h-8 object-cover rounded-md overflow-hidden"
-               [src]="'/assets/images/placeholder.svg'"> </ion-img>
+    <div class="mb-lg">
+      <ion-img class="float-left flex-shrink-0 w-full h-full max-w-8 max-h-8 mr-lg mb-xss  object-cover rounded-md overflow-hidden"
+               [src]="artistStore.artist.image() "> </ion-img>
+      @if(artist.name){
+      <h1 class=" text-lg">{{artist.name}}</h1>
+      }
+      @if(artist.bio){
+      <p class="inline text-[14px] text-black-60">{{artist.bio}} </p>
+      }
+      @if(artist.website){
+      <a class=" text-[14px]"
+         href="https://{{artist.website}}"
+         target="_blank">{{artist.website}}</a>
+      }
     </div>
 
     @let tabs = [1,2,3,4,5];
-    <div class="relative flex justify-between max-w-md
+    <div class="clear-left elative flex justify-between max-w-md
     after:content-[''] after:absolute after:z-[-1] after:bottom-0 after:left-[50%] after:translate-x-[-50%] after:w-full after:border-b  after:border-[#4B4B4B]">
       @for(tab of tabs; let i = $index; track $index){
       <div class="relative py-sm text-center cursor-pointer
@@ -43,11 +55,12 @@
       }
     </div>
     <div class="">
-      @let artist = artistStore.artist();
       @if(artist && artist.id) {
       @switch (artistStore.activeTab()) {
       @case(1) {
+      @if(artist.content){
       <app-artist-tab-content></app-artist-tab-content>
+      }
       }
       @case(2) {
       <p class="mt-lg text-[14px]">Artist chats coming soon...</p>

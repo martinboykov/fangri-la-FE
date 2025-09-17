@@ -50,8 +50,8 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     controls: false,
     muted: false,
     fluid: true,
-    withCredentials: true,
     aspectRatio: '16:9',
+    // withCredentials: true,
     // poster: this.poster() || '',
     // sources: this.sources(),
   };
