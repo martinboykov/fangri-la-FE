@@ -1,0 +1,25 @@
+<div class=" flex flex-col gap-sm pt-sm">
+  <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.MERCHANDISE.TITLE' | translate }}</h1>
+   <div class="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-sm sm:grid-cols-2">
+      @for(item of artistStore.artist.vault(); let i = $index; track $index){
+      <a class="flex flex-col justify-between gap-sm p-sm bg-[rgba(71,_77,_78,_0.50)] rounded-md overflow-hidden cursor-pointer"
+         routerLink="/vault/{{ item.id }}">
+        <div class="flex-grow-[2] flex flex-col justify-between gap-sm">
+          <div class="grid gap-sm">
+            @if(item.labels.length > 0) {
+            <div class="w-full p-xs  rounded-xs text-[10px] font-bold text-center uppercase"
+                 [style.color]="item.labels[0].color"
+                 [style.background-color]="item.labels[0].background">
+              {{item.labels[0].name}}
+            </div>
+            }
+            <h2 class="text-[10px] text-white uppercase">{{ item.artist }}</h2>
+          </div>
+          <h3 class="font-bold text-white">{{ item.name }}</h3>
+        </div>
+        <ion-img class="aspect-square object-cover rounded-sm overflow-hidden"
+                 [src]="item.images[0]"></ion-img>
+      </a>
+      }
+    </div>
+</div>

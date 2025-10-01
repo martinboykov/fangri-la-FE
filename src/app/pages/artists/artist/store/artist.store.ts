@@ -14,6 +14,8 @@ import { Artist, ContentItem, initialArtistSlice } from './artist.slice';
 import { ArtistsStore } from '../../store/artists.store';
 import { increaseLikes, addChatMessage } from './artist.updater';
 import { AuthStore } from 'src/app/services/auth/store/auth.store';
+import { withLocalStorage } from 'src/app/store/custom-features/with-local-storage.feature';
+import { Stores } from 'src/app/constants';
 
 export const ArtistStore = signalStore(
   { providedIn: 'root' },
@@ -75,5 +77,5 @@ export const ArtistStore = signalStore(
       );
     },
   })),
-  // withLocalStorage(Stores.APP_STORE),
+  // withLocalStorage(Stores.ARTIST_STORE),
 );

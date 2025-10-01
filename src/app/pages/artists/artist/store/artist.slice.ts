@@ -55,6 +55,7 @@ export interface Artist extends ArtistListItem {
     shows: LinkItem[];
   };
   merchandise: Merchandise[];
+  vault: Merchandise[];
 }
 
 export interface ArtistSlice {
@@ -98,7 +99,7 @@ export const emptyMerchandise = {
 };
 
 export const initialArtistSlice = {
-  activeTab: 3,
+  activeTab:2,
   hasNewChatMessages: true,
   artist: {
     id: '',
@@ -147,6 +148,7 @@ export const initialArtistSlice = {
       shows: [emptyLink],
     },
     merchandise: [{ ...emptyMerchandise }],
+    vault: [{ ...emptyMerchandise }],
     // merchandise: [{ ...initialMerchandiseSlice.items[0] }],
   },
 };

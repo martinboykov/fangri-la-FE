@@ -11,6 +11,7 @@ export const AUTH_DATA = 'authData';
 export enum Stores {
   APP_STORE = 'appStore',
   HOME_STORE = 'homeStore',
+  ARTIST_STORE = 'artistStore',
   EXPERTS_STORE = 'expertsStore',
   SCHEDULE_STORE = 'scheduleStore',
   SETTINGS_STORE = 'settingsStore',

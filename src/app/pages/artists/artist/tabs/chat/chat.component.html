@@ -1,9 +1,10 @@
-<div class=" flex flex-col gap-sm pt-sm">
+<div #chat
+     class=" flex flex-col gap-sm pt-sm  max-h-[calc(100svh-310px)] overflow-auto">
   <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.CHAT.TITLE' | translate }}</h1>
   <div class="flex flex-col gap-2">
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 ">
       @for(message of artistStore.artist.chat(); let i = $index; track $index){
-      <div class="flex  gap-xs">
+      <div #message class="flex  gap-xs" >
         <div class="shrink-0 "
              [ngClass]="{'order-2': message.isMyself}">
           @if(message.img) {
@@ -37,32 +38,33 @@
       </div>
       }
     </div>
-    <div class="flex gap-xs">
-      <ion-input class="flex-grow"
-                 type="text"
-                 fill="outline"
-                 mode="md"
-                 placeholder="{{'ARTIST.PAGES.CHAT.INPUT_PLACEHOLDER' | translate}}"
-                 [(ngModel)]="newMessage"
-                 (keyup.enter)="sendMessage()"
-                 (keyup.escape)="clearMessage()">
-        @if(newMessage) {
-        <ion-button class="size-xl p-0 mr-1"
-                    slot="start"
-                    fill="clear"
-                    (click)="clearMessage()">
-          <span class="icon-close text-xl text-white"
-                slot="icon-only"></span>
-        </ion-button>
-        <ion-button class="size-2xl p-0 "
-                    slot="end"
-                    fill="clear"
-                    (click)="sendMessage()">
-          <span class="icon-arrow-right text-2xl  text-green-100"
-                slot="icon-only"></span>
-        </ion-button>
-        }
-      </ion-input>
-    </div>
+
   </div>
+</div>
+<div class="fixed bottom-1 left-1 right-0 w-[calc(100%-1rem)] flex gap-xs">
+  <ion-input class="flex-grow"
+             type="text"
+             fill="outline"
+             mode="md"
+             placeholder="{{'ARTIST.PAGES.CHAT.INPUT_PLACEHOLDER' | translate}}"
+             [(ngModel)]="newMessage"
+             (keyup.enter)="sendMessage()"
+             (keyup.escape)="clearMessage()">
+    @if(newMessage) {
+    <ion-button class="size-xl p-0 mr-1"
+                slot="start"
+                fill="clear"
+                (click)="clearMessage()">
+      <span class="icon-close text-xl text-white"
+            slot="icon-only"></span>
+    </ion-button>
+    <ion-button class="size-2xl p-0 "
+                slot="end"
+                fill="clear"
+                (click)="sendMessage()">
+      <span class="icon-arrow-right text-2xl  text-green-100"
+            slot="icon-only"></span>
+    </ion-button>
+    }
+  </ion-input>
 </div>

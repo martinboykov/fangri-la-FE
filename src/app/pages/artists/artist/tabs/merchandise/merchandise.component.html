@@ -42,25 +42,9 @@
               <span class="text-[20px]">{{currency}}</span>
               <span class="text-[30px] tracking-tighter">{{ merchandise.price }}</span>
             </span>
-            <!-- @if(merchandise.status === MerchandiseStatusEnum.IN_STOCK){
-              <ion-button class="flex-shrink-0 min-h-[45px] w-full max-w-[140px]"
-                          color="danger"
-                          fill="solid"><span class="text-[14px] uppercase"><span class="icon-cart text-[24px]"></span></span></ion-button>
-              } -->
             @if(merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
             <span class="py-sm pr-2 text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span>
             }
-            <!-- @if(merchandise.status === MerchandiseStatusEnum.IN_CART){
-              <ion-button class="flex-shrink-0  size-4 "
-                          color="dark"
-                          fill="clear">
-                <div class="grid content-center size-4 gap-sm border-[1px] border-black-100 border-solid rounded-sm"
-                     slot="icon-only">
-                  <span class="icon-cart text-[24px]"></span>
-                </div>
-              </ion-button>
-              } -->
-
           </div>
 
         </div>
