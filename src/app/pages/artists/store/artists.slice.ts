@@ -1,4 +1,9 @@
-import { Artist, initialArtistSlice } from '../artist/store/artist.slice';
+import { initialMerchandiseSlice } from '../../merchandise/store/merchandise.slice';
+import {
+  Artist,
+  emptyMerchandise,
+  initialArtistSlice,
+} from '../artist/store/artist.slice';
 
 export interface ArtistListItem {
   id: string;
@@ -182,6 +187,7 @@ producer, and actress. Made of stardust and basslines.
       },
     ],
   },
+  merchandise: [...initialMerchandiseSlice.items],
 };
 const emptyDetails = {
   // bio: '',
@@ -203,6 +209,7 @@ export const initialArtistsSlice = {
       name: 'Nova Rae',
       image: '/assets/static/images/artists/artist-1.jpg',
       ...artistDetails,
+      merchandise: [...initialMerchandiseSlice.items],
     },
     {
       id: '2',
@@ -211,6 +218,7 @@ export const initialArtistsSlice = {
       bio: artistDetails.bio,
       website: artistDetails.website,
       ...emptyDetails,
+      // merchandise: [{ ...emptyMerchandise }],
     },
     {
       id: '3',
@@ -219,6 +227,7 @@ export const initialArtistsSlice = {
       bio: artistDetails.bio,
       website: artistDetails.website,
       ...emptyDetails,
+      // merchandise: [{ ...emptyMerchandise }],
     },
     {
       id: '4',
@@ -227,6 +236,7 @@ export const initialArtistsSlice = {
       bio: artistDetails.bio,
       website: artistDetails.website,
       ...emptyDetails,
+      // merchandise: [{ ...emptyMerchandise }],
     },
     {
       id: '5',
@@ -235,6 +245,7 @@ export const initialArtistsSlice = {
       bio: artistDetails.bio,
       website: artistDetails.website,
       ...emptyDetails,
+      // merchandise: [{ ...emptyMerchandise }],
       // socials: [...artistDetails.socials],
       // content: [...artistDetails.content],
     },

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { LinksComponent } from './links.component';
+import { ArtistTabLinksComponent } from './links.component';
 
-describe('LinksComponent', () => {
-  let component: LinksComponent;
-  let fixture: ComponentFixture<LinksComponent>;
+describe('ArtistTabLinksComponent', () => {
+  let component: ArtistTabLinksComponent;
+  let fixture: ComponentFixture<ArtistTabLinksComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [LinksComponent],
+      imports: [ArtistTabLinksComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LinksComponent);
+    fixture = TestBed.createComponent(ArtistTabLinksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

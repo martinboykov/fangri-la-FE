@@ -5,6 +5,7 @@ import { ArtistStore } from './store/artist.store';
 import { ArtistTabContentComponent } from './tabs/content/content.component';
 import { ArtistTabChatComponent } from './tabs/chat/chat.component';
 import { ArtistTabLinksComponent } from './tabs/links/links.component';
+import { ArtistTabMerchandiseComponent } from './tabs/merchandise/merchandise.component';
 
 @Component({
   selector: 'app-artist',
@@ -17,6 +18,7 @@ import { ArtistTabLinksComponent } from './tabs/links/links.component';
     ArtistTabContentComponent,
     ArtistTabChatComponent,
     ArtistTabLinksComponent,
+    ArtistTabMerchandiseComponent
   ],
 })
 export class ArtistPage implements OnInit {

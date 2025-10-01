@@ -1,3 +1,8 @@
+import {
+  initialMerchandiseSlice,
+  Merchandise,
+  MerchandiseStatusEnum,
+} from 'src/app/pages/merchandise/store/merchandise.slice';
 import { ArtistListItem } from '../../store/artists.slice';
 
 export interface Social {
@@ -37,6 +42,7 @@ export interface LinkItem {
   img: string;
   url: string;
 }
+
 export interface Artist extends ArtistListItem {
   bio: string;
   website: string;
@@ -47,7 +53,8 @@ export interface Artist extends ArtistListItem {
     music: LinkItem[];
     socials: LinkItem[];
     shows: LinkItem[];
-  }
+  };
+  merchandise: Merchandise[];
 }
 
 export interface ArtistSlice {
@@ -61,6 +68,33 @@ const emptyLink = {
   platform: '',
   img: '',
   url: '',
+};
+export const emptyMerchandise = {
+  id: '',
+  artist: '',
+  name: '',
+  images: [''],
+  description: '',
+  price: 0,
+  totalCount: 0,
+  options: {
+    colors: [''],
+    sizes: [''],
+  },
+  labels: [
+    {
+      name: '',
+      color: '',
+      background: '',
+    },
+  ],
+  parameters: [
+    {
+      name: '',
+      value: '',
+    },
+  ],
+  status: MerchandiseStatusEnum.IN_STOCK,
 };
 
 export const initialArtistSlice = {
@@ -112,5 +146,7 @@ export const initialArtistSlice = {
       socials: [emptyLink],
       shows: [emptyLink],
     },
+    merchandise: [{ ...emptyMerchandise }],
+    // merchandise: [{ ...initialMerchandiseSlice.items[0] }],
   },
 };

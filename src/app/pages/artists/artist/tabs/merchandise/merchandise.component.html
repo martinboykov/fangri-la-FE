@@ -1,0 +1,71 @@
+<div class=" flex flex-col gap-sm pt-sm">
+  <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.MERCHANDISE.TITLE' | translate }}</h1>
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-xl sm:grid-cols-1">
+
+    @for(merchandise of artistStore.artist.merchandise(); let i = $index; track $index){
+    <div class="flex flex-col gap-lg h-full">
+      <div class="flex gap-lg h-full p-sm rounded-lg bg-white">
+        <ion-img class="flex-shrink-0 w-full h-full max-w-10 max-h-18 object-cover rounded-md overflow-hidden cursor-pointer
+          xss:hidden"
+                 [src]="merchandise.images[0] || '/assets/images/placeholder.svg'"
+                 routerLink="/merchandise/{{ merchandise.id }}"
+                 [state]="merchandise"></ion-img>
+        <div class="flex flex-col justify-between gap-xs w-full text-black-100">
+
+          <div class="flex flex-col gap-xs mb-lg">
+            <div class="flex flex-col gap-xs mb-lg
+              xss:flex-row xss:flex-wrap xss:mb-xs">
+              @for(label of merchandise.labels; let j = $index; track $index){
+              <div class="w-[fit-content] py-xs px-sm rounded-xs text-[10px] font-bold uppercase"
+                   [style.color]="label.color"
+                   [style.background-color]="label.background">
+                {{label.name}}
+              </div>
+
+              }
+            </div>
+            <ion-img class="flex-shrink-0 w-full h-full max-w-10 max-h-18 object-cover rounded-md overflow-hidden cursor-pointer
+          xss-min:hidden"
+                     [src]="merchandise.images[0] || '/assets/images/placeholder.svg'"
+                     routerLink="/merchandise/{{ merchandise.id }}"
+                     [state]="merchandise"></ion-img>
+            <div routerLink="/merchandise/{{ merchandise.id }}"
+                 [state]="merchandise">
+              <h2 class="text-2 cursor-pointer">
+                {{ merchandise.name }}
+              </h2>
+              <p class="text-[14px] line-clamp-3 cursor-pointer">{{ merchandise.description }}</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center gap-x-2 gap-y-xs flex-wrap">
+            <span class="">
+              <span class="text-[20px]">{{currency}}</span>
+              <span class="text-[30px] tracking-tighter">{{ merchandise.price }}</span>
+            </span>
+            <!-- @if(merchandise.status === MerchandiseStatusEnum.IN_STOCK){
+              <ion-button class="flex-shrink-0 min-h-[45px] w-full max-w-[140px]"
+                          color="danger"
+                          fill="solid"><span class="text-[14px] uppercase"><span class="icon-cart text-[24px]"></span></span></ion-button>
+              } -->
+            @if(merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
+            <span class="py-sm pr-2 text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span>
+            }
+            <!-- @if(merchandise.status === MerchandiseStatusEnum.IN_CART){
+              <ion-button class="flex-shrink-0  size-4 "
+                          color="dark"
+                          fill="clear">
+                <div class="grid content-center size-4 gap-sm border-[1px] border-black-100 border-solid rounded-sm"
+                     slot="icon-only">
+                  <span class="icon-cart text-[24px]"></span>
+                </div>
+              </ion-button>
+              } -->
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

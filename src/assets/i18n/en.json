@@ -171,17 +171,20 @@
     },
     "PAGES": {
       "CONTENT": {
-        "TITLE": "'s content"
+        "TITLE": "'s Content"
       },
       "CHAT": {
-        "TITLE": "'s chat",
+        "TITLE": "'s Chat",
         "INPUT_PLACEHOLDER": "Say something..."
       },
       "LINKS": {
-        "TITLE": "'s links",
+        "TITLE": "'s Links",
         "MUSIC": "Music",
         "SOCIALS": "Socials",
         "SHOWS": "Shows"
+      },
+      "MERCHANDISE": {
+        "TITLE": "'s Merch"
       },
       "CONTENT_ITEM": {
         "TITLE": "'s message"

@@ -79,7 +79,11 @@
       }
       }
       @case(4) {
+      @if(artist.merchandise){
+      <app-artist-tab-merchandise></app-artist-tab-merchandise>
+      } @else {
       <p class="mt-lg text-[14px]">Artist store coming soon...</p>
+      }
       }
       @case(5) {
       <p class="mt-lg text-[14px]">Artist vault coming soon...</p>
