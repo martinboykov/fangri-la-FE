@@ -732,9 +732,9 @@ ion-input {
   &.input-fill-outline.ion-touched.ion-invalid.sc-ion-input-md-h {
     --border-width: 1px;
     --border-radius: var(--border-radius-sm);
+    --background: #2b3743;
     --border-color: var(--color-black-300);
-    --background: transparent;
-    --placeholder-color: var(--color-black-300);
+    --placeholder-color: #9b9fa8;
     --placeholder-opacity: 1;
     --placeholder-font-weight: 500;
     // border: 1px solid var(--color-black-300);
@@ -753,23 +753,21 @@ ion-input {
       transform: scale(0);
     }
 
-    &.voucher-input {
-      --placeholder-color: var(--color-neutral-300);
-    }
     &:hover {
-      --background: var(--color-neutral-900);
-      --border-color: var(--color-neutral-300);
+      --background: #2b3743;
+      --border-color: var(--color-black-300);
+      --placeholder-color: #9b9fa8;
     }
 
     &.ion-valid {
-      --border-color: var(--color-green-300);
-
-      --color: var(--color-green-200);
+      --background: #2b3743;
+      --border-color: var(--color-black-300);
+      --placeholder-color: #9b9fa8;
       .label-text-wrapper.sc-ion-input-md {
-        color: var(--color-green-200);
+        --placeholder-color: #9b9fa8;
       }
       &.has-focus {
-        --background: var(--color-green-700);
+        --background: #2b3743;
       }
     }
     &.ion-invalid.ng-touched {

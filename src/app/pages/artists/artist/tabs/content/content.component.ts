@@ -3,6 +3,7 @@ import { VideoComponent } from 'src/app/components/video/video.component';
 import { ArtistStore } from '../../store/artist.store';
 import { SharedModule } from 'src/app/shared.module';
 import { MainSwiperComponent } from 'src/app/components/swipers/main/main-swiper.component';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'app-artist-tab-content',

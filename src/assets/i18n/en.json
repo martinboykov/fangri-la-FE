@@ -1,11 +1,13 @@
 {
   "CONSTANTS": {
+    "AGO": "ago",
     "DATE": "date",
     "TIME": "time",
     "READ": "read",
     "SEE": "See",
     "ALL": "all",
     "CLOSE": "Close",
+    "CREATOR": "creator",
     "OPEN": "Open",
     "SHOW": "show",
     "COLOR": "color",
@@ -166,6 +168,24 @@
       "LINKS": "Links",
       "STORE": "Store",
       "VAULT": "Vault"
+    },
+    "PAGES": {
+      "CONTENT": {
+        "TITLE": "'s content"
+      },
+      "CHAT": {
+        "TITLE": "'s chat",
+        "INPUT_PLACEHOLDER": "Say something..."
+      },
+      "LINKS": {
+        "TITLE": "'s links",
+        "MUSIC": "Music",
+        "SOCIALS": "Socials",
+        "SHOWS": "Shows"
+      },
+      "CONTENT_ITEM": {
+        "TITLE": "'s message"
+      }
     }
   },
   "MERCHANDISE": {

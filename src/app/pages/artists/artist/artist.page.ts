@@ -3,13 +3,21 @@ import { HeaderMainPageComponent } from 'src/app/components/headers/header-main-
 import { SharedModule } from 'src/app/shared.module';
 import { ArtistStore } from './store/artist.store';
 import { ArtistTabContentComponent } from './tabs/content/content.component';
+import { ArtistTabChatComponent } from './tabs/chat/chat.component';
+import { ArtistTabLinksComponent } from './tabs/links/links.component';
 
 @Component({
   selector: 'app-artist',
   templateUrl: './artist.page.html',
   styleUrls: ['./artist.page.scss'],
   standalone: true,
-  imports: [SharedModule, HeaderMainPageComponent, ArtistTabContentComponent],
+  imports: [
+    SharedModule,
+    HeaderMainPageComponent,
+    ArtistTabContentComponent,
+    ArtistTabChatComponent,
+    ArtistTabLinksComponent,
+  ],
 })
 export class ArtistPage implements OnInit {
   readonly artistStore = inject(ArtistStore);
@@ -23,4 +31,7 @@ export class ArtistPage implements OnInit {
   }
 
   ngOnInit() {}
+  ngOnChange(sampleChanges: any) {
+    console.log('sampleChanges', sampleChanges);
+  }
 }

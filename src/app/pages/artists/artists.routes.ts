@@ -13,10 +13,17 @@ export const routes: Routes = [
           import('./artists-list/artists.page').then((m) => m.ArtistsPage),
       },
       {
+        path: ':artistId/content/:contentId',
+        loadComponent: () =>
+          import('./artist/tabs/content/content-item/content-item.page').then(
+            (m) => m.ContentItemPage,
+          ),
+      },
+      {
         path: ':id',
         loadComponent: () =>
           import('./artist/artist.page').then((m) => m.ArtistPage),
-        providers: [ArtistStore],
+        // providers: [ArtistStore],
       },
       {
         path: '',

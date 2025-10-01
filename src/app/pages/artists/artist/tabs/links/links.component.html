@@ -1,0 +1,47 @@
+<div class=" flex flex-col gap-sm pt-sm">
+  <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.LINKS.TITLE' | translate }}</h1>
+  <div class="flex flex-col gap-sm">
+    @if(artistStore.artist.links.music().length > 0) {
+    <div class="">
+      <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.MUSIC' | translate }}</div>
+      <div class="flex justify-center items-center gap-2xl flex-wrap  p-lg">
+        @for(link of artistStore.artist.links.music(); let i = $index; track $index){
+        <a href="{{link.url}}"
+           target="_blank"
+           rel="noopener noreferrer">
+          <ion-img class="max-h-4"
+                   [src]="link.img"></ion-img></a>
+        }
+      </div>
+    </div>
+    }
+    @if(artistStore.artist.links.socials().length > 0) {
+    <div class="">
+      <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.SOCIALS' | translate }}</div>
+      <div class="flex justify-center items-center flex-wrap gap-2xl p-lg">
+        @for(link of artistStore.artist.links.socials(); let i = $index; track $index){
+        <a class="shtink-0" href="{{link.url}}"
+           target="_blank"
+           rel="noopener noreferrer">
+          <ion-img class="w-full max-h-4"
+                   [src]="link.img"></ion-img></a>
+        }
+      </div>
+    </div>
+    }
+    @if(artistStore.artist.links.shows().length > 0) {
+    <div class="">
+      <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.SHOWS' | translate }}</div>
+      <div class="flex justify-center items-center flex-wrap gap-2xl p-lg">
+        @for(link of artistStore.artist.links.shows(); let i = $index; track $index){
+        <a class="shtink-0" href="{{link.url}}"
+           target="_blank"
+           rel="noopener noreferrer">
+          <ion-img class="w-full max-h-4"
+                   [src]="link.img"></ion-img></a>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</div>

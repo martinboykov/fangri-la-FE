@@ -14,14 +14,19 @@ import { importProvidersFrom } from '@angular/core';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
 
-import {
-  provideTranslateHttpLoader,
-} from '@ngx-translate/http-loader';
-import {
-  provideTranslateService,
-} from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideTranslateService } from '@ngx-translate/core';
 import { routes } from './app.routes';
 import { environment } from 'src/environments/environment';
+
+import dayjs, { Dayjs } from 'dayjs';
+import updateLocale from 'dayjs/plugin/updateLocale';
+import relativeTime from 'dayjs/plugin/relativeTime';
+dayjs.extend(relativeTime);
+dayjs.extend(updateLocale);
+dayjs.updateLocale('en', {
+  weekStart: 1,
+});
 
 export const appConfig = {
   providers: [

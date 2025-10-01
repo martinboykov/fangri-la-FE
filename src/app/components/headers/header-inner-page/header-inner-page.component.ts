@@ -29,25 +29,34 @@ export class HeaderInnerPageComponent implements OnInit {
   title = input<string>();
   defaultHref = input<string>();
 
-  merchandise = input<Merchandise>();
-
-  isMerchandiseList = input<boolean>(false);
-  isMerchandiseItem = input<boolean>(false);
-  isVaultItem = input<boolean>(false);
   isCart = input<boolean>(false);
 
+  isMerchandiseItem = input<boolean>(false);
+  merchandise = input<Merchandise>();
+
   // for mech list
+  isMerchandiseList = input<boolean>(false);
   totalItemsCount = input<number>(); // also for cart
   totalArtistsCount = input<number>();
 
   // for cart
   totalItemsCost = input<number>();
 
+  // for Vault
+  isVaultItem = input<boolean>(false);
 
+  // for artist content page
+  isArtistContent = input<boolean>(false);
+  contentDate = input<string>();
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(
+      '🚀 ~ HeaderInnerPageComponent ~ ngOnInit ~ this.defaultHref():',
+      this.defaultHref(),
+    );
+  }
   goBack() {
     if (this.defaultHref() !== undefined) {
       this.router.navigateByUrl(this.defaultHref() as string);

@@ -1,4 +1,4 @@
-@use '../custom/abstracts/mixins' as mixins;
+@use "../custom/abstracts/mixins" as mixins;
 @layer utilities {
   .h1 {
     font-size: var(--font-size-h1);
@@ -138,6 +138,22 @@
   .section-spacing {
     @apply mb-5;
   }
-
-
+  .separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #4b4b4b;
+      padding: 0 0.5rem;
+    }
+    &:not(:empty)::before {
+      margin-right: var(--xs-px);
+    }
+    &:not(:empty)::after {
+      margin-left: var(--xs-px);
+    }
+  }
 }

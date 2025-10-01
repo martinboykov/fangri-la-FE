@@ -1,4 +1,4 @@
-import { Artist } from '../artist/store/artist.slice';
+import { Artist, initialArtistSlice } from '../artist/store/artist.slice';
 
 export interface ArtistListItem {
   id: string;
@@ -28,12 +28,16 @@ producer, and actress. Made of stardust and basslines.
   ],
   content: [
     {
+      id: '1',
       images: ['/assets/static/images/content/content-artist-1-1.jpg'],
       title: 'New Single Release',
-      date: '2023-10-01T12:00:00Z',
+      content:
+        'Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!',
+      date: 'Thu 4:20PM',
       likes: 120,
     },
     {
+      id: '2',
       video: {
         poster: '/assets/static/images/content/content-artist-1-2.jpg',
         sources: [
@@ -44,10 +48,11 @@ producer, and actress. Made of stardust and basslines.
         ],
       },
       title: 'Live Performance',
-      date: '2023-09-15T18:30:00Z',
+      date: 'Mon 11:30PM',
       likes: 250,
     },
     {
+      id: '3',
       video: {
         poster: '/assets/static/images/content/content-artist-1-3.jpg',
         sources: [
@@ -58,10 +63,14 @@ producer, and actress. Made of stardust and basslines.
         ],
       },
       title: 'Live Performance',
-      date: '2023-09-15T18:30:00Z',
+      content:
+        'Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!',
+
+      date: 'Sun 9:30PM',
       likes: 250,
     },
     {
+      id: '4',
       images: [
         '/assets/static/images/content/content-artist-1-1.jpg',
         '/assets/static/images/content/content-artist-1-2.jpg',
@@ -69,10 +78,122 @@ producer, and actress. Made of stardust and basslines.
         '/assets/static/images/content/content-artist-1-4.jpg',
       ],
       title: 'Live Performance',
-      date: '2023-09-15T18:30:00Z',
+      content:
+        'Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!',
+      date: 'Sep 23 4:20PM',
       likes: 250,
     },
   ],
+  chat: [
+    {
+      id: '1',
+      userId: '1',
+      name: 'Nova',
+      surname: 'Rae',
+      shortName: 'K',
+      img: '/assets/static/images/artists/artist-1.jpg',
+      message: 'Hello',
+      isCreator: true,
+      isMyself: false,
+      date: 'Thu 4:20PM',
+    },
+    {
+      id: '2',
+      userId: '2',
+      name: 'Andi',
+      surname: 'Jones',
+      shortName: 'AJ',
+      message: 'How are you?',
+      isCreator: false,
+      isMyself: false,
+      date: 'Thu 4:20PM',
+    },
+    {
+      id: '3',
+      userId: '3',
+      name: 'John',
+      surname: 'User',
+      shortName: 'JD',
+      message: 'You said forever like a password you forgot',
+      isCreator: false,
+      isMyself: true,
+      date: 'Thu 4:20PM',
+    },
+  ],
+  links: {
+    music: [
+      {
+        id: 1,
+        platform: 'spotify',
+        img: '/assets/images/social/spotify.png',
+        url: 'https://open.spotify.com/artist/1',
+      },
+      {
+        id: 2,
+        platform: 'apple-music',
+        img: '/assets/images/social/apple-music.png',
+        url: 'https://music.apple.com/us/artist/novarae/145567901',
+      },
+    ],
+    socials: [
+      {
+        id: 1,
+        platform: 'instagram',
+        img: '/assets/images/social/instagram.png',
+        url: 'https://instagram.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'x',
+        img: '/assets/images/social/x.png',
+        url: 'https://twitter.com/novarae',
+      },
+      {
+        id: 3,
+        platform: 'tiktok',
+        img: '/assets/images/social/tiktok.png',
+        url: 'https://www.tiktok.com/@novarae',
+      },
+      {
+        id: 4,
+        platform: 'youtube',
+        img: '/assets/images/social/youtube.png',
+        url: 'https://www.youtube.com/@novarae',
+      },
+      {
+        id: 5,
+        platform: 'facebook',
+        img: '/assets/images/social/facebook.png',
+        url: 'https://facebook.com/novarae',
+      },
+    ],
+    shows: [
+      {
+        id: 1,
+        platform: 'bandsintown',
+        img: '/assets/images/social/bandsintown.png',
+        url: 'https://www.bandsintown.com/',
+      },
+      {
+        id: 2,
+        platform: 'songkick',
+        img: '/assets/images/social/songkick.png',
+        url: 'https://www.songkick.com/',
+      },
+    ],
+  },
+};
+const emptyDetails = {
+  // bio: '',
+  // website: '',
+  // socials: [...initialArtistSlice.artist.socials],
+  // content: [...initialArtistSlice.artist.content],
+  // chat: [...initialArtistSlice.artist.chat],
+  // links: {
+  //   music: [...initialArtistSlice.artist.links.music],
+  //   socials: [...initialArtistSlice.artist.links.socials],
+  //   shows: [...initialArtistSlice.artist.links.shows],
+  // },
 };
 
 export const initialArtistsSlice = {
@@ -89,13 +210,15 @@ export const initialArtistsSlice = {
       image: '/assets/static/images/artists/artist-2.jpg',
       bio: artistDetails.bio,
       website: artistDetails.website,
+      ...emptyDetails,
     },
     {
       id: '3',
       name: 'Soliah Skye',
       image: '/assets/static/images/artists/artist-3.jpg',
-       bio: artistDetails.bio,
+      bio: artistDetails.bio,
       website: artistDetails.website,
+      ...emptyDetails,
     },
     {
       id: '4',
@@ -103,6 +226,7 @@ export const initialArtistsSlice = {
       image: '/assets/static/images/artists/artist-4.jpg',
       bio: artistDetails.bio,
       website: artistDetails.website,
+      ...emptyDetails,
     },
     {
       id: '5',
@@ -110,6 +234,7 @@ export const initialArtistsSlice = {
       image: '/assets/static/images/artists/artist-5.jpg',
       bio: artistDetails.bio,
       website: artistDetails.website,
+      ...emptyDetails,
       // socials: [...artistDetails.socials],
       // content: [...artistDetails.content],
     },

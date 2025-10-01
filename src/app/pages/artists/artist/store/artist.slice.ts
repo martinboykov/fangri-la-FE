@@ -5,20 +5,49 @@ export interface Social {
   url: string;
 }
 export interface ContentItem {
+  id: string;
   images: string[];
   video: {
     poster: string;
     sources: { src: string; type: string }[];
   };
   title: string;
-  date: string; // ISO
+  content: string; // html
+  date: string;
   likes: number;
+  isLiked: boolean;
+}
+
+export interface ChatItem {
+  id: string;
+  userId: string;
+  name: string;
+  surname: string;
+  shortName: string;
+  img: string;
+  message: string; // html
+  isCreator: boolean;
+  isMyself: boolean;
+  date: string;
+}
+
+export interface LinkItem {
+  id: string;
+  platform: string;
+  img: string;
+  url: string;
 }
 export interface Artist extends ArtistListItem {
   bio: string;
   website: string;
   socials: Social[];
   content: ContentItem[];
+  chat: ChatItem[];
+  links: {
+    music: LinkItem[];
+    socials: LinkItem[];
+    shows: LinkItem[];
+  }
 }
 
 export interface ArtistSlice {
@@ -27,8 +56,15 @@ export interface ArtistSlice {
   artist: Artist;
 }
 
+const emptyLink = {
+  id: '',
+  platform: '',
+  img: '',
+  url: '',
+};
+
 export const initialArtistSlice = {
-  activeTab: 1,
+  activeTab: 3,
   hasNewChatMessages: true,
   artist: {
     id: '',
@@ -44,15 +80,37 @@ export const initialArtistSlice = {
     ],
     content: [
       {
+        id: '',
         images: [''],
         video: {
           poster: '',
           sources: [{ src: '', type: '' }],
         },
         title: '',
-        date: '', // ISO
+        content: '',
+        date: '',
         likes: 0,
+        isLiked: false,
       },
     ],
+    chat: [
+      {
+        id: '',
+        userId: '',
+        name: '',
+        surname: '',
+        shortName: '',
+        img: '',
+        message: '',
+        isCreator: false,
+        isMyself: false,
+        date: '',
+      },
+    ],
+    links: {
+      music: [emptyLink],
+      socials: [emptyLink],
+      shows: [emptyLink],
+    },
   },
 };

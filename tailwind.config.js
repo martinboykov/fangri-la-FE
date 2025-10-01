@@ -46,6 +46,7 @@ export default {
       green: {
         100: "var(--color-green-100)",
         200: "var(--color-green-200)",
+        300: "var(--color-green-300)",
       },
       red: {
         100: "var(--color-red-100)",

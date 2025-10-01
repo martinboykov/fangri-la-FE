@@ -56,7 +56,7 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     // sources: this.sources(),
   };
   player!: Player;
-  isVideoPlaying: WritableSignal<boolean> = signal<boolean>(false);
+  isVideoPlaying: boolean = false;
   constructor() {
     effect(() => {
       this.options.poster = this.poster() || '';
@@ -97,12 +97,12 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   toggleVideoState() {
     console.log('🚀 ~ VideoComponent ~ toggleVideoState ~ toggleVideoState:');
     if (this.player) {
-      this.isVideoPlaying.update((value) => !value);
-      if (this.isVideoPlaying()) {
-        this.player.play();
-      } else {
-        this.player.pause();
-      }
+      this.isVideoPlaying = !this.isVideoPlaying;
+        if (this.isVideoPlaying) {
+          this.player.play();
+        } else {
+          this.player.pause();
+        }
     }
   }
   ngOnDestroy() {

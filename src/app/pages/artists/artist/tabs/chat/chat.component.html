@@ -1,0 +1,68 @@
+<div class=" flex flex-col gap-sm pt-sm">
+  <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.CHAT.TITLE' | translate }}</h1>
+  <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2">
+      @for(message of artistStore.artist.chat(); let i = $index; track $index){
+      <div class="flex  gap-xs">
+        <div class="shrink-0 "
+             [ngClass]="{'order-2': message.isMyself}">
+          @if(message.img) {
+          <ion-img class="size-2xl rounded-sm overflow-hidden"
+                   [src]="message.img"></ion-img>
+          } @else {
+          <div class="flex justify-center items-center size-2xl rounded-sm text-[18px] font-bold text-black-100 overflow-hidden "
+               [ngClass]="{'bg-yellow-100': !message.isMyself && message.isCreator, 'bg-green-300': !message.isMyself && !message.isCreator, 'bg-green-200': message.isMyself && !message.isCreator}">
+            <span>{{message.shortName}}</span>
+          </div>
+          }
+        </div>
+        <div class="flex flex-col gap-xs p-sm  w-full rounded-sm text-black-100"
+             [ngClass]="{'bg-yellow-100': !message.isMyself && message.isCreator, 'bg-green-300': !message.isMyself && !message.isCreator, 'bg-green-200': message.isMyself && !message.isCreator}">
+          <div class="inline-flex items-center gap-sm">
+            <span class="text-[14px] font-bold">
+              {{message.name}}
+            </span>
+            @if(message.isCreator){
+            <span class="py-[1px] px-[2px] bg-green-200 text-[10px]  uppercase">{{'CONSTANTS.CREATOR' | translate}}</span>
+            }
+            <span class="text-[12px]">&#8226;</span>
+            <span class="text-[12px] text-opacity-80">
+              {{dayjs(message.date).fromNow(true)}} {{'CONSTANTS.AGO' | translate}}
+            </span>
+          </div>
+          <div class="text-[14px]"
+               [innerHTML]="message.message | safeHtml">
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="flex gap-xs">
+      <ion-input class="flex-grow"
+                 type="text"
+                 fill="outline"
+                 mode="md"
+                 placeholder="{{'ARTIST.PAGES.CHAT.INPUT_PLACEHOLDER' | translate}}"
+                 [(ngModel)]="newMessage"
+                 (keyup.enter)="sendMessage()"
+                 (keyup.escape)="clearMessage()">
+        @if(newMessage) {
+        <ion-button class="size-xl p-0 mr-1"
+                    slot="start"
+                    fill="clear"
+                    (click)="clearMessage()">
+          <span class="icon-close text-xl text-white"
+                slot="icon-only"></span>
+        </ion-button>
+        <ion-button class="size-2xl p-0 "
+                    slot="end"
+                    fill="clear"
+                    (click)="sendMessage()">
+          <span class="icon-arrow-right text-2xl  text-green-100"
+                slot="icon-only"></span>
+        </ion-button>
+        }
+      </ion-input>
+    </div>
+  </div>
+</div>

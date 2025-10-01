@@ -60,13 +60,23 @@
       @case(1) {
       @if(artist.content){
       <app-artist-tab-content></app-artist-tab-content>
+      } @else {
+      <p class="mt-lg text-[14px]">Artist content coming soon...</p>
       }
       }
       @case(2) {
-      <p class="mt-lg text-[14px]">Artist chats coming soon...</p>
+      @if(artist.chat){
+      <app-artist-tab-chat></app-artist-tab-chat>
+      } @else {
+      <p class="mt-lg text-[14px]">Artist chat coming soon...</p>
+      }
       }
       @case(3) {
+      @if(artist.links){
+      <app-artist-tab-links></app-artist-tab-links>
+      } @else {
       <p class="mt-lg text-[14px]">Artist links coming soon...</p>
+      }
       }
       @case(4) {
       <p class="mt-lg text-[14px]">Artist store coming soon...</p>

@@ -9,6 +9,7 @@ export interface AuthLoginResponseData {
   id: string;
   name: string;
   surname: string;
+  img: string;
   phone: string;
   email: string;
   token: string;
@@ -29,7 +30,9 @@ export interface IUserProfilePasswordSettings {
   repeatNewPassword: string;
 }
 
-export interface IUser extends AuthLoginResponseData {}
+export interface IUser extends AuthLoginResponseData {
+  shortName: string;
+}
 
 export type UserRole = 'user' | 'artist';
 export enum UserRoleEnum {
@@ -41,6 +44,8 @@ export class User implements IUser {
   public id;
   public name: string;
   public surname: string;
+  public shortName: string;
+  public img: string;
   public email: string;
   public token: string; // TODO revise implementation after real backend
   public tokenExpirationDate: string; // ISO format (string) // TODO revise implementation after real backend
@@ -50,6 +55,8 @@ export class User implements IUser {
     this.id = userData.id;
     this.name = userData.name;
     this.surname = userData.surname;
+    this.shortName = userData.name[0] + userData.surname[0];
+    this.img = userData.img;
     this.email = userData.email;
     this.token = userData.token;
     this.tokenExpirationDate = userData.tokenExpirationDate;

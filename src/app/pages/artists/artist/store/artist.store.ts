@@ -10,23 +10,40 @@ import { User } from 'src/app/models/auth.model';
 import { TranslationService } from 'src/app/services/translation/translation.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { switchMap } from 'rxjs';
-import { Artist, initialArtistSlice } from './artist.slice';
+import { Artist, ContentItem, initialArtistSlice } from './artist.slice';
 import { ArtistsStore } from '../../store/artists.store';
+import { increaseLikes, addChatMessage } from './artist.updater';
+import { AuthStore } from 'src/app/services/auth/store/auth.store';
 
 export const ArtistStore = signalStore(
-  // { providedIn: 'root' },
+  { providedIn: 'root' },
   withState(initialArtistSlice),
   withMethods((store) => {
+    const authStore = inject(AuthStore);
     const artistsStore = inject(ArtistsStore);
     return {
       setActiveTab: (tabIndex: number) =>
         patchState(store, { activeTab: tabIndex }),
       getArtistById: (artistId: string) => {
-        const artist = artistsStore.getArtistById(artistId);
+        const artist = artistsStore
+          .artists()
+          .find((artist) => artist.id === artistId);
         if (artist !== undefined) {
           patchState(store, { artist: artist as Artist });
         }
       },
+      getContentById: (contentId: string) => {
+        if (!store.artist.content) {
+          return null;
+        }
+        return store.artist
+          .content()
+          .find((content: ContentItem) => content.id === contentId);
+      },
+      increaseLikes: (contentId: string) =>
+        patchState(store, increaseLikes(contentId)),
+      addChatMessage: (message: string) =>
+        patchState(store, addChatMessage(message, authStore.user() as User)),
       reset: () => patchState(store, initialArtistSlice),
     };
   }),
