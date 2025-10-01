@@ -41,31 +41,38 @@
     </div>
 
     <div #input
-         class="flex gap-xs">
-      <ion-input class="flex-grow"
+         class="relative flex gap-xs">
+      <input type="text"
+             class="flex-grow min-h-[48px] p-lg rounded-sm text-white text-[14px] bg-gray-60 border border-black-300 bg-[#2B3743]"
+             [ngClass]="{'px-[60px]': newMessage}"
+             [placeholder]="'ARTIST.PAGES.CHAT.INPUT_PLACEHOLDER' | translate"
+             [(ngModel)]="newMessage"
+             (keyup.enter)="sendMessage()"
+             (keyup.escape)="clearMessage()">
+      <!-- <ion-input class="flex-grow"
                  fill="outline"
                  mode="md"
                  placeholder="{{'ARTIST.PAGES.CHAT.INPUT_PLACEHOLDER' | translate}}"
                  [(ngModel)]="newMessage"
                  (keyup.enter)="sendMessage()"
-                 (keyup.escape)="clearMessage()">
-        @if(newMessage) {
-        <ion-button class="size-xl p-0 mr-1"
-                    slot="start"
-                    fill="clear"
-                    (click)="clearMessage()">
-          <span class="icon-close text-xl text-white"
-                slot="icon-only"></span>
-        </ion-button>
-        <ion-button class="size-2xl p-0 "
-                    slot="end"
-                    fill="clear"
-                    (click)="sendMessage()">
-          <span class="icon-arrow-right text-2xl  text-green-100"
-                slot="icon-only"></span>
-        </ion-button>
-        }
-      </ion-input>
+                 (keyup.escape)="clearMessage()"> -->
+      @if(newMessage) {
+      <ion-button class="absolute left-lg top-[50%] translate-y-[-50%] size-xl p-0 "
+                  slot="start"
+                  fill="clear"
+                  (click)="clearMessage()">
+        <span class="icon-close text-xl text-white"
+              slot="icon-only"></span>
+      </ion-button>
+      <ion-button class="absolute right-lg top-[50%] translate-y-[-50%] size-2xl p-0 "
+                  slot="end"
+                  fill="clear"
+                  (click)="sendMessage()">
+        <span class="icon-arrow-right text-2xl  text-green-100"
+              slot="icon-only"></span>
+      </ion-button>
+      }
+      <!-- </ion-input> -->
     </div>
   </div>
 </div>

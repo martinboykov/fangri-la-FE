@@ -8,20 +8,22 @@
            contentItem.images"
                        [paginationClass]="'swiper-artist'"
                        [imgClass]="'aspect-square'"
-                       [options]="{autoHeight: true}"></app-main-swiper>
+                       [options]="{autoHeight: true}"
+                       (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-main-swiper>
       }
       @if(contentItem.images && contentItem.images.length === 1){
       <ion-img class="w-full h-full object-cover rounded-md overflow-hidden"
                [src]="contentItem.images[0] || '/assets/images/placeholder.svg'"
-               routerLink="/artists/{{artistStore.artist.id()}}/content/{{contentItem.id}}"></ion-img>
+               (dblclick)="artistStore.increaseLikes(contentItem.id)"></ion-img>
       }
       @if(contentItem.video) {
       <app-video class="block w-full aspect-video rounded-lg overflow-hidden"
                  [poster]="contentItem.video.poster"
-                 [sources]="contentItem.video.sources"></app-video>
+                 [sources]="contentItem.video.sources"
+                 (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-video>
       }
       <div class="flex justify-between gap-sm">
-        <div class="flex flex-col flex-sm"
+        <div class="flex flex-col flex-sm cursor-pointer"
              routerLink="/artists/{{artistStore.artist.id()}}/content/{{contentItem.id}}">
           @if(contentItem.title){
           <h2 class="text-[14px] font-normal">{{contentItem.title}}</h2>

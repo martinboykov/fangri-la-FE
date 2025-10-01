@@ -8,14 +8,14 @@ export function increaseLikes(
   return (store) => ({
     artist: {
       ...store.artist,
-      // content: ((store.artist.content as ContentItem[]) || []).map(
-      //   (content: any) => {
-      //     if (content.id === contentId && !content.isLiked) {
-      //       return { ...content, likes: content.likes + 1, isLiked: true };
-      //     }
-      //     return content;
-      //   },
-      // ),
+      content: ((store.artist.content as ContentItem[]) || []).map(
+        (content: any) => {
+          if (content.id === contentId && !content.isLiked) {
+            return { ...content, likes: content.likes + 1, isLiked: true };
+          }
+          return content;
+        },
+      ),
     },
   });
 }

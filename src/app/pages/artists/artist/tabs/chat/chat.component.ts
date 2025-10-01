@@ -42,8 +42,7 @@ export class ArtistTabChatComponent implements OnInit {
         //   behavior: 'smooth',
         // });
         const input = this.input();
-        input?.nativeElement.scrollIntoView({
-        });
+        input?.nativeElement.scrollIntoView({});
       }, 0);
     });
   }
@@ -63,8 +62,7 @@ export class ArtistTabChatComponent implements OnInit {
       // const lastMessage = messagesEls[messagesEls.length - 1].nativeElement;
       // lastMessage.scrollIntoView({});
       const input = this.input();
-        input?.nativeElement.scrollIntoView({
-        });
+      input?.nativeElement.scrollIntoView({});
     }, 0);
     this.newMessage = '';
   }
