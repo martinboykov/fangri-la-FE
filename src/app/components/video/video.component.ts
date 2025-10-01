@@ -105,6 +105,9 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
         }
     }
   }
+  dbClick(event: any) {
+    console.log('🚀 ~ VideoComponent ~ dbClick ~ event:', event);
+  }
   ngOnDestroy() {
     if (this.player) {
       this.player.pause();

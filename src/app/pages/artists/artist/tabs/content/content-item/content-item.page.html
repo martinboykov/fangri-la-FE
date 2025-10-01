@@ -34,7 +34,8 @@
         }
       </div>
       @if(contentItem.likes){
-      <span class="flex items-center gap-xs cursor-pointer">
+      <span class="flex items-center gap-xs cursor-pointer"
+       (click)="artistStore.increaseLikes(contentItem.id)">
         <span class="icon-heart text-[16px] text-yellow-100"></span>
         <span class="text-[12px] text-[#fff]">{{contentItem.likes}}</span>
       </span>
