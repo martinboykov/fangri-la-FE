@@ -22,10 +22,10 @@ import dayjs from 'dayjs';
   imports: [SharedModule, SafeHtmlPipe],
 })
 export class ArtistTabChatComponent implements OnInit {
-  chat = viewChild('chat', { read: ElementRef });
+  // chat = viewChild('chat', { read: ElementRef });
+  input = viewChild('input', { read: ElementRef });
   messages = viewChildren('message', { read: ElementRef });
   readonly artistStore = inject(ArtistStore);
-  readonly onNewChatMessage = output();
   public dayjs = dayjs;
   newMessage!: string;
   constructor() {
@@ -34,13 +34,15 @@ export class ArtistTabChatComponent implements OnInit {
     effect(() => {
       // this.chat()?.nativeElement.scrollToBottom({ behavior: 'smooth' });
       setTimeout(() => {
-        const chat = this.chat();
-        chat?.nativeElement.scrollTo({ top: chat?.nativeElement.scrollHeight });
-        const messagesEls = this.messages();
-
-        const lastMessage = messagesEls[messagesEls.length - 1].nativeElement;
-        lastMessage.scrollIntoView({
-          behavior: 'smooth',
+        // const chat = this.chat();
+        // chat?.nativeElement.scrollTo({ top: chat?.nativeElement.scrollHeight });
+        // const messagesEls = this.messages();
+        // const lastMessage = messagesEls[messagesEls.length - 1].nativeElement;
+        // lastMessage.scrollIntoView({
+        //   behavior: 'smooth',
+        // });
+        const input = this.input();
+        input?.nativeElement.scrollIntoView({
         });
       }, 0);
     });
@@ -48,27 +50,21 @@ export class ArtistTabChatComponent implements OnInit {
 
   ngOnInit() {}
   sendMessage() {
-    console.log(
-      '🚀 ~ ArtistTabChatComponent ~ sendMessage ~ this.newMessage:',
-      this.newMessage,
-    );
     if (!this.newMessage) return;
     this.artistStore.addChatMessage(this.newMessage);
-    this.onNewChatMessage.emit();
-    console.log(this.chat()?.nativeElement.scrollHeight);
 
-    this.chat()?.nativeElement.scrollTo({
-      top: this.chat()?.nativeElement.scrollHeight,
-    });
-    console.log(
-      '🚀 ~ ArtistTabChatComponent ~ sendMessage ~ this.chat()?.nativeElement:',
-      this.chat()?.nativeElement,
-    );
+    // this.chat()?.nativeElement.scrollTo({
+    //   top: this.chat()?.nativeElement.scrollHeight,
+    // });
+
     setTimeout(() => {
-      const messagesEls = this.messages();
+      // const messagesEls = this.messages();
 
-      const lastMessage = messagesEls[messagesEls.length - 1].nativeElement;
-      lastMessage.scrollIntoView({});
+      // const lastMessage = messagesEls[messagesEls.length - 1].nativeElement;
+      // lastMessage.scrollIntoView({});
+      const input = this.input();
+        input?.nativeElement.scrollIntoView({
+        });
     }, 0);
     this.newMessage = '';
   }

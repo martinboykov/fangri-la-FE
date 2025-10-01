@@ -32,7 +32,6 @@ import { ArtistTabVaultComponent } from './tabs/vault/vault.component';
   ],
 })
 export class ArtistPage implements OnInit {
-  readonly ionContent = viewChild(IonContent);
   readonly artistStore = inject(ArtistStore);
   readonly id = input.required<string>();
   activeTabClass = 'border-b-2 text-green-100 border-green-100 font-bold';
@@ -40,20 +39,11 @@ export class ArtistPage implements OnInit {
   constructor() {
     effect(() => {
       this.artistStore.getArtistById(this.id());
-
-      console.log(
-        '🚀 ~ ArtistPage ~ constructor ~ this.ionContent():',
-        this.ionContent(),
-      );
-
     });
   }
 
   ngOnInit() {}
-  onNewChatMessage(event: any) {
-    console.log('event', event);
-    this.ionContent()?.scrollToBottom();
-  }
+
   ngOnChange(sampleChanges: any) {
     console.log('sampleChanges', sampleChanges);
   }
