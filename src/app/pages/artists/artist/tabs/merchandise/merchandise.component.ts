@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SharedModule } from 'src/app/shared.module';
 import { ArtistStore } from '../../store/artist.store';
-import { MainSwiperComponent } from 'src/app/components/swipers/main/main-swiper.component';
 import { environment } from 'src/environments/environment';
 import { MerchandiseStatusEnum } from 'src/app/pages/merchandise/store/merchandise.slice';
 @Component({
@@ -9,7 +8,7 @@ import { MerchandiseStatusEnum } from 'src/app/pages/merchandise/store/merchandi
   templateUrl: './merchandise.component.html',
   styleUrls: ['./merchandise.component.scss'],
   standalone: true,
-  imports: [SharedModule, MainSwiperComponent],
+  imports: [SharedModule],
 })
 export class ArtistTabMerchandiseComponent implements OnInit {
   readonly artistStore = inject(ArtistStore);
