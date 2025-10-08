@@ -19,7 +19,9 @@ export const AuthStore = signalStore(
   withHooks((store) => ({
     onInit: () => {
       const injector = inject(Injector);
-      effect(() => {}, { injector });
+      effect(() => {
+        console.log('AuthStore user', store.user());
+      }, { injector });
     },
   })),
 );

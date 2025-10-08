@@ -26,7 +26,8 @@ export function addChatMessage(
 ): PartialStateUpdater<ArtistSlice> {
   const newChatItem = {
     id: Date.now().toString(),
-    userId: '1',
+    userId: user.id,
+    role: user.role,
     name: user.name,
     surname: user.surname,
     shortName: user.shortName,

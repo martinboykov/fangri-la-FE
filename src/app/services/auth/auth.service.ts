@@ -68,6 +68,9 @@ export class AuthService {
   private authStore = inject(AuthStore);
 
   constructor(@Inject(DOCUMENT) private document: Document) {
+    // this.user$.subscribe((user) => {
+    //   this.authStore.updateUser(user);
+    // });
     effect(() => {
       console.log('🚀 AuthService -> user', this.user());
       this.authStore.updateUser(this.user());

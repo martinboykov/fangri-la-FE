@@ -14,6 +14,8 @@ import { ArtistStore } from '../../store/artist.store';
 import { SharedModule } from 'src/app/shared.module';
 import { SafeHtmlPipe } from 'src/app/pipes/sanitizer.pipe';
 import dayjs from 'dayjs';
+import { UserRoleEnum } from 'src/app/models/auth.model';
+import { AuthStore } from 'src/app/services/auth/store/auth.store';
 @Component({
   selector: 'app-artist-tab-chat',
   templateUrl: './chat.component.html',
@@ -22,12 +24,14 @@ import dayjs from 'dayjs';
   imports: [SharedModule, SafeHtmlPipe],
 })
 export class ArtistTabChatComponent implements OnInit {
+  readonly authStore = inject(AuthStore);
+  readonly artistStore = inject(ArtistStore);
   // chat = viewChild('chat', { read: ElementRef });
   input = viewChild('input', { read: ElementRef });
   messages = viewChildren('message', { read: ElementRef });
-  readonly artistStore = inject(ArtistStore);
   public dayjs = dayjs;
   newMessage!: string;
+  UserRoleEnum = UserRoleEnum;
   constructor() {
     // this.chat()?.nativeElement.scrollToBottom({ behavior: 'smooth' });
 
@@ -41,8 +45,10 @@ export class ArtistTabChatComponent implements OnInit {
         // lastMessage.scrollIntoView({
         //   behavior: 'smooth',
         // });
-        const input = this.input();
-        input?.nativeElement.scrollIntoView({});
+        // const input = this.input();
+        // input?.nativeElement.scrollIntoView({});
+        const lastMessage = this.messages()[this.messages().length - 1];
+        lastMessage.nativeElement.scrollIntoView({});
       }, 0);
     });
   }
@@ -61,8 +67,10 @@ export class ArtistTabChatComponent implements OnInit {
 
       // const lastMessage = messagesEls[messagesEls.length - 1].nativeElement;
       // lastMessage.scrollIntoView({});
-      const input = this.input();
-      input?.nativeElement.scrollIntoView({});
+      // const input = this.input();
+      // input?.nativeElement.scrollIntoView({});
+      const lastMessage = this.messages()[this.messages().length - 1];
+      lastMessage.nativeElement.scrollIntoView({});
     }, 0);
     this.newMessage = '';
   }

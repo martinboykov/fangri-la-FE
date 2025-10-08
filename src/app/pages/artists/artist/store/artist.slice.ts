@@ -26,6 +26,7 @@ export interface ContentItem {
 export interface ChatItem {
   id: string;
   userId: string;
+  role: string;
   name: string;
   surname: string;
   shortName: string;
@@ -99,7 +100,7 @@ export const emptyMerchandise = {
 };
 
 export const initialArtistSlice = {
-  activeTab:1,
+  activeTab:2,
   hasNewChatMessages: true,
   artist: {
     id: '',
@@ -132,6 +133,7 @@ export const initialArtistSlice = {
       {
         id: '',
         userId: '',
+        role: '',
         name: '',
         surname: '',
         shortName: '',
