@@ -3,7 +3,18 @@ import { initialMerchandiseSlice } from '../../merchandise/store/merchandise.sli
 import { initialVaultSlice } from '../../vault/store/vault.slice';
 import { Artist } from '../artist/store/artist.slice';
 
-const idGenerator = () => Math.random().toString(32).slice(2);
+// const idGenerator = () => Math.random().toString(32).slice(2);
+const idGeneratorFactory = function () {
+  let currentId = 0; // Initial ID
+
+  return function getNextId() {
+    currentId++;
+    return currentId.toString();
+  };
+};
+const idGenerator = idGeneratorFactory();
+
+
 const randomNumberRange = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min) + min);
 
