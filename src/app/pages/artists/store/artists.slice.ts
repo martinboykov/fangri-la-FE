@@ -6,7 +6,13 @@ import {
   emptyMerchandise,
   initialArtistSlice,
 } from '../artist/store/artist.slice';
-import { artistImages, artistChatMessages } from './db';
+import {
+  imagesData,
+  chatData,
+  content,
+  artistData,
+  baseArtistData,
+} from './db';
 
 export interface ArtistListItem {
   id: string;
@@ -21,8 +27,7 @@ const artists = [
   {
     id: '1',
     name: 'sienna',
-    image:
-      '/assets/static/images/artists/sienna_solas/profile/artist profile Sienna Solas-3.png',
+    image: '/assets/static/images/artists/sienna_solas/profile.png',
   },
   {
     id: '22',
@@ -42,13 +47,14 @@ const artists = [
   },
 ];
 
-const images = [...artistImages];
+const images = [...imagesData];
 
-const chatMessages = [...artistChatMessages];
+const chatMessages = [...chatData];
 const artistDetails = [
   {
-    bio: `Atlanta-born Sienna Solas crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
-    website: 'www.siennasolas.com',
+    ...baseArtistData[0],
+    // bio: `Atlanta-born Sienna Solas crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
+    // website: 'www.siennasolas.com',
     socials: [
       {
         id: 1,
@@ -61,64 +67,7 @@ const artistDetails = [
         url: 'https://instagram.com/novarae',
       },
     ],
-    content: [
-      {
-        id: '1',
-        images: ['/assets/static/images/content/content-artist-1-1.jpg'],
-        title: 'New Single Release',
-        content:
-          'Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!',
-        date: 'Thu 4:20PM',
-        likes: 120,
-      },
-      {
-        id: '2',
-        video: {
-          poster: '/assets/static/images/content/content-artist-1-2.jpg',
-          sources: [
-            {
-              src: '/assets/static/videos/novarae/novarae-lovely_man.mp4',
-              type: 'video/mp4',
-            },
-          ],
-        },
-        title: 'Live Performance',
-        date: 'Mon 11:30PM',
-        likes: 250,
-      },
-      {
-        id: '3',
-        video: {
-          poster: '/assets/static/images/content/content-artist-1-3.jpg',
-          sources: [
-            {
-              src: '/assets/static/videos/novarae/novarae-acquainted.mp4',
-              type: 'video/mp4',
-            },
-          ],
-        },
-        title: 'Live Performance',
-        content:
-          'Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!',
-
-        date: 'Sun 9:30PM',
-        likes: 250,
-      },
-      {
-        id: '4',
-        images: [
-          '/assets/static/images/content/content-artist-1-1.jpg',
-          '/assets/static/images/content/content-artist-1-2.jpg',
-          '/assets/static/images/content/content-artist-1-3.jpg',
-          '/assets/static/images/content/content-artist-1-4.jpg',
-        ],
-        title: 'Live Performance',
-        content:
-          'Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!Hey guys Love ya!',
-        date: 'Sep 23 4:20PM',
-        likes: 250,
-      },
-    ],
+    content: [...content[0]],
     chat: [
       ...chatMessages[0].map((item, index) => {
         if (item.name === 'sienna') {
@@ -153,13 +102,13 @@ const artistDetails = [
         {
           id: 1,
           platform: 'spotify',
-          img: '/assets/images/social/spotifypng',
+          img: '/assets/images/social/spotify.png',
           url: 'https://open.spotify.com/artist/1',
         },
         {
           id: 2,
           platform: 'apple-music',
-          img: '/assets/images/social/apple-musicpng',
+          img: '/assets/images/social/apple-music.png',
           url: 'https://music.apple.com/us/artist/novarae/145567901',
         },
       ],
@@ -167,31 +116,31 @@ const artistDetails = [
         {
           id: 1,
           platform: 'instagram',
-          img: '/assets/images/social/instagrampng',
+          img: '/assets/images/social/instagram.png',
           url: 'https://instagram.com/novarae',
         },
         {
           id: 2,
           platform: 'x',
-          img: '/assets/images/social/xpng',
+          img: '/assets/images/social/x.png',
           url: 'https://twitter.com/novarae',
         },
         {
           id: 3,
           platform: 'tiktok',
-          img: '/assets/images/social/tiktokpng',
+          img: '/assets/images/social/tiktok.png',
           url: 'https://www.tiktok.com/@novarae',
         },
         {
           id: 4,
           platform: 'youtube',
-          img: '/assets/images/social/youtubepng',
+          img: '/assets/images/social/youtube.png',
           url: 'https://www.youtube.com/@novarae',
         },
         {
           id: 5,
           platform: 'facebook',
-          img: '/assets/images/social/facebookpng',
+          img: '/assets/images/social/facebook.png',
           url: 'https://facebook.com/novarae',
         },
       ],
@@ -199,13 +148,13 @@ const artistDetails = [
         {
           id: 1,
           platform: 'bandsintown',
-          img: '/assets/images/social/bandsintownpng',
+          img: '/assets/images/social/bandsintown.png',
           url: 'https://www.bandsintown.com/',
         },
         {
           id: 2,
           platform: 'songkick',
-          img: '/assets/images/social/songkickpng',
+          img: '/assets/images/social/songkick.png',
           url: 'https://www.songkick.com/',
         },
       ],
@@ -226,49 +175,36 @@ const emptyDetails = {
   // },
 };
 
+console.log('🚀 ~ artistDetails[0]:', baseArtistData[0]);
 export const initialArtistsSlice = {
   artists: [
     {
-      id: '1',
-      name: 'Sienna Solas',
-      image: '/assets/static/images/artists/artist-1.jpg',
+      // id: '1',
+      // name: 'Sienna Solas',
+      // image: '/assets/static/images/artists/artist-1.jpg',
+
       ...artistDetails[0],
       merchandise: [...initialMerchandiseSlice.items],
       vault: [...initialVaultSlice.items],
     },
     {
-      id: '2',
-      name: 'OG Mondo',
-      image: '/assets/static/images/artists/artist-2.jpg',
-      bio: artistDetails[0].bio,
-      website: artistDetails[0].website,
+      ...baseArtistData[1],
       ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
     },
     {
-      id: '3',
-      name: 'Soliah Skye',
-      image: '/assets/static/images/artists/artist-3.jpg',
-      bio: artistDetails[0].bio,
-      website: artistDetails[0].website,
+           ...baseArtistData[2],
+
       ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
     },
     {
-      id: '4',
-      name: 'Koryn',
-      image: '/assets/static/images/artists/artist-4.jpg',
-      bio: artistDetails[0].bio,
-      website: artistDetails[0].website,
+      ...baseArtistData[3],
       ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
     },
     {
-      id: '5',
-      name: 'KASHKIDD',
-      image: '/assets/static/images/artists/artist-5.jpg',
-      bio: artistDetails[0].bio,
-      website: artistDetails[0].website,
+      ...baseArtistData[4],
       ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
       // socials: [...artistDetails.socials],

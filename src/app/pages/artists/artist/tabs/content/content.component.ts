@@ -13,6 +13,7 @@ import { SharedModule } from 'src/app/shared.module';
 import { MainSwiperComponent } from 'src/app/components/swipers/main/main-swiper.component';
 import dayjs from 'dayjs';
 import { GestureController } from '@ionic/angular/standalone';
+
 @Component({
   selector: 'app-artist-tab-content',
   templateUrl: './content.component.html',
@@ -21,15 +22,15 @@ import { GestureController } from '@ionic/angular/standalone';
   imports: [SharedModule, VideoComponent, MainSwiperComponent],
 })
 export class ArtistTabContentComponent implements OnInit {
+  readonly artistStore = inject(ArtistStore);
   private gestureCtrl: GestureController = inject(GestureController);
   videos = viewChildren('video', { read: ElementRef });
   swipers = viewChildren('swiper', { read: ElementRef });
   imgs = viewChildren('image', { read: ElementRef });
   timeStartOne = 0;
   timeStartTwo = 0;
-  readonly artistStore = inject(ArtistStore);
-
   videoPlayerOptions!: any;
+  public dayjs = dayjs;
   constructor() {
     effect(() => {
       const videos = this.videos();

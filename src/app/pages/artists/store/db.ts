@@ -1,3 +1,8 @@
+import { UserRoleEnum } from 'src/app/models/auth.model';
+import { initialMerchandiseSlice } from '../../merchandise/store/merchandise.slice';
+import { initialVaultSlice } from '../../vault/store/vault.slice';
+import { Artist } from '../artist/store/artist.slice';
+
 const idGenerator = () => Math.random().toString(32).slice(2);
 const randomNumberRange = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min) + min);
@@ -21,10 +26,56 @@ const isoDateGenerator = function* (startIndex = 0) {
   }
 };
 
-const artists = [
+function getBool() {
+  return Math.random() < 0.5;
+}
+export const baseArtistData = [
   {
     id: '1',
     name: 'Sienna Solas',
+    shortName: 'SS',
+    image: '/assets/static/images/artists/sienna_solas/profile.png',
+    bio: `Atlanta-born Sienna Solas crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
+    website: '',
+  },
+  {
+    id: '2',
+    name: 'Caden Kane',
+    // shortName: 'CK',
+    image: '/assets/static/images/artists/caden_kane/profile.png',
+    bio: `Atlanta-born Caden Kane crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
+    website: '',
+  },
+  {
+    id: '3',
+    name: 'Nyko Blaze',
+    // shortName: 'NB',
+    image: '/assets/static/images/artists/nyko_blaze/profile.png',
+    bio: `Atlanta-born Nyko Blaze crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
+    website: '',
+  },
+  {
+    id: '4',
+    name: 'SevenBlock',
+    // shortName: 'SB',
+    image: '/assets/static/images/artists/sevenblock/profile.png',
+    bio: `Atlanta-born SevenBlock crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
+    website: '',
+  },
+  {
+    id: '5',
+    name: 'Nyla Veil',
+    // shortName: 'NV',
+    image: '/assets/static/images/artists/nyla_veil/profile.png',
+    bio: `Atlanta-born Nyla Veil crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
+    website: '',
+  },
+];
+export const artistData = [
+  {
+    id: idGenerator(),
+    name: 'Sienna Solas',
+    shortName: 'SS',
     image: '/assets/static/images/artists/sienna_solas/profile.png',
     bio: `Atlanta-born Sienna Solas crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
     website: '',
@@ -32,6 +83,7 @@ const artists = [
   {
     id: idGenerator(),
     name: 'Caden Kane',
+    shortName: 'CK',
     image: '/assets/static/images/artists/caden_kane/profile.png',
     bio: `Atlanta-born Caden Kane crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
     website: '',
@@ -39,6 +91,7 @@ const artists = [
   {
     id: idGenerator(),
     name: 'Nyko Blaze',
+    shortName: 'NB',
     image: '/assets/static/images/artists/nyko_blaze/profile.png',
     bio: `Atlanta-born Nyko Blaze crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
     website: '',
@@ -46,6 +99,7 @@ const artists = [
   {
     id: idGenerator(),
     name: 'SevenBlock',
+    shortName: 'SB',
     image: '/assets/static/images/artists/sevenblock/profile.png',
     bio: `Atlanta-born SevenBlock crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
     website: '',
@@ -53,12 +107,13 @@ const artists = [
   {
     id: idGenerator(),
     name: 'Nyla Veil',
+    shortName: 'NV',
     image: '/assets/static/images/artists/nyla_veil/profile.png',
     bio: `Atlanta-born Nyla Veil crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
     website: '',
   },
 ];
-export const artistImages = [
+export const imagesData = [
   [
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x566_1_Sienna_on_stage.png',
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_2_Sienna_backstage_with_mic.png',
@@ -127,7 +182,7 @@ export const artistImages = [
   ],
 ];
 
-export const artistShortCaptions = [
+export const shortCaptionsData = [
   // Sienna Solas
 
   'Short: The lights, the energy, the moment. Nothing compares to feeling the crowd sing it back. 💫',
@@ -202,31 +257,338 @@ export const artistShortCaptions = [
   ],
 ];
 
+const linksData = [
+  {
+    music: [
+      {
+        id: 1,
+        platform: 'spotify',
+        img: '/assets/images/social/spotifypng',
+        url: 'https://open.spotify.com/artist/1',
+      },
+      {
+        id: 2,
+        platform: 'apple-music',
+        img: '/assets/images/social/apple-musicpng',
+        url: 'https://music.apple.com/us/artist/novarae/145567901',
+      },
+    ],
+    socials: [
+      {
+        id: 1,
+        platform: 'instagram',
+        img: '/assets/images/social/instagrampng',
+        url: 'https://instagram.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'x',
+        img: '/assets/images/social/xpng',
+        url: 'https://twitter.com/novarae',
+      },
+      {
+        id: 3,
+        platform: 'tiktok',
+        img: '/assets/images/social/tiktokpng',
+        url: 'https://www.tiktok.com/@novarae',
+      },
+      {
+        id: 4,
+        platform: 'youtube',
+        img: '/assets/images/social/youtubepng',
+        url: 'https://www.youtube.com/@novarae',
+      },
+      {
+        id: 5,
+        platform: 'facebook',
+        img: '/assets/images/social/facebookpng',
+        url: 'https://facebook.com/novarae',
+      },
+    ],
+    shows: [
+      {
+        id: 1,
+        platform: 'bandsintown',
+        img: '/assets/images/social/bandsintownpng',
+        url: 'https://www.bandsintown.com/a/14146697-novara?came_from=257&utm_medium=web&utm_source=home&utm_campaign=search_bar',
+      },
+      {
+        id: 2,
+        platform: 'songkick',
+        img: '/assets/images/social/songkickpng',
+        url: 'https://www.songkick.com/artists/8966304-novara',
+      },
+    ],
+  },
+  {
+    music: [
+      {
+        id: 1,
+        platform: 'spotify',
+        img: '/assets/images/social/spotifypng',
+        url: 'https://open.spotify.com/artist/1',
+      },
+      {
+        id: 2,
+        platform: 'apple-music',
+        img: '/assets/images/social/apple-musicpng',
+        url: 'https://music.apple.com/us/artist/novarae/145567901',
+      },
+    ],
+    socials: [
+      {
+        id: 1,
+        platform: 'instagram',
+        img: '/assets/images/social/instagrampng',
+        url: 'https://instagram.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'x',
+        img: '/assets/images/social/xpng',
+        url: 'https://twitter.com/novarae',
+      },
+      {
+        id: 3,
+        platform: 'tiktok',
+        img: '/assets/images/social/tiktokpng',
+        url: 'https://www.tiktok.com/@novarae',
+      },
+      {
+        id: 4,
+        platform: 'youtube',
+        img: '/assets/images/social/youtubepng',
+        url: 'https://www.youtube.com/@novarae',
+      },
+      {
+        id: 5,
+        platform: 'facebook',
+        img: '/assets/images/social/facebookpng',
+        url: 'https://facebook.com/novarae',
+      },
+    ],
+    shows: [
+      {
+        id: 1,
+        platform: 'bandsintown',
+        img: '/assets/images/social/bandsintownpng',
+        url: 'https://www.bandsintown.com/a/14146697-novara?came_from=257&utm_medium=web&utm_source=home&utm_campaign=search_bar',
+      },
+      {
+        id: 2,
+        platform: 'songkick',
+        img: '/assets/images/social/songkickpng',
+        url: 'https://www.songkick.com/artists/8966304-novara',
+      },
+    ],
+  },
+  {
+    music: [
+      {
+        id: 1,
+        platform: 'spotify',
+        img: '/assets/images/social/spotifypng',
+        url: 'https://open.spotify.com/artist/1',
+      },
+      {
+        id: 2,
+        platform: 'apple-music',
+        img: '/assets/images/social/apple-musicpng',
+        url: 'https://music.apple.com/us/artist/novarae/145567901',
+      },
+    ],
+    socials: [
+      {
+        id: 1,
+        platform: 'instagram',
+        img: '/assets/images/social/instagrampng',
+        url: 'https://instagram.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'x',
+        img: '/assets/images/social/xpng',
+        url: 'https://twitter.com/novarae',
+      },
+      {
+        id: 3,
+        platform: 'tiktok',
+        img: '/assets/images/social/tiktokpng',
+        url: 'https://www.tiktok.com/@novarae',
+      },
+      {
+        id: 4,
+        platform: 'youtube',
+        img: '/assets/images/social/youtubepng',
+        url: 'https://www.youtube.com/@novarae',
+      },
+      {
+        id: 5,
+        platform: 'facebook',
+        img: '/assets/images/social/facebookpng',
+        url: 'https://facebook.com/novarae',
+      },
+    ],
+    shows: [
+      {
+        id: 1,
+        platform: 'bandsintown',
+        img: '/assets/images/social/bandsintownpng',
+        url: 'https://www.bandsintown.com/a/14146697-novara?came_from=257&utm_medium=web&utm_source=home&utm_campaign=search_bar',
+      },
+      {
+        id: 2,
+        platform: 'songkick',
+        img: '/assets/images/social/songkickpng',
+        url: 'https://www.songkick.com/artists/8966304-novara',
+      },
+    ],
+  },
+  {
+    music: [
+      {
+        id: 1,
+        platform: 'spotify',
+        img: '/assets/images/social/spotifypng',
+        url: 'https://open.spotify.com/artist/1',
+      },
+      {
+        id: 2,
+        platform: 'apple-music',
+        img: '/assets/images/social/apple-musicpng',
+        url: 'https://music.apple.com/us/artist/novarae/145567901',
+      },
+    ],
+    socials: [
+      {
+        id: 1,
+        platform: 'instagram',
+        img: '/assets/images/social/instagrampng',
+        url: 'https://instagram.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'x',
+        img: '/assets/images/social/xpng',
+        url: 'https://twitter.com/novarae',
+      },
+      {
+        id: 3,
+        platform: 'tiktok',
+        img: '/assets/images/social/tiktokpng',
+        url: 'https://www.tiktok.com/@novarae',
+      },
+      {
+        id: 4,
+        platform: 'youtube',
+        img: '/assets/images/social/youtubepng',
+        url: 'https://www.youtube.com/@novarae',
+      },
+      {
+        id: 5,
+        platform: 'facebook',
+        img: '/assets/images/social/facebookpng',
+        url: 'https://facebook.com/novarae',
+      },
+    ],
+    shows: [
+      {
+        id: 1,
+        platform: 'bandsintown',
+        img: '/assets/images/social/bandsintownpng',
+        url: 'https://www.bandsintown.com/a/14146697-novara?came_from=257&utm_medium=web&utm_source=home&utm_campaign=search_bar',
+      },
+      {
+        id: 2,
+        platform: 'songkick',
+        img: '/assets/images/social/songkickpng',
+        url: 'https://www.songkick.com/artists/8966304-novara',
+      },
+    ],
+  },
+  {
+    music: [
+      {
+        id: 1,
+        platform: 'spotify',
+        img: '/assets/images/social/spotifypng',
+        url: 'https://open.spotify.com/artist/1',
+      },
+      {
+        id: 2,
+        platform: 'apple-music',
+        img: '/assets/images/social/apple-musicpng',
+        url: 'https://music.apple.com/us/artist/novarae/145567901',
+      },
+    ],
+    socials: [
+      {
+        id: 1,
+        platform: 'instagram',
+        img: '/assets/images/social/instagrampng',
+        url: 'https://instagram.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'x',
+        img: '/assets/images/social/xpng',
+        url: 'https://twitter.com/novarae',
+      },
+      {
+        id: 3,
+        platform: 'tiktok',
+        img: '/assets/images/social/tiktokpng',
+        url: 'https://www.tiktok.com/@novarae',
+      },
+      {
+        id: 4,
+        platform: 'youtube',
+        img: '/assets/images/social/youtubepng',
+        url: 'https://www.youtube.com/@novarae',
+      },
+      {
+        id: 5,
+        platform: 'facebook',
+        img: '/assets/images/social/facebookpng',
+        url: 'https://facebook.com/novarae',
+      },
+    ],
+    shows: [
+      {
+        id: 1,
+        platform: 'bandsintown',
+        img: '/assets/images/social/bandsintownpng',
+        url: 'https://www.bandsintown.com/a/14146697-novara?came_from=257&utm_medium=web&utm_source=home&utm_campaign=search_bar',
+      },
+      {
+        id: 2,
+        platform: 'songkick',
+        img: '/assets/images/social/songkickpng',
+        url: 'https://www.songkick.com/artists/8966304-novara',
+      },
+    ],
+  },
+];
+
 const minLikes = 10;
 const maxLikes = 200;
 const dataGen = isoDateGenerator(1);
-export const content = artists.map((artist, i) => {
-  return {
-    id: artist.id,
-    name: artist.name,
-    image: artist.image,
-    content: [
-      artistImages.map((image, j) => {
-        return {
-          id: idGenerator(),
-          images: [artistImages[i][j]],
-          title: artistShortCaptions[j],
-          content: artistShortCaptions[j],
-          date: dataGen.next().value,
-          likes: randomNumberRange(minLikes, maxLikes),
-        };
-      }),
-    ],
-  };
-});
-console.log('🚀 ~ content:', content);
 
-export const artistChatMessages = [
+export const content = [...Array(artistData.length).keys()].map((artist, i) =>
+  imagesData[i].map((image, j) => {
+    return {
+      id: idGenerator(),
+      images: [imagesData[i][j]],
+      title: shortCaptionsData[j] as string,
+      content: shortCaptionsData[j] as string,
+      date: dataGen.next().value,
+      likes: randomNumberRange(minLikes, maxLikes),
+      isLiked: getBool(),
+    };
+  }),
+);
+
+export let chatData = [
   [
     {
       name: 'sienna',
@@ -371,3 +733,49 @@ export const artistChatMessages = [
     },
   ],
 ];
+const chat = [...Array(artistData.length).keys()].map((artist, i) => {
+  console.log('chatData[i]', chatData[i]);
+  if (!chatData[i]) return [];
+  return [
+    ...chatData[i].map((item, j) => {
+      if (item.name === 'fan') {
+        return {
+          id: idGenerator(),
+          userId: idGenerator(),
+          role: UserRoleEnum.USER,
+          name: 'Fan',
+          shortName: 'F',
+          img: '',
+          message: item.message,
+          date: dataGen.next().value,
+        };
+      } else {
+        return {
+          id: idGenerator(),
+          userId: artistData[i].id,
+          role: UserRoleEnum.ARTIST,
+          name: artistData[i].name,
+          shortName: artistData[i].shortName ? artistData[i].shortName : '',
+          img: artistData[i].image ? artistData[i].image : '',
+          message: item.message,
+          date: dataGen.next().value,
+        };
+      }
+    }),
+  ];
+});
+console.log('chat', chat);
+const artistDataLast = [
+  ...artistData.map((artist, i) => {
+    return {
+      ...artist,
+      content: { ...content[i] },
+      chat: chat[i] ? [...chat[i]] : [],
+      links: linksData ? { ...linksData[i] } : {},
+      merchandise: [...initialMerchandiseSlice.items],
+      vault: { ...initialVaultSlice.items },
+    };
+  }),
+];
+console.log('artistData', artistData);
+export const artists = [...artistDataLast];
