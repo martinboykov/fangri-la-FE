@@ -6,6 +6,7 @@ import {
   emptyMerchandise,
   initialArtistSlice,
 } from '../artist/store/artist.slice';
+import { artistImages, artistChatMessages } from './db';
 
 export interface ArtistListItem {
   id: string;
@@ -41,151 +42,9 @@ const artists = [
   },
 ];
 
-const chatMessages = [
-  [
-    {
-      name: 'sienna',
-      message:
-        'Be honest… what’s the first song of mine you’d play if you got the control of the radio in my car? 🚗🎶',
-    },
-    {
-      name: 'fan',
-      message: 'No lie, I’m putting on CTRL/ALT/DEL instantly 🔥',
-    },
-    {
-      name: 'sienna',
-      message:
-        'Just realized I write half my songs at 2AM. Night owls where you at? 🌙✍️',
-    },
-    {
-      name: 'fan',
-      message: 'Me toooo, 2AM is when the brain hits different 🤯',
-    },
-    {
-      name: 'sienna',
-      message:
-        'Had a dream last night I was performing barefoot on a rooftop… might need to make that happen fr. 👣✨',
-    },
-    { name: 'fan', message: 'Yes pls. Rooftop show with city lights >>>' },
-    {
-      name: 'sienna',
-      message:
-        'What’s one lyric of mine that you screamed louder than your neighbors probably liked? 😂🎤',
-    },
-    {
-      name: 'fan',
-      message:
-        '‘You said forever like a password you forgot’ – that line cuts deep every time 😭',
-    },
-    {
-      name: 'sienna',
-      message:
-        'Studio food of choice rn: hot fries + sparkling water. Don’t judge me. 😅🔥',
-    },
-    { name: 'fan', message: 'No judgment here, hot fries are elite 🔥🙌' },
-    {
-      name: 'sienna',
-      message:
-        'If we dropped a surprise acoustic set in YOUR city, what venue should it be? 👀🏙️',
-    },
-    {
-      name: 'fan',
-      message: 'Come play at The Roxy in LA… it would be insane acoustic 😍',
-    },
-    {
-      name: 'sienna',
-      message:
-        'High key wanna know: do y’all listen to my songs more when you’re happy or when you’re sad? 🖤💛',
-    },
-    { name: 'fan', message: 'Sad tbh. Your music makes me feel seen 🥺' },
-    {
-      name: 'sienna',
-      message:
-        'Next track… more bass or more strings? Which vibe are you voting for? 🎸🎧',
-    },
-    { name: 'fan', message: 'Strings all day. Give me the feels 🎻' },
-    {
-      name: 'sienna',
-      message:
-        'My playlists are pure chaos - Frank Ocean then straight into Paramore then Bad Bunny. What’s YOUR wildest shuffle combo? 🔀😂',
-    },
-    {
-      name: 'fan',
-      message: 'Mine went Drake ➡️ Nirvana ➡️ Hannah Montana the other day 💀',
-    },
-    {
-      name: 'sienna',
-      message:
-        'Tour nights >>> everything. Who’s ready to lose their voice with me this fall? 🫶',
-    },
-    {
-      name: 'fan',
-      message: 'Already warming up my vocal cords lol. Can’t wait!! 🔥',
-    },
-  ],
-  [
-    {
-      name: 'caden',
-      message:
-        'Hi, I’m Caden, your friendly neighborhood artist. What’s your favorite song of mine? 🎶',
-    },
-    {
-      name: 'caden',
-      message:
-        'First things first… y’all know I’m Philly born & raised. What city you reppin? 🏙️',
-    },
-    {
-      name: 'fan',
-      message:
-        'Cleveland in the house!! But Philly got my heart thanks to you 🔥',
-    },
-    {
-      name: 'caden',
-      message:
-        'If I’m not in the studio, I’m at the courts. 🏀 Who’s cooking me 1v1 tho?',
-    },
-    {
-      name: 'fan',
-      message: 'You don’t want this smoke 😂 I got a jumper like Curry',
-    },
-    {
-      name: 'caden',
-      message:
-        'Real talk - do you turn me up more in the gym or in the whip? 🚗💪',
-    },
-    {
-      name: 'fan',
-      message: 'Gym for sure. Your tracks keep me going that extra mile 💯',
-    },
-    {
-      name: 'caden',
-      message: 'What bar of mine hit you like a punch to the chest? 🥊',
-    },
-    {
-      name: 'fan',
-      message:
-        '‘City on my back, I carry pain like luggage’ -  that one stays with me fr',
-    },
-    {
-      name: 'caden',
-      message:
-        'Wings debate rn: flats or drums? Don’t make me lose respect for you 😂🍗',
-    },
-    {
-      name: 'fan',
-      message: 'Flats all day, don’t even play with me lmao',
-    },
-    {
-      name: 'caden',
-      message:
-        'Philly cheesesteak is top 3 meals ever, no debate. What’s YOUR ride-or-die meal? 🥖🔥',
-    },
-    {
-      name: 'fan',
-      message: 'Tacos. I could eat them every day and never get tired 🌮',
-    },
-  ],
-];
+const images = [...artistImages];
+
+const chatMessages = [...artistChatMessages];
 const artistDetails = [
   {
     bio: `Atlanta-born Sienna Solas crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
@@ -294,13 +153,13 @@ const artistDetails = [
         {
           id: 1,
           platform: 'spotify',
-          img: '/assets/images/social/spotify.png',
+          img: '/assets/images/social/spotifypng',
           url: 'https://open.spotify.com/artist/1',
         },
         {
           id: 2,
           platform: 'apple-music',
-          img: '/assets/images/social/apple-music.png',
+          img: '/assets/images/social/apple-musicpng',
           url: 'https://music.apple.com/us/artist/novarae/145567901',
         },
       ],
@@ -308,31 +167,31 @@ const artistDetails = [
         {
           id: 1,
           platform: 'instagram',
-          img: '/assets/images/social/instagram.png',
+          img: '/assets/images/social/instagrampng',
           url: 'https://instagram.com/novarae',
         },
         {
           id: 2,
           platform: 'x',
-          img: '/assets/images/social/x.png',
+          img: '/assets/images/social/xpng',
           url: 'https://twitter.com/novarae',
         },
         {
           id: 3,
           platform: 'tiktok',
-          img: '/assets/images/social/tiktok.png',
+          img: '/assets/images/social/tiktokpng',
           url: 'https://www.tiktok.com/@novarae',
         },
         {
           id: 4,
           platform: 'youtube',
-          img: '/assets/images/social/youtube.png',
+          img: '/assets/images/social/youtubepng',
           url: 'https://www.youtube.com/@novarae',
         },
         {
           id: 5,
           platform: 'facebook',
-          img: '/assets/images/social/facebook.png',
+          img: '/assets/images/social/facebookpng',
           url: 'https://facebook.com/novarae',
         },
       ],
@@ -340,13 +199,13 @@ const artistDetails = [
         {
           id: 1,
           platform: 'bandsintown',
-          img: '/assets/images/social/bandsintown.png',
+          img: '/assets/images/social/bandsintownpng',
           url: 'https://www.bandsintown.com/',
         },
         {
           id: 2,
           platform: 'songkick',
-          img: '/assets/images/social/songkick.png',
+          img: '/assets/images/social/songkickpng',
           url: 'https://www.songkick.com/',
         },
       ],
