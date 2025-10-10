@@ -39,6 +39,10 @@ export class ArtistPage implements OnInit {
   constructor() {
     effect(() => {
       this.artistStore.getArtistById(this.id());
+      console.log(
+        '🚀 ~ ArtistPage ~ constructor ~ this.artistStore.artist():',
+        this.artistStore.artist(),
+      );
     });
   }
 

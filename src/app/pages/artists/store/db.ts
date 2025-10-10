@@ -159,6 +159,15 @@ export const imagesData = [
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1080x1080_10_Counting_Money_at_Kitchen_Table.png',
   ],
   [
+    '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_1_Boarding_the_plane.png',
+    '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_2_Sneakers_Jordan_1s.png',
+    '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_3_Watch_&_tattoo_driving.png',
+    '/assets/static/images/artists/sevenblock/sevenblock_1800x566_4_Limo_with_crew.png',
+    '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_5_On_stage_arena_fire_behind.png',
+    '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_6_Art_gallery_handshake.png',
+    '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_7_Leaning_on_car_neon_diner.png',
+  ],
+  [
     '/assets/static/images/artists/nyla_veil/nyla_veil_1800x566_1_Singing_in_the_shadows_close_up_with_retro_mic.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1800x566_2_At_the_piano_thoughtful_reflection.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1080_3_FaceTime_with_a_fan_smiling.png',
@@ -171,40 +180,31 @@ export const imagesData = [
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1350_10_Laughing_on_the_steps_with_iced_coffee.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1350_11_Beach_at_sunset_with_flowing_fabric.png',
   ],
-  [
-    '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_1_Boarding_the_plane.png',
-    '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_2_Sneakers_Jordan_1s.png',
-    '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_3_Watch_&_tattoo_driving.png',
-    '/assets/static/images/artists/sevenblock/sevenblock_1800x566_4_Limo_with_crew.png',
-    '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_5_On_stage_arena_fire_behind.png',
-    '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_6_Art_gallery_handshake.png',
-    '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_7_Leaning_on_car_neon_diner.png',
-  ],
 ];
 
 export const shortCaptionsData = [
   // Sienna Solas
 
-  'Short: The lights, the energy, the moment. Nothing compares to feeling the crowd sing it back. 💫',
-  'Medium: This is where it starts — the quiet moments before the chaos, where I ground myself and remember why I do this. Every note, every lyric, it’s all about pouring my truth into the music. The stage is next.',
-  'Short: All love. All energy. All of you. ❤️',
-  'Medium: There’s something sacred about being in the studio - experimenting with sounds, chasing that one harmony that gives you chills. This is where songs are born, where emotions take shape, and where the world outside fades until the music is all that matters.',
-  'Short: Finding clarity in golden hours. 🌅',
-  'Medium: You can’t fake joy like this. Music is serious, the grind is real, but I always come back to laughter. It fuels me, heals me, and keeps me grounded when life tries to make me forget who I am.',
-  'Short: Transformation mode: ON. 💄✨',
-  'Medium: I grew up with city sounds -  trains, sirens, late-night conversations on stoops. That rhythm has always been in me. Walking these streets, I’m reminded of where I came from, and how every song I write is rooted in that heartbeat.',
-  'Short: Lost in the spotlight. Found in the music. 🎶',
-  'Medium: Music isn’t always bright lights and big crowds. Sometimes it’s raw, vulnerable, and painted in shades of shadow. I’ve learned to embrace that side of me, because it’s real - and real is the only thing worth singing.',
-  'Short: All eyes, all lights. ✨',
-  'Medium: Backstage rituals. The calm before the chaos, the sparkle before the storm. Every detail matters before stepping out there.',
-  'Medium: Some stages are arenas, others are quiet corners. This is where the stories start - before they ever find a beat.',
-  'Short: Concrete truths.',
-  'Medium: Streets change, faces pass, but the rhythm of the city keeps me grounded. Every step writes another line in my story.',
-  'Medium: When the mic is on, the world fades. It’s just me, my voice, and a thousand feelings searching for the right words.',
-  'Short: Found my frequency.',
-  'Short: No walls, no distance.',
-  'Medium: This is the roar, the shine, the moment you dream about when nobody’s watching. And I’m living it.',
-  'Short: Edge in every glance.',
+  'The lights, the energy, the moment. Nothing compares to feeling the crowd sing it back. 💫',
+  'This is where it starts — the quiet moments before the chaos, where I ground myself and remember why I do this. Every note, every lyric, it’s all about pouring my truth into the music. The stage is next.',
+  'All love. All energy. All of you. ❤️',
+  'There’s something sacred about being in the studio - experimenting with sounds, chasing that one harmony that gives you chills. This is where songs are born, where emotions take shape, and where the world outside fades until the music is all that matters.',
+  'Finding clarity in golden hours. 🌅',
+  'You can’t fake joy like this. Music is serious, the grind is real, but I always come back to laughter. It fuels me, heals me, and keeps me grounded when life tries to make me forget who I am.',
+  'Transformation mode: ON. 💄✨',
+  'I grew up with city sounds -  trains, sirens, late-night conversations on stoops. That rhythm has always been in me. Walking these streets, I’m reminded of where I came from, and how every song I write is rooted in that heartbeat.',
+  'Lost in the spotlight. Found in the music. 🎶',
+  'Music isn’t always bright lights and big crowds. Sometimes it’s raw, vulnerable, and painted in shades of shadow. I’ve learned to embrace that side of me, because it’s real - and real is the only thing worth singing.',
+  'All eyes, all lights. ✨',
+  'Backstage rituals. The calm before the chaos, the sparkle before the storm. Every detail matters before stepping out there.',
+  'Some stages are arenas, others are quiet corners. This is where the stories start - before they ever find a beat.',
+  'Concrete truths.',
+  'Streets change, faces pass, but the rhythm of the city keeps me grounded. Every step writes another line in my story.',
+  'When the mic is on, the world fades. It’s just me, my voice, and a thousand feelings searching for the right words.',
+  'Found my frequency.',
+  'No walls, no distance.',
+  'This is the roar, the shine, the moment you dream about when nobody’s watching. And I’m living it.',
+  'Edge in every glance.',
 
   // caden kane
   [
@@ -732,8 +732,185 @@ export let chatData = [
       message: 'Tacos. I could eat them every day and never get tired 🌮',
     },
   ],
+  [
+    {
+      name: 'nyla',
+      message:
+        'I swear the ocean keeps secrets… do you feel more at peace near water or mountains? 🌊⛰️',
+    },
+    {
+      name: 'fan',
+      message:
+        'Always water. Something about the waves makes me feel like I can breathe again.',
+    },
+    {
+      name: 'nyla',
+      message:
+        'If the moon could whisper one word to you tonight, what do you hope it says? 🌙✨',
+    },
+    {
+      name: 'fan',
+      message: '‘You’re enough.’ That’s what I’d want to hear.',
+    },
+    {
+      name: 'nyla',
+      message:
+        'My songs are like journals I decided not to hide. What’s something you’ve written down that still feels like magic when you read it back? 🖋️📖',
+    },
+    {
+      name: 'fan',
+      message:
+        'A letter I wrote to myself when I was 16. It reminds me I survived everything I thought I couldn’t.',
+    },
+    {
+      name: 'nyla',
+      message:
+        'Sometimes silence feels louder than words. Do you find peace in quiet or does it make you restless? 🤍',
+    },
+    {
+      name: 'fan',
+      message: 'Quiet is where I heal. It’s when I finally hear myself.',
+    },
+    {
+      name: 'nyla',
+      message:
+        'I light a candle before I write, just to remind myself there’s beauty in small rituals. Do you have a ritual that grounds you? 🕯️',
+    },
+    {
+      name: 'fan',
+      message: 'Tea at night. One cup and I feel like my soul settles down.',
+    },
+  ],
+  [
+    {
+      name: 'sevenblock',
+      message: 'What’s heavier… the crown or the chains? 👑⛓️',
+    },
+    {
+      name: 'fan',
+      message: 'Chains. The crown you earn, but the chains you carry.',
+    },
+    {
+      name: 'sevenblock',
+      message:
+        'Every block got a story. What’s one lesson your city taught you? 🏙️',
+    },
+    {
+      name: 'fan',
+      message:
+        'Trust your gut and never move sloppy. Learned that the hard way.',
+    },
+    {
+      name: 'sevenblock',
+      message: 'When the lights cut off, who still ridin’ with you? 💡',
+    },
+    {
+      name: 'fan',
+      message: 'The circle got real small, but the ones left are solid.',
+    },
+    {
+      name: 'sevenblock',
+      message:
+        'Some nights the studio feel like church. You ever find your peace in a place nobody else would? 🎤🙏',
+    },
+    {
+      name: 'fan',
+      message: 'Yeah… the gym at 2am. Just me and the weights. Feels holy.',
+    },
+    {
+      name: 'sevenblock',
+      message:
+        'I don’t rap fairy tales. I rap survival. What track of mine hit you in the chest the hardest? 💥',
+    },
+    {
+      name: 'fan',
+      message: 'old Winter’ -  felt every word of that one.',
+    },
+    {
+      name: 'sevenblock',
+      message:
+        'Pressure make diamonds… or dust. Which one you turnin’ into? 💎',
+    },
+    {
+      name: 'fan',
+      message: 'Diamond. Been through too much not to shine.',
+    },
+    {
+      name: 'sevenblock',
+      message:
+        'Sometimes the ops ain’t outside… they in your head. How you fight yours? 🥊🧠',
+    },
+    {
+      name: 'fan',
+      message: 'Writing it down. Can’t fight the demons till I see ‘em clear.',
+    },
+    {
+      name: 'sevenblock',
+      message:
+        'I came from nothin’. What’s one thing you promised yourself you’d never go back to? 🚫',
+    },
+    {
+      name: 'fan',
+      message:
+        'Sleeping on floors. I grind every day to make sure that ain’t my life again.',
+    },
+  ],
+  [
+    {
+      name: 'nyko',
+      message:
+        'Biggest flex ain’t the car, it’s the fact I ain’t who I used to be. 💯',
+    },
+    {
+      name: 'fan',
+      message: 'Facts. Glow-up hits harder when people know where you started.',
+    },
+    {
+      name: 'nyko',
+      message:
+        'If I pulled up with a surprise show tonight, what song y’all screaming first? 🎤🔥',
+    },
+    {
+      name: 'fan',
+      message: '‘No Sleep City’!! That track goes crazy live!',
+    },
+    {
+      name: 'nyko',
+      message: 'What’s louder — my engine or my bass line? 🏎️🔊',
+    },
+    {
+      name: 'fan',
+      message:
+        'Engine got the growl… but the bass shakes my whole apartment 😂',
+    },
+    {
+      name: 'nyko',
+      message: 'Luxury don’t mean nothin’ if your loyalty broke. You agree? 🤔',
+    },
+    {
+      name: 'fan',
+      message: '100%. Money comes and goes, loyalty is forever.',
+    },
+    {
+      name: 'nyko',
+      message: 'Some chase clout, I chase legacy. What are YOU chasing rn? 🚀',
+    },
+    {
+      name: 'fan',
+      message: 'Peace of mind. Everything else comes after that.',
+    },
+    {
+      name: 'nyko',
+      message:
+        'Studio’s been crazy… should I leak a snippet here first or hold it till drop day? 👀',
+    },
+    {
+      name: 'fan',
+      message: 'Snippet!! Don’t play with us 😭🔥',
+    },
+  ],
 ];
-const chat = [...Array(artistData.length).keys()].map((artist, i) => {
+export const chat = [...Array(artistData.length).keys()].map((artist, i) => {
   console.log('chatData[i]', chatData[i]);
   if (!chatData[i]) return [];
   return [
@@ -741,7 +918,7 @@ const chat = [...Array(artistData.length).keys()].map((artist, i) => {
       if (item.name === 'fan') {
         return {
           id: idGenerator(),
-          userId: idGenerator(),
+          userId: (i + 1).toString(),
           role: UserRoleEnum.USER,
           name: 'Fan',
           shortName: 'F',

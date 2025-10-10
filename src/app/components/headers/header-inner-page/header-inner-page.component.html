@@ -77,7 +77,7 @@
       <div class="flex items-center gap-sm">
         @if(contentDate !== undefined){
         <span class="text-md text-white text-opacity-80">
-          {{contentDate()}}
+          {{dayjs(contentDate()).fromNow(true)}} ago
         </span>
         }
       </div>

@@ -8,7 +8,7 @@ import {
 } from '../artist/store/artist.slice';
 import {
   imagesData,
-  chatData,
+  chat as chatData,
   content,
   artistData,
   baseArtistData,
@@ -68,35 +68,36 @@ const artistDetails = [
       },
     ],
     content: [...content[0]],
-    chat: [
-      ...chatMessages[0].map((item, index) => {
-        if (item.name === 'sienna') {
-          return {
-            id: '1',
-            userId: '1',
-            role: UserRoleEnum.ARTIST,
-            name: 'Sienna',
-            surname: 'Solas',
-            shortName: 'SS',
-            img: artists[0].image,
-            message: item.message,
-            date: 'Thu 4:20PM',
-          };
-        } else {
-          return {
-            id: '2',
-            userId: '3',
-            role: UserRoleEnum.USER,
-            name: 'Fan',
-            surname: '',
-            shortName: 'F',
-            img: '',
-            message: item.message,
-            date: 'Thu 4:20PM',
-          };
-        }
-      }),
-    ],
+    chat: [...chatData[0]],
+    // chat: [
+    //   ...chatMessages[0].map((item, index) => {
+    //     if (item.name === 'sienna') {
+    //       return {
+    //         id: '1',
+    //         userId: '1',
+    //         role: UserRoleEnum.ARTIST,
+    //         name: 'Sienna',
+    //         surname: 'Solas',
+    //         shortName: 'SS',
+    //         img: artists[0].image,
+    //         message: item.message,
+    //         date: 'Thu 4:20PM',
+    //       };
+    //     } else {
+    //       return {
+    //         id: '2',
+    //         userId: '3',
+    //         role: UserRoleEnum.USER,
+    //         name: 'Fan',
+    //         surname: '',
+    //         shortName: 'F',
+    //         img: '',
+    //         message: item.message,
+    //         date: 'Thu 4:20PM',
+    //       };
+    //     }
+    //   }),
+    // ],
     links: {
       music: [
         {
@@ -161,6 +162,326 @@ const artistDetails = [
     },
     merchandise: [...initialMerchandiseSlice.items],
   },
+  {
+    ...baseArtistData[1],
+    socials: [
+      {
+        id: 1,
+        platform: 'x',
+        url: 'https://x.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'instagram',
+        url: 'https://instagram.com/novarae',
+      },
+    ],
+    content: [...content[1]],
+    chat: [...chatData[1]],
+    links: {
+      music: [
+        {
+          id: 1,
+          platform: 'spotify',
+          img: '/assets/images/social/spotify.png',
+          url: 'https://open.spotify.com/artist/1',
+        },
+        {
+          id: 2,
+          platform: 'apple-music',
+          img: '/assets/images/social/apple-music.png',
+          url: 'https://music.apple.com/us/artist/novarae/145567901',
+        },
+      ],
+      socials: [
+        {
+          id: 1,
+          platform: 'instagram',
+          img: '/assets/images/social/instagram.png',
+          url: 'https://instagram.com/novarae',
+        },
+        {
+          id: 2,
+          platform: 'x',
+          img: '/assets/images/social/x.png',
+          url: 'https://twitter.com/novarae',
+        },
+        {
+          id: 3,
+          platform: 'tiktok',
+          img: '/assets/images/social/tiktok.png',
+          url: 'https://www.tiktok.com/@novarae',
+        },
+        {
+          id: 4,
+          platform: 'youtube',
+          img: '/assets/images/social/youtube.png',
+          url: 'https://www.youtube.com/@novarae',
+        },
+        {
+          id: 5,
+          platform: 'facebook',
+          img: '/assets/images/social/facebook.png',
+          url: 'https://facebook.com/novarae',
+        },
+      ],
+      shows: [
+        {
+          id: 1,
+          platform: 'bandsintown',
+          img: '/assets/images/social/bandsintown.png',
+          url: 'https://www.bandsintown.com/',
+        },
+        {
+          id: 2,
+          platform: 'songkick',
+          img: '/assets/images/social/songkick.png',
+          url: 'https://www.songkick.com/',
+        },
+      ],
+    },
+    merchandise: [...initialMerchandiseSlice.items],
+  },
+  {
+    ...baseArtistData[2],
+    socials: [
+      {
+        id: 1,
+        platform: 'x',
+        url: 'https://x.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'instagram',
+        url: 'https://instagram.com/novarae',
+      },
+    ],
+    content: [...content[2]],
+    chat: [...chatData[2]],
+    links: {
+      music: [
+        {
+          id: 1,
+          platform: 'spotify',
+          img: '/assets/images/social/spotify.png',
+          url: 'https://open.spotify.com/artist/1',
+        },
+        {
+          id: 2,
+          platform: 'apple-music',
+          img: '/assets/images/social/apple-music.png',
+          url: 'https://music.apple.com/us/artist/novarae/145567901',
+        },
+      ],
+      socials: [
+        {
+          id: 1,
+          platform: 'instagram',
+          img: '/assets/images/social/instagram.png',
+          url: 'https://instagram.com/novarae',
+        },
+        {
+          id: 2,
+          platform: 'x',
+          img: '/assets/images/social/x.png',
+          url: 'https://twitter.com/novarae',
+        },
+        {
+          id: 3,
+          platform: 'tiktok',
+          img: '/assets/images/social/tiktok.png',
+          url: 'https://www.tiktok.com/@novarae',
+        },
+        {
+          id: 4,
+          platform: 'youtube',
+          img: '/assets/images/social/youtube.png',
+          url: 'https://www.youtube.com/@novarae',
+        },
+        {
+          id: 5,
+          platform: 'facebook',
+          img: '/assets/images/social/facebook.png',
+          url: 'https://facebook.com/novarae',
+        },
+      ],
+      shows: [
+        {
+          id: 1,
+          platform: 'bandsintown',
+          img: '/assets/images/social/bandsintown.png',
+          url: 'https://www.bandsintown.com/',
+        },
+        {
+          id: 2,
+          platform: 'songkick',
+          img: '/assets/images/social/songkick.png',
+          url: 'https://www.songkick.com/',
+        },
+      ],
+    },
+    merchandise: [...initialMerchandiseSlice.items],
+  },
+  {
+    ...baseArtistData[3],
+    socials: [
+      {
+        id: 1,
+        platform: 'x',
+        url: 'https://x.com/novarae',
+      },
+      {
+        id: 2,
+        platform: 'instagram',
+        url: 'https://instagram.com/novarae',
+      },
+    ],
+    content: [...content[3]],
+    chat: [...chatData[3]],
+    links: {
+      music: [
+        {
+          id: 1,
+          platform: 'spotify',
+          img: '/assets/images/social/spotify.png',
+          url: 'https://open.spotify.com/artist/1',
+        },
+        {
+          id: 2,
+          platform: 'apple-music',
+          img: '/assets/images/social/apple-music.png',
+          url: 'https://music.apple.com/us/artist/novarae/145567901',
+        },
+      ],
+      socials: [
+        {
+          id: 1,
+          platform: 'instagram',
+          img: '/assets/images/social/instagram.png',
+          url: 'https://instagram.com/novarae',
+        },
+        {
+          id: 2,
+          platform: 'x',
+          img: '/assets/images/social/x.png',
+          url: 'https://twitter.com/novarae',
+        },
+        {
+          id: 3,
+          platform: 'tiktok',
+          img: '/assets/images/social/tiktok.png',
+          url: 'https://www.tiktok.com/@novarae',
+        },
+        {
+          id: 4,
+          platform: 'youtube',
+          img: '/assets/images/social/youtube.png',
+          url: 'https://www.youtube.com/@novarae',
+        },
+        {
+          id: 5,
+          platform: 'facebook',
+          img: '/assets/images/social/facebook.png',
+          url: 'https://facebook.com/novarae',
+        },
+      ],
+      shows: [
+        {
+          id: 1,
+          platform: 'bandsintown',
+          img: '/assets/images/social/bandsintown.png',
+          url: 'https://www.bandsintown.com/',
+        },
+        {
+          id: 2,
+          platform: 'songkick',
+          img: '/assets/images/social/songkick.png',
+          url: 'https://www.songkick.com/',
+        },
+      ],
+    },
+    merchandise: [...initialMerchandiseSlice.items],
+  },
+  {
+    ...baseArtistData[4],
+    // socials: [
+    //   {
+    //     id: 1,
+    //     platform: 'x',
+    //     url: 'https://x.com/novarae',
+    //   },
+    //   {
+    //     id: 2,
+    //     platform: 'instagram',
+    //     url: 'https://instagram.com/novarae',
+    //   },
+    // ],
+    content: [...content[4]],
+    chat: [...chatData[4]],
+    // links: {
+    //   music: [
+    //     {
+    //       id: 1,
+    //       platform: 'spotify',
+    //       img: '/assets/images/social/spotify.png',
+    //       url: 'https://open.spotify.com/artist/1',
+    //     },
+    //     {
+    //       id: 2,
+    //       platform: 'apple-music',
+    //       img: '/assets/images/social/apple-music.png',
+    //       url: 'https://music.apple.com/us/artist/novarae/145567901',
+    //     },
+    //   ],
+    //   socials: [
+    //     {
+    //       id: 1,
+    //       platform: 'instagram',
+    //       img: '/assets/images/social/instagram.png',
+    //       url: 'https://instagram.com/novarae',
+    //     },
+    //     {
+    //       id: 2,
+    //       platform: 'x',
+    //       img: '/assets/images/social/x.png',
+    //       url: 'https://twitter.com/novarae',
+    //     },
+    //     {
+    //       id: 3,
+    //       platform: 'tiktok',
+    //       img: '/assets/images/social/tiktok.png',
+    //       url: 'https://www.tiktok.com/@novarae',
+    //     },
+    //     {
+    //       id: 4,
+    //       platform: 'youtube',
+    //       img: '/assets/images/social/youtube.png',
+    //       url: 'https://www.youtube.com/@novarae',
+    //     },
+    //     {
+    //       id: 5,
+    //       platform: 'facebook',
+    //       img: '/assets/images/social/facebook.png',
+    //       url: 'https://facebook.com/novarae',
+    //     },
+    //   ],
+    //   shows: [
+    //     {
+    //       id: 1,
+    //       platform: 'bandsintown',
+    //       img: '/assets/images/social/bandsintown.png',
+    //       url: 'https://www.bandsintown.com/',
+    //     },
+    //     {
+    //       id: 2,
+    //       platform: 'songkick',
+    //       img: '/assets/images/social/songkick.png',
+    //       url: 'https://www.songkick.com/',
+    //     },
+    //   ],
+    // },
+    // merchandise: [...initialMerchandiseSlice.items],
+  },
 ];
 const emptyDetails = {
   // bio: '',
@@ -189,26 +510,27 @@ export const initialArtistsSlice = {
     },
     {
       ...baseArtistData[1],
-      ...emptyDetails,
+      ...artistDetails[1],
+      // ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
     },
     {
-           ...baseArtistData[2],
-
-      ...emptyDetails,
+      ...baseArtistData[2],
+      ...artistDetails[2],
+      // ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
     },
     {
       ...baseArtistData[3],
-      ...emptyDetails,
+      ...artistDetails[3],
+      // ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
     },
     {
       ...baseArtistData[4],
-      ...emptyDetails,
+       ...artistDetails[4],
+      // ...emptyDetails,
       // merchandise: [{ ...emptyMerchandise }],
-      // socials: [...artistDetails.socials],
-      // content: [...artistDetails.content],
     },
   ],
 };

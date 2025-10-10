@@ -24,14 +24,14 @@
                [sources]="contentItem.video.sources"
                (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-video>
     }
-    <div class="flex justify-between gap-sm">
+    <div class="flex justify-between items-start gap-sm">
       <div class="flex flex-col flex-sm">
-        @if(contentItem.title){
-        <h2 class="text-[14px] font-normal">{{contentItem.title}}</h2>
+        @if(contentItem.content){
+        <h2 class="text-[14px] font-normal">{{contentItem.content}}</h2>
         }
-        @if(contentItem.date){
+        <!-- @if(contentItem.date){
         <p class="text-[10px] text-[#fff] text-opacity-80">{{contentItem.date}}</p>
-        }
+        } -->
       </div>
       @if(contentItem.likes){
       <span class="flex items-center gap-xs cursor-pointer"
@@ -41,12 +41,12 @@
       </span>
       }
     </div>
-    @if(contentItem.content){
+    <!-- @if(contentItem.content){
     <div class="flex flex-col gap-xs text-[14px]"
          [innerHTML]="contentItem.content">
 
     </div>
-    }
+    } -->
   </div>
   }
 </ion-content>

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { AuthStore } from 'src/app/services/auth/store/auth.store';
 import { environment } from 'src/environments/environment';
 import { Merchandise } from 'src/app/pages/merchandise/store/merchandise.slice';
+import dayjs from 'dayjs';
 @Component({
   selector: 'app-header-inner-page',
   templateUrl: './header-inner-page.component.html',
@@ -48,7 +49,7 @@ export class HeaderInnerPageComponent implements OnInit {
   // for artist content page
   isArtistContent = input<boolean>(false);
   contentDate = input<string>();
-
+  public dayjs = dayjs;
   constructor() {}
 
   ngOnInit() {
