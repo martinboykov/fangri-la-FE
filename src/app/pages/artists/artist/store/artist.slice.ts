@@ -32,8 +32,6 @@ export interface ChatItem {
   shortName: string;
   img: string;
   message: string; // html
-  isCreator: boolean;
-  isMyself: boolean;
   date: string;
 }
 
@@ -47,7 +45,6 @@ export interface LinkItem {
 export interface Artist extends ArtistListItem {
   bio: string;
   website: string;
-  socials: Social[];
   content: ContentItem[];
   chat: ChatItem[];
   links: {
@@ -108,12 +105,6 @@ export const initialArtistSlice = {
     image: '',
     bio: '',
     website: '',
-    socials: [
-      {
-        platform: '',
-        url: '',
-      },
-    ],
     content: [
       {
         id: '',
@@ -139,8 +130,6 @@ export const initialArtistSlice = {
         shortName: '',
         img: '',
         message: '',
-        isCreator: false,
-        isMyself: false,
         date: '',
       },
     ],
