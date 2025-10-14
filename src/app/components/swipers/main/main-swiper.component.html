@@ -19,14 +19,24 @@
       }">
 
     @for (img of imgs(); track $index; let i = $index) {
-    <swiper-slide class="flex flex-col justify-between">
+    <swiper-slide class="relative flex flex-col justify-between">
       <ion-img class="{{imgClass()}} block w-full object-cover overflow-hidden cursor-pointer"
                [src]="img || '/assets/images/placeholder.svg'">
       </ion-img>
+      @if(isEdit()){
+
+      <input class="absolute block top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[3] size-10 rounded-[50%] cursor-pointer opacity-0"
+             type="file"
+             (change)="fileChanged($event, 'image', i)">
+      <span class="absolute block top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[2] size-10 rounded-[50%] bg-[rgba(0,0,0,0.5)] touch-none pointer-events-none"></span>
+      <span class="icon-plus text-white text-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[20] touch-none pointer-events-none"></span>
+
+      }
     </swiper-slide>
     }
   </swiper-container>
   <!-- @if(imgs().length > 1) { -->
-  <div #pagination class="swiper-pagination"></div>
+  <div #pagination
+       class="swiper-pagination"></div>
   <!-- } -->
 </div>

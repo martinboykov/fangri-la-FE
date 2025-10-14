@@ -1,5 +1,98 @@
-<div class=" flex flex-col gap-sm pt-sm">
+@let user = authService.user();
+@let artist = artistStore.artist();
+
+
+@let links = artist.links;
+
+
+@let music = links.music;
+
+@let spotify = music[0];
+@let apple = music[1];
+
+
+@let socials = links.socials;
+
+@let instagram = socials[0];
+@let x = socials[1];
+@let tiktok = socials[2];
+@let youtube = socials[3];
+@let facebook = socials[4];
+
+
+@let shows = links.shows;
+@let bandsintown = shows[0];
+@let songkick = shows[1];
+
+@let isEdit = user !== null && user.id === artist.id;
+<div class=" flex flex-col gap-lg pt-sm">
   <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.LINKS.TITLE' | translate }}</h1>
+  @if(isEdit) {
+  <div class="flex flex-col gap-lg">
+    <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.MUSIC' | translate }}</div>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.SPOTIFY}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{spotify?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.MUSIC, PlatformTypeEnum.SPOTIFY)"></ion-input>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.APPLE_MUSIC}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{apple?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.MUSIC, PlatformTypeEnum.APPLE_MUSIC)"></ion-input>
+  </div>
+  <div class="flex flex-col gap-lg">
+    <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.SOCIALS' | translate }}</div>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.INSTAGRAM}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{instagram?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.SOCIALS, PlatformTypeEnum.INSTAGRAM)"></ion-input>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.X}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{x?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.SOCIALS, PlatformTypeEnum.X)"></ion-input>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.TIKTOK}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{tiktok?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.SOCIALS, PlatformTypeEnum.TIKTOK)"></ion-input>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.YOUTUBE}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{youtube?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.SOCIALS, PlatformTypeEnum.YOUTUBE)"></ion-input>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.FACEBOOK}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{facebook?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.SOCIALS, PlatformTypeEnum.FACEBOOK)"></ion-input>
+  </div>
+    <div class="flex flex-col gap-lg">
+    <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.SHOWS' | translate }}</div>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.BANDSINTOWN}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{bandsintown?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.MUSIC, PlatformTypeEnum.BANDSINTOWN)"></ion-input>
+    <ion-input mode="md"
+               label="{{PlatformTypeEnum.SONGKICK}}"
+               label-placement="floating"
+               fill="solid"
+               value="{{songkick?.url ?? ''}}"
+               (ionChange)="changePlatform($event, LinkTypeEnum.MUSIC, PlatformTypeEnum.SONGKICK)"></ion-input>
+  </div>
+  } @else {
+
   <div class="flex flex-col gap-sm">
     @if(artistStore.artist.links.music().length > 0) {
     <div class="">
@@ -20,7 +113,8 @@
       <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.SOCIALS' | translate }}</div>
       <div class="flex justify-center items-center flex-wrap gap-2xl p-lg">
         @for(link of artistStore.artist.links.socials(); let i = $index; track $index){
-        <a class="shtink-0" href="{{link.url}}"
+        <a class="shtink-0"
+           href="{{link.url}}"
            target="_blank"
            rel="noopener noreferrer">
           <ion-img class="w-full max-h-4"
@@ -34,7 +128,8 @@
       <div class="separator text-1 text-[#999] uppercase">{{ 'ARTIST.PAGES.LINKS.SHOWS' | translate }}</div>
       <div class="flex justify-center items-center flex-wrap gap-2xl p-lg">
         @for(link of artistStore.artist.links.shows(); let i = $index; track $index){
-        <a class="shtink-0" href="{{link.url}}"
+        <a class="shtink-0"
+           href="{{link.url}}"
            target="_blank"
            rel="noopener noreferrer">
           <ion-img class="w-full max-h-4"
@@ -44,4 +139,6 @@
     </div>
     }
   </div>
+  }
+
 </div>

@@ -14,7 +14,6 @@ const idGeneratorFactory = function () {
 };
 const idGenerator = idGeneratorFactory();
 
-
 const randomNumberRange = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min) + min);
 
@@ -146,6 +145,12 @@ export const imagesData = [
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_18_Black_&_white,_reaching_for_fans_onstage.png',
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_19_Glitter_stage_outfit,_power_pose_under_lights.png',
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_20_Graffiti_wall,_leather_jacket_look.png',
+    [
+      '/assets/static/images/artists/sienna_solas/carousel/carousel-1.png',
+      '/assets/static/images/artists/sienna_solas/carousel/carousel-2.png',
+      '/assets/static/images/artists/sienna_solas/carousel/carousel-3.png',
+      '/assets/static/images/artists/sienna_solas/carousel/carousel-4.png',
+    ],
   ],
   [
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1080_1_Studio_Mic_Black_&_White_Eyes_Closed.png',
@@ -216,6 +221,7 @@ export const shortCaptionsData = [
   'No walls, no distance.',
   'This is the roar, the shine, the moment you dream about when nobody’s watching. And I’m living it.',
   'Edge in every glance.',
+  'Every note, every lyric, it’s all about pouring my truth into the music. The stage is next.',
 
   // caden kane
   [
@@ -589,7 +595,7 @@ export const content = [...Array(artistData.length).keys()].map((artist, i) =>
   imagesData[i].map((image, j) => {
     return {
       id: idGenerator(),
-      images: [imagesData[i][j]],
+      images: Array.isArray(image) ? [...image] : [image],
       title: shortCaptionsData[j] as string,
       content: shortCaptionsData[j] as string,
       date: dataGen.next().value,

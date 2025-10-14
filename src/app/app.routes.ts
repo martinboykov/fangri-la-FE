@@ -6,7 +6,7 @@ import { MerchandiseStore } from './pages/merchandise/store/merchandise.store';
 import { VaultStore } from './pages/vault/store/vault.store';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  // { path: '', redirectTo: '/auth', pathMatch: 'full' },
   // { path: '', redirectTo: '/cart', pathMatch: 'full' },
   {
     path: 'auth',
@@ -41,11 +41,16 @@ export const routes: Routes = [
     canActivate: [translationGuard, authGuard],
   },
   {
-    path: 'nfc',
+    path: '101',
     loadComponent: () => import('./pages/nfc/nfc.page').then((m) => m.NfcPage),
     canActivate: [translationGuard, userGuard],
   },
-  // { path: '**', redirectTo: '/auth' },
+  { path: '**',
+     loadComponent: () => import('./pages/page-not-found/page-not-found.page').then((m) => m.PageNotFoundPage),
+  },
+  // {
+  //   path: 'page-not-found',
+  //   loadComponent: () => import('./pages/page-not-found/page-not-found.page').then( m => m.PageNotFoundPage)
+  // },
 
-  // TODO: add not found component
 ];

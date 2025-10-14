@@ -13,14 +13,17 @@ export class ToastService {
   async presentToast({
     message,
     duration,
+    isWarning,
   }: {
     message: string;
     duration: number;
-  }) {
+    isWarning: boolean;
+  }): Promise<void> {
+    console.log('🚀 ~ ToastService ~ presentToast ~ isWarning:', isWarning);
     const toast = await this.toastController.create({
       message,
       duration: duration || 5000,
-      color: 'success',
+      color: isWarning ? 'warning' : 'success',
       position: 'top',
       buttons: [
         {
@@ -50,7 +53,7 @@ export class ToastService {
       position: 'top',
       duration: duration || 50000,
       color: 'danger',
-      swipeGesture:'vertical',
+      swipeGesture: 'vertical',
       mode: 'ios',
       translucent: true,
       buttons: [

@@ -2,6 +2,7 @@ import { PartialStateUpdater } from '@ngrx/signals';
 import { ArtistSlice, ContentItem } from './artist.slice';
 import { User } from 'src/app/models/auth.model';
 import dayjs from 'dayjs';
+import { LinkType, PlatformType } from './artist.store';
 export function increaseLikes(
   contentId: string,
 ): PartialStateUpdater<ArtistSlice> {
@@ -33,8 +34,6 @@ export function addChatMessage(
     shortName: user.shortName,
     img: user.img,
     message,
-    isCreator: false,
-    isMyself: true,
     date: dayjs().toISOString(), // new Date().toUTCString(),
   };
   // format('ddd h:mm A')
@@ -42,6 +41,56 @@ export function addChatMessage(
     artist: {
       ...store.artist,
       chat: [...store.artist.chat, newChatItem],
+    },
+  });
+}
+export function updateImageUrl(
+  contentId: string,
+  index: number,
+  url: string,
+): PartialStateUpdater<ArtistSlice> {
+  return (store) => ({
+    artist: {
+      ...store.artist,
+      content: ((store.artist.content as ContentItem[]) || []).map(
+        (content: any) => {
+          if (content.id === contentId) {
+            content.images[index] = url;
+          }
+          return content;
+        },
+      ),
+    },
+  });
+}
+
+export function updateContent(
+  contentId: string,
+  newContent: string,
+): PartialStateUpdater<ArtistSlice> {
+  return (store) => ({
+    artist: {
+      ...store.artist,
+      content: ((store.artist.content as ContentItem[]) || []).map(
+        (content: any) => {
+          if (content.id === contentId) {
+            content.title = newContent;
+          }
+          return content;
+        },
+      ),
+    },
+  });
+}
+export function updatePlatform(
+  linkType: LinkType,
+  platform: PlatformType,
+  value: string,
+): PartialStateUpdater<ArtistSlice> {
+  return (store) => ({
+    artist: {
+      ...store.artist,
+      [platform]: value,
     },
   });
 }

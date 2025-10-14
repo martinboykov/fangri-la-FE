@@ -138,7 +138,7 @@ export class AuthService {
     if (this.user()?.role === UserRoleEnum.ARTIST) {
       url = returnUrl || '/artists/' + this.user()?.id;
     }
-    if (this.router.url.includes('nfc') || this.router.url.includes('vault/')) {
+    if (this.router.url.includes('101') || this.router.url.includes('vault/')) {
       if (returnUrl) {
         this.router.navigateByUrl(returnUrl);
       } else {

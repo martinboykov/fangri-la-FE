@@ -5,6 +5,8 @@ import { MainSwiperComponent } from 'src/app/components/swipers/main/main-swiper
 import { HeaderInnerPageComponent } from 'src/app/components/headers/header-inner-page/header-inner-page.component';
 import { ContentItem } from '../../../store/artist.slice';
 import { ArtistStore } from '../../../store/artist.store';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { ToastService } from 'src/app/services/modals/toast/toast.service';
 
 @Component({
   selector: 'app-content-item',
@@ -19,12 +21,19 @@ import { ArtistStore } from '../../../store/artist.store';
   ],
 })
 export class ContentItemPage implements OnInit {
+  readonly toastService = inject(ToastService);
+  readonly authService = inject(AuthService);
   readonly artistStore = inject(ArtistStore);
   readonly artistId = input.required<string>();
   readonly contentId = input.required<string>();
+  readonly isEdit = input<boolean>();
   contentItem!: ContentItem;
   constructor() {
     effect(() => {
+      console.log(
+        '🚀 ~ ContentItemPage ~ constructor ~ isEdit:',
+        this.isEdit(),
+      );
       console.log(
         '🚀 ~ ContentItemPage ~ constructor ~ this.artistStore.artist():',
         this.artistStore.artist.id(),
@@ -44,5 +53,11 @@ export class ContentItemPage implements OnInit {
 
   ngOnInit() {
     console.log('🚀 ~ ContentItemPage ~ ngOnInit');
+  }
+  fileChanged(event: any, fileType: 'image' | 'video', index: number) {
+    this.artistStore.onFileChanged(event, fileType, this.contentId(), index);
+  }
+  contentChanged(event: any, content: string) {
+    this.artistStore.updateContent(this.contentId(), content);
   }
 }

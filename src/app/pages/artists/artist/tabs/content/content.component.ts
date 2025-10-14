@@ -1,5 +1,6 @@
 import {
   Component,
+  computed,
   effect,
   ElementRef,
   inject,
@@ -13,6 +14,7 @@ import { SharedModule } from 'src/app/shared.module';
 import { MainSwiperComponent } from 'src/app/components/swipers/main/main-swiper.component';
 import dayjs from 'dayjs';
 import { GestureController } from '@ionic/angular/standalone';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-artist-tab-content',
@@ -22,6 +24,7 @@ import { GestureController } from '@ionic/angular/standalone';
   imports: [SharedModule, VideoComponent, MainSwiperComponent],
 })
 export class ArtistTabContentComponent implements OnInit {
+  readonly authService = inject(AuthService);
   readonly artistStore = inject(ArtistStore);
   private gestureCtrl: GestureController = inject(GestureController);
   videos = viewChildren('video', { read: ElementRef });
@@ -31,6 +34,7 @@ export class ArtistTabContentComponent implements OnInit {
   timeStartTwo = 0;
   videoPlayerOptions!: any;
   public dayjs = dayjs;
+  user = computed(() => this.authService.user());
   constructor() {
     effect(() => {
       const videos = this.videos();

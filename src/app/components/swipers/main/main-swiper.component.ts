@@ -3,6 +3,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   effect,
   ElementRef,
+  inject,
   input,
   OnInit,
   viewChild,
@@ -14,6 +15,7 @@ import { SwiperOptions } from 'swiper/types';
 import { Pagination } from 'swiper/modules';
 import { register, SwiperContainer } from 'swiper/element/bundle';
 import { RequestStatus } from 'src/app/store/custom-features/with-response/with-request-status.slice';
+import { ArtistStore } from 'src/app/pages/artists/artist/store/artist.store';
 
 @Component({
   selector: 'app-main-swiper',
@@ -24,9 +26,12 @@ import { RequestStatus } from 'src/app/store/custom-features/with-response/with-
   imports: [SharedModule],
 })
 export class MainSwiperComponent implements OnInit {
+  readonly artistStore = inject(ArtistStore);
   private readonly swiperContainer = viewChild.required<ElementRef>('swiper');
   private readonly pagination = viewChild.required<ElementRef>('pagination');
   readonly imgs = input<string[]>([]);
+  readonly isEdit = input<boolean>();
+  readonly contentId = input<string>();
   readonly options = input<{ [key: string]: any }>({});
   readonly paginationClass = input<string>();
   readonly imgClass = input<string>();
@@ -37,6 +42,7 @@ export class MainSwiperComponent implements OnInit {
   swiperOptions!: SwiperOptions;
   isSwiperInitialized: boolean = false;
   constructor() {
+    console.log('🚀 ~ MainSwiperComponent ~ constructor ~ imgs:', this.imgs());
     register();
     this.swiperOptions = {
       // modules: [Pagination],
@@ -88,4 +94,9 @@ export class MainSwiperComponent implements OnInit {
   }
 
   ngOnInit() {}
+  fileChanged(event: any, fileType: 'image' | 'video', index: number) {
+    const contentId = this.contentId();
+    if (contentId === undefined) return;
+    this.artistStore.onFileChanged(event, fileType, contentId, index);
+  }
 }
