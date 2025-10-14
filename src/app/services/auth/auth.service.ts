@@ -38,8 +38,6 @@ import { AUTH_DATA } from 'src/app/constants';
 export class AuthService {
   uuid!: string;
 
-  homeRouteUser: string = '/artists';
-
   // private _user = new BehaviorSubject<User | null>(null);
   private _user = signal<User | null>(null);
   public user = this._user.asReadonly();
@@ -134,8 +132,9 @@ export class AuthService {
   }
 
   onLoginRouting() {
+    let homeRouteUser: string = '/artists';
     let returnUrl = this.route.snapshot.queryParams['returnUrl'];
-    let url = returnUrl || this.homeRouteUser;
+    let url = returnUrl || homeRouteUser;
     if (this.user()?.role === UserRoleEnum.ARTIST) {
       url = returnUrl || '/artists/' + this.user()?.id;
     }

@@ -45,7 +45,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/nfc/nfc.page').then((m) => m.NfcPage),
     canActivate: [translationGuard, userGuard],
   },
-  { path: '**', redirectTo: '/auth' },
+  // { path: '**', redirectTo: '/auth' },
 
   // TODO: add not found component
 ];
