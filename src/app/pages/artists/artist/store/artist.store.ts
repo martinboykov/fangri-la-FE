@@ -83,14 +83,7 @@ export const ArtistStore = signalStore(
     return {
       setActiveTab: (tabIndex: number) =>
         patchState(store, { activeTab: tabIndex }),
-      getArtistById: (artistId: string) => {
-        const artist = artistsStore
-          .artists()
-          .find((artist) => artist.id === artistId);
-        if (artist !== undefined) {
-          patchState(store, setArtist(artist as Artist));
-        }
-      },
+
       getContentById: (contentId: string) => {
         if (!store.artist.content) {
           return null;
@@ -124,6 +117,7 @@ export const ArtistStore = signalStore(
   }),
   withMethods((store) => {
     const toastService = inject(ToastService);
+    const artistsStore = inject(ArtistsStore);
     const router = inject(Router);
     const ngxTranslateService = inject(TranslateService);
     const fileUpload = (
@@ -165,6 +159,16 @@ export const ArtistStore = signalStore(
     };
     return {
       fileUpload,
+      getArtistById: (artistId: string) => {
+        console.log('🚀 ~ artistId:', artistId);
+        const artist = artistsStore
+          .artists()
+          .find((artist) => artist.id === artistId);
+        if (artist !== undefined) {
+          patchState(store, setArtist(artist as Artist));
+          store.setActiveTab(1);
+        }
+      },
       onFileChanged: async (
         event: any,
         fileType: FileType,

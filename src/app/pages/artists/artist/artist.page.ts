@@ -15,6 +15,7 @@ import { ArtistTabChatComponent } from './tabs/chat/chat.component';
 import { ArtistTabLinksComponent } from './tabs/links/links.component';
 import { ArtistTabMerchandiseComponent } from './tabs/merchandise/merchandise.component';
 import { ArtistTabVaultComponent } from './tabs/vault/vault.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
@@ -32,17 +33,23 @@ import { ArtistTabVaultComponent } from './tabs/vault/vault.component';
   ],
 })
 export class ArtistPage implements OnInit {
+  private activatedRoute = inject(ActivatedRoute);
   readonly artistStore = inject(ArtistStore);
-  readonly id = input.required<string>();
+  id = '';
   activeTabClass = 'border-b-2 text-green-100 border-green-100 font-bold';
   inactiveTabClass = 'font-medium text-black-60';
   constructor() {
-    effect(() => {
-      this.artistStore.getArtistById(this.id());
-    });
+    effect(() => {});
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params['id'];
+      if (this.id) {
+        this.artistStore.getArtistById(this.id);
+      }
+    });
+  }
 
   ngOnChange(sampleChanges: any) {
     console.log('sampleChanges', sampleChanges);
