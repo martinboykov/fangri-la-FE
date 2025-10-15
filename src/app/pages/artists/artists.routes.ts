@@ -20,6 +20,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: ':artistId/new-content',
+        loadComponent: () =>
+          import('./artist/tabs/content/new-content/new-content.page').then(
+            (m) => m.NewContentPage,
+          ),
+      },
+      {
         path: ':id',
         loadComponent: () =>
           import('./artist/artist.page').then((m) => m.ArtistPage),

@@ -15,6 +15,8 @@ import { MainSwiperComponent } from 'src/app/components/swipers/main/main-swiper
 import dayjs from 'dayjs';
 import { GestureController } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { NewContentPage } from './new-content/new-content.page';
+import { ModalController, Platform } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-artist-tab-content',
@@ -24,6 +26,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   imports: [SharedModule, VideoComponent, MainSwiperComponent],
 })
 export class ArtistTabContentComponent implements OnInit {
+   private modalController = inject(ModalController);
   readonly authService = inject(AuthService);
   readonly artistStore = inject(ArtistStore);
   private gestureCtrl: GestureController = inject(GestureController);
@@ -35,6 +38,8 @@ export class ArtistTabContentComponent implements OnInit {
   videoPlayerOptions!: any;
   public dayjs = dayjs;
   user = computed(() => this.authService.user());
+
+  modal!: HTMLIonModalElement;
   constructor() {
     effect(() => {
       const videos = this.videos();
@@ -97,5 +102,19 @@ export class ArtistTabContentComponent implements OnInit {
     //     { src: match.video.hls_manifest, type: 'application/x-mpegURL' },
     //   ];
     // }
+  }
+  async openModalSheet() {
+    console.log('openModalSheet');
+    let config: any = {
+      component: NewContentPage,
+      componentProps: {
+        artistId: this.artistStore.artist.id(),
+      },
+      initialBreakpoint: 1,
+      breakpoints: [1],
+    };
+    this.modal = await this.modalController.create(config);
+
+    this.modal.present();
   }
 }

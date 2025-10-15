@@ -11,12 +11,17 @@ import { TranslationService } from 'src/app/services/translation/translation.ser
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { switchMap } from 'rxjs';
 import { initialArtistsSlice } from './artists.slice';
-
+import { artists } from './db';
 export const ArtistsStore = signalStore(
   { providedIn: 'root' },
   withState(initialArtistsSlice),
   withMethods((store) => {
+    const loadArtists = () => {
+      // const artists = [...artists];
+      patchState(store, { artists });
+    };
     return {
+      loadArtists: () => loadArtists(),
       getArtistById: (id: string) => {
         return store.artists().find((artist) => artist.id === id);
       },

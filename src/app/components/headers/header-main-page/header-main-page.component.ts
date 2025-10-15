@@ -28,7 +28,7 @@ export class HeaderMainPageComponent implements OnInit {
     if (this.authStore.user()?.role === UserRoleEnum.USER) {
       this.router.navigate(['/artists/list']);
     } else {
-      this.router.navigate([`/artist/` + this.authStore.user()?.id]);
+      this.router.navigate([`/artists/` + this.authStore.user()?.id]);
     }
   }
   logout() {

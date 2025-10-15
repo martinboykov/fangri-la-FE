@@ -21,7 +21,7 @@
                [src]="contentItem.images[0] || '/assets/images/placeholder.svg'"
                (dblclick)="artistStore.increaseLikes(contentItem.id)"></ion-img>
       }
-      @if(contentItem.video) {
+      @if(contentItem.video && contentItem.video.sources.length > 0) {
       <app-video #video
                  id="{{contentItem.id}}"
                  [attr.data-contentItemId]="contentItem.id"
@@ -62,5 +62,15 @@
       </div>
     </div>
     }
+    <ion-button class="fixed right-2xl bottom-2xl min-h-5 w-16 bg-yellow-100 rounded-sm overflow-hidden"
+                fill="solid"
+                (click)="openModalSheet()">
+      <div class="flex justify-between items-center gap-sm">
+        <div class="flex items-center justify-center size-2 rounded-[50%] bg-black-0 ">
+          <span class="icon-plus text-[16px] text-yellow-100"></span>
+        </div>
+        <span class="shrink-0 font-medium text-black-0 capitalize">{{ 'ARTIST.PAGES.CONTENT.BUTTON_ADD' | translate }}</span>
+      </div>
+    </ion-button>
   </div>
 </div>

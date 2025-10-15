@@ -13,11 +13,11 @@ export class ToastService {
   async presentToast({
     message,
     duration,
-    isWarning,
+    isWarning = false,
   }: {
     message: string;
     duration: number;
-    isWarning: boolean;
+    isWarning?: boolean;
   }): Promise<void> {
     console.log('🚀 ~ ToastService ~ presentToast ~ isWarning:', isWarning);
     const toast = await this.toastController.create({

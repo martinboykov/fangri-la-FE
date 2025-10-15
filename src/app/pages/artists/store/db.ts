@@ -12,7 +12,7 @@ const idGeneratorFactory = function () {
     return currentId.toString();
   };
 };
-const idGenerator = idGeneratorFactory();
+export const idGenerator = idGeneratorFactory();
 
 const randomNumberRange = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min) + min);
@@ -274,7 +274,7 @@ export const shortCaptionsData = [
   ],
 ];
 
-const linksData = [
+export const linksData = [
   {
     music: [
       {
@@ -407,12 +407,12 @@ const linksData = [
         img: '/assets/images/social/spotifypng',
         url: 'https://open.spotify.com/artist/1',
       },
-      {
-        id: 2,
-        platform: 'apple-music',
-        img: '/assets/images/social/apple-musicpng',
-        url: 'https://music.apple.com/us/artist/novarae/145567901',
-      },
+      // {
+      //   id: 2,
+      //   platform: 'apple-music',
+      //   img: '/assets/images/social/apple-musicpng',
+      //   url: 'https://music.apple.com/us/artist/novarae/145567901',
+      // },
     ],
     socials: [
       {
@@ -421,12 +421,12 @@ const linksData = [
         img: '/assets/images/social/instagrampng',
         url: 'https://instagram.com/novarae',
       },
-      {
-        id: 2,
-        platform: 'x',
-        img: '/assets/images/social/xpng',
-        url: 'https://twitter.com/novarae',
-      },
+      // {
+      //   id: 2,
+      //   platform: 'x',
+      //   img: '/assets/images/social/xpng',
+      //   url: 'https://twitter.com/novarae',
+      // },
       {
         id: 3,
         platform: 'tiktok',
@@ -439,26 +439,26 @@ const linksData = [
         img: '/assets/images/social/youtubepng',
         url: 'https://www.youtube.com/@novarae',
       },
-      {
-        id: 5,
-        platform: 'facebook',
-        img: '/assets/images/social/facebookpng',
-        url: 'https://facebook.com/novarae',
-      },
+      // {
+      //   id: 5,
+      //   platform: 'facebook',
+      //   img: '/assets/images/social/facebookpng',
+      //   url: 'https://facebook.com/novarae',
+      // },
     ],
     shows: [
-      {
-        id: 1,
-        platform: 'bandsintown',
-        img: '/assets/images/social/bandsintownpng',
-        url: 'https://www.bandsintown.com/a/14146697-novara?came_from=257&utm_medium=web&utm_source=home&utm_campaign=search_bar',
-      },
-      {
-        id: 2,
-        platform: 'songkick',
-        img: '/assets/images/social/songkickpng',
-        url: 'https://www.songkick.com/artists/8966304-novara',
-      },
+      // {
+      //   id: 1,
+      //   platform: 'bandsintown',
+      //   img: '/assets/images/social/bandsintownpng',
+      //   url: 'https://www.bandsintown.com/a/14146697-novara?came_from=257&utm_medium=web&utm_source=home&utm_campaign=search_bar',
+      // },
+      // {
+      //   id: 2,
+      //   platform: 'songkick',
+      //   img: '/assets/images/social/songkickpng',
+      //   url: 'https://www.songkick.com/artists/8966304-novara',
+      // },
     ],
   },
   {
@@ -971,5 +971,56 @@ const artistDataLast = [
     };
   }),
 ];
+
+export const artistDetails = [
+  {
+    ...baseArtistData[0],
+    content: [...content[0]],
+    chat: [...chatData[0]],
+    links: { ...linksData[0] },
+    merchandise: [...initialMerchandiseSlice.items],
+    vault: [...initialVaultSlice.items],
+  },
+  {
+    ...baseArtistData[1],
+    content: [...content[1]],
+    chat: [...chatData[1]],
+    links: { ...linksData[1] },
+    merchandise: [...initialMerchandiseSlice.items],
+    vault: [...initialVaultSlice.items],
+  },
+  {
+    ...baseArtistData[2],
+    content: [...content[2]],
+    chat: [...chatData[2]],
+    links: { ...linksData[2] },
+    merchandise: [...initialMerchandiseSlice.items],
+    vault: [...initialVaultSlice.items],
+  },
+  {
+    ...baseArtistData[3],
+    content: [...content[3]],
+    chat: [...chatData[3]],
+    links: { ...linksData[3] },
+    merchandise: [...initialMerchandiseSlice.items],
+    vault: [...initialVaultSlice.items],
+  },
+  {
+    ...baseArtistData[4],
+    content: [...content[4]],
+    chat: [...chatData[4]],
+    // links: { ...linksData[4] }, // gives ts errors
+    merchandise: [...initialMerchandiseSlice.items],
+    vault: [...initialVaultSlice.items],
+  },
+];
 console.log('artistData', artistData);
-export const artists = [...artistDataLast];
+
+const artistsData = [
+  { ...artistDetails[0] },
+  { ...artistDetails[1] },
+  { ...artistDetails[2] },
+  { ...artistDetails[3] },
+  { ...artistDetails[4], links: { ...linksData[4] } },
+];
+export const artists = [...artistsData];

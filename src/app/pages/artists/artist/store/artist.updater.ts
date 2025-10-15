@@ -1,8 +1,22 @@
 import { PartialStateUpdater } from '@ngrx/signals';
-import { ArtistSlice, ContentItem } from './artist.slice';
+import {
+  Artist,
+  ArtistSlice,
+  ContentItem,
+  initialArtistSlice,
+} from './artist.slice';
 import { User } from 'src/app/models/auth.model';
 import dayjs from 'dayjs';
 import { LinkType, PlatformType } from './artist.store';
+
+export function setArtist(artist: Artist): PartialStateUpdater<ArtistSlice> {
+  return (store) => ({
+    artist: {
+      ...initialArtistSlice,
+      ...artist,
+    },
+  });
+}
 export function increaseLikes(
   contentId: string,
 ): PartialStateUpdater<ArtistSlice> {
@@ -47,7 +61,7 @@ export function addChatMessage(
 export function updateImageUrl(
   contentId: string,
   index: number,
-  url: string,
+  url: string | ArrayBuffer,
 ): PartialStateUpdater<ArtistSlice> {
   return (store) => ({
     artist: {
@@ -91,6 +105,17 @@ export function updatePlatform(
     artist: {
       ...store.artist,
       [platform]: value,
+    },
+  });
+}
+
+export function addContentItem(
+  content: ContentItem,
+): PartialStateUpdater<ArtistSlice> {
+  return (store) => ({
+    artist: {
+      ...store.artist,
+      content: [content, ...(store.artist.content as ContentItem[])],
     },
   });
 }

@@ -1,0 +1,74 @@
+<ion-content [fullscreen]="true"
+             class="bg-white">
+  <ion-header class="inner-page mb-2  px-[var(--ion-padding)] border-b-[1px] border-[#F3F3F4]
+            desktop-min:mb-3 "
+              [translucent]="true">
+    <ion-toolbar class=" max-w-[1100px] mx-auto">
+      <ion-buttons slot="start">
+        <ion-button class="px-0 desktop-min:mx-0 desktop-min:px-[5px] desktop-min:bg-white desktop-min:rounded-sm"
+                    (click)="goBack()"
+                    routerDirection="back">
+          <span class="icon-arrow-left text-xl text-black-0"
+                slot=""></span>
+        </ion-button>
+      </ion-buttons>
+      <div class="flex ml-sm pl-2">
+        <ion-title class="text-lg text-center text-black-10"
+                   [ngClass]="">
+          {{ 'ARTIST.PAGES.NEW_CONTENT.TITLE' | translate }}
+        </ion-title>
+      </div>
+      <ion-buttons slot="end"
+                   class="px-0">
+
+        <ion-button class=" right-2xl bottom-2xl min-h-5 bg-black-0 rounded-sm overflow-hidden"
+                    color="dark"
+                    fill="solid"
+                    [disabled]="!text || images.length ===0"
+                    (click)="submitNewPost()"
+                    >
+          <div class="flex justify-between items-center gap-sm">
+            <div class="flex items-center justify-center size-md rounded-[50%] bg-white ">
+              <span class="icon-plus text-[16px] text-black-0"></span>
+            </div>
+            <span class="shrink-0 text-md font-medium text-white capitalize">{{ 'ARTIST.PAGES.NEW_CONTENT.BUTTON' | translate }}</span>
+          </div>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="flex flex-col justify-between gap-sm min-h-[calc(100svh-80px)] ">
+    <div class="container w-full">
+      @if(images.length > 0) {
+      <div class="relative">
+
+        <ion-img class="w-full h-full object-cover rounded-md overflow-hidden"
+                 [src]="images[0] || '/assets/images/placeholder.svg'"></ion-img>
+      </div>
+      }
+      <div class="flex justify-between items-start gap-sm">
+        <div class="flex flex-col flex-sm w-full">
+          <ion-textarea #content
+                        placeholder="{{ 'ARTIST.PAGES.NEW_CONTENT.PLACEHOLDER_CONTENT' | translate }}"
+                        rows="4"
+                        class=" w-full p-lg text-black-0 border-0 text-[14px] text[##494656]"
+                        [(ngModel)]="text"></ion-textarea>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-end h-7 border-t-[1px] border-[#F3F3F4]">
+      <ion-button class="relative mr-2 p-0"
+                  fill="clear">
+        <span class="icon-camera text-[24px] text-black-0"
+              slot="icon-only"></span>
+        <input class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[3] size-10 rounded-[50%] cursor-pointer opacity-0"
+               type="file"
+               (change)="fileChanged($event, 'image', 0)">
+
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

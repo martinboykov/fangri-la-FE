@@ -32,7 +32,7 @@
       }
     </div>
     }
-    @if(contentItem.video) {
+    @if(contentItem.video && contentItem.video.sources.length > 0) {
     <app-video class="block w-full aspect-video rounded-lg overflow-hidden"
                [poster]="contentItem.video.poster"
                [sources]="contentItem.video.sources"

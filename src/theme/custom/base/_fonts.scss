@@ -40,7 +40,6 @@
 
 $icomoon-font-family: "icomoon" !default;
 $icomoon-font-path: "/assets/fonts" !default;
-
 $icon-warning: "\e91b";
 $icon-add: "\e900";
 $icon-arrow-left: "\e901";
@@ -60,6 +59,7 @@ $icon-chevron-right: "\e91a";
 $icon-close: "\e909";
 $icon-delete: "\e90a";
 $icon-edit: "\e90b";
+$icon-camera: "\e91c";
 $icon-facebook: "\e90c";
 $icon-filter: "\e90d";
 $icon-heart: "\e90e";
@@ -202,6 +202,11 @@ span[class^="icon-"], i[class^="icon-"] {
 .icon-edit {
   &:before {
     content: $icon-edit;
+  }
+}
+.icon-camera {
+  &:before {
+    content: $icon-camera;
   }
 }
 .icon-facebook {

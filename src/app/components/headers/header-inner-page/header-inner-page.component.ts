@@ -14,6 +14,7 @@ import { AuthStore } from 'src/app/services/auth/store/auth.store';
 import { environment } from 'src/environments/environment';
 import { Merchandise } from 'src/app/pages/merchandise/store/merchandise.slice';
 import dayjs from 'dayjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-header-inner-page',
   templateUrl: './header-inner-page.component.html',
@@ -25,7 +26,7 @@ import dayjs from 'dayjs';
 export class HeaderInnerPageComponent implements OnInit {
   private location: Location = inject(Location);
   private router: Router = inject(Router);
-  readonly authStore = inject(AuthStore);
+  readonly authService = inject(AuthService);
   readonly currency = environment.currency;
   title = input<string>();
   defaultHref = input<string>();
@@ -64,8 +65,8 @@ export class HeaderInnerPageComponent implements OnInit {
     } else if (window.history.length > 0) {
       this.location.back();
     } else {
-      if (this.authStore.user()?.role === 'artist') {
-        this.router.navigateByUrl('/artist/' + this.authStore.user()?.id);
+      if (this.authService.user()?.role === 'artist') {
+        this.router.navigateByUrl('/artist/' + this.authService.user()?.id);
       } else {
         this.router.navigateByUrl('/artists/list');
       }

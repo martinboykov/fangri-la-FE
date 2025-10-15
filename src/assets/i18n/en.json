@@ -171,7 +171,8 @@
     },
     "PAGES": {
       "CONTENT": {
-        "TITLE": "'s Content"
+        "TITLE": "'s Content",
+        "BUTTON_ADD": "Create Post"
       },
       "CHAT": {
         "TITLE": "'s Chat",
@@ -188,6 +189,12 @@
       },
       "CONTENT_ITEM": {
         "TITLE": "'s message"
+      },
+      "NEW_CONTENT": {
+        "TITLE": "New post",
+        "PLACEHOLDER_CONTENT": "Write something...",
+        "BUTTON": "Post",
+        "SUCCESS_MESSAGE": "Post created successfully."
       }
     }
   },

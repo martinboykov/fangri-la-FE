@@ -97,7 +97,7 @@ export const emptyMerchandise = {
 };
 
 export const initialArtistSlice = {
-  activeTab:3,
+  activeTab:1,
   hasNewChatMessages: true,
   artist: {
     id: '',
