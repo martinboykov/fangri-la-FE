@@ -92,7 +92,7 @@ export class ArtistTabContentComponent implements OnInit {
     //   aspectRatio: '16:9',
     //   poster: '/assets/static/images/content/content-artist-1-2.jpg',
     //   withCredentials: true,
-    //   sources: [{src: '/assets/static/videos/novarae/novarae-lovely_man.mp4', type: 'video/mp4'}],
+    //   sources: [{src: '/assets/static/videos/novarae/lovely_man.mp4', type: 'video/mp4'}],
     // };
     // if (this.artistStore.artist.content.video().poster) {
     //   this.videoPlayerOptions.poster = this.match?.video?.poster;

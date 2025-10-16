@@ -207,6 +207,13 @@
   "VAULT": {
     "PAGE_LIST": {
       "TITLE": "My Fangri-La Vault"
+    },
+    "PAGE_ITEM": {
+      "BUTTON_VIEW_CONTENT": "View Content"
+    },
+    "PAGE_EXCLUSIVE_CONTENT": {
+      "TITLE": "Exclusive Content",
+      "HEADER_TITLE_PART": "Exclusive fans celebrate video"
     }
   },
   "CART": {

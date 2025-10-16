@@ -8,6 +8,7 @@ export interface Merchandise {
   artist: string;
   name: string;
   images: string[];
+  video?: { poster: string; sources: { src: string; type: string }[] };
   description: string;
   price: number;
   totalCount: number;
@@ -44,6 +45,15 @@ export const initialMerchandiseSlice = {
         '/assets/static/images/merchandise/merch-store.jpg',
         '/assets/static/images/merchandise/merch-store.jpg',
       ],
+      video: {
+        poster: '/assets/static/videos/novarae/lovely_man.png',
+        sources: [
+          {
+            src: '/assets/static/videos/novarae/lovely_man.mp4',
+            type: 'video/mp4',
+          },
+        ],
+      },
       description:
         'Limited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus Team',
       price: 125,

@@ -47,6 +47,8 @@ export class HeaderInnerPageComponent implements OnInit {
   // for Vault
   isVaultItem = input<boolean>(false);
 
+  isVaultItemExclusive = input<boolean>(false);
+
   // for artist content page
   isArtistContent = input<boolean>(false);
   contentDate = input<string>();

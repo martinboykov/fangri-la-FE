@@ -58,6 +58,17 @@
         }
       </div>
       }
+      @if(merchandise() !== undefined && isVaultItemExclusive() !== undefined && isVaultItemExclusive()){
+      <div class="flex items-center gap-sm opacity-80">
+        @if(merchandise()?.artist){
+        <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]">
+          {{merchandise()?.artist}}
+        </span>
+        <span>&#8226;</span>
+        }
+        <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap">{{'VAULT.PAGE_EXCLUSIVE_CONTENT.HEADER_TITLE_PART' | translate}}</span>
+      </div>
+      }
       @if(isCart !== undefined && isCart()){
       <div class="flex items-center gap-sm opacity-80">
         @if(totalItemsCount !== undefined){

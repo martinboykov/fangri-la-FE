@@ -17,6 +17,13 @@ export const routes: Routes = [
           import('./vault-item/vault-item.page').then((m) => m.VaultItemPage),
       },
       {
+        path: ':id/exclusive-content',
+        loadComponent: () =>
+          import('./vault-exclusive-content/vault-exclusive-content.page').then(
+            (m) => m.VaultExclusiveContentPage,
+          ),
+      },
+      {
         path: '',
         redirectTo: 'list',
         pathMatch: 'full',
