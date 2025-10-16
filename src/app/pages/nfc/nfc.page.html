@@ -6,18 +6,14 @@
       @if(!isLoading() && merch){
       <div [ngClass]="{'cursor-pointer': user()}"
            (click)="goToExclusiveContent()">
-        <!-- <img class=" w-full object-cover rounded-lg overflow-hidden"
-             src="{{merch.images[0]}}"> -->
-
         <app-video #video
                    id="{{merch.id}}"
                    [attr.data-contentItemId]="merch.id"
                    class="block w-full aspect-video rounded-lg overflow-hidden"
-                   [config]="{autoplay: true, muted:true}"
+                   [config]="{autoplay: false, muted:false}"
                    [poster]="merch.video.poster"
                    [sources]="merch.video.sources"
-                   [hasToggleIcon]="false"></app-video>
-
+                   [isIconInCenter]="true"></app-video>
       </div>
 
 

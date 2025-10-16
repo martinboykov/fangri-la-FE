@@ -38,6 +38,7 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   >();
   readonly config = input<{ [key: string]: any }>();
   readonly hasToggleIcon = input<boolean>(true);
+  readonly isIconInCenter = input<boolean>(false);
   options: {
     withCredentials?: boolean;
     fluid?: boolean;
@@ -103,17 +104,20 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges() {
     console.log('🚀 ~ VideoComponent ~ ngOnChanges');
   }
+
   toggleVideoState() {
     console.log('🚀 ~ VideoComponent ~ toggleVideoState ~ toggleVideoState:');
     if (this.player) {
       this.isVideoPlaying = !this.isVideoPlaying;
       if (this.isVideoPlaying) {
         this.player.play();
+
       } else {
         this.player.pause();
       }
     }
   }
+
   dbClick(event: any) {
     console.log('🚀 ~ VideoComponent ~ dbClick ~ event:', event);
   }

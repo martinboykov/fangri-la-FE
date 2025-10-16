@@ -7,8 +7,17 @@
          playsinline
          preload="none"></video>
   @if(hasToggleIcon()){
+  @if(isIconInCenter()) {
+  <!-- <span class="absolute block top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[2] size-10 rounded-[50%] bg-[rgba(0,0,0,0.1)] touch-none pointer-events-none"></span> -->
+  <ion-img class="absolute z-2 bottom-1/2 left-1/2 translate-x-[-50%] translate-y-[50%] size-10 object-contain"
+           [src]="isVideoPlaying ? '/assets/images/video-pause.svg' : '/assets/images/video-play.svg'"
+           [ngClass]="{'hidden': isVideoPlaying}"></ion-img>
+  } @else {
   <ion-img class="absolute z-2 bottom-sm left-sm size-5 object-contain"
-           [src]="isVideoPlaying ? '/assets/images/video-pause.svg' : '/assets/images/video-play.svg'"></ion-img>
+           [src]="isVideoPlaying ? '/assets/images/video-pause.svg' : '/assets/images/video-play.svg'"
+           [ngClass]="{'hidden': isVideoPlaying}"></ion-img>
+  }
+
   }
   <div class="absolute z-3 top-0 left-0 w-full h-full bg-black"></div>
 </div>
