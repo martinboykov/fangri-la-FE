@@ -16,6 +16,7 @@ import { ArtistTabLinksComponent } from './tabs/links/links.component';
 import { ArtistTabMerchandiseComponent } from './tabs/merchandise/merchandise.component';
 import { ArtistTabVaultComponent } from './tabs/vault/vault.component';
 import { ActivatedRoute } from '@angular/router';
+import { ArtistsStore } from '../store/artists.store';
 
 @Component({
   selector: 'app-artist',
@@ -35,6 +36,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ArtistPage implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   readonly artistStore = inject(ArtistStore);
+  readonly artistsStore = inject(ArtistsStore);
   id = '';
   activeTabClass = 'border-b-2 text-green-100 border-green-100 font-bold';
   inactiveTabClass = 'font-medium text-black-60';
@@ -47,6 +49,7 @@ export class ArtistPage implements OnInit {
       this.id = params['id'];
       if (this.id) {
         this.artistStore.getArtistById(this.id);
+        this.artistsStore
       }
     });
   }

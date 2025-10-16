@@ -33,6 +33,7 @@ import { ToastService } from 'src/app/services/modals/toast/toast.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalController, Platform } from '@ionic/angular/standalone';
+import { artists } from '../../store/db';
 
 export type FileType = 'image' | 'video';
 export enum FileTypeEnum {
@@ -104,6 +105,8 @@ export const ArtistStore = signalStore(
       },
       createContentItem: (content: ContentItem) => {
         patchState(store, addContentItem(content));
+        // artistsStore.addContentItem(store.artist.id(), content);
+        artists[0].content = [content,...artists[0].content];
         router.navigateByUrl('artists/' + store.artist.id());
         modalController.dismiss();
       },
@@ -198,14 +201,17 @@ export const ArtistStore = signalStore(
         )
         .subscribe((language) => {
           if (user) {
-            // store.getArtistById();
+            store.getArtistById(user.id);
           } else {
             store.reset();
           }
         });
       effect(
         () => {
-          console.log('ArtistStore activeTab', store.activeTab());
+          console.log('ArtistStore [activeTab, artist]', [
+            store.activeTab(),
+            store.artist(),
+          ]);
         },
         { injector },
       );

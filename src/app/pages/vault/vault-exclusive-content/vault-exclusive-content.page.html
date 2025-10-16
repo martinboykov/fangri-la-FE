@@ -16,13 +16,27 @@
                    [attr.data-contentItemId]="_merchandise.id"
                    class="block w-full aspect-video rounded-lg overflow-hidden"
                    [poster]="_merchandise.video.poster"
-                   [sources]="_merchandise.video.sources"></app-video>
+                   [sources]="_merchandise.video.sources"
+                   [config]="{
+                     autoplay: true
+                   }"></app-video>
         }
 
       </div>
     </div>
+  </div>
+  } @else {
+  <app-header-inner-page [title]="'VAULT.PAGE_EXCLUSIVE_CONTENT.TITLE' | translate"
+                         ></app-header-inner-page>
+  <div class="container section-spacing text-black-0">
+    <div class="flex flex-col justify-between gap-sm ">
+      <div class="relative max-w-lg mb-4 p-sm rounded-md overflow-hidden
+      sm:mb-[6vw]">
+        <ion-skeleton-text animate
+                           class="bock w-full h-full aspect-video"></ion-skeleton-text>
 
-
+      </div>
+    </div>
   </div>
   }
 </ion-content>

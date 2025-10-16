@@ -85,6 +85,7 @@ export const artistData = [
   {
     id: idGenerator(),
     name: 'Sienna Solas',
+    surname: 'Solas',
     shortName: 'SS',
     image: '/assets/static/images/artists/sienna_solas/profile.png',
     bio: `Atlanta-born Sienna Solas crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
@@ -93,6 +94,7 @@ export const artistData = [
   {
     id: idGenerator(),
     name: 'Caden Kane',
+    surname: 'Kane',
     shortName: 'CK',
     image: '/assets/static/images/artists/caden_kane/profile.png',
     bio: `Atlanta-born Caden Kane crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
@@ -101,6 +103,7 @@ export const artistData = [
   {
     id: idGenerator(),
     name: 'Nyko Blaze',
+    surname: 'Blaze',
     shortName: 'NB',
     image: '/assets/static/images/artists/nyko_blaze/profile.png',
     bio: `Atlanta-born Nyko Blaze crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
@@ -109,6 +112,7 @@ export const artistData = [
   {
     id: idGenerator(),
     name: 'SevenBlock',
+    surname: 'Block',
     shortName: 'SB',
     image: '/assets/static/images/artists/sevenblock/profile.png',
     bio: `Atlanta-born SevenBlock crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
@@ -117,6 +121,7 @@ export const artistData = [
   {
     id: idGenerator(),
     name: 'Nyla Veil',
+    surname: 'Veil',
     shortName: 'NV',
     image: '/assets/static/images/artists/nyla_veil/profile.png',
     bio: `Atlanta-born Nyla Veil crafts smooth R&B, pop hooks, and hip-hop beats into stories of love, hustle, and self-discovery.`,
@@ -938,6 +943,7 @@ export const chat = [...Array(artistData.length).keys()].map((artist, i) => {
           userId: (i + 1).toString(),
           role: UserRoleEnum.USER,
           name: 'Fan',
+          surname: '',
           shortName: 'F',
           img: '',
           message: item.message,
@@ -949,6 +955,7 @@ export const chat = [...Array(artistData.length).keys()].map((artist, i) => {
           userId: artistData[i].id,
           role: UserRoleEnum.ARTIST,
           name: artistData[i].name,
+          surname: artistData[i].surname,
           shortName: artistData[i].shortName ? artistData[i].shortName : '',
           img: artistData[i].image ? artistData[i].image : '',
           message: item.message,

@@ -140,7 +140,7 @@
       "BUTTON_REGISTER": "Register"
     },
     "LOGGED_IN": {
-      "TITLE": "YOU’RE IN!",
+      "TITLE": "You're in!",
       "SUBTITLE": "Your merch is now linked to your account.",
       "MESSAGE": "Exclusive content is added to your vault",
       "BUTTON_LOGIN": "Log in",

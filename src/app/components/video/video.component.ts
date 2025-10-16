@@ -36,6 +36,7 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
       type: string;
     }[]
   >();
+  readonly config = input<{ [key: string]: any }>();
   options: {
     withCredentials?: boolean;
     fluid?: boolean;
@@ -75,6 +76,10 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
           this.player.trigger('loadstart');
         }
       }
+      const config = this.config();
+      if (config && config['autoplay']) {
+        this.toggleVideoState();
+      }
     });
   }
 
@@ -98,11 +103,11 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     console.log('🚀 ~ VideoComponent ~ toggleVideoState ~ toggleVideoState:');
     if (this.player) {
       this.isVideoPlaying = !this.isVideoPlaying;
-        if (this.isVideoPlaying) {
-          this.player.play();
-        } else {
-          this.player.pause();
-        }
+      if (this.isVideoPlaying) {
+        this.player.play();
+      } else {
+        this.player.pause();
+      }
     }
   }
   dbClick(event: any) {

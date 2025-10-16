@@ -23,6 +23,7 @@ export interface ArtistListItem {
 }
 export interface ArtistsSlice {
   artists: Artist[];
+  activeArtistId: string;
 }
 
 // const artists = [
@@ -55,5 +56,6 @@ export interface ArtistsSlice {
 
 export const initialArtistsSlice = {
   artists: [...artists],
+  activeArtistId: '',
 };
 console.log('🚀 ~ initialArtistsSlice:', initialArtistsSlice);

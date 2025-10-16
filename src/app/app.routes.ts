@@ -25,7 +25,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/merchandise/merchandise.routes').then((m) => m.routes),
     canActivate: [translationGuard, authGuard],
-    providers: [MerchandiseStore],
+    // providers: [MerchandiseStore],
   },
   {
     path: 'vault',

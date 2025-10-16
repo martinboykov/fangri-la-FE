@@ -53,6 +53,7 @@ export class HeaderInnerPageComponent implements OnInit {
   isArtistContent = input<boolean>(false);
   contentDate = input<string>();
   public dayjs = dayjs;
+
   constructor() {}
 
   ngOnInit() {

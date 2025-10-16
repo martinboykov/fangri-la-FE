@@ -14,6 +14,7 @@
                        [options]="{autoHeight: true}"
                        (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-main-swiper>
       }
+      @if(contentItem.images){
       @if(contentItem.images && contentItem.images.length === 1){
       <ion-img #image
                id="{{contentItem.id}}"
@@ -21,6 +22,8 @@
                [src]="contentItem.images[0] || '/assets/images/placeholder.svg'"
                (dblclick)="artistStore.increaseLikes(contentItem.id)"></ion-img>
       }
+      }
+      @if(contentItem.video) {
       @if(contentItem.video && contentItem.video.sources.length > 0) {
       <app-video #video
                  id="{{contentItem.id}}"
@@ -29,6 +32,7 @@
                  [poster]="contentItem.video.poster"
                  [sources]="contentItem.video.sources"
                  (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-video>
+      }
       }
       <div class="flex justify-between gap-sm">
         <div class="flex flex-col flex-sm cursor-pointer"
@@ -62,7 +66,8 @@
       </div>
     </div>
     }
-    <ion-button class="fixed right-2xl bottom-2xl min-h-5 w-16 bg-yellow-100 rounded-sm overflow-hidden"
+    @if(authService.user()?.id === artistStore.artist.id()){
+      <ion-button class="fixed right-2xl bottom-2xl min-h-5 w-16 bg-yellow-100 rounded-sm overflow-hidden"
                 fill="solid"
                 (click)="openModalSheet()">
       <div class="flex justify-between items-center gap-sm">
@@ -72,5 +77,6 @@
         <span class="shrink-0 font-medium text-black-0 capitalize">{{ 'ARTIST.PAGES.CONTENT.BUTTON_ADD' | translate }}</span>
       </div>
     </ion-button>
+    }
   </div>
 </div>

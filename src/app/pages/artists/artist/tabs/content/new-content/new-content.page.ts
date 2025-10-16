@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { ToastService } from 'src/app/services/modals/toast/toast.service';
 import { idGenerator } from 'src/app/pages/artists/store/db';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-new-content',
@@ -24,6 +25,7 @@ import { Router } from '@angular/router';
 })
 export class NewContentPage implements OnInit {
   private router: Router = inject(Router);
+  readonly modalController = inject(ModalController);
   readonly toastService = inject(ToastService);
   readonly authService = inject(AuthService);
   readonly artistStore = inject(ArtistStore);
@@ -44,6 +46,7 @@ export class NewContentPage implements OnInit {
   }
   goBack() {
     this.router.navigateByUrl('/artists/' + this.authService.user()?.id);
+    this.modalController.dismiss();
   }
   async fileChanged(event: any, fileType: 'image' | 'video', index: number) {
     const url = await this.artistStore.fileUpload(event, fileType);

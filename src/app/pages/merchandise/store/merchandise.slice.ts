@@ -38,18 +38,18 @@ export const initialMerchandiseSlice = {
     {
       id: '1',
       artist: 'Nova Rae',
-      name: 'Tour Skate Deck 1',
+      name: 'Virtual Vinil',
       images: [
-        '/assets/static/images/merchandise/merch-store.jpg',
+        '/assets/static/images/merchandise/merch-1.jpg',
         '/assets/static/images/merchandise/merch-store.jpg',
         '/assets/static/images/merchandise/merch-store.jpg',
         '/assets/static/images/merchandise/merch-store.jpg',
       ],
       video: {
-        poster: '/assets/static/videos/novarae/lovely_man.png',
+        poster: '/assets/static/videos/video_nfc.png',
         sources: [
           {
-            src: '/assets/static/videos/novarae/lovely_man.mp4',
+            src: '/assets/static/videos/video_nfc.mp4',
             type: 'video/mp4',
           },
         ],

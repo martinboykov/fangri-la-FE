@@ -21,8 +21,10 @@
         </div>
         <h3 class="font-bold text-white">{{ _merchandise.name }}</h3>
       </div>
-      <div class="relative max-w-lg mb-4 p-sm bg-[rgba(71,_77,_78,_0.50)] rounded-md overflow-hidden
-      sm:mb-[6vw]">
+      <div class="relative max-w-lg mb-4 p-sm bg-[rgba(71,_77,_78,_0.50)] rounded-md overflow-hidden cursor-pointer
+      sm:mb-[6vw]"
+           routerLink="/vault/{{_merchandise.id}}/exclusive-content"
+           [state]=" _merchandise">
         <ion-img class="aspect-square object-cover rounded-sm overflow-hidden"
                  [src]="_merchandise.images[0]"></ion-img>
 

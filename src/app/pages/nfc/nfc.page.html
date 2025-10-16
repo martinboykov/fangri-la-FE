@@ -1,68 +1,66 @@
 <ion-content [fullscreen]="true"
-             class="bg-yellow-200"
-             style="--color-page: var(--color-yellow-100)">
-  <div class="container pt-2 h-full">
+             class=""
+             style="--color-page: #FCFBEC">
+  <div class="max-w-lg mx-auto px-1 py-2 h-full">
     <div class="flex flex-col justify-between h-full">
-      @if(!isLoading()){
-      <div class="">
-        <div class="grid place-content-center max-w-[600px] min-h-5  mx-auto mb-2 py-6 px-5 rounded-sm bg-black-0">
-          <img class=" w-full max-w-[260px]"
-               src="/assets/images/logo.png">
-        </div>
-        @if(authStore.user()){
-        <h1 class="mb-lg text-[66px] leading-[1] text-black-10">{{ 'NFC.LOGGED_IN.TITLE' | translate }}</h1>
-        <p class="h1">{{ 'NFC.LOGGED_IN.SUBTITLE' | translate }}</p>
-        }
-        @else {
-        <h1 class="mb-lg text-[54px] leading-[1] text-black-10">{{ 'NFC.NOT_LOGGED_IN.TITLE' | translate }}</h1>
-        <p class="font-normal">{{ 'NFC.NOT_LOGGED_IN.SUBTITLE' | translate }}</p>
-        }
+      @if(!isLoading() && merch){
+      <div [ngClass]="{'cursor-pointer': user()}"
+      (click)="goToExclusiveContent()">
+        <img class=" w-full object-cover rounded-lg overflow-hidden"
+             src="{{merch.images[0]}}">
+
       </div>
 
 
-      <div class="">
-        <div class="mt-lg  p-lg rounded-sm bg-green-100"
-             [ngClass]="{'mb-3xl border-[1px] border-solid border-black-0 bg-green-200 shadow-[4px_4px_0_0_#0E0F0F,_0_4px_40px_0_#4CC8BC]': authStore.user(),
-             'mb-2xl bg-[rgba(79,_201,_187,_0.60)]': !authStore.user()}">
-          <div class="min-h-10 mb-2">
-            <ion-img class="float-left mr-2 mb-1 size-10 object-cover rounded-md overflow-hidden"
-                     src="{{merch.image}}"></ion-img>
-            <h2 class="text-2">{{merch.name}}</h2>
-            <p class="">{{merch.description}}</p>
-          </div>
-          <div class="flex items-center gap-sm clear-left">
-            <span class="icon-check text-xl"></span>
-            @if(authStore.user()){
-            <p class="uppercase">{{ 'NFC.LOGGED_IN.MESSAGE' | translate }}</p>
-            }
-            @else {
-            <p class="uppercase">{{ 'NFC.NOT_LOGGED_IN.MESSAGE' | translate }}</p>
-            }
-
-          </div>
-        </div>
-        <div class="flex flex-col gap-lg mb-2">
+      <div class="p-lg bg-[#111] bg-opacity-70 rounded-md">
+        <div class="">
           @if(authStore.user()){
-          @if(authStore.user()?.role === UserRoleEnum.USER){
-          <ion-button class="min-h-5 w-full"
-                      color="dark"
+          <p class="inline text-body">{{ 'NFC.LOGGED_IN.TITLE' | translate }}{{' '}}{{ 'NFC.LOGGED_IN.SUBTITLE' | translate }}</p>
+          }
+          @else {
+          <p class="font-normal">{{ 'NFC.NOT_LOGGED_IN.SUBTITLE' | translate }}</p>
+          }
+        </div>
+        <div class="mt-lg mb-2xl  p-sm rounded-sm bg-black-0"
+             [ngClass]="{'cursor-pointer': user()}"
+             (click)="goToExclusiveContent()">
+          <div class="flex gap-2 min-h-10">
+            <ion-img class="float-left shrink-0 size-10 object-cover rounded-md overflow-hidden"
+                     src="{{merch.images[0]}}"></ion-img>
+            <div class="flex flex-col justify-between">
+              <div class="flex flex-col gap-xs">
+                <h2 class="line-clamp-1 text-[18px]">{{merch.name}}</h2>
+                <p class="line-clamp-2 text-[14px]">{{merch.description}}</p>
+              </div>
+              <div class="flex items-center gap-sm ">
+                <span class="icon-check text-lg"></span>
+                @if(user()){
+                <p class="text-1 uppercase">{{ 'NFC.LOGGED_IN.MESSAGE' | translate }}</p>
+                }
+                @else {
+                <p class="text-1 uppercase">{{ 'NFC.NOT_LOGGED_IN.MESSAGE' | translate }}</p>
+                }
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="flex flex-col gap-lg">
+          @if(authService.user()){
+          <ion-button class="min-h-5 w-full "
+                      color="white"
                       fill="outline"
-                      routerLink="/artists/list"><span class="text-black-0 capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
+                      routerLink="/artists/list"><span class="text-white capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
           }
           @else {
           <ion-button class="min-h-5 w-full"
-                      color="dark"
-                      fill="outline"
-                      routerLink="{{'/artists/' + authStore.user()?.id}}"><span class="text-black-0 capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
-          }
-          }
-          @else {
-          <ion-button class="min-h-5 w-full"
-                      color="dark"
+                      color="white"
                       fill="outline"
                       routerLink="/auth/login"
-                      [queryParams]="{returnUrl: path()}"><span class="text-black-0">{{ 'AUTH.LOGIN.TITLE' | translate }}</span></ion-button>
-          <ion-button class="min-h-5 w-full bg-green-100 rounded-sm overflow-hidden"
+                      [queryParams]="{returnUrl: path()}"><span class="text-white">{{ 'AUTH.LOGIN.TITLE' | translate }}</span>
+          </ion-button>
+          <ion-button class="min-h-5 w-full bg-white rounded-sm overflow-hidden"
                       color="dark"
                       fill="outline"
                       type="button"

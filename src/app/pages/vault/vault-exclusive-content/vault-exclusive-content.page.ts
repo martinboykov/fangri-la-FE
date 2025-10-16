@@ -2,10 +2,12 @@ import {
   Component,
   computed,
   effect,
+  ElementRef,
   inject,
   input,
   OnInit,
   signal,
+  viewChild,
   WritableSignal,
 } from '@angular/core';
 import { VaultStore } from '../store/vault.store';
@@ -27,6 +29,8 @@ export class VaultExclusiveContentPage implements OnInit {
   private router = inject(Router);
   readonly vaultStore = inject(VaultStore);
   readonly authStore = inject(AuthStore);
+
+  video = viewChild('video', { read: ElementRef });
 
   readonly id = input.required<string>();
 
@@ -56,13 +60,9 @@ export class VaultExclusiveContentPage implements OnInit {
           .items()
           .find((merchandise) => merchandise.id === this.id());
         this.merchandise.set(merchandise as Merchandise);
-        this.merchandise();
-        console.log(
-          '🚀 ~ VaultExclusiveContentPage ~ constructor ~ this.merchandise():',
-          this.merchandise(),
-        );
       }
     });
   }
   ngOnInit() {}
+
 }

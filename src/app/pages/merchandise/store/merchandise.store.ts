@@ -34,7 +34,7 @@ import { initialMerchandiseSlice } from './merchandise.slice';
 import { getById } from './merchandise.updaters';
 
 export const MerchandiseStore = signalStore(
-  // { providedIn: 'root' },
+  { providedIn: 'root' },
   withState(initialMerchandiseSlice),
   withLoading(),
   withRequestStatus(),
