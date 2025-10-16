@@ -2,7 +2,7 @@
              class=""
              style="--color-page: #FCFBEC">
   <div class="max-w-lg mx-auto px-1 py-2 h-full">
-    <div class="flex flex-col justify-between h-full">
+    <div class="flex flex-col justify-between gap-lg h-full">
       @if(!isLoading() && merch){
       <div [ngClass]="{'cursor-pointer': user()}"
            (click)="goToExclusiveContent()">
