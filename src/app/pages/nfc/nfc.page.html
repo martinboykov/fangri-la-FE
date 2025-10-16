@@ -5,9 +5,18 @@
     <div class="flex flex-col justify-between h-full">
       @if(!isLoading() && merch){
       <div [ngClass]="{'cursor-pointer': user()}"
-      (click)="goToExclusiveContent()">
-        <img class=" w-full object-cover rounded-lg overflow-hidden"
-             src="{{merch.images[0]}}">
+           (click)="goToExclusiveContent()">
+        <!-- <img class=" w-full object-cover rounded-lg overflow-hidden"
+             src="{{merch.images[0]}}"> -->
+
+        <app-video #video
+                   id="{{merch.id}}"
+                   [attr.data-contentItemId]="merch.id"
+                   class="block w-full aspect-video rounded-lg overflow-hidden"
+                   [config]="{autoplay: true, muted:true}"
+                   [poster]="merch.video.poster"
+                   [sources]="merch.video.sources"
+                   [hasToggleIcon]="false"></app-video>
 
       </div>
 

@@ -37,6 +37,7 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     }[]
   >();
   readonly config = input<{ [key: string]: any }>();
+  readonly hasToggleIcon = input<boolean>(true);
   options: {
     withCredentials?: boolean;
     fluid?: boolean;
@@ -77,6 +78,9 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
         }
       }
       const config = this.config();
+      if (config && config['muted']) {
+        this.player.muted(true);
+      }
       if (config && config['autoplay']) {
         this.toggleVideoState();
       }

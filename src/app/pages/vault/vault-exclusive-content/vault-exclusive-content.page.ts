@@ -30,7 +30,6 @@ export class VaultExclusiveContentPage implements OnInit {
   readonly vaultStore = inject(VaultStore);
   readonly authStore = inject(AuthStore);
 
-  video = viewChild('video', { read: ElementRef });
 
   readonly id = input.required<string>();
 

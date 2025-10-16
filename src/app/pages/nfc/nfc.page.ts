@@ -10,13 +10,14 @@ import {
   Merchandise,
 } from '../merchandise/store/merchandise.slice';
 import { MerchandiseStore } from '../merchandise/store/merchandise.store';
+import { VideoComponent } from 'src/app/components/video/video.component';
 
 @Component({
   selector: 'app-nfc',
   templateUrl: './nfc.page.html',
   styleUrls: ['./nfc.page.scss'],
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule, VideoComponent],
 })
 export class NfcPage implements OnInit {
   readonly authService = inject(AuthService);

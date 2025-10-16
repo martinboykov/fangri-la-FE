@@ -76,7 +76,7 @@ export const ArtistStore = signalStore(
   withState(initialArtistSlice),
 
   withMethods((store) => {
-    const authStore = inject(AuthStore);
+    const authService = inject(AuthService);
     const artistsStore = inject(ArtistsStore);
     const router = inject(Router);
     const modalController = inject(ModalController);
@@ -96,7 +96,7 @@ export const ArtistStore = signalStore(
       increaseLikes: (contentId: string) =>
         patchState(store, increaseLikes(contentId)),
       addChatMessage: (message: string) =>
-        patchState(store, addChatMessage(message, authStore.user() as User)),
+        patchState(store, addChatMessage(message, authService.user() as User)),
       updateImageUrl: (contentId: string, index: number, url: string) => {
         patchState(store, updateImageUrl(contentId, index, url));
       },

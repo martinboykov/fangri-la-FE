@@ -6,7 +6,9 @@
          muted
          playsinline
          preload="none"></video>
+  @if(hasToggleIcon()){
   <ion-img class="absolute z-2 bottom-sm left-sm size-5 object-contain"
            [src]="isVideoPlaying ? '/assets/images/video-pause.svg' : '/assets/images/video-play.svg'"></ion-img>
+  }
   <div class="absolute z-3 top-0 left-0 w-full h-full bg-black"></div>
 </div>
