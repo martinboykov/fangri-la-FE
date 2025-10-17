@@ -25,7 +25,7 @@
 @let songkick = shows[1];
 
 @let isEdit = user !== null && user.id === artist.id;
-<div class=" flex flex-col gap-lg pt-sm mb-2xl">
+<div class=" flex flex-col gap-lg py-sm mb-2xl">
   <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.LINKS.TITLE' | translate }}</h1>
   @if(isEdit) {
   <div class="flex flex-col gap-lg">

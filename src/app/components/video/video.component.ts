@@ -13,10 +13,13 @@ import {
   WritableSignal,
   signal,
   effect,
+  DestroyRef,
 } from '@angular/core';
 import { SharedModule } from 'src/app/shared.module';
 import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
+import { VideoService } from './video.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-video',
@@ -27,6 +30,8 @@ import Player from 'video.js/dist/types/player';
   encapsulation: ViewEncapsulation.None,
 })
 export class VideoComponent implements OnInit, OnChanges, OnDestroy {
+  private videoService = inject(VideoService);
+  private destroyRef = inject(DestroyRef);
   private readonly target = viewChild.required<ElementRef>('target');
   // See options: https://videojs.com/guides/options
   readonly poster = input<string>();
@@ -98,6 +103,17 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
         console.log('🚀 ~ onPlayerReady ~ this:', this);
       },
     );
+    this.videoService.videoPlayState$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((value) => {
+        const config = this.config();
+        if (config && !config['autoplay']) return;
+        if (!value) {
+          this.player.pause();
+        } else {
+          this.player.play();
+        }
+      });
   }
 
   // Dispose the player OnDestroy
@@ -111,7 +127,6 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
       this.isVideoPlaying = !this.isVideoPlaying;
       if (this.isVideoPlaying) {
         this.player.play();
-
       } else {
         this.player.pause();
       }

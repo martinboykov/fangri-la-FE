@@ -12,6 +12,7 @@ import {
 } from '../merchandise/store/merchandise.slice';
 import { MerchandiseStore } from '../merchandise/store/merchandise.store';
 import { VideoComponent } from 'src/app/components/video/video.component';
+import { VideoService } from 'src/app/components/video/video.service';
 
 @Component({
   selector: 'app-nfc',
@@ -21,6 +22,7 @@ import { VideoComponent } from 'src/app/components/video/video.component';
   imports: [SharedModule, VideoComponent],
 })
 export class NfcPage implements OnInit {
+  private videoService = inject(VideoService);
   readonly authService = inject(AuthService);
   private loadingService = inject(LoadingService);
   private router = inject(Router);
@@ -40,66 +42,66 @@ export class NfcPage implements OnInit {
   );
 
   merch = {
-      id: '1',
-      artist: 'Nova Rae',
-      name: 'Virtual Vinil',
-      images: [
-        '/assets/static/images/merchandise/merch-1.jpg',
-        '/assets/static/images/merchandise/merch-store.jpg',
-        '/assets/static/images/merchandise/merch-store.jpg',
-        '/assets/static/images/merchandise/merch-store.jpg',
+    id: '1',
+    artist: 'Nova Rae',
+    name: 'Virtual Vinil',
+    images: [
+      '/assets/static/images/merchandise/merch-1.jpg',
+      '/assets/static/images/merchandise/merch-store.jpg',
+      '/assets/static/images/merchandise/merch-store.jpg',
+      '/assets/static/images/merchandise/merch-store.jpg',
+    ],
+    video: {
+      poster: '/assets/static/videos/video_nfc.png',
+      sources: [
+        {
+          src: '/assets/static/videos/video_nfc.mp4',
+          type: 'video/mp4',
+        },
       ],
-      video: {
-        poster: '/assets/static/videos/video_nfc.png',
-        sources: [
-          {
-            src: '/assets/static/videos/video_nfc.mp4',
-            type: 'video/mp4',
-          },
-        ],
+    },
+    description:
+      'Limited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus Team',
+    price: 125,
+    stock: 2,
+    labels: [
+      {
+        name: '50 OF 100 AVAILABLE',
+        color: '#fff',
+        background: '#4cc8bc',
       },
-      description:
-        'Limited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus Team',
-      price: 125,
-      stock: 2,
-      labels: [
-        {
-          name: '50 OF 100 AVAILABLE',
-          color: '#fff',
-          background: '#4cc8bc',
-        },
-        {
-          name: 'Exclusive early access',
-          color: '#111',
-          background: '#fff7a1',
-        },
-        {
-          name: 'wearable',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-      ],
-      options: {
-        colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      {
+        name: 'Exclusive early access',
+        color: '#111',
+        background: '#fff7a1',
       },
-      parameters: [
-        {
-          name: 'materials',
-          value: 'Wood, Paint, Fabric',
-        },
-        {
-          name: 'dimensions',
-          value: '10x300x60mm',
-        },
-        {
-          name: 'weight',
-          value: '5kg',
-        },
-      ],
+      {
+        name: 'wearable',
+        color: '#fff',
+        background: '#2c2e35',
+      },
+    ],
+    options: {
+      colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    },
+    parameters: [
+      {
+        name: 'materials',
+        value: 'Wood, Paint, Fabric',
+      },
+      {
+        name: 'dimensions',
+        value: '10x300x60mm',
+      },
+      {
+        name: 'weight',
+        value: '5kg',
+      },
+    ],
 
-      status: MerchandiseStatusEnum.IN_STOCK,
-    };
+    status: MerchandiseStatusEnum.IN_STOCK,
+  };
 
   constructor() {
     this.parser.href = this.url();
@@ -125,11 +127,16 @@ export class NfcPage implements OnInit {
   ngOnInit() {}
 
   goToExclusiveContent() {
-    if (
-      this.authService.user() &&
-      this.authService.user()?.role === UserRoleEnum.USER
-    ) {
-      this.router.navigateByUrl(`/vault/${this.merch?.id}/exclusive-content`);
-    }
+    // if (
+    //   this.authService.user() &&
+    //   this.authService.user()?.role === UserRoleEnum.USER
+    // ) {
+    //   this.router.navigateByUrl(`/vault/${this.merch?.id}/exclusive-content`);
+    // }
+  }
+  ionViewWillLeave() {
+    this.videoService.setVideoState(false);
+    console.log('🚀 ~ NfcPage ~ ionViewWillLeave ~ ionViewWillLeave:');
+    this.merch.video.sources[0].src = '';
   }
 }

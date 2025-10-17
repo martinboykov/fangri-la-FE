@@ -1,4 +1,4 @@
-<div class=" flex flex-col gap-sm pt-sm pb-lg">
+<div class=" flex flex-col gap-sm py-sm pb-lg">
   <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.CONTENT.TITLE' | translate }}</h1>
   <div class="flex flex-col gap-md max-w-lg">
     @for(contentItem of artistStore.artist.content(); let i = $index; track $index){
@@ -29,6 +29,7 @@
                  id="{{contentItem.id}}"
                  [attr.data-contentItemId]="contentItem.id"
                  class="block w-full aspect-video rounded-lg overflow-hidden"
+                 [config]="{autoplay: false, muted:false}"
                  [poster]="contentItem.video.poster"
                  [sources]="contentItem.video.sources"
                  (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-video>
@@ -45,9 +46,14 @@
           }
         </div>
         <div class="flex gap-xs">
-          @if(user()?.id === artistStore.artist.id()){
+          @if(user()?.id !== artistStore.artist.id()){
           <span class="flex items-center gap-xs cursor-pointer"
                 (click)="artistStore.increaseLikes(contentItem.id)">
+            <span class="icon-heart text-[16px] text-yellow-100"></span>
+            <span class="text-[12px] text-[#fff]">{{contentItem.likes}}</span>
+          </span>
+          } @else {
+          <span class="flex items-center gap-xs cursor-pointer">
             <span class="icon-heart text-[16px] text-yellow-100"></span>
             <span class="text-[12px] text-[#fff]">{{contentItem.likes}}</span>
           </span>
@@ -67,7 +73,7 @@
     </div>
     }
     @if(authService.user()?.id === artistStore.artist.id()){
-      <ion-button class="fixed right-2xl bottom-2xl min-h-5 w-16 bg-yellow-100 rounded-sm overflow-hidden"
+    <ion-button class="fixed right-2xl bottom-2xl min-h-5 w-16 bg-yellow-100 rounded-sm overflow-hidden"
                 fill="solid"
                 (click)="openModalSheet()">
       <div class="flex justify-between items-center gap-sm">

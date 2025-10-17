@@ -91,47 +91,164 @@ export const imagesData = [
   [
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x566_1_Sienna_on_stage.png',
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_2_Sienna_backstage_with_mic.png',
+    {
+      poster: '/assets/static/videos/sienna_solas/1.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sienna_solas/1.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
+    {
+      poster: '/assets/static/videos/sienna_solas/2.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sienna_solas/2.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x566_3_Wide_crowd_shot.png',
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_4_Studio_session.png',
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_5_Sunset_reflection.png',
+    {
+      poster: '/assets/static/videos/sienna_solas/3.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sienna_solas/3.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x566_6_candid_laughing_shot.png',
     '/assets/static/images/artists/sienna_solas/sienna_solas_1080x566_7_Glam_dressing_room_prep.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_8_City_street_portrait.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_9_Spotlight_concert_shot_.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x566_10_Artistic_studio_close_up.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_11_Arena_selfie,_sequined_outfit,_massive_crowd.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_12_Backstage_glam_chair,_glitter_robe.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_13_Writing_on_acoustic_guitar,_cozy_room.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_14_Street_in_front_of_Brooklyn_Bridge,_straight_stare.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_15_Black_&_white,_walking_down_city_street.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_16_Standing_in_studio,_hoodie_+_headphones.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_17_Close_up_in_studio,_smiling_at_the_mic.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_18_Black_&_white,_reaching_for_fans_onstage.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_19_Glitter_stage_outfit,_power_pose_under_lights.png',
-    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_20_Graffiti_wall,_leather_jacket_look.png',
     [
       '/assets/static/images/artists/sienna_solas/carousel/carousel-1.png',
       '/assets/static/images/artists/sienna_solas/carousel/carousel-2.png',
       '/assets/static/images/artists/sienna_solas/carousel/carousel-3.png',
       '/assets/static/images/artists/sienna_solas/carousel/carousel-4.png',
     ],
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_8_City_street_portrait.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_9_Spotlight_concert_shot_.png',
+    {
+      poster: '/assets/static/videos/sienna_solas/4.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sienna_solas/4.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x566_10_Artistic_studio_close_up.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1350_11_Arena_selfie,_sequined_outfit,_massive_crowd.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_12_Backstage_glam_chair,_glitter_robe.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_13_Writing_on_acoustic_guitar,_cozy_room.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_14_Street_in_front_of_Brooklyn_Bridge,_straight_stare.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_15_Black_&_white,_walking_down_city_street.png',
+    {
+      poster: '/assets/static/videos/sienna_solas/5.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sienna_solas/5.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_16_Standing_in_studio,_hoodie_+_headphones.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_17_Close_up_in_studio,_smiling_at_the_mic.png',
+    {
+      poster: '/assets/static/videos/sienna_solas/6.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sienna_solas/6.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_18_Black_&_white,_reaching_for_fans_onstage.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_19_Glitter_stage_outfit,_power_pose_under_lights.png',
+    '/assets/static/images/artists/sienna_solas/sienna_solas_1080x1080_20_Graffiti_wall,_leather_jacket_look.png',
   ],
   [
+    {
+      poster: '/assets/static/videos/caden_kane/1.png',
+      sources: [
+        {
+          src: '/assets/static/videos/caden_kane/1.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1080_1_Studio_Mic_Black_&_White_Eyes_Closed.png',
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1080_2_Pool_Float_with_Champagne.png',
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1080_3_Red_Tracksuit_in_G-Wagon.png',
+    {
+      poster: '/assets/static/videos/caden_kane/2.png',
+      sources: [
+        {
+          src: '/assets/static/videos/caden_kane/2.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/caden_kane/caden_kane_1800x566_4_Arena_Stage_Arms_Out_to_Crowd.png',
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1350_5_Studio_Mic_Hands_Together_Prayer_Pose.png',
+    {
+      poster: '/assets/static/videos/caden_kane/3.png',
+      sources: [
+        {
+          src: '/assets/static/videos/caden_kane/3.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1350_6_Walking_with_Crew_at_Night_in_NYC.png',
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1350_7_Sneaker_Wall_Collection.png',
     '/assets/static/images/artists/caden_kane/caden_kane_1080x1350_8_Barbershop_Laughing_in_Chair.png',
+    {
+      poster: '/assets/static/videos/caden_kane/4.png',
+      sources: [
+        {
+          src: '/assets/static/videos/caden_kane/4.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
   ],
   [
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1080x1350_1_Studio_Selfie_black_hoodie_mic_chain.png',
+    {
+      poster: '/assets/static/videos/nyko_blaze/1.png',
+      sources: [
+        {
+          src: '/assets/static/videos/nyko_blaze/1.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1080x1350_2_Studio_Mirror_Selfie_flash_layered_chains.png',
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1080x1350_3_With_Engineer_mixing_board.png',
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1080x1350_4_Sitting_on_Blue_Bugatti_at_Neon_Gas_Station.png',
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1800x566_5_Backstage_with_Crew_headphones_on_friends_hyping_him_up.png',
+    {
+      poster: '/assets/static/videos/nyko_blaze/2.png',
+      sources: [
+        {
+          src: '/assets/static/videos/nyko_blaze/2.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
+    {
+      poster: '/assets/static/videos/nyko_blaze/3.png',
+      sources: [
+        {
+          src: '/assets/static/videos/nyko_blaze/3.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1800x566_6_Rooftop_Performance_purple_hoodie_city_skyline.png',
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1080x1080_7_Courtside_laughing_pointing_sitting_with_legend.png',
     '/assets/static/images/artists/nyko_blaze/nyko_blaze_1080x1080_8_Grammys_Table_serious_look_dressed_up.png',
@@ -140,10 +257,37 @@ export const imagesData = [
   ],
   [
     '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_1_Boarding_the_plane.png',
+    {
+      poster: '/assets/static/videos/sevenblock/1.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sevenblock/1.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_2_Sneakers_Jordan_1s.png',
     '/assets/static/images/artists/sevenblock/sevenblock_1080x1080_3_Watch_&_tattoo_driving.png',
+    {
+      poster: '/assets/static/videos/sevenblock/2.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sevenblock/2.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/sevenblock/sevenblock_1800x566_4_Limo_with_crew.png',
     '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_5_On_stage_arena_fire_behind.png',
+    {
+      poster: '/assets/static/videos/sevenblock/3.png',
+      sources: [
+        {
+          src: '/assets/static/videos/sevenblock/3.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_6_Art_gallery_handshake.png',
     '/assets/static/images/artists/sevenblock/sevenblock_1080x1350_7_Leaning_on_car_neon_diner.png',
   ],
@@ -154,9 +298,27 @@ export const imagesData = [
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1080_4_Getting_ready_in_the_makeup_chair.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1080_5_Neon_portrait_looking_serious.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1080_6_Recording_in_the_booth_black_&_white_singing_passionately.png',
+    {
+      poster: '/assets/static/videos/nyla_veil/1.png',
+      sources: [
+        {
+          src: '/assets/static/videos/nyla_veil/1.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1350_7_Sipping_tea_by_the_window.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1350_8_Holding_a_vinyl_record.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1350_9_Color_block_coat_portrait.png',
+    {
+      poster: '/assets/static/videos/nyla_veil/2.png',
+      sources: [
+        {
+          src: '/assets/static/videos/nyla_veil/2.mp4',
+          type: 'video/mp4',
+        },
+      ],
+    },
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1350_10_Laughing_on_the_steps_with_iced_coffee.png',
     '/assets/static/images/artists/nyla_veil/nyla_veil_1080x1350_11_Beach_at_sunset_with_flowing_fabric.png',
   ],
@@ -2001,15 +2163,33 @@ const dataGen = isoDateGenerator(1);
 export const content = [...Array(baseArtistData.length).keys()].map(
   (artist, i) =>
     imagesData[i].map((image, j) => {
-      return {
-        id: idGenerator(),
-        images: Array.isArray(image) ? [...image] : [image],
-        title: shortCaptionsData[j] as string,
-        content: shortCaptionsData[j] as string,
-        date: dataGen.next().value,
-        likes: randomNumberRange(minLikes, maxLikes),
-        isLiked: getBool(),
-      };
+      console.log(
+        '🚀 ~ typeof image:',
+        typeof image === 'string' || Array.isArray(image),
+      );
+      if (typeof image === 'string' || Array.isArray(image)) {
+        return {
+          id: idGenerator(),
+          images: Array.isArray(image) ? [...image] : [image],
+          title: shortCaptionsData[j] as string,
+          content: shortCaptionsData[j] as string,
+          date: dataGen.next().value,
+          likes: randomNumberRange(minLikes, maxLikes),
+          isLiked: getBool(),
+        };
+      } else {
+        return {
+          id: idGenerator(),
+          video: {
+            ...image,
+          },
+          title: shortCaptionsData[j] as string,
+          content: shortCaptionsData[j] as string,
+          date: dataGen.next().value,
+          likes: randomNumberRange(minLikes, maxLikes),
+          isLiked: getBool(),
+        };
+      }
     }),
 );
 console.log('🚀 ~ content:', content);

@@ -49,7 +49,6 @@ export class ArtistPage implements OnInit {
       this.id = params['id'];
       if (this.id) {
         this.artistStore.getArtistById(this.id);
-        this.artistsStore
       }
     });
   }

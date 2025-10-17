@@ -1,4 +1,4 @@
-<div class=" flex flex-col gap-sm pt-sm">
+<div class=" flex flex-col gap-sm py-sm">
   <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.MERCHANDISE.TITLE' | translate }}</h1>
    <div class="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-sm sm:grid-cols-2">
       @for(item of artistStore.artist.vault(); let i = $index; track $index){

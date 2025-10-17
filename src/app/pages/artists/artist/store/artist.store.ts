@@ -103,7 +103,7 @@ export const ArtistStore = signalStore(
       updateContent: (contentId: string, newContent: string) => {
         patchState(store, updateContent(contentId, newContent));
       },
-      createContentItem: (content: ContentItem) => {
+      createContentItem: (content: any) => {
         patchState(store, addContentItem(content));
         // artistsStore.addContentItem(store.artist.id(), content);
         db[0].content = [content, ...db[0].content];
@@ -167,7 +167,7 @@ export const ArtistStore = signalStore(
         const artist: any = db.find((artist) => artist.id === artistId);
         if (artist !== undefined) {
           patchState(store, setArtist(artist as Artist));
-          store.setActiveTab(1);
+          // store.setActiveTab(1);
         }
       },
       onFileChanged: async (

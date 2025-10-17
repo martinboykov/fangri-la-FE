@@ -18,7 +18,7 @@
     }
     @if(contentItem.images && contentItem.images.length === 1){
     <div class="relative">
-      <ion-img class="w-full h-full object-cover rounded-md overflow-hidden"
+      <ion-img width="100%" height="400" class="w-full h-full object-cover rounded-md overflow-hidden"
                [src]="contentItem.images[0] || '/assets/images/placeholder.svg'"
                (dblclick)="artistStore.increaseLikes(contentItem.id)"></ion-img>
       @if(isEdit()){
@@ -36,6 +36,7 @@
     <app-video class="block w-full aspect-video rounded-lg overflow-hidden"
                [poster]="contentItem.video.poster"
                [sources]="contentItem.video.sources"
+                [config]="{autoplay: false, muted:false}"
                (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-video>
     }
     <div class="flex justify-between items-start gap-sm">
