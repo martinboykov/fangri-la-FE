@@ -10,11 +10,9 @@ import {
   imagesData,
   chat as chatData,
   content,
-  artistData,
-  baseArtistData,
   linksData,
   artists,
-} from './db';
+} from '../../../db';
 
 export interface ArtistListItem {
   id: string;

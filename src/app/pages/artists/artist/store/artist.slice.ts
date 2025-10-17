@@ -75,7 +75,7 @@ export const emptyMerchandise = {
   images: [''],
   description: '',
   price: 0,
-  totalCount: 0,
+  stock: 0,
   options: {
     colors: [''],
     sizes: [''],
@@ -90,10 +90,9 @@ export const emptyMerchandise = {
   parameters: [
     {
       name: '',
-      value: '',
+      value: [''],
     },
   ],
-  status: MerchandiseStatusEnum.IN_STOCK,
 };
 
 export const initialArtistSlice = {

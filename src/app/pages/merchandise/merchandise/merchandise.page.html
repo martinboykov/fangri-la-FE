@@ -70,7 +70,11 @@
           @for(parameter of _merchandise.parameters; let j = $index; track $index){
           <div class="flex justify-between items-center gap-sm">
             <span class="text-1 font-bold uppercase">{{parameter.name}}</span>
-            <span class="">{{parameter.value}}</span>
+            <div class="flex flex-col gap-xs">
+              @for(value of parameter.value; let k = $index; track $index){
+                <span class="text-right">{{value}}</span>
+              }
+            </div>
           </div>
           }
         </div>
@@ -94,13 +98,13 @@
           </ion-button>
         </div>
 
-        @if(_merchandise.status === MerchandiseStatusEnum.IN_STOCK){
+        @if(_merchandise.stock > 0){
         <ion-button class="min-h-5 w-fullmt-2 "
                     color="danger"
                     fill="solid"
                     (click)="addItemToCart()"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
         }
-        @else if(_merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
+        @else if(_merchandise.stock === 0){
         <ion-button class="min-h-5 w-full"
                     color="dark"
                     fill="solid"

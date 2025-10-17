@@ -33,7 +33,7 @@ import { ToastService } from 'src/app/services/modals/toast/toast.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalController, Platform } from '@ionic/angular/standalone';
-import { artists } from '../../store/db';
+import { artists as db } from '../../../../db';
 
 export type FileType = 'image' | 'video';
 export enum FileTypeEnum {
@@ -106,7 +106,7 @@ export const ArtistStore = signalStore(
       createContentItem: (content: ContentItem) => {
         patchState(store, addContentItem(content));
         // artistsStore.addContentItem(store.artist.id(), content);
-        artists[0].content = [content,...artists[0].content];
+        db[0].content = [content, ...db[0].content];
         router.navigateByUrl('artists/' + store.artist.id());
         modalController.dismiss();
       },
@@ -164,9 +164,7 @@ export const ArtistStore = signalStore(
       fileUpload,
       getArtistById: (artistId: string) => {
         console.log('🚀 ~ artistId:', artistId);
-        const artist = artistsStore
-          .artists()
-          .find((artist) => artist.id === artistId);
+        const artist: any = db.find((artist) => artist.id === artistId);
         if (artist !== undefined) {
           patchState(store, setArtist(artist as Artist));
           store.setActiveTab(1);

@@ -12,7 +12,7 @@ import { TranslationService } from 'src/app/services/translation/translation.ser
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { switchMap } from 'rxjs';
 import { initialArtistsSlice } from './artists.slice';
-import { artists } from './db';
+import { artists } from '../../../db';
 import { setActiveArtistId, addContentItem } from './artists.updater';
 import { ContentItem } from '../artist/store/artist.slice';
 

@@ -58,7 +58,7 @@ export class VaultExclusiveContentPage implements OnInit {
         const merchandise = this.vaultStore
           .items()
           .find((merchandise) => merchandise.id === this.id());
-        this.merchandise.set(merchandise as Merchandise);
+        this.merchandise.set(merchandise as any);
       }
     });
   }

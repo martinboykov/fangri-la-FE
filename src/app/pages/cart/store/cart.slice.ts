@@ -28,7 +28,7 @@ export const initialCartSlice = {
         'Limited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus Team',
       price: 125,
       cartCount: 1,
-      totalCount: 2,
+      stock: 2,
       labels: [
         {
           name: '50 OF 100 AVAILABLE',
@@ -53,19 +53,18 @@ export const initialCartSlice = {
       parameters: [
         {
           name: 'materials',
-          value: 'Wood, Paint, Fabric',
+          value: ['Wood, Paint, Fabric'],
         },
         {
           name: 'dimensions',
-          value: '10x300x60mm',
+          value: ['10x300x60mm'],
         },
         {
           name: 'weight',
-          value: '5kg',
+          value: ['5kg'],
         },
       ],
 
-      status: MerchandiseStatusEnum.IN_STOCK,
     },
 
   ],

@@ -70,7 +70,7 @@ export class MerchandisePage implements OnInit {
           merchandise,
         );
         if (merchandise !== undefined) {
-          this.merchandise.set(merchandise as Merchandise);
+          this.merchandise.set(merchandise as any);
         }
       }
       const merchandise = this.merchandise();

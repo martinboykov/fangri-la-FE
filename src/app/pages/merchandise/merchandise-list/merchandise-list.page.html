@@ -54,7 +54,7 @@
                           color="danger"
                           fill="solid"><span class="text-[14px] uppercase"><span class="icon-cart text-[24px]"></span></span></ion-button>
               } -->
-              @if(merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
+              @if(merchandise.stock === 0){
               <span class="py-sm pr-2 text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span>
               }
               <!-- @if(merchandise.status === MerchandiseStatusEnum.IN_CART){

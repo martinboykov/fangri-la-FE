@@ -8,6 +8,7 @@ import { UserRoleEnum } from 'src/app/models/auth.model';
 import {
   initialMerchandiseSlice,
   Merchandise,
+  MerchandiseStatusEnum,
 } from '../merchandise/store/merchandise.slice';
 import { MerchandiseStore } from '../merchandise/store/merchandise.store';
 import { VideoComponent } from 'src/app/components/video/video.component';
@@ -38,7 +39,67 @@ export class NfcPage implements OnInit {
       : '/artists/' + this.authStore.user()?.id,
   );
 
-  merch!: any;
+  merch = {
+      id: '1',
+      artist: 'Nova Rae',
+      name: 'Virtual Vinil',
+      images: [
+        '/assets/static/images/merchandise/merch-1.jpg',
+        '/assets/static/images/merchandise/merch-store.jpg',
+        '/assets/static/images/merchandise/merch-store.jpg',
+        '/assets/static/images/merchandise/merch-store.jpg',
+      ],
+      video: {
+        poster: '/assets/static/videos/video_nfc.png',
+        sources: [
+          {
+            src: '/assets/static/videos/video_nfc.mp4',
+            type: 'video/mp4',
+          },
+        ],
+      },
+      description:
+        'Limited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus TeamLimited edition skate deck designed by the Fangri-la Design Haus Team',
+      price: 125,
+      stock: 2,
+      labels: [
+        {
+          name: '50 OF 100 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+        {
+          name: 'Exclusive early access',
+          color: '#111',
+          background: '#fff7a1',
+        },
+        {
+          name: 'wearable',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+      ],
+      options: {
+        colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'materials',
+          value: 'Wood, Paint, Fabric',
+        },
+        {
+          name: 'dimensions',
+          value: '10x300x60mm',
+        },
+        {
+          name: 'weight',
+          value: '5kg',
+        },
+      ],
+
+      status: MerchandiseStatusEnum.IN_STOCK,
+    };
 
   constructor() {
     this.parser.href = this.url();
@@ -49,15 +110,15 @@ export class NfcPage implements OnInit {
       this.parser.pathname + this.parser.search,
     );
     effect(() => {
-      console.log('🚀 ~ NfcPage ~ authService.user:', this.authService.user());
-      const merchandise = this.merchandiseStore
-        .items()
-        .find((item) => item.id === '1');
-      console.log('🚀 ~ NfcPage ~ constructor ~ merchandise:', merchandise);
-      const d = 1;
-      if (merchandise) {
-        this.merch = merchandise;
-      }
+      // console.log('🚀 ~ NfcPage ~ authService.user:', this.authService.user());
+      // const merchandise = this.merchandiseStore
+      //   .items()
+      //   .find((item) => item.id === '1');
+      // console.log('🚀 ~ NfcPage ~ constructor ~ merchandise:', merchandise);
+      // const d = 1;
+      // if (merchandise) {
+      //   this.merch = merchandise;
+      // }
     });
   }
 

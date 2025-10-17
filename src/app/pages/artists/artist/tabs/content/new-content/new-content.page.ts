@@ -7,7 +7,7 @@ import { ContentItem } from '../../../store/artist.slice';
 import { ArtistStore } from '../../../store/artist.store';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ToastService } from 'src/app/services/modals/toast/toast.service';
-import { idGenerator } from 'src/app/pages/artists/store/db';
+import { idGenerator } from 'src/app/db';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular/standalone';
 

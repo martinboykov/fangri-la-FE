@@ -12,6 +12,7 @@ import { LinkType, PlatformType } from './artist.store';
 export function setArtist(artist: Artist): PartialStateUpdater<ArtistSlice> {
   return (store) => ({
     artist: {
+      ...initialArtistSlice.artist,
       ...artist,
     },
   });

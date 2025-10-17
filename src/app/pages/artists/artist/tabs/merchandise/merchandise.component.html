@@ -1,7 +1,7 @@
 <div class=" flex flex-col gap-sm pt-sm">
-  <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.MERCHANDISE.TITLE' | translate }}</h1>
   <div class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-xl sm:grid-cols-1">
 
+    <h1>{{artistStore.artist.name()}}{{ 'ARTIST.PAGES.MERCHANDISE.TITLE' | translate }}</h1>
     @for(merchandise of artistStore.artist.merchandise(); let i = $index; track $index){
     <div class="flex flex-col gap-lg h-full">
       <div class="flex gap-lg h-full p-sm rounded-lg bg-white">
@@ -42,7 +42,7 @@
               <span class="text-[20px]">{{currency}}</span>
               <span class="text-[30px] tracking-tighter">{{ merchandise.price }}</span>
             </span>
-            @if(merchandise.status === MerchandiseStatusEnum.OUT_OF_STOCK){
+            @if(merchandise.stock === 0){
             <span class="py-sm pr-2 text-[14px] uppercase">{{'MERCHANDISE.BUTTON_SOLD_OUT' | translate}}</span>
             }
           </div>
