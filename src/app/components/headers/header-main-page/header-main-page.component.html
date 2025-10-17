@@ -9,6 +9,7 @@
                (click)="goHome()">
       </ion-img>
       <div class="flex-shrink-0 flex gap-2 justify-between items-center desktop-min:justify-end">
+        @if(authStore.user()?.role === UserRoleEnum.USER){
         <ion-button class="flex p-0 size-[35px]"
                     fill="clear"
                     routerLink="/cart">
@@ -50,6 +51,8 @@
             }
           </svg>
         </ion-button>
+        }
+
         <ion-button class="p-0"
                     fill="clear"
                     (click)="menu.open()">
