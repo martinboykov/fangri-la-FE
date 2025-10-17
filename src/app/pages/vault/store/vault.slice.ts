@@ -28,5 +28,21 @@ export const initialVaultSlice = {
       ...item,
       name: item.name,
     })),
+    ...(merchandiseData || [[]])[1].map((item, index) => ({
+      ...item,
+      name: item.name,
+    })),
+    ...(merchandiseData || [[]])[2].map((item, index) => ({
+      ...item,
+      name: item.name,
+    })),
+    ...(merchandiseData || [[]])[3].map((item, index) => ({
+      ...item,
+      name: item.name,
+    })),
+    ...(merchandiseData || [[]])[4].map((item, index) => ({
+      ...item,
+      name: item.name,
+    })),
   ],
 };

@@ -41,7 +41,7 @@ export const initialMerchandiseSlice = {
     ...merchandiseData[0],
     ...merchandiseData[1],
     ...merchandiseData[2],
-    ...merchandiseData[3  ],
+    ...merchandiseData[3],
     ...merchandiseData[4],
   ],
   // items: [
