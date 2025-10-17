@@ -46,7 +46,9 @@ export const CartStore = signalStore(
     return {
       totalItemsCount: () => store.items().length,
       totalItemsCost: () =>
-        store.items().reduce((acc, item) => acc + item.price * item.cartCount, 0),
+        store
+          .items()
+          .reduce((acc, item) => acc + item.price * item.cartCount, 0),
     };
   }),
   withComputed((store) => {
@@ -57,7 +59,7 @@ export const CartStore = signalStore(
   }),
   withComputed((store) => {
     return {
-      totalCost: () => store.totalItemsCost()  + store.tax() + store.shipping(),
+      totalCost: () => store.totalItemsCost() + store.tax() + store.shipping(),
     };
   }),
   withMethods((store) => {
@@ -69,10 +71,11 @@ export const CartStore = signalStore(
     return {
       getById: (merchId: string) => getById(merchId),
       removeItem: (merchId: string) => patchState(store, removeItem(merchId)),
-      addItem: (merchandise: Merchandise) => patchState(store, addItem(merchandise)),
+      addItem: (merchandise: Merchandise) =>
+        patchState(store, addItem(merchandise)),
       editCount: (merchId: string, amount: number) =>
         patchState(store, editCount(merchId, amount)),
-
+      clearCart: () => patchState(store, { items: [] }),
       reset: () => patchState(store, initialCartSlice),
     };
   }),
