@@ -107,12 +107,10 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     this.videoService.videoPlayState$
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((value) => {
-        const config = this.config();
-        if (config && !config['autoplay']) return;
-        if (!value) {
-          this.player.pause();
-        } else {
-          this.player.play();
+        if (this.isIconInCenter()) {
+          if (!value) {
+            this.player.pause();
+          }
         }
       });
   }

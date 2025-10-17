@@ -137,6 +137,5 @@ export class NfcPage implements OnInit {
   ionViewWillLeave() {
     this.videoService.setVideoState(false);
     console.log('🚀 ~ NfcPage ~ ionViewWillLeave ~ ionViewWillLeave:');
-    this.merch.video.sources[0].src = '';
   }
 }
