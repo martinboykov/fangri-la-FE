@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <app-header-main-page [parentPage]="'artists'"></app-header-main-page>
   <div class="container section-spacing">
-    <h1 class="mb-lg">{{ 'VAULT.PAGE_LIST.TITLE' | translate }} <span class="text-[#919191]">({{vaultStore.totalItemsCount()}} {{ vaultStore.totalItemsCount() !== 1 ?( 'CONSTANTS.ITEMS' | translate) : ('CONSTANTS.ITEM' | translate)}})</span></h1>
+    <h1 class="mb-lg">{{ 'VAULT.PAGE_LIST.TITLE' | translate }} <span class="text-[#919191]">({{vaultStore.items().length}} {{ vaultStore.totalItemsCount() !== 1 ?( 'CONSTANTS.ITEMS' | translate) : ('CONSTANTS.ITEM' | translate)}})</span></h1>
     <div class="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-sm sm:grid-cols-2">
       @for(item of vaultStore.items(); let i = $index; track $index){
       <a class="flex flex-col justify-between gap-sm p-sm bg-[rgba(71,_77,_78,_0.50)] rounded-md overflow-hidden cursor-pointer"
