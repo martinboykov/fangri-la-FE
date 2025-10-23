@@ -8,10 +8,11 @@
         }">
       @if(!isLoading() && merch){
       <div class="flex flex-col h-full "
-           [ngClass]="{'cursor-pointer': user()}"
-           [ngClass]="{'justify-start': !isVideoPlaying && wasVideoActivated,
-                    'justify-center': !wasVideoActivated || isVideoPlaying
-        }"
+           [ngClass]="{'cursor-pointer': user(),
+           'justify-start': !isVideoPlaying && wasVideoActivated,
+           'justify-center': !wasVideoActivated || isVideoPlaying
+          }"
+
            (click)="goToExclusiveContent()">
         <app-video #video
                    id="{{merch.id}}"
