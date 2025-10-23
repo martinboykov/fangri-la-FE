@@ -18,7 +18,14 @@
                    [poster]="_merchandise.video.poster"
                    [sources]="_merchandise.video.sources"
                    [config]="{
-                     autoplay: true
+                      autoplay: false,
+                      controls: false,
+                      muted: false,
+                      fluid: true,
+                      fill: false,
+                      responsive: true,
+                      poster: _merchandise.video.poster,
+                      sources: _merchandise.video.sources
                    }"></app-video>
         }
 
@@ -26,8 +33,7 @@
     </div>
   </div>
   } @else {
-  <app-header-inner-page [title]="'VAULT.PAGE_EXCLUSIVE_CONTENT.TITLE' | translate"
-                         ></app-header-inner-page>
+  <app-header-inner-page [title]="'VAULT.PAGE_EXCLUSIVE_CONTENT.TITLE' | translate"></app-header-inner-page>
   <div class="container section-spacing text-black-0">
     <div class="flex flex-col justify-between gap-sm ">
       <div class="relative max-w-lg mb-4 p-sm rounded-md overflow-hidden
