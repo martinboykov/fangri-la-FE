@@ -9,7 +9,7 @@
     <app-main-swiper [imgs]="
            contentItem.images"
                      [paginationClass]="'swiper-artist'"
-                     [imgClass]="'aspect-square'"
+                     [imgClass]="'aspect-square object-cover'"
                      [isEdit]="isEdit()"
                      [contentId]="contentItem.id"
                      [options]="{autoHeight: true}"
@@ -36,8 +36,6 @@
     }
     @if(contentItem.video && contentItem.video.sources.length > 0) {
     <app-video class="block w-full  rounded-lg overflow-hidden"
-               [poster]="contentItem.video.poster"
-               [sources]="contentItem.video.sources"
                [config]="{
                       autoplay: false,
                       controls: false,

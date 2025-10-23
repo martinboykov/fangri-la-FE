@@ -10,7 +10,7 @@
                        [imgs]="
            contentItem.images"
                        [paginationClass]="'swiper-artist'"
-                       [imgClass]="'aspect-square'"
+                       [imgClass]="'aspect-square object-cover'"
                        [options]="{autoHeight: true}"
                        (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-main-swiper>
       }
@@ -39,8 +39,6 @@
                       poster: contentItem.video.poster,
                       sources: contentItem.video.sources,
                   }"
-                 [poster]="contentItem.video.poster"
-                 [sources]="contentItem.video.sources"
                  (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-video>
       }
       }

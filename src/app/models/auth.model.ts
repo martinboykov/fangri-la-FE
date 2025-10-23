@@ -55,7 +55,7 @@ export class User implements IUser {
     this.id = userData.id;
     this.name = userData.name;
     this.surname = userData.surname;
-    this.shortName = userData.name[0] + userData.surname[0];
+    this.shortName = userData.name[0];
     this.img = userData.img;
     this.email = userData.email;
     this.token = userData.token;

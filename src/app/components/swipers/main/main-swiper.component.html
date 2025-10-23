@@ -20,7 +20,7 @@
 
     @for (img of imgs(); track $index; let i = $index) {
     <swiper-slide class="relative flex flex-col justify-between">
-      <ion-img class="{{imgClass()}} block w-full object-cover overflow-hidden cursor-pointer"
+      <ion-img class="{{imgClass()}} block w-full overflow-hidden cursor-pointer"
                [src]="img || '/assets/images/placeholder.svg'">
       </ion-img>
       @if(isEdit()){

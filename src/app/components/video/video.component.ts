@@ -35,40 +35,40 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   private destroyRef = inject(DestroyRef);
   private readonly target = viewChild.required<ElementRef>('target');
   // See options: https://videojs.com/guides/options
-  readonly poster = input<string>();
-  readonly sources = input.required<
-    {
-      src: string;
-      type: string;
-    }[]
-  >();
+  // readonly poster = input<string>();
+  // readonly sources = input.required<
+  //   {
+  //     src: string;
+  //     type: string;
+  //   }[]
+  // >();
   readonly config = input<{ [key: string]: any }>();
   readonly hasToggleIcon = input<boolean>(true);
   readonly isIconInCenter = input<boolean>(false);
   readonly isFullScreen = input<boolean>(false);
-  options: {
-    withCredentials?: boolean;
-    fluid?: boolean; // keeps to a specific aspect ratio
-    fill?: boolean; // fills the container
-    responsive?: boolean;
-    muted?: boolean;
-    aspectRatio?: string;
-    autoplay?: boolean;
-    controls?: boolean;
-    poster?: string;
-    sources?: { src: string; type: string }[];
-  } = {
-    autoplay: false,
-    controls: false,
-    muted: false,
-    fluid: false,
-    fill: true,
-    responsive: true,
-    // aspectRatio: '1:1',
-    // withCredentials: true,
-    // poster: this.poster() || '',
-    // sources: this.sources(),
-  };
+  // options: {
+  //   withCredentials?: boolean;
+  //   fluid?: boolean; // keeps to a specific aspect ratio
+  //   fill?: boolean; // fills the container
+  //   responsive?: boolean;
+  //   muted?: boolean;
+  //   aspectRatio?: string;
+  //   autoplay?: boolean;
+  //   controls?: boolean;
+  //   poster?: string;
+  //   sources?: { src: string; type: string }[];
+  // } = {
+  //   autoplay: false,
+  //   controls: false,
+  //   muted: false,
+  //   fluid: false,
+  //   fill: true,
+  //   responsive: true,
+  //   // aspectRatio: '1:1',
+  //   // withCredentials: true,
+  //   // poster: this.poster() || '',
+  //   // sources: this.sources(),
+  // };
   player!: Player;
   isVideoPlaying: boolean = false;
   constructor() {
@@ -105,7 +105,7 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     if (config && config['fluid']) {
       config = {
         ...config,
-        aspectRatio: `${window.innerWidth}:${Math.round(document.documentElement.clientHeight * 0.7)}`,
+        aspectRatio: `${window.innerWidth}:${Math.round(window.innerHeight * 0.7)}`,
       };
     }
     // if (config && config['muted']) {
@@ -129,8 +129,10 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
       ]);
       this.player.pause();
       // this.player.poster(this.poster() || '');
-      const optionsSource = this.config()?.['sources'];
-      if (optionsSource !== undefined && optionsSource.length > 0) {
+      if (
+        this.config()?.['sources'] !== undefined &&
+        this.config()?.['sources'].length > 0
+      ) {
         // this.player.src(optionsSource[0].src);
         this.player.currentTime(0);
         this.player.trigger('loadstart');
