@@ -3,14 +3,14 @@
              style="--color-page: #000">
   <div class="max-w-lg mx-auto px-1 py-2 h-full">
     <div class="flex flex-col  gap-lg h-full"
-         [ngClass]="{'justify-between': wasVideoActivated && isVideoPlaying,
+         [ngClass]="{'justify-between': !wasVideoActivated || (wasVideoActivated && isVideoPlaying),
                     'justify-start': wasVideoActivated && !isVideoPlaying
         }">
       @if(!isLoading() && merch){
       <div class="flex flex-col h-full "
            [ngClass]="{'cursor-pointer': user()}"
-           [ngClass]="{'justify-start': !isVideoPlaying,
-                    'justify-center': isVideoPlaying
+           [ngClass]="{'justify-start': !isVideoPlaying && wasVideoActivated,
+                    'justify-center': !wasVideoActivated || isVideoPlaying
         }"
            (click)="goToExclusiveContent()">
         <app-video #video
