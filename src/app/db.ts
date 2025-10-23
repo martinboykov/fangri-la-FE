@@ -2163,10 +2163,7 @@ const dataGen = isoDateGenerator(1);
 export const content = [...Array(baseArtistData.length).keys()].map(
   (artist, i) =>
     imagesData[i].map((image, j) => {
-      console.log(
-        '🚀 ~ typeof image:',
-        typeof image === 'string' || Array.isArray(image),
-      );
+
       if (typeof image === 'string' || Array.isArray(image)) {
         return {
           id: idGenerator(),
@@ -2192,11 +2189,9 @@ export const content = [...Array(baseArtistData.length).keys()].map(
       }
     }),
 );
-console.log('🚀 ~ content:', content);
 
 export const chat = [...Array(baseArtistData.length).keys()].map(
   (artist, i) => {
-    console.log('chatData[i]', chatData[i]);
     if (!chatData[i]) return [];
     return [
       ...chatData[i].map((item, j) => {

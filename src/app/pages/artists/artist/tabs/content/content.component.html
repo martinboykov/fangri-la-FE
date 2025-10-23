@@ -29,7 +29,16 @@
                  id="{{contentItem.id}}"
                  [attr.data-contentItemId]="contentItem.id"
                  class="block w-full rounded-lg overflow-hidden"
-                 [config]="{autoplay: false, muted:false}"
+                 [config]="{
+                      autoplay: false,
+                      controls: false,
+                      muted: false,
+                      fluid: true,
+                      fill: false,
+                      responsive: true,
+                      poster: contentItem.video.poster,
+                      sources: contentItem.video.sources,
+                  }"
                  [poster]="contentItem.video.poster"
                  [sources]="contentItem.video.sources"
                  (dblclick)="artistStore.increaseLikes(contentItem.id)"></app-video>

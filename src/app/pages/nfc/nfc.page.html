@@ -1,21 +1,33 @@
 <ion-content [fullscreen]="true"
              class=""
-             style="--color-page: #FCFBEC">
+             style="--color-page: #000">
   <div class="max-w-lg mx-auto px-1 py-2 h-full">
     <div class="flex flex-col justify-between gap-lg h-full">
       @if(!isLoading() && merch){
-      <div [ngClass]="{'cursor-pointer': user()}"
+      <div class="h-full"
+           [ngClass]="{'cursor-pointer': user()}"
            (click)="goToExclusiveContent()">
         <app-video #video
                    id="{{merch.id}}"
                    [attr.data-contentItemId]="merch.id"
-                   class="block w-full  rounded-lg overflow-hidden"
-                   [config]="{autoplay: false, muted:false}"
+                   class="block h-full w-full  rounded-lg overflow-hidden"
+                   [config]="{
+                      autoplay: false,
+                      controls: false,
+                      muted: false,
+                      fluid: false,
+                      fill: true,
+                      responsive: true,
+                      poster: merch.video.poster,
+                      sources: merch.video.sources
+                  }"
                    [poster]="merch.video.poster"
                    [sources]="merch.video.sources"
-                   [isIconInCenter]="true"></app-video>
+                   [isIconInCenter]="true"
+                   [isFullScreen]="true"></app-video>
       </div>
 
+      @if(wasVideoActivated && !isVideoPlaying){
 
       <div class="p-lg bg-[#111] bg-opacity-70 rounded-md">
         <div class="">
@@ -56,27 +68,28 @@
           <ion-button class="min-h-5 w-full "
                       color="white"
                       fill="outline"
-                      routerLink="/artists/list"><span class="text-white capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
+                      routerLink="/artists/1"><span class="text-white capitalize">{{ 'CONSTANTS.NEXT' | translate }}</span></ion-button>
           }
           @else {
           <ion-button class="min-h-5 w-full"
                       color="white"
                       fill="outline"
                       routerLink="/auth/login"
-                      [queryParams]="{returnUrl: path()}"><span class="text-white">{{ 'AUTH.LOGIN.TITLE' | translate }}</span>
+                      [queryParams]="{returnUrl: `/artists/1`}"><span class="text-white">{{ 'AUTH.LOGIN.TITLE' | translate }}</span>
           </ion-button>
           <ion-button class="min-h-5 w-full bg-white rounded-sm overflow-hidden"
                       color="dark"
                       fill="outline"
                       type="button"
                       routerLink="/auth/register"
-                      [queryParams]="{returnUrl: path()}">
+                      [queryParams]="{returnUrl: `/artists/1`}">
             <span class="text-black-0 capitalize">{{ 'CONSTANTS.REGISTER' | translate }}</span>
           </ion-button>
           }
 
         </div>
       </div>
+      }
       }
 
     </div>

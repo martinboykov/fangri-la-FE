@@ -20,6 +20,7 @@ import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
 import { VideoService } from './video.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import 'fraction.js';
 
 @Component({
   selector: 'app-video',
@@ -44,9 +45,12 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   readonly config = input<{ [key: string]: any }>();
   readonly hasToggleIcon = input<boolean>(true);
   readonly isIconInCenter = input<boolean>(false);
+  readonly isFullScreen = input<boolean>(false);
   options: {
     withCredentials?: boolean;
-    fluid?: boolean;
+    fluid?: boolean; // keeps to a specific aspect ratio
+    fill?: boolean; // fills the container
+    responsive?: boolean;
     muted?: boolean;
     aspectRatio?: string;
     autoplay?: boolean;
@@ -57,9 +61,10 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     autoplay: false,
     controls: false,
     muted: false,
-    fluid: true,
-    aspectRatio: '1:1',
-
+    fluid: false,
+    fill: true,
+    responsive: true,
+    // aspectRatio: '1:1',
     // withCredentials: true,
     // poster: this.poster() || '',
     // sources: this.sources(),
@@ -67,22 +72,60 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   player!: Player;
   isVideoPlaying: boolean = false;
   constructor() {
+    const self = this;
+    // this.options.aspectRatio = `${window.innerWidth}:${window.innerHeight}`;
+
     effect(() => {
-      this.options.poster = this.poster() || '';
-      this.options.sources = this.sources();
-      console.log(
-        '🚀 ~ VideoComponent ~ constructor ~ this.options:',
-        this.options,
-      );
+      const self = this;
+      // this.options.poster = this.poster() || '';
+      // this.options.sources = this.sources();
+      // console.log(
+      //   '🚀 ~ VideoComponent ~ constructor ~ this.options:',
+      //   this.options,
+      // );
+
+      // console.log(
+      //   '🚀 ~ VideoComponent ~ constructor ~ this.isFullScreen():',
+      //   this.isFullScreen(),
+      // );
+      // if (!this.isFullScreen()) {
+      //   this.options.aspectRatio = '1:1';
+      //   this.options.fluid = true;
+      //   this.options.fill = false;
+      // }
       if (this.player) {
+        console.log('🚀 ~ VideoComponent ~ constructor ~ this.player:', [
+          this.player,
+          this.player.id_,
+        ]);
         this.player.pause();
-        this.player.poster(this.poster() || '');
+        // this.player.poster(this.poster() || '');
         const optionsSource = this.options.sources;
         if (optionsSource !== undefined && optionsSource.length > 0) {
           this.player.src(optionsSource[0].src);
           this.player.currentTime(0);
           this.player.trigger('loadstart');
         }
+        this.player.on('ready', function () {
+          console.log('video ready');
+        });
+        this.player.on('playing', function () {
+          console.log('video playing');
+          self.videoService.setVideoState(true);
+          // if (self.isFullScreen()) {
+          //   self.options.aspectRatio = `${window.innerWidth}:${window.innerHeight}`;
+          // }
+        });
+        this.player.on('paused', function () {
+          console.log('video paused');
+          self.videoService.setVideoState(false);
+          // self.options.aspectRatio = `1:1`;
+        });
+        this.player.on('ended', function () {
+          console.log('video ended');
+          self.videoService.setVideoState(false);
+          self.options.aspectRatio = `1:1`;
+        });
       }
       const config = this.config();
       if (config && config['muted']) {
@@ -97,22 +140,29 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
   // Instantiate a Video.js player OnInit
   ngOnInit() {
     console.log('🚀 ~ VideoComponent ~ ngOnInit');
+    let config = this.config();
+    if (config && config['fluid']) {
+      config = {
+        ...config,
+        aspectRatio: `${window.innerWidth}:${Math.round(window.innerHeight * 0.7)}`,
+      };
+    }
     this.player = videojs(
       this.target().nativeElement,
-      this.options,
-      function onPlayerReady() {
-        console.log('🚀 ~ onPlayerReady ~ this:', this);
-      },
+      config,
+      // function onPlayerReady() {
+      //   console.log('🚀 ~ onPlayerReady ~ this:', this);
+      // },
     );
-    this.videoService.videoPlayState$
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((value) => {
-        if (this.isIconInCenter()) {
-          if (!value) {
-            this.player.pause();
-          }
-        }
-      });
+    // this.videoService.videoPlayState$
+    //   .pipe(takeUntilDestroyed(this.destroyRef))
+    //   .subscribe((value) => {
+    //     if (this.isIconInCenter()) {
+    //       if (!value) {
+    //         this.player.pause();
+    //       }
+    //     }
+    // });
   }
 
   // Dispose the player OnDestroy
@@ -126,8 +176,11 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
       this.isVideoPlaying = !this.isVideoPlaying;
       if (this.isVideoPlaying) {
         this.player.play();
+        // this.player.requestFullscreen();
       } else {
         this.player.pause();
+        console.log('video paused');
+        this.videoService.setVideoState(false);
       }
     }
   }

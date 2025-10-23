@@ -102,16 +102,23 @@ export class NfcPage implements OnInit {
 
     status: MerchandiseStatusEnum.IN_STOCK,
   };
-
+  wasVideoActivated = false;
+  isVideoPlaying = false;
   constructor() {
     this.parser.href = this.url();
     console.log('🚀 ~ NfcPage ~ authService.user:', this.authService.user());
     console.log('🚀 ~ NfcPage ~ isLoading:', this.isLoading());
+
     console.log(
       '🚀 ~ NfcPage ~ path:',
       this.parser.pathname + this.parser.search,
     );
     effect(() => {
+      this.isVideoPlaying = this.videoService.videoPlayState();
+
+      if (this.isVideoPlaying && !this.wasVideoActivated) {
+        this.wasVideoActivated = true;
+      }
       // console.log('🚀 ~ NfcPage ~ authService.user:', this.authService.user());
       // const merchandise = this.merchandiseStore
       //   .items()
