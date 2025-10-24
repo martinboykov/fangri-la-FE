@@ -19,7 +19,7 @@
                    [state]="merchandise"></ion-img>
           <div class="flex flex-col justify-between gap-xs w-full text-black-100">
 
-            <div class="flex flex-col gap-xs">
+            <div class="flex flex-col gap-xs ">
               <div class="flex flex-col gap-xs mb-sm
               xss:flex-row xss:flex-wrap xss:mb-xs">
                 @for(label of merchandise.labels; let j = $index; track $index){
@@ -36,9 +36,9 @@
                        [src]="merchandise.images[0] || '/assets/images/placeholder.svg'"
                        routerLink="/merchandise/{{ merchandise.id }}"
                        [state]="merchandise"></ion-img>
-              <div routerLink="/merchandise/{{ merchandise.id }}"
+              <div class="" routerLink="/merchandise/{{ merchandise.id }}"
                    [state]="merchandise">
-                <h2 class="text-2 cursor-pointer">
+                <h2 class="mb-sm text-2 cursor-pointer">
                   {{ merchandise.name }}
                 </h2>
                 <p class="text-[14px] line-clamp-3 cursor-pointer" [innerHTML]="merchandise.description">{{ merchandise.description }}</p>
