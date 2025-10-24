@@ -34,9 +34,10 @@ export interface MerchandiseSlice {
   shippingInfo: string; // html
 }
 
+
 export const initialMerchandiseSlice = {
-  totalItemsCount: 125,
-  totalArtistCount: 25,
+  totalItemsCount: merchandiseData.reduce((acc, curr) => acc + curr.length, 0),
+  totalArtistCount: merchandiseData.length,
   items: [
     ...merchandiseData[0],
     ...merchandiseData[1],

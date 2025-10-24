@@ -21,6 +21,7 @@
         </div>
         <h3 class="font-bold text-white">{{ _merchandise.name }}</h3>
       </div>
+      @if(_merchandise.video) {
       <div class="relative max-w-lg mb-4 p-sm bg-[rgba(71,_77,_78,_0.50)] rounded-md overflow-hidden cursor-pointer
       sm:mb-[6vw]"
            routerLink="/vault/{{_merchandise.id}}/exclusive-content"
@@ -29,6 +30,15 @@
                  [src]="_merchandise.images[0]"></ion-img>
 
       </div>
+      } @else {
+      <div class="relative max-w-lg mb-4 p-sm bg-[rgba(71,_77,_78,_0.50)] rounded-md overflow-hidden cursor-pointer
+      sm:mb-[6vw]">
+        <ion-img class="aspect-square object-cover rounded-sm overflow-hidden"
+                 [src]="_merchandise.images[0]"></ion-img>
+
+      </div>
+      }
+
     </div>
     <div class=" flex justify-between gap-md flex-wrap max-w-lg  px-2 mb-2">
       @for (social of socials; let i = $index; track $index){

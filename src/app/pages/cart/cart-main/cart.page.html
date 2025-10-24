@@ -5,7 +5,9 @@
                          [isCart]="true"></app-header-inner-page>
   <div class="container flex flex-col justify-between md:min-h-[calc(100svh-100px)]">
     <div class="grid gap-lg">
-      @for(item of cartStore.items(); let i = $index; track $index){
+      @let cartItems = cartStore.items();
+      @if(cartItems.length > 0){
+      @for(item of cartItems; let i = $index; track $index){
 
       <div class="flex gap-lg">
         <ion-img class="flex-shrink-0 w-full h-full max-w-10 max-h-12 border-[1px] border-white border-solid object-contain rounded-md overflow-hidden cursor-pointer"
@@ -17,7 +19,7 @@
               <h2 class="text-2 line-clamp-2 cursor-pointer">
                 {{ item.name }}
               </h2>
-              <p class="text-[14px] line-clamp-2 cursor-pointer">{{ item.description }}</p>
+              <div class="text-[14px] line-clamp-2 cursor-pointer" [innerHTML]="item.description"></div>
             </div>
             <ion-button class="flex-shrink-0 p-0 rounded-sm border-[1px] border-solid border-white "
                         color="white"
@@ -54,6 +56,8 @@
         </div>
       </div>
       <hr class="h-[1px] text-[#4B4B4B] bg-[#4B4B4B] border-0">
+
+      }
       }
       <div class="grid gap-xs text-2">
         <div class="flex gap-sm justify-between">

@@ -12,8 +12,8 @@
                  [state]="merchandise"></ion-img>
         <div class="flex flex-col justify-between gap-xs w-full text-black-100">
 
-          <div class="flex flex-col gap-xs mb-lg">
-            <div class="flex flex-col gap-xs mb-lg
+          <div class="flex flex-col gap-xs">
+            <div class="flex flex-col gap-xs mb-sm
               xss:flex-row xss:flex-wrap xss:mb-xs">
               @for(label of merchandise.labels; let j = $index; track $index){
               <div class="w-[fit-content] py-xs px-sm rounded-xs text-[10px] font-bold uppercase"
@@ -34,7 +34,7 @@
               <h2 class="text-2 cursor-pointer">
                 {{ merchandise.name }}
               </h2>
-              <p class="text-[14px] line-clamp-3 cursor-pointer">{{ merchandise.description }}</p>
+              <div class="text-[14px] line-clamp-3 cursor-pointer" [innerHTML]="merchandise.description"></div>
             </div>
           </div>
           <div class="flex justify-between items-center gap-x-2 gap-y-xs flex-wrap">
