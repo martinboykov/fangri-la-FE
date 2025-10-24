@@ -24,7 +24,7 @@
           }
         </div>
         <h1 class="mb-sm ">{{_merchandise.name}}</h1>
-        <p class="mb-sm ">{{_merchandise.description}}</p>
+        <p class="mb-sm " [innerHTML]="_merchandise.description || ''"></p>
         <div class="text-200 mb-2xl">
           <span class="text-2">{{currency}}</span>
           <span class="text-4">{{ _merchandise.price }}</span>
@@ -68,8 +68,8 @@
         @if(_merchandise.parameters){
         <div class="flex flex-col gap-2xl mt-2xl">
           @for(parameter of _merchandise.parameters; let j = $index; track $index){
-          <div class="flex justify-between items-center gap-sm">
-            <span class="text-1 font-bold uppercase">{{parameter.name}}</span>
+          <div class="flex flex-col justify-start items-start gap-sm">
+            <span class="text-[14px] font-bold uppercase">{{parameter.name}}</span>
             <div class="flex flex-col gap-xs">
               @for(value of parameter.value; let k = $index; track $index){
                 <span class="text-left">{{value}}</span>

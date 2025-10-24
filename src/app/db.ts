@@ -1041,22 +1041,20 @@ export const merchandiseData = [
     {
       id: idGenerator(),
       artist: 'Sienna Solas',
-      name: 'Sienna Solas" Chibi Pajama Set',
+      name: 'Before the Noise Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sienna_solas_1_chibi_pijamas_0.jpg',
-        '/assets/static/images/merchandise/sienna_solas_1_chibi_pijamas_1.jpg',
-        '/assets/static/images/merchandise/sienna_solas_1_chibi_pijamas_2.jpg',
-        '/assets/static/images/merchandise/sienna_solas_1_chibi_pijamas_3.jpg',
-        '/assets/static/images/merchandise/sienna_solas_1_chibi_pijamas_4.jpg',
+        '/assets/static/images/merchandise/sienna_solas_1_before_the_noise_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_1_before_the_noise_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_1_before_the_noise_2.jpg',
       ],
       price: 125,
       sku: 'SS-APP-001-CPS',
-      description: `Dream in comfort and character with the Sienna Solas Chibi Pajama Set, a playful tribute to Sienna’s animated alter ego. Crafted from ultra-soft bamboo-cotton fleece, this limited-edition lounge set blends cozy texture with collectible artistry. The full-body chibi pattern captures her whimsical spirit, while the relaxed fit invites easy movement - perfect for creative nights or slow mornings.
-    Each set features a discreet NFC tag sewn inside the sleeve cuff, granting access to an intimate digital lullaby experience: Sienna personally singing reimagined classic lullabies, exclusively available through the Fangri-la platform.`,
+      description: `<p><span >In&nbsp;</span><em><span >Before the Noise</span></em><span >, Sienna Solas strips everything away &mdash; the glitter, the production, the pretense &mdash; until only her voice remains. Captured in an acoustically sealed white room, the album is a study in stillness and clarity. The Virtual Vinyl&trade; experience unlocks a raw studio film where Sienna performs each song live in the room where it was recorded, her breath and heartbeat becoming part of the rhythm.</span></p>
+<p><br></p>`,
       totalCount: 2,
       labels: [
         {
-          name: '1 OF 500 AVAILABLE',
+          name: '1 of 5000',
           color: '#fff',
           background: '#4cc8bc',
         },
@@ -1066,49 +1064,74 @@ export const merchandiseData = [
         //   background: '#fff7a1',
         // },
         {
-          name: 'apparel',
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       },
       parameters: [
         {
           name: 'specifications',
-          value: ['70% bamboo viscose', '30% organic cotton blend'],
+          value: [
+            `12-inch transparent white vinyl print`,
+            `Digital Studio Session NFC Experience`,
+            `Full lossless audio master + alternate acapellas`,
+          ],
         },
+        // {
+        //   name: 'vinyl',
+        //   value: ['12-inch transparent white vinyl print'],
+        // },
+        // {
+        //   name: 'nfc',
+        //   value: ['Digital Studio Session NFC Experience'],
+        // },
+        // {
+        //   name: 'audio',
+        //   value: ['Full lossless audio master + alternate acapellas'],
+        // },
       ],
-      stock: 168,
+      stock: 4218,
     },
     {
       id: idGenerator(),
       artist: 'Sienna Solas',
-      name: 'Sienna Saves” Graphic Novel',
+      name: 'One Breath Left Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sienna_solas_2_graphic_novel_0.jpg',
-        '/assets/static/images/merchandise/sienna_solas_2_graphic_novel_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_2_one_breath_left_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_2_one_breath_left_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_2_one_breath_left_2.jpg',
       ],
-      price: 150,
+      price: 68,
       sku: 'SS-COL-002-SSG',
-      description: `Part music mythology, part visual journey, Sienna Saves reimagines Sienna Solas as a neon-lit antihero navigating chaos and compassion. Illustrated by Fauntree Wren, this 80-page graphic novel comes with an NFC-enabled back cover linking to a narrated audio version voiced by Sienna herself and an unreleased song titled “Metropolis Heart.”`,
-      stock: 177,
+      description: `
+      <p><span>An achingly intimate record about suspense and surrender,&nbsp;</span><em><span>One Breath Left</span></em><span>&nbsp;finds Sienna suspended between control and collapse. The production is submerged, dreamlike - basslines that move like currents, vocals that glisten through water. Each Virtual Vinyl&trade; includes a digital immersion film that visually recreates the album&rsquo;s themes of breath and rebirth, best experienced with headphones in the dark.</span></p>
+<p><br></p>
+      `,
+      stock: 3941,
       labels: [
         {
-          name: '1 OF 1000 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Digital',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
         {
-          name: 'Collectible',
+          name: 'Virtual Vinyl™',
           color: '#fff',
           background: '#2c2e35',
         },
@@ -1126,35 +1149,41 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            '70% bamboo viscose / 30% organic cotton blend',
-            'Relaxed fit with button-up top and drawstring pant',
-            'All-over digital chibi print with embroidered “Sienna” signature',
-            'NFC-enabled cuff for Fangri-la-exclusive Sienna Sings lullaby content',
+            '12-inch aqua vinyl print',
+            'Haptic audio',
+            'Includes “Drown Slow”',
           ],
         },
-        // {
-        //   name: 'dimensions',
-        //   value: '10x300x60mm',
-        // },
-        // {
-        //   name: 'weight',
-        //   value: '5kg',
-        // },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch aqua vinyl print'],
+        //   },
+        //   {
+        //     name: 'nfc',
+        //     value: ['Haptic audio mix via NFC unlock'],
+        //   },
+        //   {
+        //     name: 'content',
+        //     value: ['Includes “Drown Slow”'],
+        //   },
       ],
     },
     {
       id: idGenerator(),
       artist: 'Sienna Solas',
-      name: 'Solas Academy” Varsity Jacket ',
+      name: 'Neon Garden Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sienna_solas_3_versity_jacket_0.jpg',
-        '/assets/static/images/merchandise/sienna_solas_3_versity_jacket_1.jpg',
-        '/assets/static/images/merchandise/sienna_solas_3_versity_jacket_2.jpg',
+        '/assets/static/images/merchandise/sienna_solas_3_neon_garden_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_3_neon_garden_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_3_neon_garden_2.jpg',
       ],
-      price: 1100,
+      price: 68,
       sku: 'SS-APP-003-SAJ',
-      description: `A modern heirloom from The Solas Academy era. This heavyweight varsity jacket combines heritage style with a symbolic lion crest - a reminder to stand proud in your individuality. Every piece includes an NFC chip sewn into the inner chest pocket, unlocking a behind-the-scenes short film about the making of “Empty Rooms.”`,
-      stock: 245,
+      description: `
+      <p><span>Color explodes and shadows breathe in&nbsp;</span><em><span style="font-size:12pt;font-family:Arial,sans-serif;">Neon Garden</span></em><span >, Sienna&rsquo;s most vivid electro-pop experiment to date. It&rsquo;s a lush escape into a world where nature glows under synthetic moons and emotion blooms in UV color. Tapping the NFC embedded in the artwork unlocks a 360&deg; audio-visual garden - animated flowers respond to your touch while Sienna&rsquo;s voice unfolds petal by petal.</span></p>
+<p><br></p>
+      `,
+      stock: 63,
       labels: [
         {
           name: '1 OF 100 AVAILABLE',
@@ -1163,177 +1192,62 @@ export const merchandiseData = [
         },
 
         {
-          name: 'Apparel',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
-        // {
-        //   name: 'Collectible',
-        //   color: '#fff',
-        //   background: '#2c2e35',
-        // },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       },
       parameters: [
         {
           name: 'specifications',
           value: [
-            'Wool body with genuine leather sleeves',
-            'Embroidered and chenille patch detailing',
-            'Satin lining featuring Solas Academy artwork',
-            'NFC tag hidden inside pocket; exclusive BTS short film',
+            '12-inch multi-hue UV vinyl print',
+            'Interactive AR garden visual',
+            'Digital 5.1 mix in Dolby ',
           ],
         },
-        // {
-        //   name: 'dimensions',
-        //   value: '10x300x60mm',
-        // },
-        // {
-        //   name: 'weight',
-        //   value: '5kg',
-        // },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch multi-hue UV vinyl print'],
+        //   },
+        //   {
+        //     name: 'visual',
+        //     value: ['Interactive AR garden visual'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Digital 5.1 mix in Dolby'],
+        //   },
       ],
     },
     {
       id: idGenerator(),
       artist: 'Sienna Solas',
-      name: 'Resonance Skate Deck ',
+      name: 'Halfway to Human Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sienna_solas_4_skate_deck_0.jpg',
-        '/assets/static/images/merchandise/sienna_solas_4_skate_deck_1.jpg',
-        '/assets/static/images/merchandise/sienna_solas_4_skate_deck_2.jpg',
+        '/assets/static/images/merchandise/sienna_solas_4_halfway_to_human_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_4_halfway_to_human_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_4_halfway_to_human_2.jpg',
       ],
-      price: 200,
+      price: 68,
       sku: 'SS-ACC-004-RSD',
-      description: `A hand-painted collaboration between Sienna and graffiti legend Miko Reyes, the Resonance Deck merges fine art and rebellion. Each maple deck is individually numbered, sealed in gloss resin, and fitted with a discreet NFC tag under the tail that reveals a digital mini-doc: The Street as Canvas.`,
-      stock: 33,
+      description: `
+    <p>Half synthetic, half soul - Halfway to Human is Sienna&rsquo;s reflection on connection in a coded world. Robotic beats meet human imperfection, and the result is something eerily alive. This Virtual Vinyl&trade; unlocks an AI-generated performance built from Sienna&rsquo;s own motion capture data - a digital twin singing in perfect sync to its creator.</p>
+<p><br></p>
+      `,
+      stock: 4302,
       labels: [
         {
-          name: '1 OF 750 AVAILABLE',
-          color: '#fff',
-          background: '#4cc8bc',
-        },
-
-        {
-          name: 'Accessories ',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-        {
-          name: 'Art',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
-      ],
-      options: {
-        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      },
-      parameters: [
-        {
-          name: 'specifications',
-          value: [
-            `7-ply Canadian maple, hand-painted and resin-coated `,
-            `Wall-mount hardware included `,
-            `NFC tag concealed under clear resin finish `,
-            `Includes signed artist COA `,
-          ],
-        },
-        // {
-        //   name: 'dimensions',
-        //   value: '10x300x60mm',
-        // },
-        // {
-        //   name: 'weight',
-        //   value: '5kg',
-        // },
-      ],
-    },
-    {
-      id: idGenerator(),
-      artist: 'Sienna Solas',
-      name: 'Black Honey Hoodie ',
-      images: [
-        '/assets/static/images/merchandise/sienna_solas_5_black_honey_hoodie_0.jpg',
-        '/assets/static/images/merchandise/sienna_solas_5_black_honey_hoodie_1.jpg',
-      ],
-      price: 325,
-      sku: 'SS-APP-005-BHH',
-      description: `Created in collaboration with Salehe Bembury, the Black Honey Hoodie blends minimalist design with deep personal symbolism. The fingerprint graphic represents identity and connection - a recurring theme in Sienna’s songwriting. The NFC-enabled logo patch on the wrist gives fans access to an unreleased acoustic version of “Glass Hearts.”`,
-      labels: [
-        {
-          name: '1 OF 100 AVAILABLE',
-          color: '#fff',
-          background: '#4cc8bc',
-        },
-
-        {
-          name: 'Apparel ',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-        // {
-        //   name: 'Art',
-        //   color: '#fff',
-        //   background: '#2c2e35',
-        // },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
-      ],
-      options: {
-        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      },
-      parameters: [
-        {
-          name: 'specifications',
-          value: [
-            '100% heavyweight brushed fleece',
-            'Oversized silhouette with drop shoulders',
-            'Embroidered fingerprint motif and copper foil accents',
-            'NFC patch on wrist unlocks exclusive audio content',
-          ],
-        },
-        // {
-        //   name: 'dimensions',
-        //   value: '10x300x60mm',
-        // },
-        // {
-        //   name: 'weight',
-        //   value: '5kg',
-        // },
-      ],
-      stock: 91,
-    },
-    {
-      id: idGenerator(),
-      artist: 'Sienna Solas',
-      name: 'Sunday Morning” Virtual Vinyl™ ',
-      images: [
-        '/assets/static/images/merchandise/sienna_solas_6_sunday_morning_virtaul_vinyl_0.jpg',
-      ],
-      price: 125,
-      sku: 'SS-VV-006-SM',
-      description: `The Sunday Morning Virtual Vinyl™ captures Sienna at her most intimate - raw takes, analog warmth, and handwritten lyric overlays inspired by Jean-Michel Basquiat’s chaotic honesty. The record’s NFC integration unlocks a digital journal from Sienna chronicling the making of the album and an unreleased home performance of “Golden Hour.”`,
-      labels: [
-        {
-          name: '1 OF 1000 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
@@ -1362,43 +1276,51 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            '12” marbled acrylic disc with printed art layers',
-            'NFC-enabled center label for digital journal unlock',
-            'Authenticated Fangri-la Virtual Vinyl™ collectible',
-            'Includes signed lyric art insert',
+            '12-inch holographic vinyl print',
+            'NFC portal to AI Live Session',
+            ' Lossless download + stems',
           ],
         },
-        // {
-        //   name: 'dimensions',
-        //   value: '10x300x60mm',
-        // },
-        // {
-        //   name: 'weight',
-        //   value: '5kg',
-        // },
+
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch holographic vinyl print'],
+        //   },
+        //   {
+        //     name: 'nfc',
+        //     value: ['NFC portal to AI Live Session'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Lossless download + stems'],
+        //   },
       ],
-      stock: 77,
     },
     {
       id: idGenerator(),
       artist: 'Sienna Solas',
-      name: 'Stones” Virtual Vinyl™',
+      name: 'Echo House” Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sienna_solas_7_stones_virtaul_vinyl_0.jpg',
-        '/assets/static/images/merchandise/sienna_solas_7_stones_virtaul_vinyl_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_5_echo_house_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_5_echo_house_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_5_echo_house_2.jpg',
       ],
-      price: 125,
-      sku: 'SS-VV-007-STN',
-      description: `With its stark cover and minimalist tone, Stones is Sienna’s meditative side - recorded entirely in a glass cabin in Iceland. Each piece features an embedded NFC tag unlocking a full immersive 360° studio experience, where fans can explore the environment while the record plays.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+    <p>Recorded in a desert installation where sound reflected off walls of glass and sand, Echo House is Sienna alone with infinity. The songs ripple like light in wind, with piano melodies as soft as air. Each Virtual Vinyl&trade; includes an immersive &ldquo;Sound Room&rdquo; experience - an audio-responsive space that shifts based on the listener&rsquo;s voice.</p>
+<p><br></p>
+      `,
+      stock: 3887,
       labels: [
         {
-          name: '1 OF 1000 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Digital Collectible ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
@@ -1421,202 +1343,546 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            '12” acrylic disc with ambient landscape artwork',
-            'NFC chip embedded in label for 360° digital access',
-            'Includes download of “Stones (Piano Reprise)”',
-            'Packaged in clear eco-sleeve with debossed lettering',
+            '12-inch holographic vinyl print',
+            'Voice-responsive soundscape via NFC',
+            'Includes Desert Echo Rework EP',
           ],
         },
-        // {
-        //   name: 'dimensions',
-        //   value: '10x300x60mm',
-        // },
-        // {
-        //   name: 'weight',
-        //   value: '5kg',
+
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch holographic vinyl print'],
+        //   },
+        //   {
+        //     name: 'nfc',
+        //     value: ['Voice-responsive soundscape via NFC'],
+        //   },
+        //   {
+        //     name: 'includes',
+        //     value: ['Includes Desert Echo Rework EP'],
+        //   },
+      ],
+    },
+    {
+      id: idGenerator(),
+      artist: 'Sienna Solas',
+      name: 'Chapters Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/sienna_solas_6_chapters_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_6_chapters_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_6_chapters_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+    <p>An album about memory, letters, and unfinished love stories, Chapters reads like a sonic journal. Handwritten lyrics and field recordings thread through folk melodies and lo-fi production. Tapping the NFC reveals Sienna&rsquo;s digital scrapbook - audio entries, old voice notes, and hidden polaroids from the writing process.</p>
+      `,
+      stock: 4012,
+      labels: [
+        {
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        //  {
+        //   name: 'Exclusive early access',
+        //   color: '#111',
+        //   background: '#fff7a1',
         // },
       ],
-      stock: 70,
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch emerald vinyl print',
+            ' Interactive journal portal',
+            'Hi-res download + lyric book PDF',
+          ],
+        },
+
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch emerald vinyl print'],
+        //   },
+        //   {
+        //     name: 'portal',
+        //     value: [' Interactive journal portal'],
+        //   },
+        //   {
+        //     name: 'download',
+        //     value: ['Hi-res download + lyric book PDF'],
+        //   },
+      ],
+    },
+    {
+      id: idGenerator(),
+      artist: 'Sienna Solas',
+      name: 'Ocean Echoes Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/sienna_solas_7_ocean_echoes_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_7_ocean_echoes_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_7_ocean_echoes_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+   <p><em><span style="font-weight: 400;">Ocean Echoes</span></em><span style="font-weight: 400;"> is the sound of reflection itself - a balm of warmth, grace, and melancholy. Sienna&rsquo;s voice moves like tides, rising and falling around minimalist production that feels both infinite and intimate. The Virtual Vinyl&trade; unlocks &ldquo;Echo Tides,&rdquo; an interactive visual of waves reacting to your touch, paired with Sienna&rsquo;s exclusive acoustic performance on the beach at dawn.</span></p>
+    `,
+      stock: 4224,
+      labels: [
+        {
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        //  {
+        //   name: 'Exclusive early access',
+        //   color: '#111',
+        //   background: '#fff7a1',
+        // },
+      ],
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch iridescent vinyl print',
+            'Tactile waveform visual experience',
+            'Hi-fidelity ocean-mastered mix',
+          ],
+        },
+
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch iridescent vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['Tactile waveform visual experience'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Hi-fidelity ocean-mastered mix'],
+        //   },
+      ],
+    },
+    {
+      id: idGenerator(),
+      artist: 'Sienna Solas',
+      name: 'Glass Memory Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/sienna_solas_8_glass_memory_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_8_glass_memory_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_8_glass_memory_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+ <p><span style="font-weight: 400;">Fogged edges. Blurred thoughts. </span><em><span style="font-weight: 400;">Glass Memory</span></em><span style="font-weight: 400;"> traps emotion behind cold transparency - a haunting exploration of what we choose to forget. Sienna&rsquo;s vocals echo against minimalist production and industrial reverb. Each Virtual Vinyl&trade; includes an NFC-activated AR experience where lyrics appear as frost on your screen, fading as you touch them.</span></p>
+   `,
+      stock: 3776,
+      labels: [
+        {
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        //  {
+        //   name: 'Exclusive early access',
+        //   color: '#111',
+        //   background: '#fff7a1',
+        // },
+      ],
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch smoky blue vinyl print',
+            'AR lyric frost overlay',
+            'Includes “Erase Me” live',
+          ],
+        },
+
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch smoky blue vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['AR lyric frost overlay'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Includes “Erase Me” live'],
+        //   },
+      ],
+    },
+    {
+      id: idGenerator(),
+      artist: 'Sienna Solas',
+      name: 'Moonlight Motel Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/sienna_solas_9_moonlight_motel_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_9_moonlight_motel_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_9_moonlight_motel_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><span style="font-weight: 400;">Neon signs, midnight confessions, and the quiet hum of a flickering light- </span><em><span style="font-weight: 400;">Moonlight Motel</span></em><span style="font-weight: 400;"> captures Sienna&rsquo;s noir-pop phase in cinematic form. It&rsquo;s an album of escape and echoes, written for anyone who&rsquo;s ever run away and looked back. The Virtual Vinyl&trade; includes a digital short film shot in a real motel room during recording sessions.</span></p>
+      `,
+      stock: 3982,
+      labels: [
+        {
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+      ],
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch marbled nightshade vinyl print',
+            'NFC unlock for film & alternate score mix',
+            'Dolby Vision remaster',
+          ],
+        },
+      ],
+    },
+    {
+      id: idGenerator(),
+      artist: 'Sienna Solas',
+      name: 'Sunday Morning” Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/sienna_solas_10_sunday_morning_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_10_sunday_morning_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_10_sunday_morning_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><span style="font-weight: 400;">Warm light, acoustic strings, and handwritten lyrics - </span><em><span style="font-weight: 400;">Sunday Morning</span></em><span style="font-weight: 400;"> is the album that started it all. Recorded entirely in Sienna&rsquo;s living room, it&rsquo;s an ode to quiet joy and imperfection. The Virtual Vinyl&trade; unlocks &ldquo;Morning Light,&rdquo; a live video message from Sienna and an exclusive alternate take of the title track captured on cassette.</span></p>
+      `,
+      stock: 3982,
+      labels: [
+        {
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+      ],
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch textured vinyl print',
+            'Home session audio mix',
+            'NFC unlock to living room performance film',
+          ],
+        },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch textured vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: [' Home session audio mix'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['NFC unlock to living room performance film'],
+        //   },
+      ],
+    },
+    {
+      id: idGenerator(),
+      artist: 'Sienna Solas',
+      name: 'Stones Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/sienna_solas_11_stones_0.jpg',
+        '/assets/static/images/merchandise/sienna_solas_11_stones_1.jpg',
+        '/assets/static/images/merchandise/sienna_solas_11_stones_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">Stones</span></em><span style="font-weight: 400;"> is quiet strength captured in sound - a meditation on solitude, endurance, and the beauty of what remains. Written during a winter spent in isolation, Sienna recorded the album in a glass house overlooking a barren landscape, where silence became an instrument of its own. The Virtual Vinyl&trade; experience unlocks </span><em><span style="font-weight: 400;">&ldquo;The Glass Sessions&rdquo;</span></em><span style="font-weight: 400;"> - a short documentary and live performance filmed in that same house, where every whisper of wind and flicker of fire becomes part of the music.</span></p>
+      `,
+      stock: 4037,
+      labels: [
+        {
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+      ],
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch matte-finish vinyl print',
+            ' NFC unlock to “The Glass Sessions” film',
+            'Mastered analog-to-digital from original tape',
+          ],
+        },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch matte-finish vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: [' NFC unlock to “The Glass Sessions” film'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Mastered analog-to-digital from original tape'],
+        //   },
+      ],
     },
   ],
   [
     {
       id: idGenerator(),
       artist: 'Caden Kane',
-      name: 'City Cipher Crewneck  ',
+      name: 'Heart Over Hunger Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/caden_kane_1_city_cipher_crewneck_0.jpg',
-        '/assets/static/images/merchandise/caden_kane_1_city_cipher_crewneck_1.jpg',
-        '/assets/static/images/merchandise/caden_kane_1_city_cipher_crewneck_2.jpg',
-        '/assets/static/images/merchandise/caden_kane_1_city_cipher_crewneck_3.jpg',
-        '/assets/static/images/merchandise/caden_kane_1_city_cipher_crewneck_4.jpg',
-        '/assets/static/images/merchandise/caden_kane_1_city_cipher_crewneck_5.jpg',
+        '/assets/static/images/merchandise/caden_kane_1_heart_over_hunger_0.jpg',
+        '/assets/static/images/merchandise/caden_kane_1_heart_over_hunger_1.jpg',
+        '/assets/static/images/merchandise/caden_kane_1_heart_over_hunger_2.jpg',
       ],
-      price: 250,
-      sku: 'CK-APP-001-CC',
-      description: `Designed for those who came up from the block and never forgot it, the City Cipher crewneck captures Caden Kane’s essence — raw, regal, and rooted in Philly. Featuring graffiti artwork by SLOAN INQ, one of the most respected street muralists in the city, this piece merges street culture with fine art. Each sweatshirt is hand-screened, numbered, and signed by both Caden and Sloan. The back depicts Caden against the Philly skyline, electric in purple, gold, and white - a crown for the come-up.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">Heart Over Hunger</span></em><span style="font-weight: 400;"> is the record that introduced Caden Kane&rsquo;s unmistakable duality - the hunger of ambition vs. the heart that refuses to harden. The stripped-back production lets his voice cut through the darkness, hungry and hopeful all at once. Every Virtual Vinyl&trade; includes the </span><em><span style="font-weight: 400;">&ldquo;Table Talk&rdquo;</span></em><span style="font-weight: 400;"> digital experience - an NFC-activated behind-the-scenes session where Caden reflects on the sacrifices, sleepless nights, and scars behind every verse.</span></p>
+      `,
+      stock: 4194,
       labels: [
         {
-          name: '1 OF 500 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Apparel ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
-        // {
-        //   name: 'Art',
-        //   color: '#fff',
-        //   background: '#2c2e35',
-        // },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
       ],
       options: {
-        colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       },
       parameters: [
         {
-          name: 'Material',
-          value: [`100% heavyweight brushed cotton fleece`],
-        },
-        {
-          name: 'Fit',
-          value: [`Oversized street cut (unisex)`],
-        },
-        {
-          name: 'Details',
-          value: [`Double-layer ribbing`, `metallic gold accent stitching`],
-        },
-        {
-          name: 'Details',
+          name: 'specifications',
           value: [
-            `Double-layer ribbing`,
-            `metallic gold accent stitching`,
-            `Screen-printed and hand-numbered`,
+            '12-inch matte black vinyl print',
+            'NFC unlock to “Table Talk” exclusive film',
+            ' Studio stems + lyric notepad PDF',
           ],
         },
-        {
-          name: 'Sizes',
-          value: [`S–XXL`],
-        },
-        // {
-        //   name: 'dimensions',
-        //   value: '10x300x60mm',
-        // },
-        // {
-        //   name: 'weight',
-        //   value: '5kg',
-        // },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch matte black vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock to “Table Talk” exclusive film'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: [' Studio stems + lyric notepad PDF'],
+        //   },
       ],
-      stock: 48,
     },
     {
       id: idGenerator(),
       artist: 'Caden Kane',
-      name: 'Block Runners Air Jordan 1 High OG',
+      name: 'Concrete & Roses Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/caden_kane_2_runners_0.jpg',
-        '/assets/static/images/merchandise/caden_kane_2_runners_1.jpg',
-        '/assets/static/images/merchandise/caden_kane_2_runners_2.jpg',
-        '/assets/static/images/merchandise/caden_kane_2_runners_3.jpg',
-        '/assets/static/images/merchandise/caden_kane_2_runners_4.jpg',
+        '/assets/static/images/merchandise/caden_kane_2_concrete_roses_0.jpg',
+        '/assets/static/images/merchandise/caden_kane_2_concrete_roses_1.jpg',
+        '/assets/static/images/merchandise/caden_kane_2_concrete_roses_2.jpg',
       ],
-      price: 1200,
-      sku: 'CK-FOOT-002-BR',
-      description: `A high-profile fusion of music and movement, the Block Runners mark Caden Kane’s official collaboration with Jordan Brand Black Label, a rare invitation-only design series. Inspired by his North Philly roots, these 1-of-25 pairs feature a custom tri-tone colorway - blackout leather overlays, matte white panels, and deep violet outsole fade. The gold “Caden Kane” script on the tongue tag and heel mark make them unmistakable. Each pair comes with a certificate of authenticity, signed by Caden, and arrives in a hard-shell flight case lined in purple suede.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><span style="font-weight: 400;">In </span><em><span style="font-weight: 400;">Concrete &amp; Roses</span></em><span style="font-weight: 400;">, Caden finds beauty in the ruins - an album about growing something pure in the hardest places. Industrial percussion meets orchestral strings, while his voice bridges pain and poetry. The Virtual Vinyl&trade; unlocks </span><em><span style="font-weight: 400;">&ldquo;Bloom in the Breaks&rdquo;</span></em><span style="font-weight: 400;"> - a short film and immersive 3D soundscape built from the album&rsquo;s ambient stems, where every listener experiences a personalized remix that blossoms in real time.</span></p>
+      `,
+      stock: 1927,
       labels: [
         {
-          name: '1 OF 100 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Footwear ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
-        // {
-        //   name: 'Art',
-        //   color: '#fff',
-        //   background: '#2c2e35',
-        // },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['7', '8', '9', '10', '11', '12', '13'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       },
       parameters: [
         {
-          name: 'Model',
-          value: [`Model: Air Jordan 1 High OG “Block Runners”`],
-        },
-        {
-          name: 'Materials',
+          name: 'specifications',
           value: [
-            'Full-grain tumbled leather with satin liners',
-            'Custom tongue embroidery',
-            'metallic gold lace tips',
+            '12-inch crimson-and-grey marbled vinyl print',
+            ' NFC 3D audio mix',
+            ' 4K “Bloom in the Breaks” visual short',
           ],
         },
-        {
-          name: 'Sole',
-          value: [`Encapsulated Air cushioning`, `translucent purple outsole`],
-        },
-        {
-          name: 'Sizes',
-          value: [`US 7–13`],
-        },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch crimson-and-grey marbled vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: [' NFC 3D audio mix'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: [' 4K “Bloom in the Breaks” visual short'],
+        //   },
       ],
-      stock: 8,
     },
     {
       id: idGenerator(),
       artist: 'Caden Kane',
-      name: 'Full Court Dreams Collector’s Basketball ',
+      name: 'City of Ash Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/caden_kane_1_ball_0.jpg',
-        '/assets/static/images/merchandise/caden_kane_1_ball_1.jpg',
-        '/assets/static/images/merchandise/caden_kane_1_ball_2.jpg',
+        '/assets/static/images/merchandise/caden_kane_3_city_of_ash_0.jpg',
+        '/assets/static/images/merchandise/caden_kane_3_city_of_ash_1.jpg',
+        '/assets/static/images/merchandise/caden_kane_3_city_of_ash_2.jpg',
       ],
-      price: 375,
-      sku: 'CK-ACC-003-FCD',
-      description: `From asphalt to arena - the Full Court Dreams collector’s basketball is Caden Kane’s homage to the grind that raised him. Crafted in collaboration with Spalding Heritage, the ball features a tri-panel layout in matte black, optic white, and royal purple, finished with Caden’s gold signature script. Built from professional-grade microfiber leather, it’s playable -  but meant to be displayed. Each ball ships in a custom acrylic case with laser-etched serial number and velvet lining.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">City of Ash</span></em><span style="font-weight: 400;"> is Caden Kane at his most cinematic - a smoldering confessional built from burned-out dreams and the rebirth that follows. With haunting trap beats and orchestral undertones, every track feels like smoke clearing after the storm. Tapping the NFC opens </span><em><span style="font-weight: 400;">&ldquo;The Burn Session&rdquo;</span></em><span style="font-weight: 400;"> - a visual experience blending footage from abandoned cityscapes with never-released verses that didn&rsquo;t make the final cut.</span></p>
+      `,
+      stock: 76,
       labels: [
         {
-          name: '1 OF 75 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Accessories ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
-        // {
-        //   name: 'Art',
-        //   color: '#fff',
-        //   background: '#2c2e35',
-        // },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
@@ -1624,106 +1890,121 @@ export const merchandiseData = [
       },
       parameters: [
         {
-          name: 'Size',
-          value: [`Official 29.5" NBA spec`],
-        },
-        {
-          name: 'Material',
+          name: 'specifications',
           value: [
-            `Pro-grade microfiber composite leather`,
-            `Limited edition embossing with gold-foil logo`,
+            '12-inch ashen black vinyl print',
+            ' NFC unlock to “Burn Session” visual',
+            ' 24-bit digital master with bonus track “Cinder Soul”',
           ],
         },
-        {
-          name: 'Includes',
-          value: [`clear display case + COA`],
-        },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch ashen black vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: [' NFC unlock to “Burn Session” visual'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: [' 24-bit digital master with bonus track “Cinder Soul”'],
+        //   },
       ],
-      stock: 71,
     },
   ],
   [
     {
       id: idGenerator(),
       artist: 'Nyko Blaze',
-      name: 'Not Today World Tour Bomber Jacke',
+      name: 'Ashes & Algorithms Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/nyko_blaze_0_jacket_0.jpg',
-        '/assets/static/images/merchandise/nyko_blaze_0_jacket_1.jpg',
-        '/assets/static/images/merchandise/nyko_blaze_0_jacket_2.jpg',
-        '/assets/static/images/merchandise/nyko_blaze_0_jacket_3.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_1_ashes_algorithms_0.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_1_ashes_algorithms_1.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_1_ashes_algorithms_2.jpg',
       ],
-      price: 1200,
-      sku: 'NB-APP-001-NTJ',
-      description: `Crafted in partnership with Aimé Leon Dore Atelier, this tan leather bomber is as bold as Nyko himself. Hand-stitched tour lettering in faded-denim embroidery nods to his Not Today era - a mix of rebellion and luxury streetwear. Inside the lining sits an NFC tag that unlocks an unreleased freestyle from the “Midnight Run” sessions and a personal thank-you video from Nyko.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p>Where smoke meets code, Ashes &amp; Algorithms begins. Nyko Blaze fuses soul and circuitry in this darkly hypnotic debut - verses about rebirth, recursion, and revolution over glitch-laden beats that feel both ancient and futuristic. Each Virtual Vinyl&trade; includes the &ldquo;Human.exe&rdquo; experience - an NFC-activated digital session that deconstructs each track in real time, visualizing the algorithms behind his sound while his voice narrates the story of his own reconstruction.</p>
+      `,
+      stock: 217,
       labels: [
         {
-          name: '1 OF 50 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Apparel',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       },
       parameters: [
         {
           name: 'specifications',
           value: [
-            `100% full-grain lambskin leather`,
-            `Satin quilted interior with tour-date print`,
-            `Custom chenille embroidery + embossed sleeve patch`,
-            `NFC chip integrated inside inner pocket`,
+            '12-inch deep black vinyl print with neon-green circuit detailing',
+            'NFC unlock for interactive Human.exe experience',
+            'Includes “Codeburn (Alt Mix)” bonus track',
           ],
         },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch deep black vinyl print with neon-green circuit detailing'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock for interactive Human.exe experience'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Includes “Codeburn (Alt Mix)” bonus track'],
+        //   },
       ],
-      stock: 47,
     },
     {
       id: idGenerator(),
       artist: 'Nyko Blaze',
-      name: 'Fireproof Photo Book ',
+      name: 'Everything Burns Slow Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/nyko_blaze_1_book_0.jpg',
-        '/assets/static/images/merchandise/nyko_blaze_1_book_1.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_2_everything_burns_slow_0.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_2_everything_burns_slow_1.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_2_everything_burns_slow_2.jpg',
       ],
-      price: 275,
-      sku: 'NB-APP-002-FPB',
-      description: `The Fireproof photo book documents Nyko’s meteoric rise - from the underground clubs of Atlanta to the Not Today world stage. Over 120 pages of exclusive photography shot by Khalil Reyes bring fans into Nyko’s private moments: rehearsals, tour buses, studio nights, and hometown visits. Each copy features an embedded NFC tag that unlocks Nyko’s audio commentary on select photos and an unreleased demo titled Backstage Dreams.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">Everything Burns Slow</span></em><span style="font-weight: 400;"> is a late-night confessional - heat, hunger, and heartbreak over candlelit production. It&rsquo;s Nyko&rsquo;s meditation on ambition and the cost of glow. Every Virtual Vinyl&trade; comes with </span><em><span style="font-weight: 400;">&ldquo;The Ember Dinner&rdquo;</span></em><span style="font-weight: 400;">, a cinematic digital short unlocked through NFC - an intimate visual performance filmed in one take where every flame syncs to the pulse of his live vocals.</span></p>
+      `,
+      stock: 964,
       labels: [
         {
-          name: '1 OF 2000 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Collectible ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
         {
-          name: 'Photography ',
+          name: 'Virtual Vinyl™',
           color: '#fff',
           background: '#2c2e35',
         },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
@@ -1733,49 +2014,57 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            '9.5" x 12" hardcover, matte black linen wrap',
-            '120 pages, 170gsm photo-stock paper',
-            'Hand-numbered & foil-stamped',
-            'NFC chip built into the back cover',
+            '12-inch amber marbled vinyl print',
+            'NFC unlock for The Ember Dinner film',
+            '24-bit master + flame-synced visual audio',
           ],
         },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch amber marbled vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock for The Ember Dinner film'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['24-bit master + flame-synced visual audio'],
+        //   },
       ],
-      stock: 194,
     },
     {
       id: idGenerator(),
       artist: 'Nyko Blaze',
-      name: 'Not Today” Virtual Vinyl™ ',
+      name: 'Not Today Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/nyko_blaze_2_vinyl_0.jpg',
-        '/assets/static/images/merchandise/nyko_blaze_2_vinyl_1.jpg',
-        '/assets/static/images/merchandise/nyko_blaze_2_vinyl_2.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_3_not_today_0.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_3_not_today_1.jpg',
+        '/assets/static/images/merchandise/nyko_blaze_3_not_today_2.jpg',
       ],
-      price: 150,
-      sku: 'NB-VV-003-NT',
-      description: `The Not Today Virtual Vinyl™ fuses Nyko’s energy with Fangri-la innovation. The city-lights vinyl artwork symbolizes the grind that never sleeps -  his anthem for hustlers everywhere. Each disc includes a one-tap NFC experience granting access to a cinematic short called The Long Night, a bonus remix of Not Today featuring an unannounced collaborator, and Nyko’s personal voice memo on the making of the track.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><span style="font-weight: 400;">&nbsp;Defiant and minimal, </span><em><span style="font-weight: 400;">Not Today</span></em><span style="font-weight: 400;"> is Nyko Blaze&rsquo;s manifesto - a stripped-back, percussive project built on raw resistance. Every beat feels like a heartbeat refusing to stop. The Virtual Vinyl&trade; unlocks </span><em><span style="font-weight: 400;">&ldquo;The Last Word&rdquo;</span></em><span style="font-weight: 400;">, an immersive AR experience where Nyko&rsquo;s handwritten verses appear as graffiti across your screen, fading and reappearing in rhythm with the track&rsquo;s bassline.</span></p>
+      `,
+      stock:  4091,
       labels: [
         {
-          name: '1 OF 1000 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Digital Collectible ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
         {
-          name: 'Virtual Vinyl™ ',
+          name: 'Virtual Vinyl™',
           color: '#fff',
           background: '#2c2e35',
         },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
@@ -1785,56 +2074,60 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            '12” Acrylic display disc printed with night-sky cityscape',
-            'Authenticated Fangri-la Virtual Vinyl™ digital collectible',
-            'NFC-enabled with exclusive digital unlocks',
+            '2-inch matte grey vinyl print',
+            'NFC unlock to The Last Word AR graffiti session',
+            'Includes “Hold the Line (Live Rehearsal)” bonus',
           ],
         },
-        {
-          name: 'Packaging:',
-          value: ['Charcoal gatefold with holographic foil details'],
-        },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['2-inch matte grey vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock to The Last Word AR graffiti session'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Includes “Hold the Line (Live Rehearsal)” bonus'],
+        //   },
       ],
-      stock: 194,
     },
   ],
   [
-    {
+
+   {
       id: idGenerator(),
       artist: 'Sevenblock',
-      name: 'Pop Soul Art Tee ',
+      name: 'Not Today Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sevenblock_0_shirt_0.jpg',
-        '/assets/static/images/merchandise/sevenblock_0_shirt_1.jpg',
-        '/assets/static/images/merchandise/sevenblock_0_shirt_2.jpg',
-        '/assets/static/images/merchandise/sevenblock_0_shirt_3.jpg',
-        '/assets/static/images/merchandise/sevenblock_0_shirt_4.jpg',
+        '/assets/static/images/merchandise/sevenblock_1_all_saints_wear_timbs_0.jpg',
+        '/assets/static/images/merchandise/sevenblock_1_all_saints_wear_timbs_1.jpg',
+        '/assets/static/images/merchandise/sevenblock_1_all_saints_wear_timbs_2.jpg',
       ],
-      price: 185,
-      sku: 'SB-APP-001-PSA',
-      description: `This limited-run Pop Soul tee blends classic hip-hop iconography with a Warhol-style punch of color. Designed in collaboration with STL street artist JAYTRON, the shirt’s bold palette mirrors SevenBlock’s duality - soulful and sharp, old-school and future-ready. Each shirt is screen-printed on heavyweight cotton and finished with a discreet NFC label at the hem that unlocks a 60-second video of SevenBlock breaking down the inspiration behind the “Pop Soul” artwork.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">All Saints Wear Timbs</span></em><span style="font-weight: 400;"> finds holiness in the hustle - SevenBlock&rsquo;s sermon from the streets. Recorded between Brooklyn basements and a church on Union Ave, this project pairs gospel chords with gritty confessionals about redemption, loyalty, and loss. Each Virtual Vinyl&trade; unlocks </span><em><span style="font-weight: 400;">&ldquo;The Chapel Session&rdquo;</span></em><span style="font-weight: 400;"> - an immersive digital performance filmed live in that same church, where SevenBlock delivers stripped-down renditions of his most personal verses.</span></p>
+      `,
+      stock:  4182,
       labels: [
         {
-          name: '1 OF 500 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Apparel ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
-        // {
-        //   name: 'Virtual Vinyl™ ',
-        //   color: '#fff',
-        //   background: '#2c2e35',
-        // },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
@@ -1844,49 +2137,57 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            `100% 7.5 oz ringspun cotton`,
-            `Oversized street cut with double-stitch seams`,
-            `Silk-screen print in electric blue and magenta inks`,
-            `NFC tag sewn into inner hem; links to exclusive artist video`,
+            '12-inch black vinyl with gold edge detailing',
+            'NFC unlock for The Chapel Session film ',
+            'High-fidelity 24-bit masters + exclusive behind-the-scenes commentary',
           ],
         },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch black vinyl with gold edge detailing'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock for The Chapel Session film '],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['High-fidelity 24-bit masters + exclusive behind-the-scenes commentary'],
+        //   },
       ],
-      stock: 137,
     },
-    {
+   {
       id: idGenerator(),
       artist: 'Sevenblock',
-      name: '24 Hours” Gold-Tone Tour Poster ',
+      name: 'Heaven Got Corners Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sevenblock_1_poster_0.jpg',
-        '/assets/static/images/merchandise/sevenblock_1_poster_1.jpg',
-        '/assets/static/images/merchandise/sevenblock_1_poster_2.jpg',
+        '/assets/static/images/merchandise/sevenblock_2_all_heaven_got_corners_0.jpg',
+        '/assets/static/images/merchandise/sevenblock_2_all_heaven_got_corners_1.jpg',
+        '/assets/static/images/merchandise/sevenblock_2_all_heaven_got_corners_2.jpg',
       ],
-      price: 975,
-      sku: ' SB-VV-003-ST',
-      description: `The STL Stories Virtual Vinyl™ is a sonic time capsule - a tribute to the blocks that raised him. The album artwork features his old neighborhood; the vinyl itself displays a dove against a midnight sky, symbolizing peace after struggle. Scan the built-in NFC tag to unlock the digital collectible plus a private short film called The Block Still Breathes, unreleased freestyles, and a personalized audio drop from SevenBlock.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">Heaven Got Corners</span></em><span style="font-weight: 400;"> is the sound of faith meeting the fog - the blurred line between right and wrong, light and shadow. SevenBlock raps like a man caught between both, his verses glowing with grief and grace. The Virtual Vinyl&trade; experience includes </span><em><span style="font-weight: 400;">&ldquo;Between Streets &amp; Stars&rdquo;</span></em><span style="font-weight: 400;">, an NFC-activated augmented reality film that places listeners right on the crossroads where the album was born, with angel wings rendered in neon light as each track unfolds.</span></p>
+      `,
+      stock:  3909,
       labels: [
         {
-          name: '1 OF 75 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Digital Collectible  ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
         {
-          name: 'Virtual Vinyl™ ',
+          name: 'Virtual Vinyl™',
           color: '#fff',
           background: '#2c2e35',
         },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
@@ -1896,48 +2197,57 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            `12” Acrylic display disc with layered dove design`,
-            `Authenticated Fangri-la Virtual Vinyl™ NFT`,
-            `NFC chip embedded under label for one-tap access`,
-            `Packaging: Midnight-blue gatefold sleeve + certificate of authenticity`,
+            '12-inch haze-grey vinyl print',
+            'NFC unlock for Between Streets & Stars AR film',
+            'Includes alternate outro “Crown in the Rain”',
           ],
         },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch haze-grey vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock for Between Streets & Stars AR film '],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Includes alternate outro “Crown in the Rain”'],
+        //   },
       ],
-      stock: 92,
     },
-    {
+   {
       id: idGenerator(),
       artist: 'Sevenblock',
-      name: 'STL Stories” Virtual Vinyl™ ',
+      name: 'STL Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/sevenblock_2_vinyl_0.jpg',
-        '/assets/static/images/merchandise/sevenblock_2_vinyl_1.jpg',
+        '/assets/static/images/merchandise/sevenblock_3_stl_0.jpg',
+        '/assets/static/images/merchandise/sevenblock_3_stl_1.jpg',
+        '/assets/static/images/merchandise/sevenblock_3_stl_2.jpg',
       ],
-      price: 975,
-      sku: 'SB-VV-003-STL',
-      description: `The STL Stories Virtual Vinyl™ is a sonic time capsule - a tribute to the blocks that raised him. The album artwork features his old neighborhood; the vinyl itself displays a dove against a midnight sky, symbolizing peace after struggle. Scan the built-in NFC tag to unlock the digital collectible plus a private short film called The Block Still Breathes, unreleased freestyles, and a personalized audio drop from SevenBlock.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><span style="font-weight: 400;">A love letter and a confession, </span><em><span style="font-weight: 400;">STL</span></em><span style="font-weight: 400;"> is where it all began. SevenBlock pays tribute to his city - its corners, chaos, and quiet triumphs - through cinematic storytelling and soulful beats that echo like memories. Every Virtual Vinyl&trade; includes </span><em><span style="font-weight: 400;">&ldquo;Home Base&rdquo;</span></em><span style="font-weight: 400;">, a digital short shot entirely on location, blending archival footage and spoken word with visuals that map SevenBlock&rsquo;s roots from block to booth.</span></p>
+      `,
+      stock:  1053 ,
       labels: [
         {
-          name: '1 OF 100 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Digital Collectible  ',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
         {
-          name: 'Virtual Vinyl™ ',
+          name: 'Virtual Vinyl™',
           color: '#fff',
           background: '#2c2e35',
         },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
@@ -1947,121 +2257,119 @@ export const merchandiseData = [
         {
           name: 'specifications',
           value: [
-            `12” Acrylic display disc with layered dove design`,
-            `Authenticated Fangri-la Virtual Vinyl™ NFT`,
-            `NFC chip embedded under label for one-tap access`,
-            `Packaging: Midnight-blue gatefold sleeve + certificate of authenticity`,
+            '12-inch deep navy vinyl with dove graphic',
+            'NFC unlock for Home Base digital film',
+            'Exclusive liner notes by SevenBlock',
           ],
         },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch deep navy vinyl with dove graphic'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock for Home Base digital film'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['Exclusive liner notes by SevenBlock'],
+        //   },
       ],
-      stock: 92,
+    },
+   {
+      id: idGenerator(),
+      artist: 'Sevenblock',
+      name: 'Conversations with the Curb Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/sevenblock_4_conversations_with_the_curb_0.jpg',
+        '/assets/static/images/merchandise/sevenblock_4_conversations_with_the_curb_1.jpg',
+        '/assets/static/images/merchandise/sevenblock_4_conversations_with_the_curb_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">Conversations with the Curb</span></em><span style="font-weight: 400;"> captures the raw poetry of everyday survival. Recorded outside the studio, using ambient street sounds as percussion, this record blends documentary realism with lyrical depth. The Virtual Vinyl&trade; unlocks </span><em><span style="font-weight: 400;">&ldquo;Dial Tone Dreams&rdquo;</span></em><span style="font-weight: 400;">, a Fangri-la-exclusive AR experience where each listener can &ldquo;call&rdquo; the artist through a virtual payphone, triggering unreleased snippets and voice memos from the album sessions.</span></p>
+      `,
+      stock:  3872 ,
+      labels: [
+        {
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+      ],
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch distressed graphite vinyl print',
+            'NFC unlock for Dial Tone Dreams interactive AR',
+            ' Bonus track “Static Prayers” included',
+          ],
+        },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch distressed graphite vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock for Dial Tone Dreams interactive AR'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: [' Bonus track “Static Prayers” included'],
+        //   },
+      ],
     },
   ],
   [
-    {
+     {
       id: idGenerator(),
       artist: 'Nyla Veil',
-      name: 'Ocean Echoes 2024 Tour Art Print',
-      images: ['/assets/static/images/merchandise/nyla_veil_0_print_0.jpg'],
-      price: 650,
-      sku: 'NV-ART-001-OE',
-      description: `A limited-edition fine art print commemorating Nyla Veil’s Ocean Echoes Tour 2025. Captured at sunrise along the California coast, this image reflects the balance between stillness and movement - the same energy that defines Nyla’s sound. Each print is hand-signed, numbered, and embossed with the Ocean Echoes seal. The frame is matte black maple with UV-protected glass, meant for collectors who understand the artistry behind simplicity.`,
-      labels: [
-        {
-          name: '1 OF 500 AVAILABLE',
-          color: '#fff',
-          background: '#4cc8bc',
-        },
-
-        {
-          name: 'Art ',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-        {
-          name: 'Collectible',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
-      ],
-      options: {
-        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      },
-      parameters: [
-        {
-          name: 'Medium',
-          value: [
-            `
-Archival pigment print on 310gsm cotton rag paper
-            `,
-          ],
-        },
-        {
-          name: 'Dimensions',
-          value: [
-            `
-24” x 36” framed
-            `,
-          ],
-        },
-        {
-          name: 'Frame',
-          value: [
-            `
-Matte black maple with museum-grade UV glass
-            `,
-          ],
-        },
-        {
-          name: 'Edition',
-          value: [
-            `
-1 of 100, individually signed
-            `,
-          ],
-        },
-      ],
-      stock: 26,
-    },
-    {
-      id: idGenerator(),
-      artist: 'Nyla Veil',
-      name: 'Reflections Journal & Pen Set ',
+      name: 'The Quiet Hour Virtual Vinyl™',
       images: [
-        '/assets/static/images/merchandise/nyla_veil_1_pen_set_0.jpg',
-        '/assets/static/images/merchandise/nyla_veil_1_pen_set_1.jpg',
+        '/assets/static/images/merchandise/nyla_veil_1_the_quiet_hour_0.jpg',
+        '/assets/static/images/merchandise/nyla_veil_1_the_quiet_hour_1.jpg',
+        '/assets/static/images/merchandise/nyla_veil_1_the_quiet_hour_2.jpg',
       ],
-      price: 425,
-      sku: 'NV-ACC-002-RJ',
-      description: `The Reflections Journal Set is an invitation to pause, breathe, and create. Designed by Nyla Veil in collaboration with Moleskine Atelier, it embodies her daily ritual of mindful writing. The ivory linen cover is blind-debossed and finished with gold foil lettering, paired with a brushed brass pen engraved with her signature. Each set arrives in a hand-numbered linen box with a personal reflection card written by Nyla.`,
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><span style="font-weight: 400;">Recorded in near-darkness between midnight and dawn, </span><em><span style="font-weight: 400;">The Quiet Hour</span></em><span style="font-weight: 400;"> captures Nyla Veil at her most raw and restrained - every inhale, every echo, perfectly preserved. Sparse production and velvet-low vocals make this record feel like a confession whispered through glass. Each Virtual Vinyl&trade; includes </span><em><span style="font-weight: 400;">&ldquo;The Silent Room&rdquo;</span></em><span style="font-weight: 400;"> - an immersive audio-visual session unlocked through NFC, where listeners can experience Nyla&rsquo;s isolated studio environment in 3D sound and spatial lighting synced to her voice.</span></p>
+      `,
+      stock:  4138  ,
       labels: [
         {
-          name: '1 OF 75 AVAILABLE',
+          name: '1 OF 5000 AVAILABLE',
           color: '#fff',
           background: '#4cc8bc',
         },
 
         {
-          name: 'Accessories',
+          name: 'Digital Collectible',
           color: '#fff',
           background: '#2c2e35',
         },
-        // {
-        //   name: 'Virtual Vinyl™ ',
-        //   color: '#fff',
-        //   background: '#2c2e35',
-        // },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
+        },
       ],
       options: {
         // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
@@ -2069,89 +2377,86 @@ Matte black maple with museum-grade UV glass
       },
       parameters: [
         {
-          name: 'Journal',
-          value: [`192 ruled pages`, `100gsm FSC-certified ivory paper`],
-        },
-        {
-          name: 'Cover',
-          value: [`Linen with gold foil stamping`],
-        },
-        {
-          name: 'Pen',
-          value: [`Refillable brass roller with “Nyla Veil” engraving`],
-        },
-        {
-          name: 'Packaging',
-          value: [`Numbered collector’s box with authenticity card`],
-        },
-      ],
-      stock: 84,
-    },
-    {
-      id: idGenerator(),
-      artist: 'Nyla Veil',
-      name: 'I See You Virtual Vinyl™ ',
-      images: [
-        '/assets/static/images/merchandise/nyla_veil_2_vinyl_0.jpg',
-        '/assets/static/images/merchandise/nyla_veil_2_vinyl_1.jpg',
-        '/assets/static/images/merchandise/nyla_veil_2_vinyl_2.jpg',
-      ],
-      price: 150,
-      sku: 'NV-VV-003-ISY',
-      description: `The I See You Virtual Vinyl™ is more than music -  it’s an emotional artifact. Each hand-numbered physical disc features ocean-marble artwork and pairs with a secure digital collectible that unlocks:
-A private Ocean Echoes listening session recorded live in Malibu
-Access to Nyla’s unreleased acoustic version of Tides
-An exclusive audio message from Nyla to owners of the edition
-Inspired by the symbolism of lighthouses - guidance, resilience, and connection - I See You embodies the stillness before the storm and the hope after it. Display it. Stream it. Keep it as a piece of her voice.
-`,
-      labels: [
-        {
-          name: '1 OF 1000 AVAILABLE',
-          color: '#fff',
-          background: '#4cc8bc',
-        },
-
-        {
-          name: 'Digital Collectible  ',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-        {
-          name: 'Virtual Vinyl™ ',
-          color: '#fff',
-          background: '#2c2e35',
-        },
-        //  {
-        //   name: 'Exclusive early access',
-        //   color: '#111',
-        //   background: '#fff7a1',
-        // },
-      ],
-      options: {
-        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
-        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      },
-      parameters: [
-        {
-          name: 'Physical Disc',
-          value: [`12” Acrylic display vinyl`, `marbled ocean finish`],
-        },
-        {
-          name: 'Digital',
-          value: [`1-of-1 authenticated Virtual Vinyl via Fangri-la`],
-        },
-        {
-          name: 'Access',
+          name: 'specifications',
           value: [
-            `Includes unlock code for private fan portal + digital extras`,
+            '12-inch matte-black vinyl print',
+            'NFC unlock to The Silent Room immersive experience',
+            ' Includes alternate mix “Signal Lost (Intro Reprise)”',
           ],
         },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch matte-black vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock to The Silent Room immersive experience'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: [' Includes alternate mix “Signal Lost (Intro Reprise)”'],
+        //   },
+      ],
+    },
+   {
+      id: idGenerator(),
+      artist: 'Nyla Veil',
+      name: 'Marrow Virtual Vinyl™',
+      images: [
+        '/assets/static/images/merchandise/nyla_veil_2_marrow_0.jpg',
+        '/assets/static/images/merchandise/nyla_veil_2_marrow_1.jpg',
+        '/assets/static/images/merchandise/nyla_veil_2_marrow_2.jpg',
+      ],
+      price: 68,
+      sku: 'SS-ACC-004-RSD',
+      description: `
+<p><em><span style="font-weight: 400;">Marrow</span></em><span style="font-weight: 400;"> is a slow bleed - lush, cinematic, and unflinching in its honesty. Nyla Veil explores rebirth, heartbreak, and the body&rsquo;s memory through layered harmonies and orchestral soul. Each Virtual Vinyl&trade; includes </span><em><span style="font-weight: 400;">&ldquo;Beneath the Feathers&rdquo;</span></em><span style="font-weight: 400;"> &mdash; an NFC-enabled digital short that blends motion portraiture and spoken word, allowing fans to hear unreleased verses woven into the soundscape as Nyla&rsquo;s voice guides them through a dreamlike narrative.</span></p>
+      `,
+      stock:  3972   ,
+      labels: [
         {
-          name: 'Packaging:',
-          value: [`Silver-foil gatefold sleeve with numbered certificate`],
+          name: '1 OF 5000 AVAILABLE',
+          color: '#fff',
+          background: '#4cc8bc',
+        },
+
+        {
+          name: 'Digital Collectible',
+          color: '#fff',
+          background: '#2c2e35',
+        },
+        {
+          name: 'Virtual Vinyl™',
+          color: '#fff',
+          background: '#2c2e35',
         },
       ],
-      stock: 71,
+      options: {
+        // colors: ['#FFF7A1', '#A1FFAF', '#A1A6FF', '#FFA1EB', '#FFA1A3'],
+        // sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      },
+      parameters: [
+        {
+          name: 'specifications',
+          value: [
+            '12-inch pearl-white vinyl print',
+            'NFC unlock to Beneath the Feathers short film',
+            'High-res lossless audio + “Pulse Version” bonus track',
+          ],
+        },
+        //  {
+        //     name: 'vinyl',
+        //     value: ['12-inch pearl-white vinyl print'],
+        //   },
+        //   {
+        //     name: 'visuals',
+        //     value: ['NFC unlock to Beneath the Feathers short film'],
+        //   },
+        //   {
+        //     name: 'audio',
+        //     value: ['High-res lossless audio + “Pulse Version” bonus track'],
+        //   },
+      ],
     },
   ],
 ];
@@ -2163,7 +2468,6 @@ const dataGen = isoDateGenerator(1);
 export const content = [...Array(baseArtistData.length).keys()].map(
   (artist, i) =>
     imagesData[i].map((image, j) => {
-
       if (typeof image === 'string' || Array.isArray(image)) {
         return {
           id: idGenerator(),

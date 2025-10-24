@@ -17,13 +17,14 @@
         <app-video #video
                    id="{{merch.id}}"
                    [attr.data-contentItemId]="merch.id"
-                   class="block h-full w-full min-h-[300px] max-h-[70svh] rounded-lg overflow-hidden"
+                   class="block w-full  rounded-lg overflow-hidden"
                    [config]="{
                       autoplay: false,
                       controls: false,
                       muted: false,
-                      fluid: false,
-                      fill: true,
+                      fluid: true,
+                      fill: false,
+                      aspectRatio: '720:900',
                       responsive: true,
                       poster: merch.video.poster,
                       sources: merch.video.sources

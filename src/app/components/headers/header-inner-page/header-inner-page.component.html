@@ -32,9 +32,8 @@
       @if(merchandise !== undefined && isMerchandiseItem() !== undefined && isMerchandiseItem()){
       <div class="flex gap-sm opacity-80">
         @if(merchandise()?.description){
-        <span class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]">
-          {{merchandise()?.description}}
-        </span>
+        <div class="text-md text-neutral-100 text-ellipsis overflow-hidden whitespace-nowrap max-w-[calc(100%_-_30px)]" [innerHTML]="merchandise()?.description">
+        </div>
         }
         @if(merchandise()?.price !== undefined){
         <span class="text-md text-neutral-100">

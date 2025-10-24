@@ -15,13 +15,14 @@ import { environment } from 'src/environments/environment';
 import { Merchandise } from 'src/app/pages/merchandise/store/merchandise.slice';
 import dayjs from 'dayjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { SafeHtmlPipe } from 'src/app/pipes/sanitizer.pipe';
 @Component({
   selector: 'app-header-inner-page',
   templateUrl: './header-inner-page.component.html',
   styleUrls: ['./header-inner-page.component.scss'],
   standalone: true,
 
-  imports: [SharedModule],
+  imports: [SharedModule, SafeHtmlPipe],
 })
 export class HeaderInnerPageComponent implements OnInit {
   private location: Location = inject(Location);

@@ -4,13 +4,14 @@ import { SharedModule } from 'src/app/shared.module';
 import { environment } from 'src/environments/environment';
 import { MerchandiseStore } from '../store/merchandise.store';
 import { MerchandiseStatusEnum } from '../store/merchandise.slice';
+import { SafeHtmlPipe } from 'src/app/pipes/sanitizer.pipe';
 
 @Component({
   selector: 'app-merchandise-list',
   templateUrl: './merchandise-list.page.html',
   styleUrls: ['./merchandise-list.page.scss'],
   standalone: true,
-  imports: [SharedModule, HeaderInnerPageComponent],
+  imports: [SharedModule, HeaderInnerPageComponent, SafeHtmlPipe],
 })
 export class MerchandiseListPage implements OnInit {
   readonly merchandiseStore = inject(MerchandiseStore);

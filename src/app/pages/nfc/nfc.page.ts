@@ -46,10 +46,7 @@ export class NfcPage implements OnInit {
     artist: 'Nova Rae',
     name: 'Virtual Vinil',
     images: [
-      '/assets/static/images/merchandise/merch-1.jpg',
-      '/assets/static/images/merchandise/merch-store.jpg',
-      '/assets/static/images/merchandise/merch-store.jpg',
-      '/assets/static/images/merchandise/merch-store.jpg',
+      '/assets/static/images/merchandise/nfc.jpg',
     ],
     video: {
       poster: '/assets/static/videos/video_nfc.png',

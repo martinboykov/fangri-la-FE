@@ -93,7 +93,6 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
       //   this.options.fluid = true;
       //   this.options.fill = false;
       // }
-
     });
   }
 
@@ -107,7 +106,7 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
     if (config && config['fluid']) {
       config = {
         ...config,
-        aspectRatio: `${window.innerWidth}:${Math.round(window.innerHeight * 0.7)}`,
+        // aspectRatio: `${window.innerWidth}:${Math.round(window.innerHeight * 0.7)}`,
       };
     }
     // if (config && config['muted']) {
@@ -123,42 +122,42 @@ export class VideoComponent implements OnInit, OnChanges, OnDestroy {
       //   console.log('🚀 ~ onPlayerReady ~ this:', this);
       // },
     );
-if (this.player) {
-        console.log('🚀 ~ VideoComponent ~ constructor ~ this.player:', [
-          this.player,
-          this.player.id_,
-        ]);
-        this.player.pause();
-        // this.player.poster(this.poster() || '');
-        // if (
-        //   this.config()?.['sources'] !== undefined &&
-        //   this.config()?.['sources'].length > 0
-        // ) {
-        //   // this.player.src(this.config()?.['sources'][0].src);
-        //   this.player.currentTime(0);
-        //   this.player.trigger('loadstart');
+    if (this.player) {
+      console.log('🚀 ~ VideoComponent ~ constructor ~ this.player:', [
+        this.player,
+        this.player.id_,
+      ]);
+      this.player.pause();
+      // this.player.poster(this.poster() || '');
+      // if (
+      //   this.config()?.['sources'] !== undefined &&
+      //   this.config()?.['sources'].length > 0
+      // ) {
+      //   // this.player.src(this.config()?.['sources'][0].src);
+      //   this.player.currentTime(0);
+      //   this.player.trigger('loadstart');
+      // }
+      this.player.on('ready', function () {
+        console.log('video ready');
+      });
+      this.player.on('playing', function () {
+        console.log('video playing');
+        self.videoService.setVideoState(true);
+        // if (self.isFullScreen()) {
+        //   self.options.aspectRatio = `${window.innerWidth}:${window.innerHeight}`;
         // }
-        this.player.on('ready', function () {
-          console.log('video ready');
-        });
-        this.player.on('playing', function () {
-          console.log('video playing');
-          self.videoService.setVideoState(true);
-          // if (self.isFullScreen()) {
-          //   self.options.aspectRatio = `${window.innerWidth}:${window.innerHeight}`;
-          // }
-        });
-        this.player.on('paused', function () {
-          console.log('video paused');
-          self.videoService.setVideoState(false);
-          // self.options.aspectRatio = `1:1`;
-        });
-        this.player.on('ended', function () {
-          console.log('video ended');
-          self.videoService.setVideoState(false);
-          // self.options.aspectRatio = `1:1`;
-        });
-      }
+      });
+      this.player.on('paused', function () {
+        console.log('video paused');
+        self.videoService.setVideoState(false);
+        // self.options.aspectRatio = `1:1`;
+      });
+      this.player.on('ended', function () {
+        console.log('video ended');
+        self.videoService.setVideoState(false);
+        // self.options.aspectRatio = `1:1`;
+      });
+    }
     // this.videoService.videoPlayState$
     //   .pipe(takeUntilDestroyed(this.destroyRef))
     //   .subscribe((value) => {
