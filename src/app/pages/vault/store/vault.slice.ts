@@ -22,7 +22,7 @@ const names = [
 ];
 
 export const initialVaultSlice = {
-  totalItemsCount: 7,
+  totalItemsCount:  merchandiseData[0].length,
   items: [
     ...(merchandiseData || [[]])[0].map((item, index) => ({
       ...item,

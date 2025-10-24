@@ -21,6 +21,8 @@ import { ModalController } from '@ionic/angular/standalone';
 import { CartStore } from '../../cart/store/cart.store';
 import { AlertService } from 'src/app/services/modals/alert/alert.service';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { UserRoleEnum } from 'src/app/models/auth.model';
 @Component({
   selector: 'app-merchandise',
   templateUrl: './merchandise.page.html',
@@ -33,6 +35,7 @@ export class MerchandisePage implements OnInit {
   private router = inject(Router);
   private alertService = inject(AlertService);
   private translateService = inject(TranslateService);
+  readonly authService = inject(AuthService);
   readonly cartStore = inject(CartStore);
   readonly merchandiseStore = inject(MerchandiseStore);
   readonly id = input.required<string>();
@@ -47,7 +50,7 @@ export class MerchandisePage implements OnInit {
   selectedSize: string | undefined = undefined;
 
   MerchandiseStatusEnum = MerchandiseStatusEnum;
-
+  UserRoleEnum = UserRoleEnum;
   constructor() {
     addIcons({ chevronDown, chevronUp });
     const navigation = this.router.currentNavigation();
@@ -126,12 +129,15 @@ export class MerchandisePage implements OnInit {
     const buttons = this.alertService.getAlertButtonsTranslations([
       { text: 'CONSTANTS.CLOSE' },
     ]);
-    const message =
-      {
-        title: '',
-        subtitle: this.merchandise()?.name + ' ' + this.translateService.instant('CART.PAGE_LIST.ALERT.CART_ITEM_ADDED.SUBTITLE'),
-      }
-
+    const message = {
+      title: '',
+      subtitle:
+        this.merchandise()?.name +
+        ' ' +
+        this.translateService.instant(
+          'CART.PAGE_LIST.ALERT.CART_ITEM_ADDED.SUBTITLE',
+        ),
+    };
 
     this.alertService.presentAlertMessage(message, buttons);
   }

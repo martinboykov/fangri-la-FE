@@ -31,7 +31,7 @@ export const routes: Routes = [
     path: 'vault',
     loadChildren: () =>
       import('./pages/vault/vault.routes').then((m) => m.routes),
-    canActivate: [translationGuard, userGuard],
+    canActivate: [translationGuard, authGuard],
     providers: [VaultStore],
   },
   {

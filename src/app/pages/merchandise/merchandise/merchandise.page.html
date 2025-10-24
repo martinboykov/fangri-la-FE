@@ -24,7 +24,8 @@
           }
         </div>
         <h1 class="mb-sm ">{{_merchandise.name}}</h1>
-        <div class="mb-sm " [innerHTML]="_merchandise.description || ''"></div>
+        <div class="mb-sm "
+             [innerHTML]="_merchandise.description || ''"></div>
         <div class="text-200 mb-2xl">
           <span class="text-2">{{currency}}</span>
           <span class="text-4">{{ _merchandise.price }}</span>
@@ -72,7 +73,7 @@
             <span class="text-[14px] font-bold uppercase">{{parameter.name}}</span>
             <div class="flex flex-col gap-xs">
               @for(value of parameter.value; let k = $index; track $index){
-                <span class="text-left">{{value}}</span>
+              <span class="text-left">{{value}}</span>
               }
             </div>
           </div>
@@ -99,12 +100,15 @@
         </div>
 
         @if(_merchandise.stock > 0){
+        @if(authService.user()?.role === UserRoleEnum.USER){
         <ion-button class="min-h-5 w-fullmt-2 "
                     color="danger"
                     fill="solid"
                     (click)="addItemToCart()"><span class="text-[14px] uppercase">{{ 'MERCHANDISE.BUTTON_ADD_TO_CART' | translate }}</span></ion-button>
         }
+        }
         @else if(_merchandise.stock === 0){
+
         <ion-button class="min-h-5 w-full"
                     color="dark"
                     fill="solid"

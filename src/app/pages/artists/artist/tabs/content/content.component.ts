@@ -40,6 +40,8 @@ export class ArtistTabContentComponent implements OnInit {
   user = computed(() => this.authService.user());
 
   modal!: HTMLIonModalElement;
+  readonly aspectRatio = `${1080}:${1920}`;
+
   constructor() {
     effect(() => {
       const videos = this.videos();
