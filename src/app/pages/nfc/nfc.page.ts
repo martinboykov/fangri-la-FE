@@ -44,7 +44,7 @@ export class NfcPage implements OnInit {
   merch = {
     id: '1',
     artist: 'Nova Rae',
-    name: 'Virtual Vinil',
+    name: 'Virtual Vinyl',
     images: [
       '/assets/static/images/merchandise/nfc.jpg',
     ],
