@@ -93,16 +93,14 @@
           <ion-button class="min-h-5 w-full"
                       color="white"
                       fill="outline"
-                      routerLink="/artists/1"
-                      [queryParams]="{returnUrl: `/artists/1`}"
+
                       (click)="fakeLogin()"><span class="text-white">{{ 'AUTH.LOGIN.TITLE' | translate }}</span>
           </ion-button>
           <ion-button class="min-h-5 w-full bg-white rounded-sm overflow-hidden"
                       color="dark"
                       fill="outline"
                       type="button"
-                      routerLink="/artists/1"
-                      [queryParams]="{returnUrl: `/artists/1`}"
+
                       (click)="fakeLogin()">
             <span class="text-black-0 capitalize">{{ 'CONSTANTS.REGISTER' | translate }}</span>
           </ion-button>

@@ -131,22 +131,29 @@ export class AuthService {
     });
   }
 
-  onLoginRouting() {
-    let homeRouteUser: string = '/artists';
-    let returnUrl = this.route.snapshot.queryParams['returnUrl'];
-    let url = returnUrl || homeRouteUser;
-    if (this.user()?.role === UserRoleEnum.ARTIST) {
-      url = returnUrl || '/artists/' + this.user()?.id;
-    }
-    if (this.router.url.includes('101') || this.router.url.includes('vault/')) {
-      if (returnUrl) {
-        this.router.navigateByUrl(returnUrl);
-      } else {
-        this.router.navigateByUrl(this.router.url);
+  onLoginRouting(fake: boolean = false) {
+    if (fake) {
+      this.router.navigateByUrl('/artists/1');
+    } else {
+      let homeRouteUser: string = '/artists';
+      let returnUrl = this.route.snapshot.queryParams['returnUrl'];
+      let url = returnUrl || homeRouteUser;
+      if (this.user()?.role === UserRoleEnum.ARTIST) {
+        url = returnUrl || '/artists/' + this.user()?.id;
       }
-      return;
+      if (
+        this.router.url.includes('101') ||
+        this.router.url.includes('vault/')
+      ) {
+        if (returnUrl) {
+          this.router.navigateByUrl(returnUrl);
+        } else {
+          this.router.navigateByUrl(this.router.url);
+        }
+        return;
+      }
+      this.router.navigateByUrl(url);
     }
-    this.router.navigateByUrl(url);
   }
 
   autoLogin() {
@@ -169,7 +176,11 @@ export class AuthService {
       }),
     );
   }
-  async login(userData: AuthLoginRequestData, isCheckedToRemember: boolean) {
+  async login(
+    userData: AuthLoginRequestData,
+    isCheckedToRemember: boolean,
+    fake: boolean,
+  ) {
     await this.loadingService.presentLoading();
 
     return this.dataService
@@ -187,7 +198,7 @@ export class AuthService {
         next: async (res) => {
           await this.loadingService.dismissLoading();
           if (!res) return;
-          this.onLoginRouting();
+          this.onLoginRouting(true);
         },
         error: async (error) => {
           console.log('login error', error);
