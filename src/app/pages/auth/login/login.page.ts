@@ -82,6 +82,7 @@ export class LoginPage implements OnInit, AfterViewInit {
         password: this.form.getRawValue().password,
       },
       true,
+      false
     );
   }
 }
