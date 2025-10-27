@@ -139,7 +139,9 @@ export class NfcPage implements OnInit {
     // }
   }
   fakeLogin() {
-    this.authService.login({ email: 'palash.ahmed@gmail.com', password: 'Kipo123$' }, true);
+    setTimeout(() => {
+      this.authService.login({ email: 'palash.ahmed@gmail.com', password: 'Kipo123$' }, true);
+    }, 0);
   }
   ionViewWillLeave() {
     this.videoService.setVideoState(false);
