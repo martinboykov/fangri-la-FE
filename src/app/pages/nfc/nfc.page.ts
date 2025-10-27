@@ -138,6 +138,9 @@ export class NfcPage implements OnInit {
     //   this.router.navigateByUrl(`/vault/${this.merch?.id}/exclusive-content`);
     // }
   }
+  fakeLogin() {
+    this.authService.login({ email: 'palash.ahmed@gmail.com', password: 'Kipo123$' }, true);
+  }
   ionViewWillLeave() {
     this.videoService.setVideoState(false);
     console.log('🚀 ~ NfcPage ~ ionViewWillLeave ~ ionViewWillLeave:');
